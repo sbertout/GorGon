@@ -76,7 +76,7 @@ TestSGTransforms.testTransformComponentReparentingEntityWithNonIdentityTransform
   this.AssertEquals(eTr.getRotation(), eRot);
 
   Entity ec("ec");
-  Vec3 ecPos(15, 30, 45); Quat ecRot(Euler(0, PI/2, 0));
+  Vec3 ecPos(15, 30, 45); Quat ecRot(Euler(PI/2+PI, 0, 0));
   ec.setLocalTransform(Xfo(ecPos, ecRot));
   Xfo ecTr = ec.getLocalTransform();
   this.AssertEquals(ecTr.getPosition(), ecPos);
@@ -85,8 +85,8 @@ TestSGTransforms.testTransformComponentReparentingEntityWithNonIdentityTransform
   e.addChild(ec, true); // this should change ec's transform !
   ecTr = ec.getLocalTransform(); // make sure we get it again !
 
-  AssertAlmostEquals(ecTr.getPosition(), Vec3(5, 15, -10), 0.001);
-  AssertAlmostEquals(ecTr.getRotation(), Quat(Euler(-PI/2, PI/2, 0)), 0.001);
+  this.AssertAlmostEquals(ecTr.getPosition(), Vec3(5, 15, -10), 0.001);
+  this.AssertAlmostEquals(ecTr.getRotation(), Quat(Euler(PI, 0, 0)), 0.001);
 }
 
 TestSGTransforms.testTransformComponentReparentingEntityAlreadyParentedWithNonIdentityTransform!()

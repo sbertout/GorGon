@@ -65,6 +65,7 @@ def generateKLFilesToTest(klFiles, returnBool=True, verbose=False):
         file.close()
         ast = c.getKLJSONAST('AST.kl', sourceCode, False)
         data = json.loads(ast.getStringCString())['ast']
+        data = data[0]['globalList']
 
         klObjects = {}
         for elementList in data:
