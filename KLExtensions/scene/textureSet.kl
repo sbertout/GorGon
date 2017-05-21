@@ -1,0 +1,45 @@
+object CCTextureSet : CCUpdateComponent
+{
+  CCTexture textures[String];
+};
+
+CCTextureSet(String name)
+{
+  this.createComponent(name);
+}
+
+CCTextureSet.add!(String name, CCTexture tex)
+{
+  this.textures[name] = tex;
+}
+
+Size CCTextureSet.getTextureCount()
+{ 
+  return this.textures.size(); 
+}
+
+CCTexture CCTextureSet.getTexture(String key)
+{ 
+  return this.textures[key]; 
+}
+
+String CCTextureSet.getPath(String key)
+{ 
+  return this.textures[key].getPath(); 
+}
+
+String[] CCTextureSet.getTextureKeys()
+{
+  String keys[];
+  for (key in this.textures)
+    keys.push(key);
+  return keys;
+}
+
+String[] CCTextureSet.getTexturePaths()
+{
+  String values[];
+  for (key in this.textures)
+    values.push(this.textures[key].getPath());
+  return values;
+}

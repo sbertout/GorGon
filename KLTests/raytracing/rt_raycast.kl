@@ -1,0 +1,317 @@
+require GGimport;
+require GGimage;
+require GGraytracingTests;
+
+object TestRTSimpleRaycast : CCTestCase
+{
+    CCRandomGen rg;
+};
+
+TestRTSimpleRaycast.setUp!()
+{
+    this.rg = CCRandomGen();
+}
+
+TestRTSimpleRaycast.tearDown!()
+{
+    CCRandomGenCleanup();
+}
+
+private TestRTSimpleRaycast.checkImage!(String filePath, Size expectedWidth, Size expectedHeight)
+{
+    Size width, height;
+    CCPackedColor pixels[] = CCImageReader(filePath).read(width, height); // TODO? CCInputBuffer
+    this.assertEquals(width, expectedWidth);
+    this.assertEquals(height, expectedHeight);
+
+    Size ref_width, ref_height;
+    CCPackedColor ref_pixels[] = CCImageReader(filePath.replace('/_out/', '/_ref/')).read(ref_width, ref_height); // TODO? CCInputBuffer
+    this.assertEquals(ref_width, expectedWidth);
+    this.assertEquals(ref_height, expectedHeight);
+
+    for(Index y=0; y<height; ++y)
+    {
+        for(Index x=0; x<width; ++x)
+        {
+            this.assertEquals(pixels.getVec3(x, y, width, height), ref_pixels.getVec3(x, y, width, height));
+        }
+    }
+}
+
+TestRTSimpleRaycast.test01SimpleOrthoRaycastOnSphere!()
+{
+    String filePath("KLTests/_out/" + this.type() + "_" + this.getTestFuncName() + ".png");
+    Size size = 32;
+    CCOutputBuffer outputBuffer(size, size);
+    CCSphere sphere(Vec3(5, 5, -10), 5.0);
+
+    CCTaskMaster tm(false);
+    //tm.verbose();
+    tm.addTask(SimpleOrthoRaycastOnSpheresTask(outputBuffer, sphere, false));
+    tm.addTask(CCImageWriterTask(filePath, outputBuffer));
+    tm.executeAll();
+
+    this.checkImage(filePath, size, size);
+}
+
+TestRTSimpleRaycast.test02SimpleOrthoRaycastOnManySpheres!()
+{
+    String filePath("KLTests/_out/" + this.type() + "_" + this.getTestFuncName() + ".png");
+    Size size = 32;
+    CCOutputBuffer outputBuffer(size, size);
+    CCSphere sphere1(Vec3(5, 5, -10), 5.0);
+    CCSphere sphere2(Vec3(-2.5, -2.5, -20), 10.0);
+
+    SimpleOrthoRaycastOnSpheresTask sorTask(outputBuffer, false);
+    sorTask.addSphere(sphere1);
+    sorTask.addSphere(sphere2);
+
+    CCTaskMaster tm(false);
+    //tm.verbose();
+    tm.addTask(sorTask);
+    tm.addTask(CCImageWriterTask(filePath, outputBuffer));
+    tm.executeAll();
+
+    this.checkImage(filePath, size, size);
+}
+
+TestRTSimpleRaycast.test03SimpleOrthoRaycastOnManySpheresCameraFacingLighting!()
+{
+    String filePath("KLTests/_out/" + this.type() + "_" + this.getTestFuncName() + ".png");
+    Size size = 32;
+    CCOutputBuffer outputBuffer(size, size);
+    CCSphere sphere1(Vec3(5, 5, -10), 5.0);
+    CCSphere sphere2(Vec3(-2.5, -2.5, -20), 10.0);
+
+    SimpleOrthoRaycastOnSpheresTask sorTask(outputBuffer, true);
+    sorTask.addSphere(sphere1);
+    sorTask.addSphere(sphere2);
+
+    CCTaskMaster tm(false);
+    //tm.verbose();
+    tm.addTask(sorTask);
+    tm.addTask(CCImageWriterTask(filePath, outputBuffer));
+    tm.executeAll();
+
+    this.checkImage(filePath, size, size);
+}
+
+TestRTSimpleRaycast.test04SimpleOrthoRaycastOn100SpheresCameraFacingLighting!()
+{
+    String filePath("KLTests/_out/" + this.type() + "_" + this.getTestFuncName() + ".png");
+    Size size = 256;
+    CCOutputBuffer outputBuffer(size, size);
+    SimpleOrthoRaycastOnSpheresTask sorTask(outputBuffer, true);
+
+    for(Index i=0; i<100; ++i)
+    {
+        Vec3 pos(CCrandomScalar(-10, 10), CCrandomScalar(-10, 10), CCrandomScalar(-15, -5));
+        Scalar radius = CCrandomScalar(0.5, 3.0);
+        sorTask.addSphere(CCSphere(pos, radius));
+    }
+
+    CCTaskMaster tm(false);
+    //tm.verbose();
+    tm.addTask(sorTask);
+    tm.addTask(CCImageWriterTask(filePath, outputBuffer));
+    tm.executeAll();
+
+    this.checkImage(filePath, size, size);
+}
+
+TestRTSimpleRaycast.test05SimpleOrthoRaycastOnQuad!()
+{
+    String filePath("KLTests/_out/" + this.type() + "_" + this.getTestFuncName() + ".png");
+    Size size = 32;
+    CCOutputBuffer outputBuffer(size, size);
+	Vec3 center = Vec3(0, 0, -5);
+	Vec3 uDir = Vec3(1, 1, 0); uDir = uDir.normalize();
+	Vec3 vDir = Vec3(-1, 1, 0); vDir = vDir.normalize();
+	CCQuad quad = CCQuad(center, 10.0, uDir, 10.0, vDir);
+
+    CCTaskMaster tm(false);
+    //tm.verbose();
+    tm.addTask(SimpleOrthoRaycastOnQuadsTask(outputBuffer, quad, false));
+    tm.addTask(CCImageWriterTask(filePath, outputBuffer));
+    tm.executeAll();
+
+    this.checkImage(filePath, size, size);
+}
+
+TestRTSimpleRaycast.test06SimpleOrthoRaycastOnManyQuadsCameraFacingLighting!()
+{
+    String filePath("KLTests/_out/" + this.type() + "_" + this.getTestFuncName() + ".png");
+    Size size = 256;
+    CCOutputBuffer outputBuffer(size, size);
+
+    SimpleOrthoRaycastOnQuadsTask sorTask(outputBuffer, false);
+
+    for(Index i=0; i<50; ++i)
+    {
+        Vec3 pos(CCrandomScalar(-10, 10), CCrandomScalar(-10, 10), CCrandomScalar(-15, -5));
+        Scalar rad = CCrandomScalar(0, PI);
+    	Vec3 uDir(1, 0, 0);
+	    Vec3 vDir(0, 1, 0);
+
+	    Quat q();
+	    q.setFromAxisAndAngle(Vec3(0, 0, 1), rad);
+	    uDir = q.rotateVector(uDir);
+	    vDir = q.rotateVector(vDir);
+
+    	CCQuad quad = CCQuad(pos, 1.0, uDir.normalized(), 1.0, vDir.normalized());
+        sorTask.addQuad(quad);
+    }
+
+    CCTaskMaster tm(false);
+    //tm.verbose();
+    tm.addTask(sorTask);
+    tm.addTask(CCImageWriterTask(filePath, outputBuffer));
+    tm.executeAll();
+
+    this.checkImage(filePath, size, size);
+}
+
+TestRTSimpleRaycast.test07SimpleOrthoRaycastOnTriangle!()
+{
+    String filePath("KLTests/_out/" + this.type() + "_" + this.getTestFuncName() + ".png");
+    Size size = 32;
+    CCOutputBuffer outputBuffer(size, size);
+    CCTriangle tri = CCTriangle(Vec3(0, 0, -5), 5.0, Vec3(1, 0, 0), 5.0, Vec3(0, 1, 0));
+
+    CCTaskMaster tm(false);
+    //tm.verbose();
+    tm.addTask(SimpleOrthoRaycastOnTrianglesTask(outputBuffer, tri, false));
+    tm.addTask(CCImageWriterTask(filePath, outputBuffer));
+    tm.executeAll();
+
+    this.checkImage(filePath, size, size);
+}
+
+TestRTSimpleRaycast.test08SimpleOrthoRaycastOnManyTrianglesCameraFacingLighting!()
+{
+    String filePath("KLTests/_out/" + this.type() + "_" + this.getTestFuncName() + ".png");
+    Size size = 256;
+    CCOutputBuffer outputBuffer(size, size);
+
+    SimpleOrthoRaycastOnTrianglesTask sorTask(outputBuffer, false);
+
+    for(Index i=0; i<100; ++i)
+    {
+        Vec3 pos(CCrandomScalar(-10, 10), CCrandomScalar(-10, 10), CCrandomScalar(-15, -5));
+        Scalar rad = CCrandomScalar(0, PI);
+    	Vec3 uDir(1, 0, 0);
+	    Vec3 vDir(0, 1, 0);
+
+	    Quat q();
+	    q.setFromAxisAndAngle(Vec3(0, 0, 1), rad);
+	    uDir = q.rotateVector(uDir);
+	    vDir = q.rotateVector(vDir);
+
+    	CCTriangle tri = CCTriangle(pos, 1.0, uDir.normalized(), 1.0, vDir.normalized());
+        sorTask.addTriangle(tri);
+    }
+
+    CCTaskMaster tm(false);
+    //tm.verbose();
+    tm.addTask(sorTask);
+    tm.addTask(CCImageWriterTask(filePath, outputBuffer));
+    tm.executeAll();
+
+    this.checkImage(filePath, size, size);
+}
+
+TestRTSimpleRaycast.test09SimpleOrthoRaycastOnAlembicOfSpheres!()
+{
+    Size off = 1;
+//    Size off = 10;
+    String filePath("KLTests/_out/" + this.type() + "_" + this.getTestFuncName() + "_" + off + ".png");
+    Size size = 512;
+    CCOutputBuffer outputBuffer(size, size);
+
+    SimpleOrthoRaycastOnSpheresTask sorTask(outputBuffer, true);
+    sorTask.setRayZPos(5);
+    sorTask.setViewSize(Vec3(5));
+
+    AlembicArchiveReader archive(FilePath('${FABRIC_DIR}/Resources/xbox_ctrl.abc').expandEnvVars().string());
+    String polyMeshPaths[] = archive.getPathsOfType('PolyMesh');
+
+    for(Size i=0;i<polyMeshPaths.size();i++)
+    {
+        AlembicPolyMeshReader polyMesh = archive.getPolyMesh(polyMeshPaths[i]);
+        PolygonMesh mesh = PolygonMesh();
+        polyMesh.readSample(0.0, mesh);
+
+        Vec3 allPointPositions[] = mesh.getAllPointPositions();
+        for(Index pp = 0; pp < allPointPositions.size(); pp+=off)
+        {
+            sorTask.addSphere(CCSphere(allPointPositions[pp], 0.25));
+        }
+    }
+
+    CCTaskMaster tm(false);
+    tm.verbose();
+    tm.addTask(sorTask);
+    tm.addTask(CCImageWriterTask(filePath, outputBuffer));
+    tm.executeAll();
+
+    this.checkImage(filePath, size, size);
+}
+
+TestRTSimpleRaycast.test10SimpleOrthoRaycastOnSimpleMaterialShape!()
+{
+    String filePath("KLTests/_out/" + this.type() + "_" + this.getTestFuncName() + ".png");
+    Size size = 512;
+    CCOutputBuffer outputBuffer(size, size);
+
+    SimpleOrthoRaycastOnSphereShapesTask sorTask(outputBuffer);
+
+    CCSphereShape sphereShape = CCSphereShape(Xfo(Vec3(5, 5, -10)), 5);
+    sphereShape.setMaterial(CCConstantColorMaterial(Color(1.0, 1.0, 0.0)));
+    sorTask.addSphereShape(sphereShape);
+
+    sphereShape = CCSphereShape(Xfo(Vec3(-5, 5, -10)), 5);
+    sphereShape.setMaterial(CCLambertianMaterial(Color(1.0, 1.0, 0.0)));
+    sorTask.addSphereShape(sphereShape);
+
+    sphereShape = CCSphereShape(Xfo(Vec3(-5, -5, -10)), 5);
+    sphereShape.setMaterial(CCPhongMaterial(Color(1.0, 0.0, 0.0), Color(0.0, 0.0, 1.0)));
+    sorTask.addSphereShape(sphereShape);
+
+    CCTaskMaster tm(false);
+    tm.verbose();
+    tm.addTask(sorTask);
+    tm.addTask(CCImageWriterTask(filePath, outputBuffer));
+    tm.executeAll();
+
+    this.checkImage(filePath, size, size);
+}
+
+TestRTSimpleRaycast.test11SimpleOrthoRaycastOnComplexMaterialShape!()
+{
+    String filePath("KLTests/_out/" + this.type() + "_" + this.getTestFuncName() + ".png");
+    Size size = 512;
+    CCOutputBuffer outputBuffer(size, size);
+
+    SimpleOrthoRaycastOnSphereShapesTask sorTask(outputBuffer);
+
+    CCSphereShape sphereShape = CCSphereShape(Xfo(Vec3(5, 5, -10)), 5);
+    sphereShape.setMaterial(CCConstantColorMaterial(CCConstantColorPattern(Color(1.0, 1.0, 0.0)).get()));
+    sorTask.addSphereShape(sphereShape);
+
+    sphereShape = CCSphereShape(Xfo(Vec3(-5, 5, -10)), 5);
+    sphereShape.setMaterial(CCLambertianMaterial(CCConstantColorPattern(Color(1.0, 1.0, 0.0)).get()));
+    sorTask.addSphereShape(sphereShape);
+
+    sphereShape = CCSphereShape(Xfo(Vec3(-5, -5, -10)), 5);
+    sphereShape.setMaterial(CCPhongMaterial(CCConstantColorPattern(Color(1.0, 0.0, 0.0)).get(), CCConstantColorPattern(Color(0.0, 0.0, 1.0)).get()));
+    sorTask.addSphereShape(sphereShape);
+
+    CCTaskMaster tm(false);
+//    tm.verbose();
+    tm.addTask(sorTask);
+    tm.addTask(CCImageWriterTask(filePath, outputBuffer));
+    tm.executeAll();
+
+    this.checkImage(filePath, size, size);
+}
+

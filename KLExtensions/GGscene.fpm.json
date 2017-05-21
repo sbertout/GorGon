@@ -1,0 +1,13 @@
+{
+    "code": [
+        "scene/_requires.kl", 
+        "scene/materialSet.kl", 
+        "scene/renderable.kl", 
+        "scene/scene.kl", 
+        "scene/sceneManager.kl", 
+        "scene/texture.kl", 
+        "scene/textureSet.kl", 
+        "scene/utils.kl"
+    ], 
+    "version": "0.1.0"
+}

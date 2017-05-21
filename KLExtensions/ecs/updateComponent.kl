@@ -1,0 +1,41 @@
+object CCComponent;
+
+interface CCUpdateComponentInterface
+{
+	onStart!();
+	onUpdate!();
+	onDestroy!();
+};
+
+object CCUpdateComponent : CCComponent, CCUpdateComponentInterface permits CCEntity
+{
+	private Boolean started;
+};
+
+CCUpdateComponent.createComponent!(String n)
+{
+	this.parent.createComponent(n);
+	this.started = false;
+}
+
+CCUpdateComponent.onStart!()
+{
+}
+
+CCUpdateComponent.onUpdate!()
+{
+}
+
+CCUpdateComponent.onDestroy!()
+{
+}
+
+Boolean == (CCUpdateComponent c1, CCUpdateComponent c2)
+{
+  return c1 != null && c2 != null && c1.getUID() == c2.getUID();
+}
+
+Boolean != (CCUpdateComponent c1, CCUpdateComponent c2)
+{
+  return !(c1 == c2);
+}

@@ -1,0 +1,141 @@
+object SimpleOrthoRaycastOnSpheresTask : SimpleOrthoRaycastBaseTask
+{
+    private CCSphere spheres[];
+    private CCBoxBank boxBank;
+    /*private*/ Size widthAreaPerProcess;
+    /*private*/ Size heightAreaPerProcess;
+};
+
+SimpleOrthoRaycastOnSpheresTask(CCOutputBuffer outputBuffer, Boolean cameraFacingLighting)
+{
+    this.init(outputBuffer, cameraFacingLighting);
+}
+
+SimpleOrthoRaycastOnSpheresTask(CCOutputBuffer outputBuffer, CCSphere sphere, Boolean cameraFacingLighting)
+{
+    this.init(outputBuffer, cameraFacingLighting);
+    this.addSphere(sphere);
+}
+
+SimpleOrthoRaycastOnSpheresTask.init!(CCOutputBuffer outputBuffer, Boolean cameraFacingLighting)
+{
+    this.initDefaults(false, outputBuffer, cameraFacingLighting);
+    this.boxBank = CCBoxBank();
+    this.setAreaPerProcess(1, 1);
+}
+
+SimpleOrthoRaycastOnSpheresTask.setAreaPerProcess!(Size w, Size h)
+{
+    this.widthAreaPerProcess = w;
+    this.heightAreaPerProcess = h;
+}
+
+inline Count SimpleOrthoRaycastOnSpheresTask.getSphereCount()
+{
+    return this.spheres.size();
+}
+
+inline SimpleOrthoRaycastOnSpheresTask.reservesSpheres!(Size count)
+{
+    this.spheres.resize(count);
+}
+
+inline CCSphere SimpleOrthoRaycastOnSpheresTask.getSphere(Index idx)
+{
+    return this.spheres[idx];
+}
+
+inline SimpleOrthoRaycastOnSpheresTask.setSphere!(Index idx, CCSphere sphere)
+{
+    this.spheres[idx] = sphere;
+}
+
+inline SimpleOrthoRaycastOnSpheresTask.addSphere!(CCSphere sphere)
+{
+    this.spheres.push(sphere);
+}
+
+SimpleOrthoRaycastOnSpheresTask.generateKdTree!()
+{
+    for(Index i=0; i<this.spheres.size(); ++i)
+    {
+        CCSphere sphere = this.spheres[i];
+        this.boxBank.addBox(sphere.getBox());
+    }
+    this.boxBank.buildKdTree();
+}
+
+CCRay SimpleOrthoRaycastOnSpheresTask.createRay(Index x, Index y)
+{
+    Size width = this.outputBuffer.getWidth();
+    Size height = this.outputBuffer.getHeight();
+    Scalar sw = width;
+    Scalar sh = height;
+
+    Scalar yo = 2.0 * (0.5 + Scalar(y)) / sh - 1.0;
+    Scalar xo = 2.0 * (0.5 + Scalar(x)) / sw - 1.0;
+    Vec3 rayOrigin(Vec3(xo, yo, 0) * this.viewSize);
+    rayOrigin.z = this.rayZPos;
+
+    Vec3 rayDirection(0, 0, -1);
+    return CCRay(rayOrigin, rayDirection);
+}
+
+SimpleOrthoRaycastOnSpheresTask.execute!()
+{
+    this.generateKdTree();
+
+    Vec3 viewSize(10);
+    Size width = this.outputBuffer.getWidth();
+    Size height = this.outputBuffer.getHeight();
+//    Scalar sw = width;
+//    Scalar sh = height;
+
+//TODO make sure width and height are multiple of areaPerProcess
+
+//    Vec3 rayDirection(0, 0, -1);
+    CCTaskMaster tm(this.usePEX, width * height / (this.widthAreaPerProcess * this.heightAreaPerProcess));
+    Index taskCount = 0;
+    for(Index y=0; y<height; y+=this.heightAreaPerProcess)
+    {
+//        Scalar yo = 2.0 * (0.5 + Scalar(y)) / sh - 1.0;
+        for(Index x=0; x<width; x+=this.widthAreaPerProcess)
+        {
+//            Scalar xo = 2.0 * (0.5 + Scalar(x)) / sw - 1.0;
+//            Vec3 rayOrigin(Vec3(xo, yo, 0) * this.viewSize);
+//            rayOrigin.z = this.rayZPos;
+
+            CCRay ray = this.createRay(x, y);
+
+            tm.addTask(SimpleOrthoRaycastOnSpheresProcess(this, taskCount++, x, y, ray));
+//            tm.addTask(SimpleOrthoRaycastOnSpheresProcess(this, taskCount++, x, y, CCRay(rayOrigin, rayDirection)));
+        }
+    }
+    tm.executeAll();
+
+    this.parent.setDone(); // always call setDone on the parent class to make sure this.done is set properly
+}
+
+Boolean SimpleOrthoRaycastOnSpheresTask.getClosestHit(CCRay ray, io CCRayHit rayHit)
+{
+    Boolean usePEX = false; // try true on ACER
+    Index sphereIndicesToTest[] = this.boxBank.intersectRay(ray, usePEX);
+
+    Scalar bestHitDistance = SCALAR_INFINITE;
+    for(Index i=0; i < sphereIndicesToTest.size(); ++i)
+    {
+        CCSphere sphere = this.getSphere(sphereIndicesToTest[i]);
+        Scalar hitDistance;
+        if (ray.intersectSphere(sphere, hitDistance))
+        {
+            if (hitDistance < bestHitDistance)
+            {
+                rayHit.hitDistance = hitDistance;
+                rayHit.hitPos = ray.getPosition(hitDistance);
+                rayHit.hitNor = sphere.getNormal(rayHit.hitPos);
+                bestHitDistance = hitDistance;
+            }
+        }
+    }
+    return bestHitDistance != SCALAR_INFINITE;
+}

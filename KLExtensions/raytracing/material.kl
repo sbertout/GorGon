@@ -1,0 +1,26 @@
+struct CCRayHit;
+
+interface RTMaterialInterface
+{
+    Color shade(CCRayHit rayHit);
+};
+
+object RTMaterial : RTMaterialInterface, BaseMaterial
+{
+    // String name;
+    // CCProperties _properties;
+};
+
+RTMaterial()
+{
+}
+
+RTMaterial(CCProperties p)
+{
+    this.init(p);
+}
+
+Color RTMaterial.shade(CCRayHit rayHit)
+{
+    return Color(0.0, 1.0, 1.0); // default if function not overriden!
+}

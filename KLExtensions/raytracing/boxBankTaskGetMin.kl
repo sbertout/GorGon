@@ -1,0 +1,21 @@
+object CCBoxBank;
+object CCBoxBankTaskGetMin : CCTaskBase
+{
+	private CCBoxBank boxBank;
+	private Vec3 min;
+};
+
+CCBoxBankTaskGetMin(CCBoxBank boxBank)
+{
+	this.boxBank = boxBank;
+}
+
+Vec3 CCBoxBankTaskGetMin.get() { return this.min; }
+
+CCBoxBankTaskGetMin.execute!()
+{
+    ArrayProducer<CCBox> ap = createConstArray(this.boxBank.boxes);
+    ValueProducer<Vec3MinResult> vp = createReduce(ap, mr_CCBox_min);
+    this.min = vp.produce().value;
+	this.parent.setDone(); // always call setDone on the parent class to make sure this.done is set properly
+}

@@ -1,0 +1,57 @@
+object SimpleOrthoRaycastOnSpheresTask;
+object SimpleOrthoRaycastOnSpheresProcess : CCTaskBase
+{
+    private SimpleOrthoRaycastOnSpheresTask parentTask;
+    private Index processIndex;
+    private Size x, y;
+    private CCRay ray;
+};
+
+SimpleOrthoRaycastOnSpheresProcess(SimpleOrthoRaycastOnSpheresTask parentTask, Index processIndex, Size x, Size y, CCRay ray)
+{
+    this.parentTask = parentTask;
+    this.processIndex = processIndex;
+    this.x = x;
+    this.y = y;
+    this.ray = ray;
+}
+
+SimpleOrthoRaycastOnSpheresProcess.execute!()
+{
+    for(Index y=0; y<this.parentTask.heightAreaPerProcess; y+=1)
+    {
+        for(Index x=0; x<this.parentTask.widthAreaPerProcess; x+=1)
+        {
+            CCPackedColor col(0.0, 0.0, 0.0);
+            Index curX = this.x + x;
+            Index curY = this.y + y;
+
+            CCRay ray = this.parentTask.createRay(curX, curY);
+            this.ray = ray;
+
+            CCRayHit rayHit;
+            if (this.parentTask.getClosestHit(this.ray, rayHit))
+            {
+                if (this.parentTask.getCameraFacingLighting())
+                {
+                    Vec3 hitPos = rayHit.hitPos;
+                    Vec3 hitNor = rayHit.hitNor;
+
+                    Scalar kd = hitNor.dot(Vec3(0, 0, 1));
+                    col = CCPackedColor(Color(kd, kd, kd));
+                }
+                else
+                {
+                    col = CCPackedColor(Color(1.0, 0.0, 0.0).linearInterpolate(Color(0.0, 1.0, 0.0), (rayHit.hitDistance - 5.0) / 5.0));
+                }
+            }
+
+            this.parentTask.updateOutputBuffer(col, curX, curY);
+        //    report("done " + this.processIndex + " - [" + curX + "," + curY + "]");
+
+        }
+    }
+
+
+
+}

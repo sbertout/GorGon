@@ -1,0 +1,8 @@
+require Math;
+
+alias Quat QuatArray[];
+
+Quat(Vec3 dir, Vec3 up)
+{
+    this.setFromDirectionAndUpvector(dir, up);
+}

@@ -1,0 +1,20 @@
+object BaseMaterial;
+object CCMaterialSet : CCUpdateComponent
+{
+    BaseMaterial materials[String];
+};
+
+CCMaterialSet(String name)
+{
+    this.createComponent(name);
+}
+
+Size CCMaterialSet.getMaterialCount()
+{ 
+    return this.materials.size();
+}
+
+CCMaterialSet.add!(String name, BaseMaterial material)
+{
+    this.materials[name] = material;
+}

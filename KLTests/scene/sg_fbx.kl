@@ -1,0 +1,96 @@
+require Math;
+require Fbx;
+require Geometry;
+
+require GGscene;
+require GGimport;
+
+object TestSGFbx : CCTestCase
+{
+};
+
+//const Boolean WIN = true;
+
+String fixPath(String s)
+{
+  //if (WIN) return "C:/Users/stephane/Documents/git/concord/tests/" + s;
+  return "KLTests/" + s;
+}
+
+TestSGFbx.testFBXSimpleMesh!()
+{
+  String fbxFilepath = fixPath("_assets/house.fbx");
+  String fbxTexFolder = fixPath("testAssets");
+
+  CCEntity root = CCimportAsset(fbxFilepath, fbxTexFolder);
+
+  this.assertEquals(root.getName(), 'house.fbx');
+  this.assert(root.hasUpdateComponent('CCTextureSet'));
+  this.assert(root.hasUpdateComponent('CCMaterialSet'));
+
+  CCTextureSet texSet = root.getUpdateComponent('CCTextureSet');
+  this.assertEquals(texSet.getTextureCount(), 1);
+  this.assertEquals(texSet.getPath('FarmWorld_01.tga'), 'C:/Trains/repository/Unity/Assets/Textures/Levels/FarmWorld_01.tga');
+  this.assertEquals(texSet.getTextureKeys()[0], 'FarmWorld_01.tga');
+  this.assertEquals(texSet.getTexturePaths()[0], 'C:/Trains/repository/Unity/Assets/Textures/Levels/FarmWorld_01.tga');
+
+  CCMaterialSet matSet = root.getUpdateComponent('CCMaterialSet');
+  this.assertEquals(matSet.getMaterialCount(), 1);
+
+  this.assertEquals(root.getChildCount(), 1);
+  CCEntity rootChild = root.getChild(0);
+  this.assertEquals(rootChild.getName(), 'polySurface231');
+  this.assertEquals(rootChild.getChildCount(), 1);
+  this.assertEquals(rootChild.getChild(0).getName(), 'House_3_01');
+  this.assertEquals(rootChild.getChild(0).getChildCount(), 0);
+}
+
+TestSGFbx.testFBXSimpleMesh2!()
+{
+  String fbxFilepath = fixPath("_assets/barn.fbx");
+  String fbxTexFolder = fixPath("testAssets");
+
+  CCEntity root = CCimportAsset(fbxFilepath, fbxTexFolder);
+
+  this.assertEquals(root.getName(), 'barn.fbx');
+  this.assert(root.hasUpdateComponent('CCTextureSet'));
+  this.assert(root.hasUpdateComponent('CCMaterialSet'));
+
+  CCTextureSet texSet = root.getUpdateComponent('CCTextureSet');
+  this.assertEquals(texSet.getTextureCount(), 2);
+  CCMaterialSet matSet = root.getUpdateComponent('CCMaterialSet');
+  this.assertEquals(matSet.getMaterialCount(), 2);
+
+  this.assertEquals(root.getChildCount(), 1);
+  CCEntity rootChild = root.getChild(0);
+  this.assertEquals(rootChild.getName(), 'Barn_01');
+  this.assertEquals(rootChild.getChildCount(), 2);
+  this.assertEquals(rootChild.getChild(0).getName(), 'BarnMill01a');
+  this.assertEquals(rootChild.getChild(1).getName(), 'BarnMill01b');
+  this.assertEquals(rootChild.getChild(0).getChildCount(), 0);
+  this.assertEquals(rootChild.getChild(1).getChildCount(), 0);
+}
+
+TestSGFbx.testFBXSimpleMesh3!()
+{
+  String fbxFilepath = fixPath("_assets/station.fbx");
+  String fbxTexFolder = fixPath("testAssets");
+
+  CCEntity root = CCimportAsset(fbxFilepath, fbxTexFolder);
+
+  this.assertEquals(root.getName(), 'station.fbx');
+  this.assert(root.hasUpdateComponent('CCTextureSet'));
+  this.assert(root.hasUpdateComponent('CCMaterialSet'));
+
+  CCTextureSet texSet = root.getUpdateComponent('CCTextureSet');
+  this.assertEquals(texSet.getTextureCount(), 3);
+  CCMaterialSet matSet = root.getUpdateComponent('CCMaterialSet');
+  this.assertEquals(matSet.getMaterialCount(), 3);
+
+  String expandedPaths[] = root.expandAllPaths();
+  this.assertEquals(expandedPaths[0], '/station.fbx');
+  this.assertEquals(expandedPaths[1], '/station.fbx/GndStn_Ground1a');
+  this.assertEquals(expandedPaths[2], '/station.fbx/GndStn_Ground1a/GndStn_Building1a');
+  this.assertEquals(expandedPaths[3], '/station.fbx/GndStn_Ground1a/GndStn_Building1a/GndStn_Glass1a');
+  this.assertEquals(expandedPaths[4], '/station.fbx/GndStn_Ground1a/GndStn_Shadow1a');
+}

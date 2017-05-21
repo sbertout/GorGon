@@ -1,0 +1,21 @@
+{
+    "code": [
+        "raytracing/_requires.kl", 
+        "raytracing/boxBank.kl", 
+        "raytracing/boxBankKdTreeCell.kl", 
+        "raytracing/boxBankKdTreeCellRayIntersectTask.kl", 
+        "raytracing/boxBankRayIntersectTask.kl", 
+        "raytracing/boxBankTaskGetMax.kl", 
+        "raytracing/boxBankTaskGetMin.kl", 
+        "raytracing/material.kl", 
+        "raytracing/rayHit.kl", 
+        "raytracing/shape.kl", 
+        "raytracing/materials/constantColorMaterial.kl", 
+        "raytracing/materials/constantColorPattern.kl", 
+        "raytracing/materials/lambertianMaterial.kl", 
+        "raytracing/materials/phongMaterial.kl", 
+        "raytracing/shapes/boxShape.kl", 
+        "raytracing/shapes/sphereShape.kl"
+    ], 
+    "version": "0.1.0"
+}

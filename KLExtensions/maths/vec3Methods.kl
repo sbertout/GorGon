@@ -1,0 +1,4 @@
+Vec3 Vec3.reflect(Vec3 n)
+{
+	return this - 2 * this.dot(n) * n;
+}

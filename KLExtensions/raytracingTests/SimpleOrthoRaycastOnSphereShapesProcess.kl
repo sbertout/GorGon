@@ -1,0 +1,32 @@
+object SimpleOrthoRaycastOnSphereShapesTask;
+object SimpleOrthoRaycastOnSphereShapesProcess : CCTaskBase
+{
+
+    private SimpleOrthoRaycastOnSphereShapesTask parentTask;
+    private Index processIndex;
+    private Size x, y;
+    private CCRay ray;
+};
+
+SimpleOrthoRaycastOnSphereShapesProcess(SimpleOrthoRaycastOnSphereShapesTask parentTask, Index processIndex, Size x, Size y, CCRay ray)
+{
+    this.parentTask = parentTask;
+    this.processIndex = processIndex;
+    this.x = x;
+    this.y = y;
+    this.ray = ray;
+}
+
+SimpleOrthoRaycastOnSphereShapesProcess.execute!()
+{
+    CCPackedColor col(0.0, 0.0, 0.0);
+
+    CCRayHit rayHit;
+    if (this.parentTask.getClosestHit(this.ray, rayHit))
+    {
+        col = CCPackedColor(this.parentTask.shade(rayHit));
+    }
+
+    this.parentTask.updateOutputBuffer(col, this.x, this.y);
+//    report("done " + this.processIndex + " - [" + this.x + "," + this.y + "]");
+}

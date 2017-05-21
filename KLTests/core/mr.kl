@@ -1,0 +1,97 @@
+require GGcore;
+require GGmaths;
+
+object TestCoreMR : CCTestCase
+{
+};
+
+TestCoreMR.testMapReduce!()
+{
+	Vec3 va[];
+	for (Integer i=-5; i<=5; ++i) va.push(Vec3(i, i, i));
+
+	ArrayProducer<Vec3> cap = createConstArray(va);
+
+	ValueProducer<Vec3> am2 = createReduce(cap, CCmr_Vec3_min);
+	this.assertEquals(am2.produce(), Vec3(-5, -5, -5));
+
+	am2 = createReduce(cap, CCmr_Vec3_max);
+	this.assertEquals(am2.produce(), Vec3(5, 5, 5));
+
+	am2 = createReduce(cap, CCmr_Vec3_average);
+	this.assert(am2.produce().almostEqual(Vec3(0, 0, 0)));
+}
+
+//TestCoreMR.testMapReduce000!()
+//{
+//	Vec3 va[];
+//	for (Integer i=5; i<=15; ++i) va.push(Vec3(i, i, i));
+//
+//	ArrayProducer<Vec3> cap = createConstArray(va);
+//
+//	ValueProducer<Vec3> am2 = createReduce(cap, CCmr_Vec3_min);
+//	this.assertEquals(am2.produce(), Vec3(5, 5, 5));
+//
+//	am2 = createReduce(cap, CCmr_Vec3_max);
+//	this.assertEquals(am2.produce(), Vec3(15, 15, 15));
+//}
+
+object Vec3MinMax
+{
+	Vec3 min, max;
+};
+Vec3MinMax(Vec3 v)
+{
+	this.min = v;
+	this.max = v;
+}
+operator mr_Vec3MinMax_min(Vec3MinMax input, io Vec3 output)
+{
+	output = Math_min(input.min, output);
+}
+operator mr_Vec3MinMax_max(Vec3MinMax input, io Vec3 output)
+{
+	output = Math_max(input.max, output);
+}
+
+TestCoreMR.testMapReduce2!()
+{
+	Vec3MinMax va[];
+	for (Integer i=-5; i<=5; ++i) va.push(Vec3(i, i, i));
+
+	ArrayProducer<Vec3MinMax> cap = createConstArray(va);
+
+	ValueProducer<Vec3> am2 = createReduce(cap, mr_Vec3MinMax_min);
+	this.assertEquals(am2.produce(), Vec3(-5, -5, -5));
+
+	am2 = createReduce(cap, mr_Vec3MinMax_max);
+	this.assertEquals(am2.produce(), Vec3(5, 5, 5));
+}
+
+TestCoreMR.testMapReduce3!()
+{
+	CCBox va[];
+	for (Integer i=-5; i<=5; ++i) va.push(CCBox(Vec3(i, i, i), Vec3(0, 0, 0)));
+
+	ArrayProducer<CCBox> cap = createConstArray(va);
+
+	ValueProducer<Vec3MinResult> am2 = createReduce(cap, mr_CCBox_min);
+	this.assertEquals(am2.produce().value, Vec3(-5, -5, -5));
+
+	ValueProducer<Vec3MaxResult> am3 = createReduce(cap, mr_CCBox_max);
+	this.assertEquals(am3.produce().value, Vec3(5, 5, 5));
+}
+
+TestCoreMR.testMapReduce4!()
+{
+	CCBox va[];
+	for (Integer i=-5; i<=5; ++i) va.push(CCBoxFromMinMax(Vec3(i, i, i), Vec3(i, i, i)));
+
+	ArrayProducer<CCBox> cap = createConstArray(va);
+
+	ValueProducer<Vec3MinResult> am2 = createReduce(cap, mr_CCBox_min);
+	this.assertEquals(am2.produce().value, Vec3(-5, -5, -5));
+
+	ValueProducer<Vec3MaxResult> am3 = createReduce(cap, mr_CCBox_max);
+	this.assertEquals(am3.produce().value, Vec3(5, 5, 5));
+}

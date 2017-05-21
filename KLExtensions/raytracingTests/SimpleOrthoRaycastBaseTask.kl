@@ -1,0 +1,40 @@
+// base task object SimpleOrthoRaycastBaseTask
+object SimpleOrthoRaycastBaseTask : CCTaskBase
+{
+    protected Boolean usePEX;
+    protected CCOutputBuffer outputBuffer;
+    protected Boolean cameraFacingLighting;
+    protected Vec3 viewSize, rayDirection;
+    protected Scalar rayZPos;
+};
+
+SimpleOrthoRaycastBaseTask.setViewSize!(Vec3 viewSize)
+{
+    this.viewSize = viewSize;
+}
+
+SimpleOrthoRaycastBaseTask.setRayZPos!(Scalar rayZPos)
+{
+    this.rayZPos = rayZPos;
+}
+
+SimpleOrthoRaycastBaseTask.initDefaults!(Boolean usePEX, CCOutputBuffer outputBuffer, Boolean cameraFacingLighting)
+{
+    this.usePEX = usePEX;
+    this.outputBuffer = outputBuffer;
+    this.cameraFacingLighting = cameraFacingLighting;
+
+    this.viewSize = Vec3(10);
+    this.rayDirection = Vec3(0, 0, -1);
+    this.rayZPos = 0;
+}
+
+inline Boolean SimpleOrthoRaycastBaseTask.getCameraFacingLighting()
+{
+    return this.cameraFacingLighting;
+}
+
+inline SimpleOrthoRaycastBaseTask.updateOutputBuffer!(CCPackedColor col, Size x, Size y)
+{
+    this.outputBuffer.set(col, x, y);
+}

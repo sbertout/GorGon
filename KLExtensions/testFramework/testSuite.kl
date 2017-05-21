@@ -1,0 +1,228 @@
+object CCTestSuite
+{
+    Boolean testFailed;
+    private String testDesc;
+};
+
+CCTestSuite()
+{
+  this.testFailed = false;
+  this.testDesc = "";
+}
+
+~CCTestSuite()
+{
+  this.report();
+}
+
+Boolean CCTestSuite.isValid() { return this.testFailed == false; }
+
+CCTestSuite.setTestDesc!(String s)
+{
+  this.testDesc = s;
+}
+
+CCTestSuite.setError!(String s)
+{
+  this.testFailed = true;
+  String ss;
+  if (this.testDesc != '') ss = " (" + this.testDesc + ")";
+  setError(s + ss);
+}
+
+// should use proper UnitTest framework..
+Boolean CCTestSuite.assert!(Boolean test)
+{
+  if (! test)
+  {
+    this.setError("CCassert");
+    return false;
+  }
+  return true;
+}
+
+Boolean CCTestSuite.assertTrue!(Boolean test)
+{
+    return this.assertEquals(test, true);
+}
+
+Boolean CCTestSuite.assertFalse!(Boolean test)
+{
+    return this.assertEquals(test, false);
+}
+
+Boolean CCTestSuite.assertEquals!(Size s1, Size s2)
+{
+  if (s1 != s2)
+  {
+    this.setError("CCassertEquals: " + s1 + " != " + s2);
+    return false;
+  }
+  return true;
+}
+
+Boolean CCTestSuite.assertEquals!(Integer s1, Integer s2)
+{
+  if (s1 != s2)
+  {
+    this.setError("CCassertEquals: " + s1 + " != " + s2);
+    return false;
+  }
+  return true;
+}
+
+Boolean CCTestSuite.assertEquals!(Scalar s1, Scalar s2)
+{
+  if (s1 != s2)
+  {
+    this.setError("CCassertEquals: " + s1 + " != " + s2);
+    return false;
+  }
+  return true;
+}
+
+Boolean CCTestSuite.assertAlmostEquals!(Scalar s1, Scalar s2)
+{
+    return this.assertAlmostEquals(s1, s2, 0.0001);
+}
+
+Boolean CCTestSuite.assertAlmostEquals!(Scalar s1, Scalar s2, Float32 eps)
+{
+  if (abs(s1 - s2) > eps)
+  {
+    this.setError("CCassertAlmostEquals: " + s1 + " != " + s2);
+    return false;
+  }
+  return true;
+}
+
+Boolean CCTestSuite.assertEquals!(String s1, String s2)
+{
+  if (s1 != s2)
+  {
+    this.setError("CCassertEquals: " + s1 + " != " + s2);
+    return false;
+  }
+  return true;
+}
+
+Boolean CCTestSuite.assertEquals!(Vec2 s1, Vec2 s2)
+{
+  if (s1 != s2)
+  {
+    this.setError("CCassertEquals: " + s1 + " != " + s2);
+    return false;
+  }
+  return true;
+}
+
+Boolean CCTestSuite.assertAlmostEquals!(Vec2 s1, Vec2 s2)
+{
+  return this.assertAlmostEquals(s1, s2, 0.0001);
+}
+
+
+Boolean CCTestSuite.assertAlmostEquals!(Vec2 s1, Vec2 s2, Float32 eps)
+{
+  if (!s1.almostEqual(s2, eps))
+  {
+    this.setError("CCassertAlmostEquals: " + s1 + " != " + s2);
+    return false;
+  }
+  return true;
+}
+
+Boolean CCTestSuite.assertEquals!(Vec3 s1, Vec3 s2)
+{
+  if (s1 != s2)
+  {
+    this.setError("CCassertEquals: " + s1 + " != " + s2);
+    return false;
+  }
+  return true;
+}
+
+Boolean CCTestSuite.assertAlmostEquals!(Vec3 s1, Vec3 s2)
+{
+  return this.assertAlmostEquals(s1, s2, 0.0001);
+}
+
+
+Boolean CCTestSuite.assertAlmostEquals!(Vec3 s1, Vec3 s2, Float32 eps)
+{
+  if (!s1.almostEqual(s2, eps))
+  {
+    this.setError("CCassertAlmostEquals: " + s1 + " != " + s2);
+    return false;
+  }
+  return true;
+}
+
+Boolean CCTestSuite.assertEquals!(Vec4 s1, Vec4 s2)
+{
+  if (s1 != s2)
+  {
+    this.setError("CCassertEquals: " + s1 + " != " + s2);
+    return false;
+  }
+  return true;
+}
+
+Boolean CCTestSuite.assertAlmostEquals!(Vec4 s1, Vec4 s2)
+{
+  return this.assertAlmostEquals(s1, s2, 0.0001);
+}
+
+
+Boolean CCTestSuite.assertAlmostEquals!(Vec4 s1, Vec4 s2, Float32 eps)
+{
+  if (!s1.almostEqual(s2, eps))
+  {
+    this.setError("CCassertAlmostEquals: " + s1 + " != " + s2);
+    return false;
+  }
+  return true;
+}
+
+Boolean CCTestSuite.assertEquals!(Quat s1, Quat s2)
+{
+  if (s1 != s2)
+  {
+    this.setError("CCassertEquals: " + s1 + " != " + s2);
+    return false;
+  }
+  return true;
+}
+
+Boolean CCTestSuite.assertAlmostEquals!(Quat s1, Quat s2)
+{
+  return this.assertAlmostEquals(s1, s2, 0.0001);
+}
+
+
+Boolean CCTestSuite.assertAlmostEquals!(Quat s1, Quat s2, Float32 eps)
+{
+  if (!s1.almostEqual(s2, eps))
+  {
+    this.setError("CCassertAlmostEquals: " + s1 + " != " + s2);
+    return false;
+  }
+  return true;
+}
+
+Boolean CCTestSuite.assertEquals!(Xfo s1, Xfo s2)
+{
+  if (s1 != s2)
+  {
+    this.setError("CCassertEquals: " + s1 + " != " + s2);
+    return false;
+  }
+  return true;
+}
+
+CCTestSuite.report()
+{
+  if (this.testFailed) report('tests FAILED !');
+  else report('tests OK');  
+}
+

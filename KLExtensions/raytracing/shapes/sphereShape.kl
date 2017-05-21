@@ -1,0 +1,32 @@
+object CCSphereShape : CCShape
+{
+	private CCSphere sphere;
+	private CCBox box;
+};
+
+CCSphereShape(Xfo xfo, Scalar radius)
+{
+	//TODO: make sure Xfo doesnt have a non uniform scale!
+	this.xfo = xfo;
+	this.init(radius);
+}
+
+inline CCBox CCSphereShape.getBox()
+{
+    return this.box;
+}
+
+inline CCSphere CCSphereShape.getSphere()
+{
+    return this.sphere;
+}
+
+private CCSphereShape.init!(Scalar radius)
+{
+	Vec3 scaling, translation;
+	Mat33 rotation;
+	this.xfo.toMat44().decompose(scaling, rotation, translation);
+
+	this.sphere = CCSphere(translation, radius * scaling.x); // we assume we have a uniform scale !
+	this.box = this.sphere.getBox();
+}

@@ -1,0 +1,50 @@
+object SimpleOrthoRaycastOnQuadsTask;
+object SimpleOrthoRaycastOnQuadsProcess : CCTaskBase
+{
+    private SimpleOrthoRaycastOnQuadsTask parentTask;
+    private Index processIndex;
+    private Size x, y;
+    private CCRay ray;
+};
+
+SimpleOrthoRaycastOnQuadsProcess(SimpleOrthoRaycastOnQuadsTask parentTask, Index processIndex, Size x, Size y, CCRay ray)
+{
+    this.parentTask = parentTask;
+    this.processIndex = processIndex;
+    this.x = x;
+    this.y = y;
+    this.ray = ray;
+}
+
+SimpleOrthoRaycastOnQuadsProcess.execute!()
+{
+    CCPackedColor col(0.0, 0.0, 0.0);
+
+    Scalar bestHitDistance = SCALAR_INFINITE;
+    for(Index i=0; i<this.parentTask.getQuadCount(); ++i)
+    {
+        CCQuad quad = this.parentTask.getQuad(i);
+        Scalar hitDistance;
+        if (this.ray.intersectQuad(quad, hitDistance))
+        {
+            if (hitDistance < bestHitDistance)
+            {
+                if (this.parentTask.getCameraFacingLighting())
+                {
+                    Vec3 hitPos = this.ray.getPosition(hitDistance);
+                    Vec3 hitNor = quad.getNormal();
+
+                    Scalar kd = hitNor.dot(Vec3(0, 0, 1));
+                    col = CCPackedColor(Color(kd, kd, kd));
+                }
+                else
+                {
+                    col = CCPackedColor(Color(1.0, 0.0, 0.0).linearInterpolate(Color(0.0, 1.0, 0.0), (hitDistance - 5.0) / 5.0));
+                }
+
+                bestHitDistance = hitDistance;
+            }
+        }
+    }
+    this.parentTask.updateOutputBuffer(col, this.x, this.y);
+}

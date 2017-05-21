@@ -1,0 +1,271 @@
+require GGraytracing;
+
+object TestRTRayIntersections : CCTestCase
+{
+};
+
+TestRTRayIntersections.testRayIntersectPlane!()
+{
+    CCRay ray = CCRay(Vec3(0, 0, -10), Vec3(0, 0, 1));
+    CCPlane plane = CCPlane(Vec3(0, 0, 0), Vec3(1, 0, 0), Vec3(0, 1, 0));
+
+    Vec3 hitPos;
+	Scalar hitDistance = 0;
+    this.assertTrue(ray.intersectPlane(plane, hitDistance));
+    this.assertEquals(hitDistance, 10);
+    this.assertTrue(ray.intersectPlane(plane, hitPos));
+    this.assertEquals(hitPos, Vec3(0, 0, 0));
+
+    plane = CCPlane(Vec3(0, 0, 10), Vec3(1, 0, 10), Vec3(0, 1, 10));
+    this.assertTrue(ray.intersectPlane(plane, hitDistance));
+    this.assertEquals(hitDistance, 20);
+    this.assertTrue(ray.intersectPlane(plane, hitPos));
+    this.assertEquals(hitPos, Vec3(0, 0, 10));
+
+    plane = CCPlane(Vec3(0, 0, -10), Vec3(1, 0, -10), Vec3(0, 1, -10));
+    this.assertTrue(ray.intersectPlane(plane, hitDistance));
+    this.assertEquals(hitDistance, 0);
+    this.assertTrue(ray.intersectPlane(plane, hitPos));
+    this.assertEquals(hitPos, Vec3(0, 0, -10));
+
+    plane = CCPlane(Vec3(0, 0, -20), Vec3(1, 0, -20), Vec3(0, 1, -20));
+    this.assertFalse(ray.intersectPlane(plane, hitDistance));
+    this.assertEquals(hitDistance, -10);
+    this.assertFalse(ray.intersectPlane(plane, hitPos));
+    this.assertEquals(hitPos, Vec3(0, 0, -20));
+
+    ray = CCRay(Vec3(0, 0, 0), Vec3(0, 1, 0));
+    this.assertFalse(ray.intersectPlane(plane, hitDistance));
+    this.assertFalse(ray.intersectPlane(plane, hitPos));
+}
+
+TestRTRayIntersections.testRayIntersectTriangle!()
+{
+    CCRay ray = CCRay(Vec3(0, 0, -10), Vec3(0, 0, 1));
+	Vec3 origin = Vec3(0, 0, 0);
+	CCTriangle tri = CCTriangle(origin, 2.0, Vec3(1, 0, 0), 4.0, Vec3(0, 1, 0));
+
+    Scalar hitDistance;
+    Vec3 hitPos;
+    Vec2 hitUVs;
+    this.assertTrue(ray.intersectTriangle(tri, hitPos, hitUVs));
+    this.assertEquals(hitPos, Vec3(0, 0, 0));
+    this.assertEquals(hitUVs, Vec2(0, 0));
+    this.assertTrue(ray.intersectTriangle(tri, hitDistance));
+    this.assertEquals(hitDistance, 10);
+
+    ray = CCRay(Vec3(2, 0, -10), Vec3(0, 0, 1));
+    this.assertTrue(ray.intersectTriangle(tri, hitPos, hitUVs));
+    this.assertEquals(hitPos, Vec3(2, 0, 0));
+    this.assertEquals(hitUVs, Vec2(1, 0));
+
+    ray = CCRay(Vec3(2.5, 0, -10), Vec3(0, 0, 1));
+    this.assertFalse(ray.intersectTriangle(tri, hitPos, hitUVs));
+
+    // move triangle from the origin
+    origin = Vec3(10, 0, 0);
+	tri = CCTriangle(origin, 2.0, Vec3(1, 0, 0), 4.0, Vec3(0, 1, 0));
+
+    ray = CCRay(Vec3(2.5, 0, -10), Vec3(0, 0, 1));
+    this.assertFalse(ray.intersectTriangle(tri, hitPos, hitUVs));
+
+    ray = CCRay(Vec3(12, 0, -10), Vec3(0, 0, 1));
+    this.assertTrue(ray.intersectTriangle(tri, hitPos, hitUVs));
+    this.assertEquals(hitPos, Vec3(12, 0, 0));
+    this.assertEquals(hitUVs, Vec2(1, 0));
+
+    // ray starting on triangle..
+    ray = CCRay(Vec3(12, 0, 0), Vec3(0, 0, 1));
+    this.assertFalse(ray.intersectTriangle(tri, hitPos, hitUVs));
+    this.assertEquals(hitPos, Vec3(12, 0, 0));
+    this.assertEquals(hitUVs, Vec2(1, 0));
+}
+
+TestRTRayIntersections.testRayIntersectQuad!()
+{
+    CCRay ray = CCRay(Vec3(0, 0, -10), Vec3(0, 0, 1));
+	Vec3 center = Vec3(0, 0, 0);
+	CCQuad quad = CCQuad(center, 2.0, Vec3(1, 0, 0), 4.0, Vec3(0, 1, 0));
+
+    Scalar hitDistance;
+    Vec3 hitPos;
+    Vec2 hitUVs;
+    this.assertTrue(ray.intersectQuad(quad, hitPos, hitUVs));
+    this.assertEquals(hitPos, Vec3(0, 0, 0));
+    this.assertEquals(hitUVs, Vec2(0.5, 0.5));
+    this.assertTrue(ray.intersectQuad(quad, hitDistance));
+    this.assertEquals(hitDistance, 10);
+
+    ray = CCRay(Vec3(-1, -2, -10), Vec3(0, 0, 1));
+    this.assertTrue(ray.intersectQuad(quad, hitPos, hitUVs));
+    this.assertEquals(hitPos, Vec3(-1, -2, 0));
+    this.assertEquals(hitUVs, Vec2(0, 0));
+
+    ray = CCRay(Vec3(+1, +2, -10), Vec3(0, 0, 1));
+    this.assertTrue(ray.intersectQuad(quad, hitPos, hitUVs));
+    this.assertEquals(hitPos, Vec3(+1, +2, 0));
+    this.assertEquals(hitUVs, Vec2(1, 1));
+
+    // let's now test a quad not at the origin!
+    ray = CCRay(Vec3(0, 0, -10), Vec3(0, 0, 1));
+	center = Vec3(5, 5, 10);
+	quad = CCQuad(center, 10.0, Vec3(1, 0, 0), 10.0, Vec3(0, 1, 0));
+    this.assertTrue(ray.intersectQuad(quad, hitPos, hitUVs));
+    this.assertEquals(hitPos, Vec3(0, 0, 10));
+    this.assertEquals(hitUVs, Vec2(0, 0));
+
+	center = Vec3(-5, -5, 10);
+	quad = CCQuad(center, 10.0, Vec3(1, 0, 0), 10.0, Vec3(0, 1, 0));
+    this.assertTrue(ray.intersectQuad(quad, hitPos, hitUVs));
+    this.assertEquals(hitPos, Vec3(0, 0, 10));
+    this.assertEquals(hitUVs, Vec2(1, 1));
+
+    ray = CCRay(Vec3(5, 5, -10), Vec3(0, 0, 1));
+	center = Vec3(5, 5, 20);
+	quad = CCQuad(center, 10.0, Vec3(1, 0, 0), 10.0, Vec3(0, 1, 0));
+    this.assertTrue(ray.intersectQuad(quad, hitPos, hitUVs));
+    this.assertEquals(hitPos, Vec3(5, 5, 20));
+    this.assertEquals(hitUVs, Vec2(0.5, 0.5));
+
+    ray = CCRay(Vec3(5, 5, -10), Vec3(0, 0, -1));
+    this.assertFalse(ray.intersectQuad(quad, hitPos, hitUVs));
+}
+
+TestRTRayIntersections.checkRayIntersectSphere!(Vec3 rayOrigin, Vec3 rayDirection, Vec3 sphereCenter, Scalar sphereRadius, Boolean expectedReturn, Scalar expectedHitDistance, Vec3 expectedHitPos)
+{
+	CCRay ray = CCRay(rayOrigin, rayDirection);
+	CCSphere sphere = CCSphere(sphereCenter, sphereRadius);
+
+	Scalar hitDistance = 0;
+	Boolean ret = ray.intersectSphere(sphere, hitDistance);
+
+	this.assertEquals(ret, expectedReturn);
+	this.assertEquals(hitDistance, expectedHitDistance);
+
+	Vec3 hitPos;
+	ret = ray.intersectSphere(sphere, hitPos);
+
+	this.assertEquals(ret, expectedReturn);
+	this.assertEquals(hitPos, expectedHitPos);
+}
+
+TestRTRayIntersections.testRayIntersectSphere!()
+{
+	this.checkRayIntersectSphere(Vec3(0, 0, 0), // rayOrigin
+								 Vec3(0, 0, 1), // rayDirection
+								 Vec3(0, 0, 10), // sphereCenter
+								 2.0f, // sphereRadius
+								 true,
+								 8.0, Vec3(0, 0, 8.0));
+
+	this.checkRayIntersectSphere(Vec3(0, 0, -10), // rayOrigin
+								 Vec3(0, 0, 1), // rayDirection
+								 Vec3(0, 0, 0), // sphereCenter
+								 2.0f, // sphereRadius
+								 true,
+								 8.0, Vec3(0, 0, -2.0));
+
+	this.checkRayIntersectSphere(Vec3(0, 0, 0), // rayOrigin
+								 Vec3(0, 0, -1), // rayDirection
+								 Vec3(0, 0, 10), // sphereCenter
+								 2.0f, // sphereRadius
+								 false,
+								 -8.0, Vec3(0, 0, 8.0));
+
+	this.checkRayIntersectSphere(Vec3(0, 0, -10), // rayOrigin
+								 Vec3(0, 0, -1), // rayDirection
+								 Vec3(0, 0, 0), // sphereCenter
+								 2.0f, // sphereRadius
+								 false,
+								 -8.0, Vec3(0, 0, -2.0));
+
+	this.checkRayIntersectSphere(Vec3(0, 0, 0), // rayOrigin
+								 Vec3(0, 0, 1), // rayDirection
+								 Vec3(10, 0, 0), // sphereCenter
+								 2.0f, // sphereRadius
+								 false,
+								 SCALAR_INFINITE, Vec3(SCALAR_INFINITE, SCALAR_INFINITE, SCALAR_INFINITE));
+}
+
+TestRTRayIntersections.checkRayIntersectBox!(Vec3 rayOrigin, Vec3 rayDirection, Vec3 boxCenter, Vec3 boxSize, Boolean expectedReturn, Scalar expectedHitDistance, Vec3 expectedHitPos, Vec3 expectedHitPos2)
+{
+	CCRay ray = CCRay(rayOrigin, rayDirection);
+	CCBox box = CCBox(boxCenter, boxSize);
+
+	Scalar hitDistance = 0;
+	Boolean ret = ray.intersectBox(box, hitDistance);
+
+	this.assertEquals(ret, expectedReturn);
+	this.assertEquals(hitDistance, expectedHitDistance);
+
+	Vec3 hitPos, hitPos2;
+	ret = ray.intersectBox(box, hitPos, hitPos2);
+
+	this.assertEquals(ret, expectedReturn);
+	this.assertEquals(hitPos, expectedHitPos);
+	this.assertEquals(hitPos2, expectedHitPos2);
+
+	ret = ray.intersectBox(box);
+	this.assertEquals(ret, expectedReturn);
+}
+
+TestRTRayIntersections.checkRayIntersectBox!(Vec3 rayOrigin, Vec3 rayDirection, Vec3 boxCenter, Vec3 boxSize, Boolean expectedReturn)
+{
+	CCRay ray = CCRay(rayOrigin, rayDirection);
+	CCBox box = CCBox(boxCenter, boxSize);
+
+	Scalar hitDistance = 0;
+	Boolean ret = ray.intersectBox(box, hitDistance);
+
+	this.assertEquals(ret, expectedReturn);
+
+	Vec3 hitPos, hitPos2;
+	ret = ray.intersectBox(box, hitPos, hitPos2);
+	this.assertEquals(ret, expectedReturn);
+
+	ret = ray.intersectBox(box);
+	this.assertEquals(ret, expectedReturn);
+}
+
+TestRTRayIntersections.testRayIntersectBox!()
+{
+	this.checkRayIntersectBox(Vec3(0, 0, 0), // rayOrigin
+							  Vec3(0, 0, 1), // rayDirection
+							  Vec3(0, 0, 10), // boxCenter
+							  Vec3(4, 4, 4), // boxSize
+							  true,
+							  8.0, Vec3(0, 0, 8), Vec3(0, 0, 12));
+
+	this.checkRayIntersectBox(Vec3(0, 0, 0), // rayOrigin
+							  Vec3(0, 0, 1), // rayDirection
+							  Vec3(0, 0, -10), // boxCenter
+							  Vec3(4, 4, 4), // boxSize
+							  false);
+
+	this.checkRayIntersectBox(Vec3(0, 0, 5), // rayOrigin
+							  Vec3(0, 0, 1), // rayDirection
+							  Vec3(0, 0, 10), // boxCenter
+							  Vec3(20, 20, 20), // boxSize
+							  true,
+							  15.0, Vec3(0, 0, 0), Vec3(0, 0, 20));
+
+	this.checkRayIntersectBox(Vec3(0, 0, 5), // rayOrigin
+							  Vec3(0, 0, 1), // rayDirection
+							  Vec3(0, 0, 10), // boxCenter
+							  Vec3(10, 10, 10), // boxSize
+							  true,
+							  0.0, Vec3(0, 0, 5), Vec3(0, 0, 15));
+
+	this.checkRayIntersectBox(Vec3(0, 0, 0), // rayOrigin
+							  Vec3(1, 0, 0), // rayDirection
+							  Vec3(10, 0, 0), // boxCenter
+							  Vec3(4, 4, 4), // boxSize
+							  true,
+							  8.0, Vec3(8, 0, 0), Vec3(12, 0, 0));
+
+	this.checkRayIntersectBox(Vec3(0, 0, 0), // rayOrigin
+							  Vec3(-1, 0, 0), // rayDirection
+							  Vec3(10, 0, 0), // boxCenter
+							  Vec3(4, 4, 4), // boxSize
+							  false);
+}

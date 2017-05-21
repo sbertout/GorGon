@@ -1,0 +1,26 @@
+object CCOutputBuffer;
+
+object CCImageWriter
+{
+    String filePath;
+    CCOutputBuffer outputBuffer;
+};
+
+CCImageWriter(String filePath, CCOutputBuffer outputBuffer)
+{
+    this.filePath = filePath;
+    this.outputBuffer = outputBuffer;
+}
+
+CCImageWriter.write()
+{
+    OpenImageSpec spec(this.outputBuffer.getWidth(), this.outputBuffer.getHeight(), 3, OpenImageTypeDescTypeColor());
+    OpenImageTypeDesc desc = OpenImageTypeDesc(OpenImage_BASETYPE_FLOAT, OpenImage_AGGREGATE_SCALAR, OpenImage_VECSEMANTICS_NOXFORM);
+
+    FilePath path(this.filePath);
+    OpenImageOutput img();
+    img.create(path.string());
+    img.open(path.string(), spec);
+    img.write_image(desc, this.outputBuffer.getBuffer().data(), 0, 0, 0);
+    img.close();
+}

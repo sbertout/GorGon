@@ -1,0 +1,7 @@
+{
+    "code": [
+        "rendering/_requires.kl", 
+        "rendering/baseMaterial.kl"
+    ], 
+    "version": "0.1.0"
+}

@@ -1,0 +1,29 @@
+//interface CCMaterialInterface
+//{
+//    Color shade(CCRayHit rayHit);
+//};
+
+object BaseMaterial// : CCMaterialInterface
+{
+    String name;
+    CCProperties _properties;
+};
+
+protected BaseMaterial.init!(CCProperties p)
+{
+    this._properties = p;
+}
+
+BaseMaterial()
+{
+}
+
+BaseMaterial(CCProperties p)
+{
+    this.init(p);
+}
+
+//Color CCMaterial.shade(CCRayHit rayHit)
+//{
+//    return Color(0.0, 1.0, 1.0); // default if function not overriden!
+//}

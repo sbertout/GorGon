@@ -1,0 +1,17 @@
+require Singletons;
+object CCEntity;
+
+object CCComponentFactory
+{
+  private Index _currentId;
+};
+
+CCComponentFactory()
+{
+  this._currentId = 0;
+}
+
+Index CCComponentFactory.getUID!()
+{
+  return this._currentId ++;
+}

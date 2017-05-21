@@ -1,0 +1,25 @@
+alias Index IndexArray[];
+
+inline IndexArray.push!(IndexArray other)
+{
+    for (Index i=0; i<other.size(); ++i)
+        this.push(other[i]);
+}
+
+inline IndexArray.sorted!()
+{
+    Index start = 0;
+    for (Index i=start; i<this.size(); ++i)
+    {
+        for (Index j=i+1; j<this.size(); ++j)
+        {
+            if (this[j] < this[i])
+            {
+                Index cur = this[i];
+                this[i] = this[j];
+                this[j] = cur;
+            }
+        }
+    }
+}
+

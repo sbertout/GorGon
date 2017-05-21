@@ -1,0 +1,48 @@
+require Math;
+
+alias UInt32 CCeAxisType;
+const CCeAxisType CCeAxisType_X = 0;
+const CCeAxisType CCeAxisType_Y = 1;
+const CCeAxisType CCeAxisType_Z = 2;
+
+CCeAxisType Vec3.getDominantAxis()
+{
+	if (this.x > this.y)
+		return this.x > this.z ? CCeAxisType_X : CCeAxisType_Z;
+	return this.y > this.z ? CCeAxisType_Y : CCeAxisType_Z;
+}
+
+alias UInt32 CCeSideType;
+const CCeSideType CCeSideType_Negative = 0;
+const CCeSideType CCeSideType_Inside = 1;
+const CCeSideType CCeSideType_Positive = 2;
+
+operator CCmr_Vec3_min(Vec3 input, io Vec3 output)
+{
+	output = Math_min(input, output);
+}
+
+operator CCmr_Vec3_max(Vec3 input, io Vec3 output)
+{
+	output = Math_max(input, output);
+}
+
+operator CCmr_Vec3_average(Vec3 input, io Vec3 output, Size index, Size count)
+{
+	Scalar si = count;
+	Scalar isi = 1.0 / si;
+	output += input * Vec3(isi, isi, isi);
+}
+
+Boolean Vec2.inBetween(Scalar min, Scalar max)
+{
+    return this.x >= min && this.x <= max
+        && this.y >= min && this.y <= max;
+}
+
+Vec3 Vec3.normalized()
+{
+    Vec3 v(this);
+    v.normalize();
+    return v;
+}

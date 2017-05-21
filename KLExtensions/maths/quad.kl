@@ -1,0 +1,55 @@
+object CCQuad
+{
+    Vec3 center, uDir, vDir;
+    Scalar uLength, vLength;
+};
+
+CCQuad(Vec3 center, Scalar uLength, Vec3 uDir, Scalar vLength, Vec3 vDir)
+{
+    this.center = center;
+    this.uLength = uLength;
+    this.uDir = uDir;
+    this.vLength = vLength;
+    this.vDir = vDir;
+}
+
+// getters
+Vec3 CCQuad.getCenter() { return this.center; }
+Scalar CCQuad.getULength() { return this.uLength; }
+Vec3 CCQuad.getUDir() { return this.uDir; }
+Scalar CCQuad.getVLength() { return this.vLength; }
+Vec3 CCQuad.getVDir() { return this.vDir; }
+
+// methods
+Vec3 CCQuad.getMin()
+{
+    return this.center - this.uDir * this.uLength * 0.5 - this.vDir * this.vLength * 0.5;
+}
+
+Vec3 CCQuad.getMax()
+{
+    return this.center + this.uDir * this.uLength * 0.5 + this.vDir * this.vLength * 0.5;
+}
+
+Vec3 CCQuad.getNormal()
+{
+    return this.uDir.cross(this.vDir);
+}
+
+CCQuad.getPoints(io Vec3 points[])
+{
+    points.resize(4);
+    points[0] = this.center - this.uDir * this.uLength * 0.5 - this.vDir * this.vLength * 0.5;
+    points[1] = this.center + this.uDir * this.uLength * 0.5 - this.vDir * this.vLength * 0.5;
+    points[2] = this.center + this.uDir * this.uLength * 0.5 + this.vDir * this.vLength * 0.5;
+    points[3] = this.center - this.uDir * this.uLength * 0.5 + this.vDir * this.vLength * 0.5;
+}
+
+Boolean CCQuad.getUVCoordinates(Vec3 p, io Vec2 uv) // also called barycentric coordinates
+{
+    Vec3 pos = p - this.center;
+    uv =  Vec2(0.5) +
+          Vec2(this.uDir.dot(pos) / (1.0 * this.uLength),
+               this.vDir.dot(pos) / (1.0 * this.vLength));
+    return uv.inBetween(0, 1);
+}

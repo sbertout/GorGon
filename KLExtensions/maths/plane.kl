@@ -1,0 +1,44 @@
+object CCPlane
+{
+    private Vec3 normal;
+    private Scalar distance;
+};
+
+CCPlane(Vec3 normal, Scalar distance)
+{
+    this.normal = normal; // we assume normal has already been normalised!
+    this.distance = distance;
+}
+
+CCPlane(Vec3 position, Vec3 normal)
+{
+    this.normal = normal; // we assume normal has already been normalised!
+    this.distance = normal.dot(position);
+}
+
+CCPlane(Vec3 p1, Vec3 p2, Vec3 p3)
+{
+    this.normal = Vec3(p2 - p1).cross(Vec3(p3 - p1));
+    this.normal.normalize();
+    this.distance = this.normal.dot(p1);
+}
+
+// getters
+Vec3 CCPlane.getNormal() { return this.normal; }
+Scalar CCPlane.getDistance() { return this.distance; }
+
+// methods
+Scalar CCPlane.distanceTo(Vec3 p)
+{
+    return p.dot(this.normal) - this.distance;
+}
+
+Vec3 CCPlane.reflectPoint(Vec3 p)
+{
+    return this.normal * this.distanceTo(p) * (-2.0) + p;
+}
+
+Vec3 CCPlane.reflectVector(Vec3 v)
+{
+    return v - this.normal * (this.normal.dot(v)) * 2.0;
+}

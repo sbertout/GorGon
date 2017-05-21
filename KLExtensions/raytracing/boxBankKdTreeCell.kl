@@ -1,0 +1,209 @@
+object CCBoxBankKdTreeCell
+{
+    // TODO private!
+	Vec3 min, max, center;
+	CCBox box;
+	CCeAxisType axisType;
+	Index ownedBoxes[];
+	CCBoxBankKdTreeCell negativeCell;
+	CCBoxBankKdTreeCell positiveCell;
+};
+
+CCBoxBankKdTreeCell(CCBoxBank bb, Vec3 min, Vec3 max, Index boxes[])
+{
+	// report('creating CCBoxBankKdTreeCell');
+	// report(min + ' ' + max + ' ' + boxes);
+	this.min = min;
+	this.max = max;
+	this.box = CCBoxFromMinMax(min, max);
+	this.center = (min + max) * 0.5;
+	this.axisType = Vec3(this.max - this.min).getDominantAxis();
+
+	if (boxes.size() > 1)
+	{
+		Index negativeBoxes[];
+		Index positiveBoxes[];
+		for(Index i=0; i<boxes.size(); ++i)
+		{
+			Index boxIndex = boxes[i];
+			CCBox box = bb.getBox(boxIndex);
+
+			// report(i + " " + box.getMin() + "<->" + box.getMax() + " => " + box.getSideType(this.axisType, this.center));
+			CCeSideType sideType = box.getSideType(this.axisType, this.center);
+
+			if (sideType == CCeSideType_Negative)
+				negativeBoxes.push(boxIndex);
+			else if (sideType == CCeSideType_Positive)
+				positiveBoxes.push(boxIndex);
+			else
+				this.ownedBoxes.push(boxIndex);
+		}
+
+		Boolean addNegativeBoxesAsOwned = false;
+		if (negativeBoxes.size() > 1)
+		{
+			// report('negativeBoxes');
+			Vec3 optMin, optMax;
+			CCBoxBank tmpbb();
+			for(Index i=0; i<negativeBoxes.size(); ++i)
+			{
+				Index boxIndex = negativeBoxes[i];
+				// report(boxIndex);
+				CCBox box = bb.getBox(boxIndex);
+				// report(box);
+				tmpbb.addBox(box);
+			}
+			tmpbb.getMinAndMax(optMin, optMax);
+			// report(optMin);
+			// report(optMax);
+
+			if (optMin.x == optMax.x || optMin.y == optMax.y || optMin.z == optMax.z)
+				addNegativeBoxesAsOwned = true;
+
+			if (addNegativeBoxesAsOwned == false)
+			{
+				this.negativeCell = CCBoxBankKdTreeCell(bb, optMin, optMax, negativeBoxes);
+			}
+			// this.negativeCell = CCBoxBankKdTreeCell(bb, this.min, this.center, negativeBoxes);
+		}
+		else
+		{
+			addNegativeBoxesAsOwned = true;
+		}
+
+		if (addNegativeBoxesAsOwned)
+		{
+			for(Index i=0; i<negativeBoxes.size(); ++i)
+			{
+				Index boxIndex = negativeBoxes[i];
+				this.ownedBoxes.push(boxIndex);
+			}
+		}
+
+		Boolean addPositiveBoxesAsOwned = false;
+		if (positiveBoxes.size() > 1)
+		{
+			// report('positiveBoxes');
+			Vec3 optMin, optMax;
+			CCBoxBank tmpbb();
+			for(Index i=0; i<positiveBoxes.size(); ++i)
+			{
+				Index boxIndex = positiveBoxes[i];
+				// report(boxIndex);
+				CCBox box = bb.getBox(boxIndex);
+				// report(box);
+				tmpbb.addBox(box);
+			}
+			tmpbb.getMinAndMax(optMin, optMax);
+			// report(optMin);
+			// report(optMax);
+
+			if (optMin.x == optMax.x || optMin.y == optMax.y || optMin.z == optMax.z)
+				addPositiveBoxesAsOwned = true;
+
+			if (addPositiveBoxesAsOwned == false)
+			{
+				this.positiveCell = CCBoxBankKdTreeCell(bb, optMin, optMax, positiveBoxes);
+			}
+			// this.positiveCell = CCBoxBankKdTreeCell(bb, this.center, this.max, positiveBoxes);
+		}
+		else
+		{
+			addPositiveBoxesAsOwned = true;
+		}
+
+		if (addPositiveBoxesAsOwned)
+		{
+			for(Index i=0; i<positiveBoxes.size(); ++i)
+			{
+				Index boxIndex = positiveBoxes[i];
+				this.ownedBoxes.push(boxIndex);
+			}
+		}
+	}
+	else
+	{
+		this.ownedBoxes = boxes.clone();
+	}
+}
+
+CCBoxBankKdTreeCell.checkConsistency(io Boolean boxReferenced[])
+{
+	for(Index i=0; i<this.ownedBoxes.size(); ++i)
+	{
+		boxReferenced[this.ownedBoxes[i]] = true;
+	}
+	if (this.negativeCell) this.negativeCell.checkConsistency(boxReferenced);
+	if (this.positiveCell) this.positiveCell.checkConsistency(boxReferenced);
+}
+
+Size CCBoxBankKdTreeCell.computeMaxDepth(io Size depth)
+{
+	Size old_depth = depth;
+	depth = depth + 1;
+	if (this.negativeCell) depth = Math_max(depth, this.negativeCell.computeMaxDepth(old_depth));
+	if (this.positiveCell) depth = Math_max(depth, this.positiveCell.computeMaxDepth(old_depth));
+	return depth;
+}
+
+inline Boolean CCBoxBankKdTreeCell.intersectRay(CCRay ray, io Index validResultIndices[])
+{
+    Boolean result = ray.intersectBox(this.box);
+//    Scalar hitDistance;
+//    Boolean result = ray.intersectBox(this.box, hitDistance);
+    if (result)
+    {
+        validResultIndices.push(this.ownedBoxes);
+    }
+    return result;
+}
+
+CCBoxBankKdTreeCell.getLines(io Lines lines, io Integer depth)
+{
+	if (depth == 0)
+	{
+		Size pc = lines.pointCount();
+
+		Vec3 min = this.min;
+		Vec3 max = this.max;
+		lines.addPoints(8);
+
+		lines.setPosition(pc+0, Vec3(min.x, min.y, min.z));
+		lines.setPosition(pc+1, Vec3(max.x, min.y, min.z));
+		lines.setPosition(pc+2, Vec3(max.x, max.y, min.z));
+		lines.setPosition(pc+3, Vec3(min.x, max.y, min.z));
+
+		lines.setPosition(pc+4, Vec3(min.x, min.y, max.z));
+		lines.setPosition(pc+5, Vec3(max.x, min.y, max.z));
+		lines.setPosition(pc+6, Vec3(max.x, max.y, max.z));
+		lines.setPosition(pc+7, Vec3(min.x, max.y, max.z));
+
+		lines.addClosedLine(pc+0, pc+3);
+		lines.addClosedLine(pc+4, pc+7);
+
+		lines.addLine(Vec3(min.x, min.y, min.z), Vec3(min.x, min.y, max.z));
+		lines.addLine(Vec3(max.x, min.y, min.z), Vec3(max.x, min.y, max.z));
+		lines.addLine(Vec3(max.x, max.y, min.z), Vec3(max.x, max.y, max.z));
+		lines.addLine(Vec3(min.x, max.y, min.z), Vec3(min.x, max.y, max.z));
+
+		lines.addCross(Xfo(this.center), Vec3(this.max - this.min).length() * 0.1);
+		// lines.addAxes(Xfo(this.center), 5);
+
+		return;
+	}
+
+	depth = depth - 1;
+	// if (depth > 0)
+	{
+		if (this.negativeCell)
+		{
+			Integer d = depth;
+			this.negativeCell.getLines(lines, d);
+		}
+		if (this.positiveCell)
+		{
+			Integer d = depth;
+			this.positiveCell.getLines(lines, d);
+		}
+	}
+}

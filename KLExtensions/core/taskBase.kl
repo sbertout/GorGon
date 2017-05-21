@@ -1,0 +1,53 @@
+interface CCTaskInterface
+{
+    onFirstExecute!();
+	execute!();
+};
+
+object CCTaskMaster; // forward declaration
+object CCTaskBase : CCTaskInterface permits CCTaskMaster
+{
+	private Boolean done, verbose;
+	private Count executeCount;
+	protected Ref<CCTaskMaster> owner;
+	private Ref<CCTaskBase> dependencies[];
+};
+
+Count CCTaskBase.getExecuteCount() { return this.executeCount; }
+Boolean CCTaskBase.isDone() { return this.done; }
+
+// doing nothing per default
+CCTaskBase.onFirstExecute!() {}
+CCTaskBase.execute!() {}
+
+CCTaskBase.setDone!()
+{
+    this.executeCount += 1;
+	this.done = true;
+	if (this.verbose) report(' - ' + this.type() + " done!");
+}
+CCTaskBase.verbose!()
+{
+	this.verbose = true;
+}
+
+CCTaskBase.dependsOn!(CCTaskBase other)
+{
+	this.dependencies.push(other);
+}
+
+CCTaskBase.removeAllDependencies!()
+{
+    this.dependencies.resize(0);
+}
+
+Boolean CCTaskBase.canBeExecuted()
+{
+	if (this.dependencies.size() == 0) return true;
+	for(Index i=0; i<this.dependencies.size(); ++i)
+	{
+	    if (this.dependencies[i].isDone() == false)
+	        return false;
+	}
+	return true;
+}

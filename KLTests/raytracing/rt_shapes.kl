@@ -1,0 +1,31 @@
+require GGraytracing;
+
+object TestRTShapes : CCTestCase
+{
+};
+
+TestRTShapes.testSphereShape!()
+{
+	CCSphereShape ss = CCSphereShape(Xfo(Vec3(0, 0, 10)), 5);
+	CCSphere sphere = ss.getSphere();
+	this.assertEquals(sphere.getCenter(), Vec3(0, 0, 10));
+	this.assertEquals(sphere.getRadius(), 5);
+
+	ss = CCSphereShape(Xfo(Vec3(10, 20, 40), Quat(), Vec3(2, 2, 2)), 5);
+	sphere = ss.getSphere();
+	this.assertEquals(sphere.getCenter(), Vec3(10, 20, 40));
+	this.assertEquals(sphere.getRadius(), 10);
+}
+
+TestRTShapes.testBoxShape!()
+{
+	CCBoxShape bs = CCBoxShape(Xfo(Vec3(0, 0, 10)), Vec3(1, 2, 4));
+	CCBox box = bs.getBox();
+	this.assertEquals(box.getCenter(), Vec3(0, 0, 10));
+	this.assertEquals(box.getSize(), Vec3(1, 2, 4));
+
+	bs = CCBoxShape(Xfo(Vec3(10, 20, 40), Quat(), Vec3(4, 2, 1)), Vec3(1, 2, 4));
+	box = bs.getBox();
+	this.assertEquals(box.getCenter(), Vec3(10, 20, 40));
+	this.assertEquals(box.getSize(), Vec3(4, 4, 4));
+}

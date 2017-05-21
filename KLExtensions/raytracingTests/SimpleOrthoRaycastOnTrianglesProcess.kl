@@ -1,0 +1,51 @@
+object SimpleOrthoRaycastOnTrianglesTask;
+object SimpleOrthoRaycastOnTrianglesProcess : CCTaskBase
+{
+    private SimpleOrthoRaycastOnTrianglesTask parentTask;
+    private Count processIndex;
+    private Size x, y;
+    private CCRay ray;
+};
+
+SimpleOrthoRaycastOnTrianglesProcess(SimpleOrthoRaycastOnTrianglesTask parentTask, Count processIndex, Size x, Size y, CCRay ray)
+{
+    this.parentTask = parentTask;
+    this.processIndex = processIndex;
+    this.x = x;
+    this.y = y;
+    this.ray = ray;
+}
+
+SimpleOrthoRaycastOnTrianglesProcess.execute!()
+{
+    CCPackedColor col(0.0, 0.0, 0.0);
+
+    Scalar bestHitDistance = SCALAR_INFINITE;
+    for(Index i=0; i<this.parentTask.getTriangleCount(); ++i)
+    {
+        CCTriangle triangle = this.parentTask.getTriangle(i);
+        Scalar hitDistance;
+        if (this.ray.intersectTriangle(triangle, hitDistance))
+        {
+            ////report("HIT " + hitDistance);
+            if (hitDistance < bestHitDistance)
+            {
+                if (this.parentTask.getCameraFacingLighting())
+                {
+                    Vec3 hitPos = this.ray.getPosition(hitDistance);
+                    Vec3 hitNor = triangle.getNormal();
+
+                    Scalar kd = hitNor.dot(Vec3(0, 0, 1));
+                    col = CCPackedColor(Color(kd, kd, kd));
+                }
+                else
+                {
+                    col = CCPackedColor(Color(1.0, 0.0, 0.0).linearInterpolate(Color(0.0, 1.0, 0.0), (hitDistance - 5.0) / 5.0));
+                }
+
+                bestHitDistance = hitDistance;
+            }
+        }
+    }
+    this.parentTask.updateOutputBuffer(col, this.x, this.y);
+}

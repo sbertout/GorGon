@@ -1,0 +1,15 @@
+{
+    "code": [
+        "raytracingTests/_requires.kl", 
+        "raytracingTests/SimpleOrthoRaycastBaseTask.kl", 
+        "raytracingTests/SimpleOrthoRaycastOnQuadsProcess.kl", 
+        "raytracingTests/SimpleOrthoRaycastOnQuadsTask.kl", 
+        "raytracingTests/SimpleOrthoRaycastOnSphereShapesProcess.kl", 
+        "raytracingTests/SimpleOrthoRaycastOnSphereShapesTask.kl", 
+        "raytracingTests/SimpleOrthoRaycastOnSpheresProcess.kl", 
+        "raytracingTests/SimpleOrthoRaycastOnSpheresTask.kl", 
+        "raytracingTests/SimpleOrthoRaycastOnTrianglesProcess.kl", 
+        "raytracingTests/SimpleOrthoRaycastOnTrianglesTask.kl"
+    ], 
+    "version": "0.1.0"
+}

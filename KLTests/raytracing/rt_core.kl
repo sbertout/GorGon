@@ -1,0 +1,200 @@
+require GGraytracing;
+
+object TestRTCore : CCTestCase
+{
+};
+
+TestRTCore.testSphere!()
+{
+	Vec3 center = Vec3(0, 0, 0);
+	Scalar radius = 10.0f;
+	CCSphere sphere = CCSphere(center, radius);
+
+	this.assertEquals(sphere.getCenter(), center);
+	this.assertEquals(sphere.getRadius(), radius);
+	this.assertEquals(sphere.getMin(), Vec3(-radius, -radius, -radius));
+	this.assertEquals(sphere.getMax(), Vec3(+radius, +radius, +radius));
+
+	CCBox box = sphere.getBox();
+	this.assertEquals(box.getCenter(), center);
+	this.assertEquals(box.getSize(), 2.0 * Vec3(radius, radius, radius));
+
+	this.assertEquals(sphere.getNormal(Vec3(0, 10, 0)), Vec3(0, 1, 0));
+}
+
+TestRTCore.testTriangle!()
+{
+    Vec3 origin = Vec3(0, 0, 0);
+    CCTriangle tri = CCTriangle(origin, 2.0, Vec3(1, 0, 0), 4.0, Vec3(0, 1, 0));
+
+	this.assertEquals(tri.getOrigin(), origin);
+	this.assertEquals(tri.getULength(), 2.0);
+	this.assertEquals(tri.getUDir(), Vec3(1, 0, 0));
+	this.assertEquals(tri.getVLength(), 4.0);
+	this.assertEquals(tri.getVDir(), Vec3(0, 1, 0));
+
+	this.assertEquals(tri.getMin(), Vec3(0, 0, 0));
+	this.assertEquals(tri.getMax(), Vec3(2, 4, 0));
+
+    Vec3 points[];
+	tri.getPoints(points);
+	this.assertEquals(points[0], Vec3(0, 0, 0));
+	this.assertEquals(points[1], Vec3(2, 0, 0));
+	this.assertEquals(points[2], Vec3(0, 4, 0));
+
+    Vec2 uv;
+    this.assertTrue(tri.getUVCoordinates(Vec3(0, 0, 0), uv));
+    this.assertEquals(uv, Vec2(0, 0));
+    this.assertTrue(tri.getUVCoordinates(Vec3(2, 0, 0), uv));
+    this.assertEquals(uv, Vec2(1, 0));
+    this.assertTrue(tri.getUVCoordinates(Vec3(0, 4, 0), uv));
+    this.assertEquals(uv, Vec2(0, 1));
+
+    // outside the triangle!
+    this.assertFalse(tri.getUVCoordinates(Vec3(2, 4, 0), uv));
+    this.assertEquals(uv, Vec2(1, 1));
+    this.assertFalse(tri.getUVCoordinates(Vec3(-2, -4, 0), uv));
+    this.assertEquals(uv, Vec2(-1, -1));
+    this.assertFalse(tri.getUVCoordinates(Vec3(4, 8, 0), uv));
+    this.assertEquals(uv, Vec2(2, 2));
+
+    tri = CCTriangle(Vec3(0, 0, 0), Vec3(2, 0, 0), Vec3(0, 4, 0));
+	this.assertEquals(tri.getOrigin(), Vec3(0, 0, 0));
+	this.assertEquals(tri.getULength(), 2.0);
+	this.assertEquals(tri.getUDir(), Vec3(1, 0, 0));
+	this.assertEquals(tri.getVLength(), 4.0);
+	this.assertEquals(tri.getVDir(), Vec3(0, 1, 0));
+	this.assertEquals(tri.getMin(), Vec3(0, 0, 0));
+	this.assertEquals(tri.getMax(), Vec3(2, 4, 0));
+
+    tri = CCTriangle(Vec3(2, 0, 0), Vec3(0, 4, 0), Vec3(0, 0, 0));
+	this.assertEquals(tri.getOrigin(), Vec3(2, 0, 0));
+	this.assertAlmostEquals(tri.getULength(), +4.472136);
+	this.assertAlmostEquals(tri.getUDir(), Vec3(-0.447213, +0.894427, 0));
+	this.assertEquals(tri.getVLength(), 2.0);
+	this.assertEquals(tri.getVDir(), Vec3(-1, 0, 0));
+	this.assertEquals(tri.getMin(), Vec3(0, 0, 0));
+	this.assertEquals(tri.getMax(), Vec3(2, 4, 0));
+}
+
+TestRTCore.testQuad!()
+{
+	Vec3 center = Vec3(0, 0, 0);
+	CCQuad quad = CCQuad(center, 2.0, Vec3(1, 0, 0), 4.0, Vec3(0, 1, 0));
+
+	this.assertEquals(quad.getCenter(), center);
+	this.assertEquals(quad.getULength(), 2.0);
+	this.assertEquals(quad.getUDir(), Vec3(1, 0, 0));
+	this.assertEquals(quad.getVLength(), 4.0);
+	this.assertEquals(quad.getVDir(), Vec3(0, 1, 0));
+
+	this.assertEquals(quad.getMin(), Vec3(-1, -2, 0));
+	this.assertEquals(quad.getMax(), Vec3(+1, +2, 0));
+	this.assertEquals(quad.getNormal(), Vec3(0, 0, 1));
+
+	Vec3 points[];
+	quad.getPoints(points);
+	this.assertEquals(points[0], Vec3(-1, -2, 0));
+	this.assertEquals(points[1], Vec3(+1, -2, 0));
+	this.assertEquals(points[2], Vec3(+1, +2, 0));
+	this.assertEquals(points[3], Vec3(-1, +2, 0));
+
+    Vec2 uv;
+	this.assertTrue(quad.getUVCoordinates(points[0], uv));
+	this.assertEquals(uv, Vec2(0, 0));
+	this.assertTrue(quad.getUVCoordinates(points[1], uv));
+	this.assertEquals(uv, Vec2(1, 0));
+	this.assertTrue(quad.getUVCoordinates(points[2], uv));
+	this.assertEquals(uv, Vec2(1, 1));
+	this.assertTrue(quad.getUVCoordinates(points[3], uv));
+	this.assertEquals(uv, Vec2(0, 1));
+
+    // outside the quad!
+	this.assertFalse(quad.getUVCoordinates(Vec3(-2, -4, 0), uv));
+	this.assertEquals(uv, Vec2(-0.5, -0.5));
+	this.assertFalse(quad.getUVCoordinates(Vec3(-3, -6, 0), uv));
+	this.assertEquals(uv, Vec2(-1, -1));
+	this.assertFalse(quad.getUVCoordinates(Vec3(2, 4, 0), uv));
+	this.assertEquals(uv, Vec2(1.5, 1.5));
+
+	center = Vec3(10, 0, 0);
+	quad = CCQuad(center, 4.0, Vec3(1, 1, 0).normalized(), 2.0, Vec3(-1, 1, 0).normalized());
+	this.assertEquals(quad.getCenter(), center);
+	this.assertAlmostEquals(quad.getMin(), Vec3(+9.292893, -2.12132, +0.0));
+	this.assertAlmostEquals(quad.getMax(), Vec3(+10.7071, +2.12132, +0.0));
+	this.assertAlmostEquals(quad.getNormal(), Vec3(0, 0, 1));
+}
+
+TestRTCore.testBox!()
+{
+	Vec3 center = Vec3(0, 0, 0);
+	Vec3 size = Vec3(2, 4, 8);
+	CCBox box = CCBox(center, size);
+
+	this.assertEquals(box.getCenter(), center);
+	this.assertEquals(box.getSize(), size);
+	this.assertEquals(box.getMin(), Vec3(-1, -2, -4));
+	this.assertEquals(box.getMax(), Vec3(+1, +2, +4));
+
+	this.assertEquals(box.getSideType(CCeAxisType_X, -2), CCeSideType_Positive);
+	this.assertEquals(box.getSideType(CCeAxisType_X, +2), CCeSideType_Negative);
+	this.assertEquals(box.getSideType(CCeAxisType_X, 0), CCeSideType_Inside);
+	this.assertEquals(box.getSideType(CCeAxisType_Y, -4), CCeSideType_Positive);
+	this.assertEquals(box.getSideType(CCeAxisType_Y, +4), CCeSideType_Negative);
+	this.assertEquals(box.getSideType(CCeAxisType_Y, 0), CCeSideType_Inside);
+	this.assertEquals(box.getSideType(CCeAxisType_Z, -8), CCeSideType_Positive);
+	this.assertEquals(box.getSideType(CCeAxisType_Z, +8), CCeSideType_Negative);
+	this.assertEquals(box.getSideType(CCeAxisType_Z, 0), CCeSideType_Inside);
+
+	CCBox box2 = CCBoxFromMinMax(Vec3(-1, -2, -4), Vec3(+1, +2, +4));
+	this.assertEquals(box.getCenter(), box2.getCenter());
+	this.assertEquals(box.getSize(), box2.getSize());
+}
+
+TestRTCore.testRay!()
+{
+	Vec3 origin = Vec3(0, 0, 0);
+	Vec3 direction = Vec3(0, 0, 1);
+	CCRay ray = CCRay(origin, direction);
+
+	this.assertEquals(ray.getOrigin(), origin);
+	this.assertEquals(ray.getDirection(), direction);
+	this.assertEquals(ray.getPosition(10), Vec3(0, 0, 10));
+}
+
+TestRTCore.testPlane!()
+{
+    CCPlane plane(Vec3(0, 1, 0), 10);
+    this.assertEquals(plane.getNormal(), Vec3(0, 1, 0));
+    this.assertEquals(plane.getDistance(), 10);
+
+    plane = CCPlane(Vec3(0, 10, 0), Vec3(0, 1, 0));
+    this.assertEquals(plane.getNormal(), Vec3(0, 1, 0));
+    this.assertEquals(plane.getDistance(), 10);
+
+    plane = CCPlane(Vec3(0, -10, 0), Vec3(0, 1, 0));
+    this.assertEquals(plane.getNormal(), Vec3(0, 1, 0));
+    this.assertEquals(plane.getDistance(), -10);
+
+    plane = CCPlane(Vec3(0, -10, 0), Vec3(0, -1, 0));
+    this.assertEquals(plane.getNormal(), Vec3(0, -1, 0));
+    this.assertEquals(plane.getDistance(), 10);
+
+    plane = CCPlane(Vec3(0, 0, 0), Vec3(1, 0, 0), Vec3(0, 1, 0));
+    this.assertEquals(plane.getNormal(), Vec3(0, 0, 1));
+    this.assertEquals(plane.getDistance(), 0);
+    this.assertEquals(plane.distanceTo(Vec3(0, 0, 0)), 0);
+    this.assertEquals(plane.reflectPoint(Vec3(0, 0, 0)), Vec3(0, 0, 0));
+    this.assertEquals(plane.reflectPoint(Vec3(0, 0, 10)), Vec3(0, 0, -10));
+    this.assertEquals(plane.reflectVector(Vec3(0, 0, -10)), Vec3(0, 0, 10));
+
+    plane = CCPlane(Vec3(0, 0, 10), Vec3(1, 0, 10), Vec3(0, 1, 10));
+    this.assertEquals(plane.getNormal(), Vec3(0, 0, 1));
+    this.assertEquals(plane.getDistance(), 10);
+
+    this.assertEquals(plane.distanceTo(Vec3(0, 0, 0)), -10);
+    this.assertEquals(plane.distanceTo(Vec3(0, 0, 10)), 0);
+    this.assertEquals(plane.distanceTo(Vec3(0, 0, 20)), 10);
+    this.assertEquals(plane.reflectPoint(Vec3(0, 0, 20)), Vec3(0, 0, 0));
+    this.assertEquals(plane.reflectVector(Vec3(0, 0, 1)), Vec3(0, 0, -1));
+}

@@ -1,0 +1,30 @@
+object CCImageReader
+{
+    String filePath;
+};
+
+CCImageReader(String filePath)
+{
+    this.filePath = filePath;
+}
+
+CCPackedColorArray CCImageReader.read(io Size width, io Size height)
+{
+    CCPackedColorArray pixels;
+    OpenImageInput oiimage = OpenImageInput();
+    oiimage.open(this.filePath);
+
+    if (oiimage.valid())
+    {
+        OpenImageTypeDesc desc = OpenImageTypeDesc(OpenImage_BASETYPE_FLOAT, OpenImage_AGGREGATE_SCALAR, OpenImage_VECSEMANTICS_NOXFORM);
+        OpenImageSpec spec = oiimage.spec();
+
+        width = spec.get_full_width();
+        height = spec.get_full_height();
+        pixels.resize(width * height);
+
+        Data data = pixels.data();
+        oiimage.read_image(desc, data, 0, 0, 0);
+    }
+    return pixels;
+}

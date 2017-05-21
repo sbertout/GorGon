@@ -1,0 +1,11 @@
+CCassert(Boolean test)
+{
+  if (! test)
+    setError("CCassert");
+}
+
+CCassertEquals(String s1, String s2)
+{
+  if (s1 != s2)
+    setError("CCassertEquals: " + s1 + " != " + s2);
+}

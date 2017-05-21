@@ -1,0 +1,11 @@
+{
+    "code": [
+        "image/_requires.kl", 
+        "image/colorPacked.kl", 
+        "image/imageReader.kl", 
+        "image/imageWriter.kl", 
+        "image/imageWriterTask.kl", 
+        "image/outputBuffer.kl"
+    ], 
+    "version": "0.1.0"
+}

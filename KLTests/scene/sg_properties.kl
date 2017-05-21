@@ -1,0 +1,76 @@
+require Math;
+require GGscene;
+require Fbx;
+require Geometry;
+
+object TestSGProperties : CCTestCase
+{
+};
+
+TestSGProperties.testProperties!()
+{
+  CCProperties p = CCProperties();
+  this.assertEquals(p.isEmpty(), true);
+
+  // testing booleans
+  p.addBoolean('myBooleanTrue', true);
+  p.addBoolean('myBooleanFalse', false);
+  this.assertEquals(p.hasBoolean('myBooleanTrue'), true);
+  this.assertEquals(p.hasBoolean('myBooleanFalse'), true);
+  this.assertEquals(p.hasBoolean('NOT_THERE'), false);
+  this.assertEquals(p.getBooleanValue('myBooleanTrue'), true);
+  this.assertEquals(p.getBooleanValue('myBooleanFalse'), false);
+
+  // testing scalars
+  p.addScalar('myScalarTrue', 1.23);
+  p.addScalar('myScalarFalse', 4.56);
+  this.assertEquals(p.hasScalar('myScalarTrue'), true);
+  this.assertEquals(p.hasScalar('myScalarFalse'), true);
+  this.assertEquals(p.hasScalar('NOT_THERE'), false);
+  this.assertEquals(p.getScalarValue('myScalarTrue'), 1.23);
+  this.assertEquals(p.getScalarValue('myScalarFalse'), 4.56);
+
+  // testing integers
+  p.addInteger('myIntegerTrue', 1);
+  p.addInteger('myIntegerFalse', 4);
+  this.assertEquals(p.hasInteger('myIntegerTrue'), true);
+  this.assertEquals(p.hasInteger('myIntegerFalse'), true);
+  this.assertEquals(p.hasInteger('NOT_THERE'), false);
+  this.assertEquals(p.getIntegerValue('myIntegerTrue'), 1);
+  this.assertEquals(p.getIntegerValue('myIntegerFalse'), 4);
+
+  // testing strings
+  p.addString('myStringTrue', '1');
+  p.addString('myStringFalse', '4');
+  this.assertEquals(p.hasString('myStringTrue'), true);
+  this.assertEquals(p.hasString('myStringFalse'), true);
+  this.assertEquals(p.hasString('NOT_THERE'), false);
+  this.assertEquals(p.getStringValue('myStringTrue'), '1');
+  this.assertEquals(p.getStringValue('myStringFalse'), '4');
+}
+
+object MyObjectString {
+  String string;
+};
+MyObjectString(String s) { this.string = s; }
+object MyObjectScalar {
+  Scalar scalar;
+};
+MyObjectScalar(Scalar s) { this.scalar = s; }
+
+TestSGProperties.testPropertiesObjects!()
+{
+  MyObjectString str = MyObjectString('hell yeah');
+  MyObjectScalar scl = MyObjectScalar(1.23);
+
+  CCProperties p = CCProperties();
+
+  this.assertEquals(p.hasObject('MyObjectString'), false);
+  p.addObject('MyObjectString', str);
+  this.assertEquals(p.hasObject('MyObjectString'), true);
+  this.assertEquals(p.hasObject('MyObjectScalar'), false);
+  p.addObject('MyObjectScalar', scl);
+  this.assertEquals(p.hasObject('MyObjectScalar'), true);
+  this.assertEquals(p.getObjectValue('MyObjectString'), str);
+  this.assertEquals(p.getObjectValue('MyObjectScalar'), scl);
+}

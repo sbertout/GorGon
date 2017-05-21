@@ -1,0 +1,18 @@
+object CCTransformComponent;
+/*
+object DefaultTransformComponent : CCTransformComponent
+{
+};
+
+// constructors
+
+
+// getters
+function Xfo DefaultTransformComponent.getTransform!() { return this._xfo; }
+function Size DefaultTransformComponent.getChildCount!() { return 0; }
+function CCEntity DefaultTransformComponent.getChild!() { return null; }
+
+// setters
+
+// methods
+*/

@@ -1,0 +1,55 @@
+object CCEntity;
+object CCTransformComponent;
+
+object CCComponent
+{
+  private Index uid;
+  private String name;	
+  private CCEntity ownerEntity;
+};
+
+CCComponent.createComponent!(String n)
+{
+  if (Singleton_has('CCComponentFactory') == false)
+    Singleton_set('CCComponentFactory', CCComponentFactory());
+  CCComponentFactory cf = Singleton_get('CCComponentFactory');
+
+  this.uid = cf.getUID();
+  this.name = n;
+}
+
+String CCComponent.toString()
+{
+  if (this == null) return 'null CCComponent';
+	return 'CCComponent: ' + this.name + " uid=" + this.uid + " ownerEntity=" + this.ownerEntity.getPaths();
+}
+
+Index CCComponent.getUID()
+{ 
+  return this.uid; 
+}
+
+String CCComponent.getName()
+{
+  return this.name; 
+}
+
+CCEntity CCComponent.getOwnerEntity()
+{
+	return this.ownerEntity;
+}
+
+CCComponent.setOwnerEntity!(CCEntity e)
+{
+	this.ownerEntity = e;
+}
+
+Boolean == (CCComponent c1, CCComponent c2)
+{
+  return c1 != null && c2 != null && c1.getUID() == c2.getUID();
+}
+
+Boolean != (CCComponent c1, CCComponent c2)
+{
+  return !(c1 == c2);
+}

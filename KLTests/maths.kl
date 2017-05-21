@@ -1,0 +1,67 @@
+require GGmaths;
+
+object TestMaths : CCTestCase
+{
+};
+
+TestMaths.testVec3Extra!()
+{
+	this.assertEquals(Vec3(1, 2, 4).getDominantAxis(), CCeAxisType_Z);
+	this.assertEquals(Vec3(1, 4, 2).getDominantAxis(), CCeAxisType_Y);
+	this.assertEquals(Vec3(4, 1, 2).getDominantAxis(), CCeAxisType_X);
+
+	this.assertEquals(Math_max(Vec3(5, 1, 1), Vec3(2, 10, 10)), Vec3(5, 10, 10));
+	this.assertEquals(Math_min(Vec3(5, 1, 1), Vec3(2, 10, 10)), Vec3(2, 1, 1));
+}
+
+TestMaths.testRandomExtra!()
+{
+    CCRandomGen();
+
+    this.assertEquals(CCrandomInteger(), 0);
+    this.assertEquals(CCrandomInteger(), 75193);
+    this.assertEquals(CCrandomInteger(10, 100), 21);
+    this.assertEquals(CCrandomInteger(10, 100), 60);
+
+    this.assertAlmostEquals(CCrandomScalar01(), +0.257035);
+    this.assertAlmostEquals(CCrandomScalar01(), +0.262781);
+    this.assertAlmostEquals(CCrandomUnitScalar(), -1.270216e-2);
+    this.assertAlmostEquals(CCrandomUnitScalar(), -0.466364);
+    this.assertAlmostEquals(CCrandomScalar(), +2067912.0);
+    this.assertAlmostEquals(CCrandomScalar(), -8103677.0, 0.5);
+    this.assertAlmostEquals(CCrandomScalar(10, 100), +21.61931);
+    this.assertAlmostEquals(CCrandomScalar(10, 100), +86.4555);
+
+    this.assertAlmostEquals(CCrandomVec2(), Vec2(+0.348405, +0.883259));
+    this.assertAlmostEquals(CCrandomVec2(), Vec2(+0.510965, +0.693707));
+    this.assertAlmostEquals(CCrandomVec3(), Vec3(+0.535794, +0.365863, +0.796567));
+    this.assertAlmostEquals(CCrandomVec3(), Vec3(+0.85665, +0.255708, +0.331803));
+    this.assertAlmostEquals(CCrandomVec4(), Vec4(+0.528279, +0.116659, +0.964538, +0.111423));
+    this.assertAlmostEquals(CCrandomVec4(), Vec4(+0.035369, +0.248063, +0.687549, +0.230041));
+    this.assertAlmostEquals(CCrandomUnitVec2(), Vec2(-0.18766, +0.795313));
+    this.assertAlmostEquals(CCrandomUnitVec2(), Vec2(+0.95867, +0.201656));
+    this.assertAlmostEquals(CCrandomUnitVec3(), Vec3(+0.811109, -0.124539, +0.034159));
+    this.assertAlmostEquals(CCrandomUnitVec3(), Vec3(+0.263462, +0.425474, -0.658684));
+
+    this.assertAlmostEquals(CCrandomOnUnitSphere(), Vec3(-0.62301, +0.253651, +0.739945));
+    this.assertAlmostEquals(CCrandomOnUnitSphere(), Vec3(-0.565995, +0.333486, +0.753946));
+    this.assertAlmostEquals(CCrandomInsideUnitSphere(), Vec3(-0.584046, +0.526931, +0.787956));
+    this.assertAlmostEquals(CCrandomInsideUnitSphere(), Vec3(+0.051427, -0.098688, -0.716601));
+    this.assertAlmostEquals(CCrandomOnUnitDisk(), Vec2(-0.841032, +0.540984));
+    this.assertAlmostEquals(CCrandomOnUnitDisk(), Vec2(+0.939534, +0.342453));
+    this.assertAlmostEquals(CCrandomInsideUnitDisk(), Vec2(+0.138857, +0.555383));
+    this.assertAlmostEquals(CCrandomInsideUnitDisk(), Vec2(+0.238387, +0.547048));
+
+    this.assertAlmostEquals(CCrandomQuat(), Quat(+0.639396, +0.595882, -0.484661, +0.03463));
+    this.assertAlmostEquals(CCrandomQuat(), Quat(-0.662648, +0.680767, -0.085622, -0.300203));
+
+    this.assertAlmostEquals(CCrandomUnitVec3(Vec3(0, 1, 0)), Vec3(-0.338979, +0.043671, -0.883547));
+    this.assertAlmostEquals(CCrandomUnitVec3(Vec3(0, 1, 0)), Vec3(+0.806225, +0.980541, +0.457398));
+    this.assertAlmostEquals(CCrandomUnitVec3(Vec3(0, 1, 0)), Vec3(-0.766303, +0.597066, -0.641899));
+    this.assertAlmostEquals(CCrandomUnitVec3(Vec3(0, 1, 0)), Vec3(+0.153454, +0.86508, +0.699527));
+
+    this.assertAlmostEquals(CCrandomColor(), Color(0.038264, +0.885453, +0.577921, +1.0));
+    this.assertAlmostEquals(CCrandomColor(), Color(0.223365, +0.255259, +0.084745, +1.0));
+    this.assertAlmostEquals(CCrandomColor(), Color(0.095176, +0.490002, +0.390945, +1.0));
+    this.assertAlmostEquals(CCrandomColor(), Color(0.959065, +0.942418, +0.130633, +1.0));
+}

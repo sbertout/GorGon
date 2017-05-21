@@ -1,0 +1,18 @@
+{
+    "code": [
+        "maths/_requires.kl", 
+        "maths/assert.kl", 
+        "maths/box.kl", 
+        "maths/plane.kl", 
+        "maths/quad.kl", 
+        "maths/quatMethods.kl", 
+        "maths/randomGen.kl", 
+        "maths/ray.kl", 
+        "maths/sphere.kl", 
+        "maths/triangle.kl", 
+        "maths/utils.kl", 
+        "maths/vec3Methods.kl", 
+        "maths/xfoMethods.kl"
+    ], 
+    "version": "0.1.0"
+}

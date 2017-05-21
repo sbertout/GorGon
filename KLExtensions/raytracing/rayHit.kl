@@ -1,0 +1,10 @@
+//object CCMaterial;
+
+struct CCRayHit
+{
+    Vec3 hitPos, hitNor;
+    Scalar hitDistance;
+
+    RTMaterial material; // ??? UserData?
+    // Object userData;
+};

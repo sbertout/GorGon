@@ -1,0 +1,25 @@
+object CCTaskBase;
+
+object CCImageWriterTask : CCTaskBase
+{
+    String filePath;
+    CCOutputBuffer outputBuffer;
+};
+
+CCImageWriterTask(String filePath, Size width, Size height, CCPackedColorArray pixels)
+{
+    this.filePath = filePath;
+    this.outputBuffer = CCOutputBuffer(width, height, pixels);
+}
+
+CCImageWriterTask(String filePath, CCOutputBuffer outputBuffer)
+{
+    this.filePath = filePath;
+    this.outputBuffer = outputBuffer;
+}
+
+CCImageWriterTask.execute!()
+{
+    CCImageWriter(this.filePath, this.outputBuffer).write();
+    this.parent.setDone(); // always call setDone on the parent class to make sure this.done is set properly
+}

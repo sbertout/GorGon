@@ -1,0 +1,39 @@
+require AlembicWrapper;
+
+object CCAlembicReader
+{
+    FilePath filePath;
+    AlembicArchiveReader reader;
+};
+
+CCAlembicReader(FilePath filePath)
+{
+    this.filePath = filePath;
+    this.reader =  AlembicArchiveReader(this.getFilePathAsString());
+}
+
+String CCAlembicReader.getFilePathAsString()
+{
+    return this.filePath.expandEnvVars().string();
+}
+
+Vec3[] CCAlembicReader.getPoints!(Float64 time)
+{
+    Vec3 points[];
+    String pointsPaths[] = this.reader.getPathsOfType('Points');
+
+	for(Size i=0;i<pointsPaths.size();i++)
+	{
+		AlembicPointsReader pointsReader = this.reader.getPoints(pointsPaths[i]);
+		GeometryAttributes attr = GeometryAttributes();
+		pointsReader.readSample(time, attr);
+
+		Ref<Vec3Attribute> positions = attr.getPositions();
+		for(Index j=0; j<positions.size(); ++j)
+		{
+			points.push(positions.values[j]);
+		}
+	}
+
+	return points;
+}

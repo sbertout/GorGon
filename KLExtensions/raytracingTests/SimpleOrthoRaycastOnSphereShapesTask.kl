@@ -1,0 +1,121 @@
+object SimpleOrthoRaycastOnSphereShapesTask : SimpleOrthoRaycastBaseTask
+{
+    private CCSphereShape sphereShapes[];
+    private CCBoxBank boxBank;
+};
+
+SimpleOrthoRaycastOnSphereShapesTask(CCOutputBuffer outputBuffer)
+{
+    Boolean cameraFacingLighting = false; // not used anymore
+    this.initDefaults(true, outputBuffer, cameraFacingLighting);
+}
+
+inline Count SimpleOrthoRaycastOnSphereShapesTask.getSphereCount()
+{
+    return this.sphereShapes.size();
+}
+
+inline SimpleOrthoRaycastOnSphereShapesTask.reservesSphereShapes!(Size count)
+{
+    this.sphereShapes.resize(count);
+}
+
+inline CCSphereShape SimpleOrthoRaycastOnSphereShapesTask.getSphereShape(Index idx)
+{
+    return this.sphereShapes[idx];
+}
+
+inline SimpleOrthoRaycastOnSphereShapesTask.setSphereShape!(Index idx, CCSphereShape sphereShape)
+{
+    this.sphereShapes[idx] = sphereShape;
+}
+
+inline SimpleOrthoRaycastOnSphereShapesTask.addSphereShape!(CCSphereShape sphereShape)
+{
+    this.sphereShapes.push(sphereShape);
+}
+
+SimpleOrthoRaycastOnSphereShapesTask.generateKdTree!()
+{
+    this.boxBank = CCBoxBank();
+    for(Index i=0; i<this.sphereShapes.size(); ++i)
+    {
+        CCSphereShape sphereShape = this.sphereShapes[i];
+        this.boxBank.addBox(sphereShape.getBox());
+    }
+    this.boxBank.buildKdTree();
+}
+
+SimpleOrthoRaycastOnSphereShapesTask.onFirstExecute!()
+{
+    this.generateKdTree();
+}
+
+SimpleOrthoRaycastOnSphereShapesTask.execute!()
+{
+    Vec3 viewSize(10);
+    Size width = this.outputBuffer.getWidth();
+    Size height = this.outputBuffer.getHeight();
+    Scalar sw = width;
+    Scalar sh = height;
+
+    Vec3 rayDirection(0, 0, -1);
+    CCTaskMaster tm(this.usePEX, width * height);
+    Index taskCount = 0;
+    for(Index y=0; y<height; ++y)
+    {
+        Scalar yo = 2.0 * (0.5 + Scalar(y)) / sh - 1.0;
+        for(Index x=0; x<width; ++x)
+        {
+            Scalar xo = 2.0 * (0.5 + Scalar(x)) / sw - 1.0;
+            Vec3 rayOrigin(Vec3(xo, yo, 0) * this.viewSize);
+            rayOrigin.z = this.rayZPos;
+
+            tm.addTask(SimpleOrthoRaycastOnSphereShapesProcess(this, taskCount++, x, y, CCRay(rayOrigin, rayDirection)));
+        }
+    }
+    tm.executeAll();
+
+    this.parent.setDone(); // always call setDone on the parent class to make sure this.done is set properly
+}
+
+Boolean SimpleOrthoRaycastOnSphereShapesTask.getClosestHit(CCRay ray, io CCRayHit rayHit)
+{
+    Boolean usePEX = false; // try true on ACER
+    Index sphereIndicesToTest[] = this.boxBank.intersectRay(ray, usePEX);
+
+    Scalar bestHitDistance = SCALAR_INFINITE;
+    for(Index i=0; i < sphereIndicesToTest.size(); ++i)
+    {
+        CCSphereShape sphereShape = this.getSphereShape(sphereIndicesToTest[i]);
+        CCSphere sphere = sphereShape.getSphere();
+        Scalar hitDistance;
+        if (ray.intersectSphere(sphere, hitDistance))
+        {
+            if (hitDistance < bestHitDistance)
+            {
+//                report("HIT!!");
+
+                rayHit.hitDistance = hitDistance;
+                rayHit.hitPos = ray.getPosition(hitDistance);
+                rayHit.hitNor = sphere.getNormal(rayHit.hitPos);
+                rayHit.material = sphereShape.getMaterial();
+                bestHitDistance = hitDistance;
+
+//                report(rayHit.material);
+            }
+        }
+    }
+    return bestHitDistance != SCALAR_INFINITE;
+}
+
+Color SimpleOrthoRaycastOnSphereShapesTask.shade(CCRayHit rayHit)
+{
+    Color color = Color(1.0, 0.0, 1.0); // default to pink
+    if (rayHit.material != null)
+    {
+        color = rayHit.material.shade(rayHit);
+    }
+
+    return color;
+}

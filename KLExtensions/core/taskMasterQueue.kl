@@ -1,0 +1,21 @@
+object CCTaskMasterQueue
+{
+    CCTaskMaster queue[];
+};
+
+CCTaskMasterQueue()
+{
+}
+
+CCTaskMasterQueue.add!(CCTaskMaster tm)
+{
+    this.queue.push(tm);
+}
+
+CCTaskMasterQueue.execute!()
+{
+    for(Index i=0; i<this.queue.size(); ++i)
+    {
+        this.queue[i].executeAll();
+    }
+}

@@ -1,0 +1,15 @@
+{
+    "code": [
+        "core/_requires.kl", 
+        "core/array.kl", 
+        "core/assert.kl", 
+        "core/coloredString.kl", 
+        "core/context.kl", 
+        "core/properties.kl", 
+        "core/report.kl", 
+        "core/taskBase.kl", 
+        "core/taskMaster.kl", 
+        "core/taskMasterQueue.kl"
+    ], 
+    "version": "0.1.0"
+}

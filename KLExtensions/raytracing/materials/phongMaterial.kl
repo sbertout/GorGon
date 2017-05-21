@@ -1,0 +1,35 @@
+object CCPhongMaterial : RTMaterial
+{
+    Color diffuseColor;
+    Color specularColor;
+};
+
+CCPhongMaterial(Color diffuseColor, Color specularColor)
+{
+    this.diffuseColor = diffuseColor;
+    this.specularColor = specularColor;
+}
+
+// TODO move to vec3 utils file
+//Vec3 reflect(Vec3 v, Vec3 n)
+//{
+//	return v - 2 * v.dot(n) * n;
+//}
+
+Color CCPhongMaterial.shade(CCRayHit rayHit)
+{
+    Vec3 viewDir = Vec3(0, 0, -1);
+
+    Scalar kd = rayHit.hitNor.dot(-viewDir);
+    Color finalCol = Color(kd, kd, kd) * this.diffuseColor;
+
+    if (kd > 0)
+    {
+        Vec3 rf = rayHit.hitNor.reflect(viewDir);
+        Scalar rd  = rf.dot(viewDir);
+        Scalar ks = pow(rd, 16.0);
+        finalCol += Color(ks, ks, ks) * this.specularColor;
+    }
+
+    return finalCol;
+}

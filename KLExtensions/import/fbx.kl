@@ -1,0 +1,155 @@
+require Fbx;
+require Geometry;
+
+CCinjectImporterOptions(io CCProperties p, ImporterOptions impO)
+{
+  for(Size boolIdx=0; boolIdx<impO.boolKey.size(); ++boolIdx) 
+    p.addBoolean(impO.boolKey[boolIdx], impO.boolValue[boolIdx]);
+  for(Size scalarIdx=0; scalarIdx<impO.scalarKey.size(); ++scalarIdx) 
+    p.addScalar(impO.scalarKey[scalarIdx], impO.scalarValue[scalarIdx]);
+  for(Size intIdx=0; intIdx<impO.intKey.size(); ++intIdx) 
+    p.addInteger(impO.intKey[intIdx], impO.intValue[intIdx]);
+  for(Size stringIdx=0; stringIdx<impO.stringKey.size(); ++stringIdx) 
+    p.addString(impO.stringKey[stringIdx], impO.stringValue[stringIdx]);
+}
+
+String CCextractFilenameFromPath(String path)
+{
+  String sa [] = path.split('/');
+  return sa[sa.size()-1];
+}
+
+// CCTextureSet getTextureSet() {
+//   if (Singleton_has('CCTextureSet') == false)
+//     Singleton_set('CCTextureSet', CCTextureSet());
+//   return Singleton_get('CCTextureSet');
+// }
+
+CCEntity CCimportFBX(String fbxFilepath, String fbxTexFolder)
+{
+  FbxHandle fh(); 
+  fh.openFileHandle(fbxFilepath, fbxTexFolder);
+  // report(fh);
+  // report(fh.getOpenedFilePath());
+
+  // report(fbxFilepath.split('/'));
+
+  String sa[] = fbxFilepath.split('/');
+  // report(sa[sa.size()-1]);
+
+  CCEntity root(sa[sa.size()-1]);
+
+
+  ImporterOptions options();
+  ImporterIdentifier identifiers[];
+  fh.getIdentifiers(identifiers, options);
+  for(Size i=0; i<identifiers.size(); ++i)
+  {
+    ImporterIdentifier impI = identifiers[i];
+    // report(i + " ===> " + impI);
+
+    // report('name = ' + impI.name);
+    // report('index = ' + impI.index);
+    // report('version = ' + impI.version);
+    // report('type = ' + impI.type);
+    // report('filePath = ' + impI.filePath);
+    // report('fileIndex = ' + impI.fileIndex);
+    // report('data = ' + impI.data);
+
+    ImporterOptions impO = impI.data;
+
+    // report('parentName = ' + impO.getStringOption('parentName', ''));
+    // report('parentPath = ' + impO.getStringOption('parentPath', ''));
+
+    // report('boolKeys = ' + impO.boolKey);
+    // report('boolValues = ' + impO.boolValue);
+
+    // report('scalarKeys = ' + impO.scalarKey);
+    // report('scalarValues = ' + impO.scalarValue);
+
+    // report('intKeys = ' + impO.intKey);
+    // report('intValues = ' + impO.intValue); 
+
+    // report('stringKeys = ' + impO.stringKey);
+    // report('stringValues = ' + impO.stringValue);    
+
+    // report('');
+
+    switch(impI.type) 
+    {
+      case 'TEXTURE':
+        String name = CCextractFilenameFromPath(impI.name);
+        CCTextureSet texSet = root.getOrCreateUpdateComponent('CCTextureSet');
+        CCProperties texProperties = CCProperties();
+        CCinjectImporterOptions(texProperties, impO);
+        texSet.add(name, CCTexture(impI.name, texProperties));
+      break;
+
+      case 'MATERIAL':
+        String name = impI.name;
+        //CCEntity e(name);
+        //CCinjectImporterOptions(e.getProperties(), impO); // inject into material instead !
+        //root.addChild(e);
+
+        CCMaterialSet matSet = root.getOrCreateUpdateComponent('CCMaterialSet');
+        CCProperties matProperties = CCProperties();
+        CCinjectImporterOptions(matProperties, impO);
+        matSet.add(name, BaseMaterial(matProperties));
+
+      break;      
+
+      case 'NULL': // just a transform !
+        String name = impI.name;
+        CCEntity e(name);
+        CCinjectImporterOptions(e.getProperties(), impO);
+        root.addChild(e);      
+      break;
+
+      case 'MESH':
+        String name = impI.name;
+        CCEntity e(name);
+        CCinjectImporterOptions(e.getProperties(), impO);
+
+        String parentPath = e.getProperties().getStringValue('parentPath', '');
+        CCEntity parentEntity = parentPath != '' ? root.findEntity(parentPath) : root;
+
+        parentEntity.addChild(e); // should probably do some error check here !
+
+        CCRenderable renderable = CCRenderable(e.getName() + 'CCRenderable', null, null);
+        e.addUpdateComponent(renderable);
+
+        // TODO get mesh data !
+      break;      
+
+    }
+
+    // CCEntity e(impI.name);
+    // root.addChild(e);
+
+  }
+
+  // report(root.expandAllPaths());
+  //report(root.getChildCount());
+  // report(root.toString());
+  // report('MATERIAL SET !!!!');
+  // report(root.getUpdateComponent('CCMaterialSet').toString());
+  // for(Size i=0; i<root.getChildCount(); ++i) {
+  //   report('child[' + i + '] = ' + root.getChild(i).toString());
+  //   // report(root.getChild(i));
+  //   report('');
+  // }
+
+
+  // Vec3 bboxMin, bboxMax;
+  // fh.parsePolygonMeshBbox(identifiers[2], bboxMin, bboxMax);
+  // report(bboxMin);
+  // report(bboxMax);
+
+  fh.close();
+  return root;
+}
+
+CCEntity CCimportAsset(String path, String secondaryPath)
+{
+  return CCimportFBX(path, secondaryPath);
+}

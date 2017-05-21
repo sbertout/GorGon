@@ -1,0 +1,29 @@
+require GGcore;
+
+object TestCore : CCTestCase
+{
+};
+
+TestCore.testArraySort!()
+{
+    Index indices[];
+    indices.push(0);
+    indices.push(10);
+    indices.push(20);
+    indices.push(30);
+    this.assertEquals(indices.sorted(), "[0,10,20,30]");
+
+    indices.resize(0);
+    indices.push(30);
+    indices.push(20);
+    indices.push(10);
+    indices.push(0);
+    this.assertEquals(indices.sorted(), "[0,10,20,30]");
+
+    indices.resize(0);
+    indices.push(20);
+    indices.push(30);
+    indices.push(0);
+    indices.push(10);
+    this.assertEquals(indices.sorted(), "[0,10,20,30]");
+}

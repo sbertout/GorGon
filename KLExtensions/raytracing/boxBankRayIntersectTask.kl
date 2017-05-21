@@ -1,0 +1,24 @@
+object CCBoxBankRayIntersectTask : CCTaskBase
+{
+    CCRay ray;
+    CCBox box;
+    Index idx;
+    Boolean results<>;
+};
+
+CCBoxBankRayIntersectTask(CCRay ray, CCBox box, Index idx, Boolean results<>)
+{
+    this.ray = ray;
+    this.box = box;
+    this.idx = idx;
+    this.results = results;
+}
+
+CCBoxBankRayIntersectTask.execute!()
+{
+    Scalar hitDistance;
+    Boolean ret = this.ray.intersectBox(this.box);
+//    Boolean ret = this.ray.intersectBox(this.box, hitDistance);
+//    report(this.idx + " " + this.ray + ' vs ' + this.box + ' ret = ' + ret);
+    this.results[this.idx] = ret;
+}

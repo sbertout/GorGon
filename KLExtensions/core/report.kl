@@ -1,0 +1,8 @@
+alias String StringArray[];
+
+StringArray.appendDesc(io String s)
+{
+    //s += String(this);
+    for(Index i=0; i<this.size(); ++i)
+        report("["+i+"]: "+this[i]);
+}

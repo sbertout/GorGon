@@ -1,0 +1,196 @@
+require GGcore;
+
+object TestCoreTasks : CCTestCase
+{
+};
+
+
+object DummyTaskSingleton {
+  public Index idx;
+};
+DummyTaskSingleton()
+{
+    this.idx = 0;
+}
+
+object DummyTask : CCTaskBase
+{
+	Index idx, executeIndex;
+	Boolean addNewTask;
+	Boolean taskDoneArr<>;
+};
+DummyTask(Index idx, Boolean addNewTask, Boolean taskDoneArr<>)
+{
+	this.idx = idx;
+	this.addNewTask = addNewTask;
+	this.taskDoneArr = taskDoneArr;
+}
+
+object DummyTask2 : DummyTask
+{
+};
+DummyTask2(Index idx, Boolean addNewTask, Boolean taskDoneArr<>)
+{
+	this.idx = idx;
+	this.addNewTask = addNewTask;
+	this.taskDoneArr = taskDoneArr;
+}
+
+DummyTask2.execute!()
+{
+	// report('DummyTask2.executing ' + this.idx);
+	this.taskDoneArr[this.idx] = true;
+	if (this.addNewTask)
+	{
+		// make sure to set addNewTask to false!
+		this.owner.addTask(DummyTask(this.idx + 100, false, this.taskDoneArr));
+	}
+	this.parent.setDone(); // always call setDone on the parent class to make sure this.done is set properly
+
+	DummyTaskSingleton dts = Singleton_get('DummyTaskSingleton');
+	this.executeIndex = dts.idx.atomicInc();
+}
+
+DummyTask.execute!()
+{
+	// report('DummyTask.executing ' + this.idx);
+	this.taskDoneArr[this.idx] = true;
+	if (this.addNewTask)
+	{
+		// make sure to set addNewTask to false!
+		this.owner.addTask(DummyTask2(this.idx + 100, true, this.taskDoneArr));
+	}
+	this.parent.setDone(); // always call setDone on the parent class to make sure this.done is set properly
+
+	DummyTaskSingleton dts = Singleton_get('DummyTaskSingleton');
+	this.executeIndex = dts.idx.atomicInc();
+}
+
+TestCoreTasks.testTaskMaster_addNewTaskFromTask!()
+{
+    this._testTaskMaster_addNewTaskFromTask(false);
+}
+
+TestCoreTasks.testTaskMaster_addNewTaskFromTaskPEX!()
+{
+    this._testTaskMaster_addNewTaskFromTask(true);
+}
+
+TestCoreTasks._testTaskMaster_addNewTaskFromTask!(Boolean usePEX)
+{
+	//report("testTaskMaster_addNewTaskFromTask with usePEX=" + usePEX);
+
+    DummyTaskSingleton dts = DummyTaskSingleton();
+    Singleton_set('DummyTaskSingleton', dts);
+
+	Size taskCount = 100;
+	Boolean taskDoneArr[];
+	taskDoneArr.resize(taskCount * 3); // each task ask another task of the same type
+	for(Index i=0; i<taskDoneArr.size(); ++i)
+		this.assertEquals(taskDoneArr[i], false);
+
+	CCTaskMaster tm = CCTaskMaster(usePEX);
+	while(taskCount-->0)
+	{
+		tm.addTask(DummyTask(taskCount, true, taskDoneArr));
+	}
+	tm.executeAll();
+
+	for(Index i=0; i<taskDoneArr.size(); ++i)
+		this.assertEquals(taskDoneArr[i], true);
+
+    this.assertEquals(dts.idx, 100 * 3);
+    Singleton_remove('DummyTaskSingleton');
+}
+
+TestCoreTasks.testTaskMaster_addTasksWithDependency!()
+{
+    this._testTaskMaster_addTasksWithDependency(false);
+}
+
+TestCoreTasks.testTaskMaster_addTasksWithDependencyPEX!()
+{
+    this._testTaskMaster_addTasksWithDependency(true);
+}
+
+TestCoreTasks._testTaskMaster_addTasksWithDependency!(Boolean usePEX)
+{
+	//report("testTaskMaster_addTasksWithDependency with usePEX=" + usePEX);
+
+    DummyTaskSingleton dts = DummyTaskSingleton();
+    Singleton_set('DummyTaskSingleton', dts);
+
+	Size taskCount = 100;
+	Boolean taskDoneArr[];
+	taskDoneArr.resize(taskCount);
+	for(Index i=0; i<taskDoneArr.size(); ++i)
+		this.assertEquals(taskDoneArr[i], false);
+
+	CCTaskMaster tm = CCTaskMaster(usePEX);
+	DummyTask tasks[];
+
+	while(taskCount-->0)
+	{
+		tasks.push(DummyTask(taskCount, false, taskDoneArr));
+	}
+
+	for(Index i=0; i<tasks.size()-1; ++i)
+	{
+		tasks[i].dependsOn(tasks[i+1]);
+		tm.addTask(tasks[i]);
+	}
+	tm.addTask(tasks[tasks.size()-1]);
+
+	tm.executeAll();
+
+	for(Index i=0; i<taskDoneArr.size(); ++i)
+		this.assertEquals(taskDoneArr[i], true);
+
+    this.assertEquals(dts.idx, 100);
+    Singleton_remove('DummyTaskSingleton');
+
+    // make sure tasks have been executed in the right order!
+    for(Index i=0; i<tasks.size(); ++i)
+    {
+        this.assertEquals(tasks[i].executeIndex, 100 - (i + 1));
+    }
+}
+
+TestCoreTasks.testTaskMasterQueue!()
+{
+    CCTaskMasterQueue tmq();
+
+
+    DummyTaskSingleton dts = DummyTaskSingleton();
+    Singleton_set('DummyTaskSingleton', dts);
+
+	Size taskCount = 100;
+	Boolean taskDoneArr[];
+	taskDoneArr.resize(taskCount * 2);
+	for(Index i=0; i<taskDoneArr.size(); ++i)
+		this.assertEquals(taskDoneArr[i], false);
+
+	CCTaskMaster tm = CCTaskMaster();
+	while(taskCount-->0)
+	{
+		tm.addTask(DummyTask2(taskCount, false, taskDoneArr));
+	}
+	tmq.add(tm);
+
+    taskCount = 100;
+	CCTaskMaster tm2 = CCTaskMaster();
+	while(taskCount-->0)
+	{
+		tm2.addTask(DummyTask2(100+taskCount, false, taskDoneArr));
+	}
+	tmq.add(tm2);
+
+	tmq.execute();
+
+	for(Index i=0; i<taskDoneArr.size(); ++i)
+		this.assertEquals(taskDoneArr[i], true);
+
+    this.assertEquals(dts.idx, 100 * 2);
+    Singleton_remove('DummyTaskSingleton');
+}
+

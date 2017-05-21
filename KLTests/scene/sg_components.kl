@@ -1,0 +1,158 @@
+require Math;
+require GGscene;
+require Fbx;
+require Geometry;
+
+object TestSG : CCTestCase
+{
+};
+
+TestSG.testEntityBasics!()
+{
+  String name = 'myEntity';
+  CCEntity e(name);
+  this.assert(e.getName() == name);
+  this.assert(e.getUID() == 0);
+  CCEntity e2(name);
+  this.assert(e2.getUID() == 1);
+}
+
+TestSG.testUpdateComponentBasics!()
+{
+  CCEntity e('myEntity');
+  CCUpdateComponent uc = CCUpdateComponent();
+
+  e.addUpdateComponent(uc);
+  this.assert(uc.getOwnerEntity().getName() == e.getName());
+  this.assertEquals(e.getUpdateComponentCount(), 1);
+
+  e.removeUpdateComponent(uc);
+  this.assertEquals(e.getUpdateComponentCount(), 0);
+}
+
+object CustomUpdateComponent : CCUpdateComponent {
+  Float32 myFloat;
+  Integer onStartCalls, onUpdateCalls, onDestroyCalls;
+};
+CustomUpdateComponent(String name, Float32 f) {
+  this.createComponent(name);
+  this.onStartCalls = this.onUpdateCalls = this.onDestroyCalls = 0;
+}
+CustomUpdateComponent.onStart!() 
+{
+	this.onStartCalls++;
+}
+CustomUpdateComponent.onUpdate!() 
+{
+	this.onUpdateCalls++;
+}
+CustomUpdateComponent.onDestroy!() 
+{
+	this.onDestroyCalls++;
+}
+
+TestSG.testUpdateComponentCustom!()
+{
+  CCEntity e('myEntity');
+  CustomUpdateComponent uc = CustomUpdateComponent('CustomUpdateComponent', 0.123);
+
+  Boolean ret = e.addUpdateComponent(uc);
+  this.assertEquals(ret, true);
+  this.assert(uc.getOwnerEntity().getName() == e.getName());
+  this.assertEquals(e.hasUpdateComponent(uc), true);
+  this.assertEquals(e.hasUpdateComponent('CustomUpdateComponent'), true);
+  this.assertEquals(e.hasUpdateComponent('UnexistingCustomComponent'), false);
+
+  // make sure we can't add the same component twice !
+  ret = e.addUpdateComponent(uc);
+  this.assertEquals(ret, false);
+  this.assertEquals(e.getUpdateComponentCount(), 1);
+
+  CustomUpdateComponent anotherUC = CustomUpdateComponent('CustomUpdateComponent', 0.456);
+  ret = e.addUpdateComponent(anotherUC);
+  this.assertEquals(ret, false);
+  this.assertEquals(e.getUpdateComponentCount(), 1);
+
+  CustomUpdateComponent cc = e.getUpdateComponent('CustomUpdateComponent');
+  this.assertEquals(cc, uc);
+}
+
+TestSG.testGetUpdateComponents!()
+{
+  CCEntity e('myEntity');
+  CustomUpdateComponent uc1 = CustomUpdateComponent('uc1', 0.123);
+  CustomUpdateComponent uc2 = CustomUpdateComponent('uc2', 0.456);
+  CustomUpdateComponent uc3 = CustomUpdateComponent('uc3', 0.789);
+
+	e.addUpdateComponent(uc1);
+	e.addUpdateComponent(uc2);
+  e.addUpdateComponent(uc3);
+
+  UpdateComponentArray updateComponents = e.getUpdateComponents();
+  this.assertEquals(updateComponents.size(), 3);
+
+  e.update();
+  e.update();
+  e.update();
+  e.update();
+
+  this.assertEquals(uc1.onStartCalls, 1);
+  this.assertEquals(uc2.onStartCalls, 1);
+  this.assertEquals(uc3.onStartCalls, 1);
+  this.assertEquals(uc1.onUpdateCalls, 3);
+  this.assertEquals(uc2.onUpdateCalls, 3);
+  this.assertEquals(uc3.onUpdateCalls, 3);
+}
+
+
+object SuicideUpdateComponent : CCUpdateComponent {
+	Boolean called;
+};
+SuicideUpdateComponent(String name) {
+  this.createComponent(name);
+  this.called = false;
+}
+SuicideUpdateComponent.onStart!() 
+{
+	// do something then remove self
+	this.called = true;
+	this.getOwnerEntity().safeRemoveUpdateComponent(CCUpdateComponent(this));
+}
+
+
+TestSG.testSuicideUpdateComponent!()
+{
+    CCEntity e('myEntity');
+    SuicideUpdateComponent suc = SuicideUpdateComponent('suc');
+    CustomUpdateComponent cuc = CustomUpdateComponent('cuc', 0.123f);
+
+    e.addUpdateComponent(suc);
+    e.addUpdateComponent(cuc);
+
+    this.assertEquals(e.getUpdateComponentCount(), 2);
+    e.update();
+    this.assertEquals(e.getUpdateComponentCount(), 1);
+
+    this.assertEquals(suc.called, true);
+    this.assertEquals(cuc.onStartCalls, 1);
+    this.assertEquals(cuc.onUpdateCalls, 0);
+}
+
+TestSG.testTransformComponentBasics!()
+{
+  String eName('myEntity');
+  CCEntity e(eName);
+  CCTransformComponent tc = e.getTransformComponent();
+  this.assert(tc.getOwnerEntity().getName() == e.getName());
+  this.assert(tc.getChildCount() == 0);
+  this.assert(e.getLocalTransform() == Xfo());
+  this.assertEquals(e.getPath(), "/" + eName);
+
+  String ecName('myEntityChild');
+  CCEntity ec('myEntityChild');
+  e.addChild(ec);
+  this.assert(ec.getParent() == e);
+  this.assert(tc.getChildCount() == 1);
+  this.assert(ec.getLocalTransform() == Xfo());
+  this.assertEquals(ec.getPath(), String("/" + eName + "/" + ecName));
+}

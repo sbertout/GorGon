@@ -1,0 +1,97 @@
+object CCBox
+{
+	private Vec3 center;
+	private Vec3 size;
+};
+
+CCBox(Vec3 center, Vec3 size)
+{
+	this.center = center;
+	this.size = size;
+}
+
+CCBox(Vec3 center, Scalar usize)
+{
+	this.center = center;
+	this.size = Vec3(usize, usize, usize);
+}
+
+inline Vec3 CCBox.getCenter() { return this.center; }
+inline Vec3 CCBox.getSize() { return this.size; }
+inline Vec3 CCBox.getMin() { return this.center - 0.5 * this.size; }
+inline Vec3 CCBox.getMax() { return this.center + 0.5 * this.size; }
+
+struct Vec3MinResult { Vec3 value; };
+Vec3MinResult() { this.value = Vec3(BIGSCALAR_POSITIVE, BIGSCALAR_POSITIVE, BIGSCALAR_POSITIVE); }
+struct Vec3MaxResult { Vec3 value; };
+Vec3MaxResult() { this.value = Vec3(BIGSCALAR_NEGATIVE, BIGSCALAR_NEGATIVE, BIGSCALAR_NEGATIVE); }
+
+operator mr_CCBox_min(CCBox input, io Vec3MinResult output)
+{
+	output.value = Math_min(input.getMin(), output.value);
+}
+
+operator mr_CCBox_max(CCBox input, io Vec3MaxResult output)
+{
+	output.value = Math_max(input.getMax(), output.value);
+}
+
+inline CCeSideType CCBox.getSideType(CCeAxisType axisType, Scalar value)
+{
+	Vec3 min = this.getMin();
+	Vec3 max = this.getMax();
+
+	if (axisType == CCeAxisType_X)
+	{
+		if (value < min.x) return CCeSideType_Positive;
+		if (value > max.x) return CCeSideType_Negative;
+		return CCeSideType_Inside;
+	}
+
+	if (axisType == CCeAxisType_Y)
+	{
+		if (value < min.y) return CCeSideType_Positive;
+		if (value > max.y) return CCeSideType_Negative;
+		return CCeSideType_Inside;
+	}
+
+	if (value < min.z) return CCeSideType_Positive;
+	if (value > max.z) return CCeSideType_Negative;
+	return CCeSideType_Inside;
+}
+
+inline CCeSideType CCBox.getSideType(CCeAxisType axisType, Vec3 value)
+{
+	Vec3 min = this.getMin();
+	Vec3 max = this.getMax();
+
+	if (axisType == CCeAxisType_X)
+	{
+		if (value.x < min.x) return CCeSideType_Positive;
+		if (value.x > max.x) return CCeSideType_Negative;
+		return CCeSideType_Inside;
+	}
+
+	if (axisType == CCeAxisType_Y)
+	{
+		if (value.y < min.y) return CCeSideType_Positive;
+		if (value.y > max.y) return CCeSideType_Negative;
+		return CCeSideType_Inside;
+	}
+
+	if (value.z < min.z) return CCeSideType_Positive;
+	if (value.z > max.z) return CCeSideType_Negative;
+	return CCeSideType_Inside;
+}
+
+CCBox CCBoxFromMinMax(Vec3 min, Vec3 max)
+{
+	Vec3 center = (min + max) * 0.5;
+	Vec3 size = (max - min);
+	return CCBox(center, size);
+}
+
+CCBox CCBoxFromMinMax(Scalar minX, Scalar minY, Scalar minZ, Scalar maxX, Scalar maxY, Scalar maxZ)
+{
+	return CCBoxFromMinMax(Vec3(minX, minY, minZ), Vec3(maxX, maxY, maxZ));
+}

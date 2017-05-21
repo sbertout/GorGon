@@ -1,0 +1,12 @@
+object CCRenderable : CCUpdateComponent
+{ // todo render component !
+  private PolygonMesh mesh;
+  private BaseMaterial material;
+};
+
+CCRenderable(String name, PolygonMesh mesh, BaseMaterial material)
+{
+  this.createComponent(name);
+  this.mesh = mesh;
+  this.material = material;
+}

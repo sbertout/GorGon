@@ -1,0 +1,35 @@
+require Math;
+
+alias Xfo XfoArray[];
+
+Xfo CCbuildXfo(Float32 x, Float32 y, Float32 z)
+{
+  return CCbuildXfo(Vec3(x, y, z));
+}
+
+Xfo CCbuildXfo(Vec3 tr)
+{
+  Xfo xfo;
+  xfo.setIdentity();
+  xfo.tr = tr;
+  return xfo;
+}
+
+Xfo CCbuildXfo(Vec3 tr, Quat ori)
+{
+  Xfo xfo;
+  xfo.setIdentity();
+  xfo.tr = tr;
+  xfo.ori = ori;
+  return xfo;
+}
+
+Vec3 Xfo.getPosition() 
+{ 
+  return this.tr; 
+}
+
+Quat Xfo.getRotation() 
+{ 
+  return this.ori; 
+}
