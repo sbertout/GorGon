@@ -1,15 +1,15 @@
 object SimpleOrthoRaycastOnTrianglesTask : SimpleOrthoRaycastBaseTask
 {
-    private CCTriangle triangles[];
+    private Triangle triangles[];
 };
 
-SimpleOrthoRaycastOnTrianglesTask(CCOutputBuffer outputBuffer, Boolean cameraFacingLighting)
+SimpleOrthoRaycastOnTrianglesTask(OutputBuffer outputBuffer, Boolean cameraFacingLighting)
 {
     // way slower with pex!??
     this.initDefaults(false, outputBuffer, cameraFacingLighting);
 }
 
-SimpleOrthoRaycastOnTrianglesTask(CCOutputBuffer outputBuffer, CCTriangle triangle, Boolean cameraFacingLighting)
+SimpleOrthoRaycastOnTrianglesTask(OutputBuffer outputBuffer, Triangle triangle, Boolean cameraFacingLighting)
 {
     // way slower with pex!??
     this.initDefaults(false, outputBuffer, cameraFacingLighting);
@@ -21,12 +21,12 @@ inline Count SimpleOrthoRaycastOnTrianglesTask.getTriangleCount()
     return this.triangles.size();
 }
 
-inline CCTriangle SimpleOrthoRaycastOnTrianglesTask.getTriangle(Index idx)
+inline Triangle SimpleOrthoRaycastOnTrianglesTask.getTriangle(Index idx)
 {
     return this.triangles[idx];
 }
 
-inline SimpleOrthoRaycastOnTrianglesTask.addTriangle!(CCTriangle triangle)
+inline SimpleOrthoRaycastOnTrianglesTask.addTriangle!(Triangle triangle)
 {
     this.triangles.push(triangle);
 }
@@ -39,7 +39,7 @@ SimpleOrthoRaycastOnTrianglesTask.execute!()
     Scalar sh = height;
 
     Count processIndex = 0;
-    CCTaskMaster tm(this.usePEX, width * height);
+    TaskMaster tm(this.usePEX, width * height);
     for(Index y=0; y<height; ++y)
     {
         Scalar yo = 2.0 * (0.5 + Scalar(y)) / sh - 1.0;

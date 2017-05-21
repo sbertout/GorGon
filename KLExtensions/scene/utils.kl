@@ -1,21 +1,18 @@
-// object CCMaterialSet;
-// object CCTextureSet;
-
-CCUpdateComponent CCEntity.getOrCreateUpdateComponent!(String type)
+UpdateComponent Entity.getOrCreateUpdateComponent!(String type)
 {
-  String MaterialSetStr = 'CCMaterialSet';
+  String MaterialSetStr = 'MaterialSet';
   String TextureSetStr = 'CCTextureSet';
 
   if (type == MaterialSetStr) 
   { 
-    CCMaterialSet matSet = null;
+    MaterialSet matSet = null;
     if (this.hasUpdateComponent(MaterialSetStr))
     {
       matSet = this.getUpdateComponent(MaterialSetStr);
     }
     else 
     {
-      matSet = CCMaterialSet(MaterialSetStr);
+      matSet = MaterialSet(MaterialSetStr);
       this.addUpdateComponent(matSet);
     }
     return matSet;

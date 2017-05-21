@@ -48,13 +48,13 @@ CCTestCase.setOutFile!(String fp)
 }
 CCTestCase.report!(String s)
 {
-	this.assertEquals(s, this.reader.readLine());
+	this.AssertEquals(s, this.reader.readLine());
 }
 
-Boolean CCTestCase.assert!(Boolean b) { return this.assertTrue(b); }
+Boolean CCTestCase.Assert!(Boolean b) { return this.AssertTrue(b); }
 
-Boolean CCTestCase.assertTrue!(Boolean b) { return this.assertTrue('', b); }
-Boolean CCTestCase.assertTrue!(String msg, Boolean b)
+Boolean CCTestCase.AssertTrue!(Boolean b) { return this.AssertTrue('', b); }
+Boolean CCTestCase.AssertTrue!(String msg, Boolean b)
 {
 	if (!b)
 	{
@@ -64,8 +64,8 @@ Boolean CCTestCase.assertTrue!(String msg, Boolean b)
 	return true;
 }
 
-Boolean CCTestCase.assertFalse!(Boolean b) { return this.assertFalse('', b); }
-Boolean CCTestCase.assertFalse!(String msg, Boolean b)
+Boolean CCTestCase.AssertFalse!(Boolean b) { return this.AssertFalse('', b); }
+Boolean CCTestCase.AssertFalse!(String msg, Boolean b)
 {
 	if (b)
 	{
@@ -75,143 +75,143 @@ Boolean CCTestCase.assertFalse!(String msg, Boolean b)
 	return true;
 }
 
-Boolean CCTestCase.assertEquals!(String a, String b) { return this.assertEquals('', a, b); }
-Boolean CCTestCase.assertEquals!(String msg, String a, String b)
+Boolean CCTestCase.AssertEquals!(String a, String b) { return this.AssertEquals('', a, b); }
+Boolean CCTestCase.AssertEquals!(String msg, String a, String b)
 {
 	if (a != b)
 	{
-		this.invalid(msg + "assertEquals(" +  a + " != " + b + ")");
+		this.invalid(msg + "AssertEquals(" +  a + " != " + b + ")");
 		return false;
 	}
 	return true;
 }
 
-Boolean CCTestCase.assertNotEquals!(String a, String b) { return this.assertNotEquals('', a, b); }
-Boolean CCTestCase.assertNotEquals!(String msg, String a, String b)
+Boolean CCTestCase.AssertNotEquals!(String a, String b) { return this.AssertNotEquals('', a, b); }
+Boolean CCTestCase.AssertNotEquals!(String msg, String a, String b)
 {
 	if (a == b)
 	{
-		this.invalid(msg + "assertNotEquals(" +  a + " == " + b + ")");
+		this.invalid(msg + "AssertNotEquals(" +  a + " == " + b + ")");
 		return false;
 	}
 	return true;
 }
 
-Boolean CCTestCase.assertEquals!(Size s1, Size s2)
+Boolean CCTestCase.AssertEquals!(Size s1, Size s2)
 {
   if (s1 != s2)
   {
-    this.invalid("CCassertEquals: " + s1 + " != " + s2);
+    this.invalid("AssertEquals: " + s1 + " != " + s2);
     return false;
   }
   return true;
 }
 
-Boolean CCTestCase.assertEquals!(Integer s1, Integer s2)
+Boolean CCTestCase.AssertEquals!(Integer s1, Integer s2)
 {
   if (s1 != s2)
   {
-    this.invalid("CCassertEquals: " + s1 + " != " + s2);
+    this.invalid("AssertEquals: " + s1 + " != " + s2);
     return false;
   }
   return true;
 }
 
-Boolean CCTestCase.assertEquals!(Scalar s1, Scalar s2)
+Boolean CCTestCase.AssertEquals!(Scalar s1, Scalar s2)
 {
   if (s1 != s2)
   {
-    this.invalid("CCassertEquals: " + s1 + " != " + s2);
+    this.invalid("AssertEquals: " + s1 + " != " + s2);
     return false;
   }
   return true;
 }
 
-Boolean CCTestCase.assertAlmostEquals!(Scalar a, Scalar b) { return this.assertAlmostEquals('', a, b); }
-Boolean CCTestCase.assertAlmostEquals!(String msg, Scalar a, Scalar b) { return this.assertAlmostEquals(msg, a, b, 0.001f); }
-Boolean CCTestCase.assertAlmostEquals!( Scalar a, Scalar b, Scalar epsilon) { return this.assertAlmostEquals('', a, b, epsilon); }
-Boolean CCTestCase.assertAlmostEquals!(String msg, Scalar a, Scalar b, Scalar epsilon)
+Boolean CCTestCase.AssertAlmostEquals!(Scalar a, Scalar b) { return this.AssertAlmostEquals('', a, b); }
+Boolean CCTestCase.AssertAlmostEquals!(String msg, Scalar a, Scalar b) { return this.AssertAlmostEquals(msg, a, b, 0.001f); }
+Boolean CCTestCase.AssertAlmostEquals!( Scalar a, Scalar b, Scalar epsilon) { return this.AssertAlmostEquals('', a, b, epsilon); }
+Boolean CCTestCase.AssertAlmostEquals!(String msg, Scalar a, Scalar b, Scalar epsilon)
 {
 	if (abs(a - b) > epsilon)
 	{
-		this.invalid(msg + "assertAlmostEquals(" +  a + " != " + b + ")");
+		this.invalid(msg + "AssertAlmostEquals(" +  a + " != " + b + ")");
 		return false;
 	}
 	return true;
 }
 
 
-Boolean CCTestCase.assertEquals!(Vec2 s1, Vec2 s2)
+Boolean CCTestCase.AssertEquals!(Vec2 s1, Vec2 s2)
 {
   if (s1 != s2)
   {
-    this.invalid("CCassertEquals: " + s1 + " != " + s2);
+    this.invalid("AssertEquals: " + s1 + " != " + s2);
     return false;
   }
   return true;
 }
 
-Boolean CCTestCase.assertAlmostEquals!(Vec2 s1, Vec2 s2)
+Boolean CCTestCase.AssertAlmostEquals!(Vec2 s1, Vec2 s2)
 {
-  return this.assertAlmostEquals(s1, s2, 0.0001);
+  return this.AssertAlmostEquals(s1, s2, 0.0001);
 }
 
 
-Boolean CCTestCase.assertAlmostEquals!(Vec2 s1, Vec2 s2, Float32 eps)
+Boolean CCTestCase.AssertAlmostEquals!(Vec2 s1, Vec2 s2, Float32 eps)
 {
   if (!s1.almostEqual(s2, eps))
   {
-    this.invalid("CCassertAlmostEquals: " + s1 + " != " + s2);
+    this.invalid("AssertAlmostEquals: " + s1 + " != " + s2);
     return false;
   }
   return true;
 }
 
-Boolean CCTestCase.assertEquals!(Vec3 s1, Vec3 s2)
+Boolean CCTestCase.AssertEquals!(Vec3 s1, Vec3 s2)
 {
   if (s1 != s2)
   {
-    this.invalid("CCassertEquals: " + s1 + " != " + s2);
+    this.invalid("AssertEquals: " + s1 + " != " + s2);
     return false;
   }
   return true;
 }
 
-Boolean CCTestCase.assertAlmostEquals!(Vec3 s1, Vec3 s2)
+Boolean CCTestCase.AssertAlmostEquals!(Vec3 s1, Vec3 s2)
 {
-  return this.assertAlmostEquals(s1, s2, 0.0001);
+  return this.AssertAlmostEquals(s1, s2, 0.0001);
 }
 
-Boolean CCTestCase.assertAlmostEquals!(Vec3 s1, Vec3 s2, Float32 eps)
+Boolean CCTestCase.AssertAlmostEquals!(Vec3 s1, Vec3 s2, Float32 eps)
 {
   if (!s1.almostEqual(s2, eps))
   {
-    this.invalid("CCassertAlmostEquals: " + s1 + " != " + s2);
+    this.invalid("AssertAlmostEquals: " + s1 + " != " + s2);
     return false;
   }
   return true;
 }
 
-Boolean CCTestCase.assertEquals!(Vec4 s1, Vec4 s2)
+Boolean CCTestCase.AssertEquals!(Vec4 s1, Vec4 s2)
 {
   if (s1 != s2)
   {
-    this.invalid("CCassertEquals: " + s1 + " != " + s2);
+    this.invalid("AssertEquals: " + s1 + " != " + s2);
     return false;
   }
   return true;
 }
 
-Boolean CCTestCase.assertAlmostEquals!(Vec4 s1, Vec4 s2)
+Boolean CCTestCase.AssertAlmostEquals!(Vec4 s1, Vec4 s2)
 {
-  return this.assertAlmostEquals(s1, s2, 0.0001);
+  return this.AssertAlmostEquals(s1, s2, 0.0001);
 }
 
-Boolean CCTestCase.assertAlmostEquals!(Vec4 s1, Vec4 s2, Float32 eps)
+Boolean CCTestCase.AssertAlmostEquals!(Vec4 s1, Vec4 s2, Float32 eps)
 {
   if (!s1.almostEqual(s2, eps))
   {
-    this.invalid("CCassertAlmostEquals: " + s1 + " != " + s2);
+    this.invalid("AssertAlmostEquals: " + s1 + " != " + s2);
     return false;
   }
   return true;
@@ -219,26 +219,26 @@ Boolean CCTestCase.assertAlmostEquals!(Vec4 s1, Vec4 s2, Float32 eps)
 
 
 
-Boolean CCTestCase.assertEquals!(Color s1, Color s2)
+Boolean CCTestCase.AssertEquals!(Color s1, Color s2)
 {
   if (s1 != s2)
   {
-    this.invalid("CCassertEquals: " + s1 + " != " + s2);
+    this.invalid("AssertEquals: " + s1 + " != " + s2);
     return false;
   }
   return true;
 }
 
-Boolean CCTestCase.assertAlmostEquals!(Color s1, Color s2)
+Boolean CCTestCase.AssertAlmostEquals!(Color s1, Color s2)
 {
-  return this.assertAlmostEquals(s1, s2, 0.0001);
+  return this.AssertAlmostEquals(s1, s2, 0.0001);
 }
 
-Boolean CCTestCase.assertAlmostEquals!(Color s1, Color s2, Float32 eps)
+Boolean CCTestCase.AssertAlmostEquals!(Color s1, Color s2, Float32 eps)
 {
   if (!s1.almostEqual(s2, eps))
   {
-    this.invalid("CCassertAlmostEquals: " + s1 + " != " + s2);
+    this.invalid("AssertAlmostEquals: " + s1 + " != " + s2);
     return false;
   }
   return true;
@@ -246,37 +246,37 @@ Boolean CCTestCase.assertAlmostEquals!(Color s1, Color s2, Float32 eps)
 
 
 
-Boolean CCTestCase.assertEquals!(Quat s1, Quat s2)
+Boolean CCTestCase.AssertEquals!(Quat s1, Quat s2)
 {
   if (s1 != s2)
   {
-    this.invalid("CCassertEquals: " + s1 + " != " + s2);
+    this.invalid("AssertEquals: " + s1 + " != " + s2);
     return false;
   }
   return true;
 }
 
-Boolean CCTestCase.assertAlmostEquals!(Quat s1, Quat s2)
+Boolean CCTestCase.AssertAlmostEquals!(Quat s1, Quat s2)
 {
-  return this.assertAlmostEquals(s1, s2, 0.0001);
+  return this.AssertAlmostEquals(s1, s2, 0.0001);
 }
 
 
-Boolean CCTestCase.assertAlmostEquals!(Quat s1, Quat s2, Float32 eps)
+Boolean CCTestCase.AssertAlmostEquals!(Quat s1, Quat s2, Float32 eps)
 {
   if (!s1.almostEqual(s2, eps))
   {
-    this.invalid("CCassertAlmostEquals: " + s1 + " != " + s2);
+    this.invalid("AssertAlmostEquals: " + s1 + " != " + s2);
     return false;
   }
   return true;
 }
 
-Boolean CCTestCase.assertEquals!(Xfo s1, Xfo s2)
+Boolean CCTestCase.AssertEquals!(Xfo s1, Xfo s2)
 {
   if (s1 != s2)
   {
-    this.invalid("CCassertEquals: " + s1 + " != " + s2);
+    this.invalid("AssertEquals: " + s1 + " != " + s2);
     return false;
   }
   return true;

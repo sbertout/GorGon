@@ -6,10 +6,10 @@
 object BaseMaterial// : CCMaterialInterface
 {
     String name;
-    CCProperties _properties;
+    Properties _properties;
 };
 
-protected BaseMaterial.init!(CCProperties p)
+protected BaseMaterial.init!(Properties p)
 {
     this._properties = p;
 }
@@ -18,7 +18,7 @@ BaseMaterial()
 {
 }
 
-BaseMaterial(CCProperties p)
+BaseMaterial(Properties p)
 {
     this.init(p);
 }

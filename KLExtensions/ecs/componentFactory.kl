@@ -1,17 +1,17 @@
 require Singletons;
-object CCEntity;
+object Entity;
 
-object CCComponentFactory
+object ComponentFactory
 {
   private Index _currentId;
 };
 
-CCComponentFactory()
+ComponentFactory()
 {
   this._currentId = 0;
 }
 
-Index CCComponentFactory.getUID!()
+Index ComponentFactory.getUID!()
 {
   return this._currentId ++;
 }

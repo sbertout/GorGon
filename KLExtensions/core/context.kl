@@ -1,26 +1,26 @@
-object CCContext
+object Context
 {
   private Float32 currentTime;
 };
 
-CCContext()
+Context()
 {
   this.currentTime = 0;
 }
 
-Float32 CCContext.getCurrentTime()
+Float32 Context.getCurrentTime()
 { 
 	return this.currentTime; 
 }
 
-CCContext.setCurrentTime!(Float32 f)
+Context.setCurrentTime!(Float32 f)
 { 
 	this.currentTime = f; 
 }
 
-CCContext getContext()
+Context getContext()
 {
-  if (Singleton_has('CCContext') == false)
-    Singleton_set('CCContext', CCContext());
-  return Singleton_get('CCContext');
+  if (Singleton_has('Context') == false)
+    Singleton_set('Context', Context());
+  return Singleton_get('Context');
 }

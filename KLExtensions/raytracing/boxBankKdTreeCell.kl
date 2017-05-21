@@ -1,21 +1,21 @@
-object CCBoxBankKdTreeCell
+object BoxBankKdTreeCell
 {
     // TODO private!
 	Vec3 min, max, center;
-	CCBox box;
+	Box box;
 	CCeAxisType axisType;
 	Index ownedBoxes[];
-	CCBoxBankKdTreeCell negativeCell;
-	CCBoxBankKdTreeCell positiveCell;
+	BoxBankKdTreeCell negativeCell;
+	BoxBankKdTreeCell positiveCell;
 };
 
-CCBoxBankKdTreeCell(CCBoxBank bb, Vec3 min, Vec3 max, Index boxes[])
+BoxBankKdTreeCell(BoxBank bb, Vec3 min, Vec3 max, Index boxes[])
 {
-	// report('creating CCBoxBankKdTreeCell');
+	// report('creating BoxBankKdTreeCell');
 	// report(min + ' ' + max + ' ' + boxes);
 	this.min = min;
 	this.max = max;
-	this.box = CCBoxFromMinMax(min, max);
+	this.box = BoxFromMinMax(min, max);
 	this.center = (min + max) * 0.5;
 	this.axisType = Vec3(this.max - this.min).getDominantAxis();
 
@@ -26,7 +26,7 @@ CCBoxBankKdTreeCell(CCBoxBank bb, Vec3 min, Vec3 max, Index boxes[])
 		for(Index i=0; i<boxes.size(); ++i)
 		{
 			Index boxIndex = boxes[i];
-			CCBox box = bb.getBox(boxIndex);
+			Box box = bb.getBox(boxIndex);
 
 			// report(i + " " + box.getMin() + "<->" + box.getMax() + " => " + box.getSideType(this.axisType, this.center));
 			CCeSideType sideType = box.getSideType(this.axisType, this.center);
@@ -44,12 +44,12 @@ CCBoxBankKdTreeCell(CCBoxBank bb, Vec3 min, Vec3 max, Index boxes[])
 		{
 			// report('negativeBoxes');
 			Vec3 optMin, optMax;
-			CCBoxBank tmpbb();
+			BoxBank tmpbb();
 			for(Index i=0; i<negativeBoxes.size(); ++i)
 			{
 				Index boxIndex = negativeBoxes[i];
 				// report(boxIndex);
-				CCBox box = bb.getBox(boxIndex);
+				Box box = bb.getBox(boxIndex);
 				// report(box);
 				tmpbb.addBox(box);
 			}
@@ -62,9 +62,9 @@ CCBoxBankKdTreeCell(CCBoxBank bb, Vec3 min, Vec3 max, Index boxes[])
 
 			if (addNegativeBoxesAsOwned == false)
 			{
-				this.negativeCell = CCBoxBankKdTreeCell(bb, optMin, optMax, negativeBoxes);
+				this.negativeCell = BoxBankKdTreeCell(bb, optMin, optMax, negativeBoxes);
 			}
-			// this.negativeCell = CCBoxBankKdTreeCell(bb, this.min, this.center, negativeBoxes);
+			// this.negativeCell = BoxBankKdTreeCell(bb, this.min, this.center, negativeBoxes);
 		}
 		else
 		{
@@ -85,12 +85,12 @@ CCBoxBankKdTreeCell(CCBoxBank bb, Vec3 min, Vec3 max, Index boxes[])
 		{
 			// report('positiveBoxes');
 			Vec3 optMin, optMax;
-			CCBoxBank tmpbb();
+			BoxBank tmpbb();
 			for(Index i=0; i<positiveBoxes.size(); ++i)
 			{
 				Index boxIndex = positiveBoxes[i];
 				// report(boxIndex);
-				CCBox box = bb.getBox(boxIndex);
+				Box box = bb.getBox(boxIndex);
 				// report(box);
 				tmpbb.addBox(box);
 			}
@@ -103,9 +103,9 @@ CCBoxBankKdTreeCell(CCBoxBank bb, Vec3 min, Vec3 max, Index boxes[])
 
 			if (addPositiveBoxesAsOwned == false)
 			{
-				this.positiveCell = CCBoxBankKdTreeCell(bb, optMin, optMax, positiveBoxes);
+				this.positiveCell = BoxBankKdTreeCell(bb, optMin, optMax, positiveBoxes);
 			}
-			// this.positiveCell = CCBoxBankKdTreeCell(bb, this.center, this.max, positiveBoxes);
+			// this.positiveCell = BoxBankKdTreeCell(bb, this.center, this.max, positiveBoxes);
 		}
 		else
 		{
@@ -127,7 +127,7 @@ CCBoxBankKdTreeCell(CCBoxBank bb, Vec3 min, Vec3 max, Index boxes[])
 	}
 }
 
-CCBoxBankKdTreeCell.checkConsistency(io Boolean boxReferenced[])
+BoxBankKdTreeCell.checkConsistency(io Boolean boxReferenced[])
 {
 	for(Index i=0; i<this.ownedBoxes.size(); ++i)
 	{
@@ -137,7 +137,7 @@ CCBoxBankKdTreeCell.checkConsistency(io Boolean boxReferenced[])
 	if (this.positiveCell) this.positiveCell.checkConsistency(boxReferenced);
 }
 
-Size CCBoxBankKdTreeCell.computeMaxDepth(io Size depth)
+Size BoxBankKdTreeCell.computeMaxDepth(io Size depth)
 {
 	Size old_depth = depth;
 	depth = depth + 1;
@@ -146,7 +146,7 @@ Size CCBoxBankKdTreeCell.computeMaxDepth(io Size depth)
 	return depth;
 }
 
-inline Boolean CCBoxBankKdTreeCell.intersectRay(CCRay ray, io Index validResultIndices[])
+inline Boolean BoxBankKdTreeCell.intersectRay(CCRay ray, io Index validResultIndices[])
 {
     Boolean result = ray.intersectBox(this.box);
 //    Scalar hitDistance;
@@ -158,7 +158,7 @@ inline Boolean CCBoxBankKdTreeCell.intersectRay(CCRay ray, io Index validResultI
     return result;
 }
 
-CCBoxBankKdTreeCell.getLines(io Lines lines, io Integer depth)
+BoxBankKdTreeCell.getLines(io Lines lines, io Integer depth)
 {
 	if (depth == 0)
 	{

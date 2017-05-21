@@ -9,44 +9,44 @@ object TestSGProperties : CCTestCase
 
 TestSGProperties.testProperties!()
 {
-  CCProperties p = CCProperties();
-  this.assertEquals(p.isEmpty(), true);
+  Properties p = Properties();
+  this.AssertEquals(p.isEmpty(), true);
 
   // testing booleans
   p.addBoolean('myBooleanTrue', true);
   p.addBoolean('myBooleanFalse', false);
-  this.assertEquals(p.hasBoolean('myBooleanTrue'), true);
-  this.assertEquals(p.hasBoolean('myBooleanFalse'), true);
-  this.assertEquals(p.hasBoolean('NOT_THERE'), false);
-  this.assertEquals(p.getBooleanValue('myBooleanTrue'), true);
-  this.assertEquals(p.getBooleanValue('myBooleanFalse'), false);
+  this.AssertEquals(p.hasBoolean('myBooleanTrue'), true);
+  this.AssertEquals(p.hasBoolean('myBooleanFalse'), true);
+  this.AssertEquals(p.hasBoolean('NOT_THERE'), false);
+  this.AssertEquals(p.getBooleanValue('myBooleanTrue'), true);
+  this.AssertEquals(p.getBooleanValue('myBooleanFalse'), false);
 
   // testing scalars
   p.addScalar('myScalarTrue', 1.23);
   p.addScalar('myScalarFalse', 4.56);
-  this.assertEquals(p.hasScalar('myScalarTrue'), true);
-  this.assertEquals(p.hasScalar('myScalarFalse'), true);
-  this.assertEquals(p.hasScalar('NOT_THERE'), false);
-  this.assertEquals(p.getScalarValue('myScalarTrue'), 1.23);
-  this.assertEquals(p.getScalarValue('myScalarFalse'), 4.56);
+  this.AssertEquals(p.hasScalar('myScalarTrue'), true);
+  this.AssertEquals(p.hasScalar('myScalarFalse'), true);
+  this.AssertEquals(p.hasScalar('NOT_THERE'), false);
+  this.AssertEquals(p.getScalarValue('myScalarTrue'), 1.23);
+  this.AssertEquals(p.getScalarValue('myScalarFalse'), 4.56);
 
   // testing integers
   p.addInteger('myIntegerTrue', 1);
   p.addInteger('myIntegerFalse', 4);
-  this.assertEquals(p.hasInteger('myIntegerTrue'), true);
-  this.assertEquals(p.hasInteger('myIntegerFalse'), true);
-  this.assertEquals(p.hasInteger('NOT_THERE'), false);
-  this.assertEquals(p.getIntegerValue('myIntegerTrue'), 1);
-  this.assertEquals(p.getIntegerValue('myIntegerFalse'), 4);
+  this.AssertEquals(p.hasInteger('myIntegerTrue'), true);
+  this.AssertEquals(p.hasInteger('myIntegerFalse'), true);
+  this.AssertEquals(p.hasInteger('NOT_THERE'), false);
+  this.AssertEquals(p.getIntegerValue('myIntegerTrue'), 1);
+  this.AssertEquals(p.getIntegerValue('myIntegerFalse'), 4);
 
   // testing strings
   p.addString('myStringTrue', '1');
   p.addString('myStringFalse', '4');
-  this.assertEquals(p.hasString('myStringTrue'), true);
-  this.assertEquals(p.hasString('myStringFalse'), true);
-  this.assertEquals(p.hasString('NOT_THERE'), false);
-  this.assertEquals(p.getStringValue('myStringTrue'), '1');
-  this.assertEquals(p.getStringValue('myStringFalse'), '4');
+  this.AssertEquals(p.hasString('myStringTrue'), true);
+  this.AssertEquals(p.hasString('myStringFalse'), true);
+  this.AssertEquals(p.hasString('NOT_THERE'), false);
+  this.AssertEquals(p.getStringValue('myStringTrue'), '1');
+  this.AssertEquals(p.getStringValue('myStringFalse'), '4');
 }
 
 object MyObjectString {
@@ -63,14 +63,14 @@ TestSGProperties.testPropertiesObjects!()
   MyObjectString str = MyObjectString('hell yeah');
   MyObjectScalar scl = MyObjectScalar(1.23);
 
-  CCProperties p = CCProperties();
+  Properties p = Properties();
 
-  this.assertEquals(p.hasObject('MyObjectString'), false);
+  this.AssertEquals(p.hasObject('MyObjectString'), false);
   p.addObject('MyObjectString', str);
-  this.assertEquals(p.hasObject('MyObjectString'), true);
-  this.assertEquals(p.hasObject('MyObjectScalar'), false);
+  this.AssertEquals(p.hasObject('MyObjectString'), true);
+  this.AssertEquals(p.hasObject('MyObjectScalar'), false);
   p.addObject('MyObjectScalar', scl);
-  this.assertEquals(p.hasObject('MyObjectScalar'), true);
-  this.assertEquals(p.getObjectValue('MyObjectString'), str);
-  this.assertEquals(p.getObjectValue('MyObjectScalar'), scl);
+  this.AssertEquals(p.hasObject('MyObjectScalar'), true);
+  this.AssertEquals(p.getObjectValue('MyObjectString'), str);
+  this.AssertEquals(p.getObjectValue('MyObjectScalar'), scl);
 }

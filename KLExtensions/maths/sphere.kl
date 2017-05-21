@@ -1,23 +1,23 @@
-object CCBox;
-object CCSphere
+object Box;
+object Sphere
 {
 	private Vec3 center;
 	private Scalar radius;
 };
 
-CCSphere(Vec3 center, Scalar radius)
+Sphere(Vec3 center, Scalar radius)
 {
 	this.center = center;
 	this.radius = radius;
 }
 
-inline Vec3 CCSphere.getCenter() { return this.center; }
-inline Scalar CCSphere.getRadius() { return this.radius; }
-inline Vec3 CCSphere.getMin() { return this.center - Vec3(this.radius, this.radius, this.radius); }
-inline Vec3 CCSphere.getMax() { return this.center + Vec3(this.radius, this.radius, this.radius); }
-inline CCBox CCSphere.getBox() { return CCBoxFromMinMax(this.getMin(), this.getMax()); }
+inline Vec3 Sphere.getCenter() { return this.center; }
+inline Scalar Sphere.getRadius() { return this.radius; }
+inline Vec3 Sphere.getMin() { return this.center - Vec3(this.radius, this.radius, this.radius); }
+inline Vec3 Sphere.getMax() { return this.center + Vec3(this.radius, this.radius, this.radius); }
+inline Box Sphere.getBox() { return BoxFromMinMax(this.getMin(), this.getMax()); }
 
-inline Vec3 CCSphere.getNormal(Vec3 otherPoint)
+inline Vec3 Sphere.getNormal(Vec3 otherPoint)
 {
     Vec3 v(otherPoint - this.center);
     return v.normalize();

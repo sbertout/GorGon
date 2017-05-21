@@ -1,18 +1,18 @@
-object CCTaskMasterQueue
+object TaskMasterQueue
 {
-    CCTaskMaster queue[];
+    TaskMaster queue[];
 };
 
-CCTaskMasterQueue()
+TaskMasterQueue()
 {
 }
 
-CCTaskMasterQueue.add!(CCTaskMaster tm)
+TaskMasterQueue.add!(TaskMaster tm)
 {
     this.queue.push(tm);
 }
 
-CCTaskMasterQueue.execute!()
+TaskMasterQueue.execute!()
 {
     for(Index i=0; i<this.queue.size(); ++i)
     {

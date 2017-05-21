@@ -6,11 +6,11 @@ object TestRTImage : CCTestCase
 };
 
 
-object CreateRandomColorsTask : CCTaskBase
+object CreateRandomColorsTask : TaskBase
 {
-    CCOutputBuffer outputBuffer;
+    OutputBuffer outputBuffer;
 };
-CreateRandomColorsTask(CCOutputBuffer outputBuffer)
+CreateRandomColorsTask(OutputBuffer outputBuffer)
 {
     this.outputBuffer = outputBuffer;
 }
@@ -22,7 +22,7 @@ CreateRandomColorsTask.execute!()
     {
         for(Index x=0; x<width; ++x)
         {
-            CCPackedColor pc(mathRandomFloat32(0, y * width + x + 0, 0.0, 1.0),
+            PackedColor pc(mathRandomFloat32(0, y * width + x + 0, 0.0, 1.0),
                              mathRandomFloat32(0, y * width + x + 1, 0.0, 1.0),
                              mathRandomFloat32(0, y * width + x + 2, 0.0, 1.0));
             this.outputBuffer.set(pc, x, y);
@@ -32,26 +32,26 @@ CreateRandomColorsTask.execute!()
 
 TestRTImage.test01ImageWriter!()
 {
-    CCOutputBuffer outputBuffer(640, 480);
+    OutputBuffer outputBuffer(640, 480);
 
-    CCTaskMaster tm();
+    TaskMaster tm();
     tm.addTask(CreateRandomColorsTask(outputBuffer));
-    tm.addTask(CCImageWriterTask('KLTests/_out/testImageWriter.png', outputBuffer));
+    tm.addTask(ImageWriterTask('KLTests/_out/testImageWriter.png', outputBuffer));
     tm.executeAll();
 }
 
 TestRTImage.test02ImageReader!()
 {
     Size width, height;
-    CCPackedColor pixels[] = CCImageReader('KLTests/_out/testImageWriter.png').read(width, height); // TODO? CCInputBuffer
+    PackedColor pixels[] = ImageReader('KLTests/_out/testImageWriter.png').read(width, height); // TODO? CCInputBuffer
 
     for(Index y=0; y<height; ++y)
     {
         for(Index x=0; x<width; ++x)
         {
-            this.assertAlmostEquals(pixels[y * width + x].r, mathRandomFloat32(0, y * width + x + 0, 0.0, 1.0), 0.01);
-            this.assertAlmostEquals(pixels[y * width + x].g, mathRandomFloat32(0, y * width + x + 1, 0.0, 1.0), 0.01);
-            this.assertAlmostEquals(pixels[y * width + x].b, mathRandomFloat32(0, y * width + x + 2, 0.0, 1.0), 0.01);
+            this.AssertAlmostEquals(pixels[y * width + x].r, mathRandomFloat32(0, y * width + x + 0, 0.0, 1.0), 0.01);
+            this.AssertAlmostEquals(pixels[y * width + x].g, mathRandomFloat32(0, y * width + x + 1, 0.0, 1.0), 0.01);
+            this.AssertAlmostEquals(pixels[y * width + x].b, mathRandomFloat32(0, y * width + x + 2, 0.0, 1.0), 0.01);
         }
     }
 }

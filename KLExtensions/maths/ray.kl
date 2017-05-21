@@ -1,4 +1,4 @@
-object CCRay
+object CCRay // can't rename there a Ray in Fabric!
 {
 	private Vec3 origin;
 	private Vec3 direction;
@@ -18,7 +18,7 @@ Vec3 CCRay.getPosition(Scalar dist)
     return this.origin + dist * this.direction;
 }
 
-Boolean CCRay.intersectPlane(CCPlane plane, out Vec3 hitPos)
+Boolean CCRay.intersectPlane(Plane plane, out Vec3 hitPos)
 {
     Scalar hitDistance;
     Boolean ret = this.intersectPlane(plane, hitDistance);
@@ -26,7 +26,7 @@ Boolean CCRay.intersectPlane(CCPlane plane, out Vec3 hitPos)
     return ret;
 }
 
-Boolean CCRay.intersectPlane(CCPlane plane, out Scalar hitDistance)
+Boolean CCRay.intersectPlane(Plane plane, out Scalar hitDistance)
 {
     Scalar d = plane.getNormal().dot(this.direction);
     if (d == 0) return false;
@@ -35,7 +35,7 @@ Boolean CCRay.intersectPlane(CCPlane plane, out Scalar hitDistance)
     return hitDistance >= 0;
 }
 
-Boolean CCRay.intersectSphere(CCSphere sphere, out Vec3 hitPos)
+Boolean CCRay.intersectSphere(Sphere sphere, out Vec3 hitPos)
 {
     Scalar hitDistance;
     Boolean ret = this.intersectSphere(sphere, hitDistance);
@@ -44,7 +44,7 @@ Boolean CCRay.intersectSphere(CCSphere sphere, out Vec3 hitPos)
 }
 
 /// \dfgPresetTitle IntersectSphereGetDist
-Boolean CCRay.intersectSphere(CCSphere sphere, out Scalar hitDistance)
+Boolean CCRay.intersectSphere(Sphere sphere, out Scalar hitDistance)
 {
 	hitDistance = SCALAR_INFINITE;
 
@@ -80,7 +80,7 @@ Boolean CCRay.intersectSphere(CCSphere sphere, out Scalar hitDistance)
 }
 
 /// \dfgPresetTitle IntersectBoxSimple
-Boolean CCRay.intersectBox(CCBox box)
+Boolean CCRay.intersectBox(Box box)
 {
     Scalar t;
     // r.dir is unit direction vector of ray
@@ -129,7 +129,7 @@ Boolean CCRay.intersectBox(CCBox box)
 }
 
 /// \dfgPresetTitle IntersectBoxGetDist
-Boolean CCRay.intersectBox(CCBox box, out Scalar hitDistance)
+Boolean CCRay.intersectBox(Box box, out Scalar hitDistance)
 {
     hitDistance = SCALAR_INFINITE;
 	Vec3 entry, exit;
@@ -160,7 +160,7 @@ Boolean CCRay.intersectBox(CCBox box, out Scalar hitDistance)
 	return hitDistance > 0;
 }
 
-Boolean CCRay.intersectBox(CCBox box, out Vec3 entry, out Vec3 exit)
+Boolean CCRay.intersectBox(Box box, out Vec3 entry, out Vec3 exit)
 {
     // The following description assumes that the ray's origin is outside
     // the box, but the code below works even if the origin is inside the
@@ -408,7 +408,7 @@ Boolean CCRay.intersectBox(CCBox box, out Vec3 entry, out Vec3 exit)
     return tFrontMax <= tBackMin && (!(tFrontMax < 0 && tBackMin < 0));
 }
 
-Boolean CCRay.intersectQuad(CCQuad quad, out Scalar hitDistance)
+Boolean CCRay.intersectQuad(Quad quad, out Scalar hitDistance)
 {
     Vec3 hitPos;
     Vec2 hitUVs;
@@ -420,9 +420,9 @@ Boolean CCRay.intersectQuad(CCQuad quad, out Scalar hitDistance)
     return false;
 }
 
-Boolean CCRay.intersectQuad(CCQuad quad, io Vec3 hitPos, io Vec2 hitUVs)
+Boolean CCRay.intersectQuad(Quad quad, io Vec3 hitPos, io Vec2 hitUVs)
 {
-    CCPlane plane(quad.getCenter(), quad.getNormal());
+    Plane plane(quad.getCenter(), quad.getNormal());
     Scalar hitDistance;
     if (this.intersectPlane(plane, hitDistance) && hitDistance > 0)
     {
@@ -432,7 +432,7 @@ Boolean CCRay.intersectQuad(CCQuad quad, io Vec3 hitPos, io Vec2 hitUVs)
     return false;
 }
 
-Boolean CCRay.intersectTriangle(CCTriangle tri, out Scalar hitDistance)
+Boolean CCRay.intersectTriangle(Triangle tri, out Scalar hitDistance)
 {
     Vec3 hitPos;
     Vec2 hitUVs;
@@ -444,9 +444,9 @@ Boolean CCRay.intersectTriangle(CCTriangle tri, out Scalar hitDistance)
     return false;
 }
 
-Boolean CCRay.intersectTriangle(CCTriangle tri, io Vec3 hitPos, io Vec2 hitUVs)
+Boolean CCRay.intersectTriangle(Triangle tri, io Vec3 hitPos, io Vec2 hitUVs)
 {
-    CCPlane plane(tri.getOrigin(), tri.getNormal());
+    Plane plane(tri.getOrigin(), tri.getNormal());
     Scalar hitDistance;
     if (this.intersectPlane(plane, hitDistance) && hitDistance > 0)
     {

@@ -1,22 +1,22 @@
-object CCPlane
+object Plane
 {
     private Vec3 normal;
     private Scalar distance;
 };
 
-CCPlane(Vec3 normal, Scalar distance)
+Plane(Vec3 normal, Scalar distance)
 {
     this.normal = normal; // we assume normal has already been normalised!
     this.distance = distance;
 }
 
-CCPlane(Vec3 position, Vec3 normal)
+Plane(Vec3 position, Vec3 normal)
 {
     this.normal = normal; // we assume normal has already been normalised!
     this.distance = normal.dot(position);
 }
 
-CCPlane(Vec3 p1, Vec3 p2, Vec3 p3)
+Plane(Vec3 p1, Vec3 p2, Vec3 p3)
 {
     this.normal = Vec3(p2 - p1).cross(Vec3(p3 - p1));
     this.normal.normalize();
@@ -24,21 +24,21 @@ CCPlane(Vec3 p1, Vec3 p2, Vec3 p3)
 }
 
 // getters
-Vec3 CCPlane.getNormal() { return this.normal; }
-Scalar CCPlane.getDistance() { return this.distance; }
+Vec3 Plane.getNormal() { return this.normal; }
+Scalar Plane.getDistance() { return this.distance; }
 
 // methods
-Scalar CCPlane.distanceTo(Vec3 p)
+Scalar Plane.distanceTo(Vec3 p)
 {
     return p.dot(this.normal) - this.distance;
 }
 
-Vec3 CCPlane.reflectPoint(Vec3 p)
+Vec3 Plane.reflectPoint(Vec3 p)
 {
     return this.normal * this.distanceTo(p) * (-2.0) + p;
 }
 
-Vec3 CCPlane.reflectVector(Vec3 v)
+Vec3 Plane.reflectVector(Vec3 v)
 {
     return v - this.normal * (this.normal.dot(v)) * 2.0;
 }

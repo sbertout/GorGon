@@ -6,7 +6,7 @@
         "core/coloredString.kl", 
         "core/context.kl", 
         "core/properties.kl", 
-        "core/report.kl", 
+        "core/stringArray.kl", 
         "core/taskBase.kl", 
         "core/taskMaster.kl", 
         "core/taskMasterQueue.kl"

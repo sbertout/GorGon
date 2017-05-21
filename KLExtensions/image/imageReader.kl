@@ -1,16 +1,16 @@
-object CCImageReader
+object ImageReader
 {
     String filePath;
 };
 
-CCImageReader(String filePath)
+ImageReader(String filePath)
 {
     this.filePath = filePath;
 }
 
-CCPackedColorArray CCImageReader.read(io Size width, io Size height)
+PackedColorArray ImageReader.read(io Size width, io Size height)
 {
-    CCPackedColorArray pixels;
+    PackedColorArray pixels;
     OpenImageInput oiimage = OpenImageInput();
     oiimage.open(this.filePath);
 

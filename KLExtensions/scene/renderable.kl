@@ -1,4 +1,4 @@
-object CCRenderable : CCUpdateComponent
+object CCRenderable : UpdateComponent
 { // todo render component !
   private PolygonMesh mesh;
   private BaseMaterial material;

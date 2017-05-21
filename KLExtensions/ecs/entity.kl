@@ -1,32 +1,32 @@
 require Math;
 require Singletons;
 
-object CCUpdateComponent;
-object CCTransformComponent;
-object CCProperties;
+object UpdateComponent;
+object TransformComponent;
+object Properties;
 
-alias CCUpdateComponent UpdateComponentArray[];
+alias UpdateComponent UpdateComponentArray[];
 
-object CCEntity
+object Entity
 {
   private Index uid;
   private String name;
 
-  private CCTransformComponent transformComponent;
+  private TransformComponent transformComponent;
   private UpdateComponentArray updateComponents;
   private UpdateComponentArray updateComponentsToRemove;
 
-  private CCProperties properties;
+  private Properties properties;
 };
 
-CCEntity.appendDesc(io String s)
+Entity.appendDesc(io String s)
 {
   s += this.toString();
 } 
 
-String CCEntity.toString()
+String Entity.toString()
 {
-  if (this == null) return 'null CCEntity';
+  if (this == null) return 'null Entity';
   return String(this.name 
                + ' paths=' + this.getPaths() 
                + ' properties=' + this.properties.toString()
@@ -36,109 +36,109 @@ String CCEntity.toString()
 } 
 
 // constructors
-CCEntity.createEntity!(String n, io CCTransformComponent tc)
+Entity.createEntity!(String n, io TransformComponent tc)
 {
-  CCEntityFactory ef = getEntityFactory();
+  EntityFactory ef = getEntityFactory();
 
   this.uid = ef.getUID();
   this.name = n;
-  this.properties = CCProperties();
+  this.properties = Properties();
   this.setTransformComponent(tc);
 }
 
-CCEntity(String n)
+Entity(String n)
 {
-  this.createEntity(n, CCTransformComponent());
+  this.createEntity(n, TransformComponent());
 }
 
-CCEntity(String n, io CCUpdateComponent uc)
+Entity(String n, io UpdateComponent uc)
 {
-  this.createEntity(n, CCTransformComponent());
+  this.createEntity(n, TransformComponent());
   this.addUpdateComponent(uc);
 }
 
-CCEntity(String n, Xfo xfo)
+Entity(String n, Xfo xfo)
 {
-  this.createEntity(n, CCTransformComponent());
+  this.createEntity(n, TransformComponent());
   this.setLocalTransform(xfo);
 }
 
-~CCEntity()
+~Entity()
 {
   report('byebye'); // doesnt work ???
 }
 
-Index CCEntity.getUID()
+Index Entity.getUID()
 { 
   return this.uid; 
 }
 
-String CCEntity.getName()
+String Entity.getName()
 { 
   return this.name; 
 }
 
-CCTransformComponent CCEntity.getTransformComponent()
+TransformComponent Entity.getTransformComponent()
 { 
   return this.transformComponent; 
 }
 
-CCProperties CCEntity.getProperties()
+Properties Entity.getProperties()
 { 
   return this.properties; 
 }
 
-String CCEntity.getPath()
+String Entity.getPath()
 { 
   return this.transformComponent.getPath(); 
 }
 
-String[] CCEntity.getPaths()
+String[] Entity.getPaths()
 { 
   return this.transformComponent.getPaths(); 
 }
 
-Xfo CCEntity.getLocalTransform!()
+Xfo Entity.getLocalTransform!()
 { 
   return this.transformComponent.getLocalTransform(); 
 }
 
-Xfo CCEntity.getGlobalTransform!()
+Xfo Entity.getGlobalTransform!()
 { 
   return this.transformComponent.getGlobalTransform(); 
 }
 
-XfoArray CCEntity.getGlobalTransforms!()
+XfoArray Entity.getGlobalTransforms!()
 { 
   return this.transformComponent.getGlobalTransforms(); 
 }
 
-Size CCEntity.getChildCount!()
+Size Entity.getChildCount!()
 { 
   return this.transformComponent.getChildCount(); 
 }
 
-CCEntity CCEntity.getChild!(Index i)
+Entity Entity.getChild!(Index i)
 { 
   return this.transformComponent.getChild(i); 
 }
 
-Boolean CCEntity.hasParent()
+Boolean Entity.hasParent()
 { 
   return this.transformComponent.hasParent(); 
 }
 
-CCEntity CCEntity.getParent()
+Entity Entity.getParent()
 { 
   return this.transformComponent.getParent(0); 
 }
 
-Ref<CCEntity>[] CCEntity.getParents()
+Ref<Entity>[] Entity.getParents()
 { 
   return this.transformComponent.getParents(); 
 }
 
-Boolean CCEntity.isInstanced()
+Boolean Entity.isInstanced()
 {
   Boolean isInstanced = this.getParents().size() > 1;
   if (isInstanced) return true;
@@ -146,23 +146,23 @@ Boolean CCEntity.isInstanced()
   return this.getParent().isInstanced();
 }
 
-Size CCEntity.getUpdateComponentCount()
+Size Entity.getUpdateComponentCount()
 { 
   return this.updateComponents.size(); 
 }
 
-CCEntity.setLocalTransform!(Xfo tr)
+Entity.setLocalTransform!(Xfo tr)
 {
   this.transformComponent.setLocalTransform(tr);
 }
 
-CCEntity.setTransformComponent!(io CCTransformComponent tc)
+Entity.setTransformComponent!(io TransformComponent tc)
 { 
   this.transformComponent = tc; 
   tc.setOwnerEntity(this);
 }
 
-Boolean CCEntity.addUpdateComponent!(io CCUpdateComponent uc)
+Boolean Entity.addUpdateComponent!(io UpdateComponent uc)
 {
   if (this.hasUpdateComponent(uc)) return false;
   this.updateComponents.push(uc);
@@ -170,7 +170,7 @@ Boolean CCEntity.addUpdateComponent!(io CCUpdateComponent uc)
   return true;
 }
 
-Boolean CCEntity.removeUpdateComponent!(io CCUpdateComponent uc)
+Boolean Entity.removeUpdateComponent!(io UpdateComponent uc)
 {
   if (this.hasUpdateComponent(uc) == false) return false;
 
@@ -185,19 +185,19 @@ Boolean CCEntity.removeUpdateComponent!(io CCUpdateComponent uc)
   return true;
 }
 
-Boolean CCEntity.safeRemoveUpdateComponent!(io CCUpdateComponent uc)
+Boolean Entity.safeRemoveUpdateComponent!(io UpdateComponent uc)
 {
   if (this.hasUpdateComponent(uc) == false) return false;
   this.updateComponentsToRemove.push(uc);
   return true;  
 }
 
-Boolean CCEntity.hasUpdateComponent(CCUpdateComponent uc)
+Boolean Entity.hasUpdateComponent(UpdateComponent uc)
 {
   return this.hasUpdateComponent(uc.getName());
 }
 
-Boolean CCEntity.hasUpdateComponent(String ucName)
+Boolean Entity.hasUpdateComponent(String ucName)
 {
   for(Size i=0; i<this.updateComponents.size(); ++i) 
   {
@@ -207,7 +207,7 @@ Boolean CCEntity.hasUpdateComponent(String ucName)
   return false;
 }
 
-CCUpdateComponent CCEntity.getUpdateComponent(String ucName)
+UpdateComponent Entity.getUpdateComponent(String ucName)
 {
   for(Size i=0; i<this.updateComponents.size(); ++i) 
   {
@@ -217,27 +217,27 @@ CCUpdateComponent CCEntity.getUpdateComponent(String ucName)
   return null;
 }
 
-UpdateComponentArray CCEntity.getUpdateComponents()
+UpdateComponentArray Entity.getUpdateComponents()
 {
   return this.updateComponents;
 }
 
-Boolean == (CCEntity e1, CCEntity e2)
+Boolean == (Entity e1, Entity e2)
 {
   return e1 != null && e2 != null && e1.getUID() == e2.getUID();
 }
 
-Boolean != (CCEntity e1, CCEntity e2)
+Boolean != (Entity e1, Entity e2)
 {
   return !(e1 == e2);
 }
 
-CCEntity.addChild!(io CCEntity e)
+Entity.addChild!(io Entity e)
 {
   this.addChild(e, false);
 }
 
-CCEntity.addChild!(io CCEntity e, Boolean reparentChild)
+Entity.addChild!(io Entity e, Boolean reparentChild)
 {
   if (reparentChild) {
     Xfo invTr = this.getGlobalTransform().inverse();
@@ -253,18 +253,18 @@ CCEntity.addChild!(io CCEntity e, Boolean reparentChild)
   e.getTransformComponent().addParent(this);
 }
 
-CCEntity.destroy()
+Entity.destroy()
 {
-  // foreach(CCEntity p in this.getParents()) {
+  // foreach(Entity p in this.getParents()) {
   //   p.removeChild(this);
   // }
 }
 
-CCEntity.update!()
+Entity.update!()
 {
   for(Index i=0; i<this.updateComponents.size(); ++i)
   {
-    CCUpdateComponent uc = this.updateComponents[i];
+    UpdateComponent uc = this.updateComponents[i];
 
     if (uc.started == false)
     {
@@ -286,7 +286,7 @@ CCEntity.update!()
   {
     for(Index i=0; i<this.updateComponentsToRemove.size(); ++i)
     {
-      CCUpdateComponent uc = this.updateComponents[i];
+      UpdateComponent uc = this.updateComponents[i];
       this.removeUpdateComponent(uc);
     }
     this.updateComponentsToRemove.resize(0);

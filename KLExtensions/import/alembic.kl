@@ -1,23 +1,23 @@
 require AlembicWrapper;
 
-object CCAlembicReader
+object AlembicReader
 {
     FilePath filePath;
     AlembicArchiveReader reader;
 };
 
-CCAlembicReader(FilePath filePath)
+AlembicReader(FilePath filePath)
 {
     this.filePath = filePath;
     this.reader =  AlembicArchiveReader(this.getFilePathAsString());
 }
 
-String CCAlembicReader.getFilePathAsString()
+String AlembicReader.getFilePathAsString()
 {
     return this.filePath.expandEnvVars().string();
 }
 
-Vec3[] CCAlembicReader.getPoints!(Float64 time)
+Vec3[] AlembicReader.getPoints!(Float64 time)
 {
     Vec3 points[];
     String pointsPaths[] = this.reader.getPathsOfType('Points');

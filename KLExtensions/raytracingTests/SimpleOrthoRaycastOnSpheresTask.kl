@@ -1,26 +1,26 @@
 object SimpleOrthoRaycastOnSpheresTask : SimpleOrthoRaycastBaseTask
 {
-    private CCSphere spheres[];
-    private CCBoxBank boxBank;
+    private Sphere spheres[];
+    private BoxBank boxBank;
     /*private*/ Size widthAreaPerProcess;
     /*private*/ Size heightAreaPerProcess;
 };
 
-SimpleOrthoRaycastOnSpheresTask(CCOutputBuffer outputBuffer, Boolean cameraFacingLighting)
+SimpleOrthoRaycastOnSpheresTask(OutputBuffer outputBuffer, Boolean cameraFacingLighting)
 {
     this.init(outputBuffer, cameraFacingLighting);
 }
 
-SimpleOrthoRaycastOnSpheresTask(CCOutputBuffer outputBuffer, CCSphere sphere, Boolean cameraFacingLighting)
+SimpleOrthoRaycastOnSpheresTask(OutputBuffer outputBuffer, Sphere sphere, Boolean cameraFacingLighting)
 {
     this.init(outputBuffer, cameraFacingLighting);
     this.addSphere(sphere);
 }
 
-SimpleOrthoRaycastOnSpheresTask.init!(CCOutputBuffer outputBuffer, Boolean cameraFacingLighting)
+SimpleOrthoRaycastOnSpheresTask.init!(OutputBuffer outputBuffer, Boolean cameraFacingLighting)
 {
     this.initDefaults(false, outputBuffer, cameraFacingLighting);
-    this.boxBank = CCBoxBank();
+    this.boxBank = BoxBank();
     this.setAreaPerProcess(1, 1);
 }
 
@@ -40,17 +40,17 @@ inline SimpleOrthoRaycastOnSpheresTask.reservesSpheres!(Size count)
     this.spheres.resize(count);
 }
 
-inline CCSphere SimpleOrthoRaycastOnSpheresTask.getSphere(Index idx)
+inline Sphere SimpleOrthoRaycastOnSpheresTask.getSphere(Index idx)
 {
     return this.spheres[idx];
 }
 
-inline SimpleOrthoRaycastOnSpheresTask.setSphere!(Index idx, CCSphere sphere)
+inline SimpleOrthoRaycastOnSpheresTask.setSphere!(Index idx, Sphere sphere)
 {
     this.spheres[idx] = sphere;
 }
 
-inline SimpleOrthoRaycastOnSpheresTask.addSphere!(CCSphere sphere)
+inline SimpleOrthoRaycastOnSpheresTask.addSphere!(Sphere sphere)
 {
     this.spheres.push(sphere);
 }
@@ -59,7 +59,7 @@ SimpleOrthoRaycastOnSpheresTask.generateKdTree!()
 {
     for(Index i=0; i<this.spheres.size(); ++i)
     {
-        CCSphere sphere = this.spheres[i];
+        Sphere sphere = this.spheres[i];
         this.boxBank.addBox(sphere.getBox());
     }
     this.boxBank.buildKdTree();
@@ -94,7 +94,7 @@ SimpleOrthoRaycastOnSpheresTask.execute!()
 //TODO make sure width and height are multiple of areaPerProcess
 
 //    Vec3 rayDirection(0, 0, -1);
-    CCTaskMaster tm(this.usePEX, width * height / (this.widthAreaPerProcess * this.heightAreaPerProcess));
+    TaskMaster tm(this.usePEX, width * height / (this.widthAreaPerProcess * this.heightAreaPerProcess));
     Index taskCount = 0;
     for(Index y=0; y<height; y+=this.heightAreaPerProcess)
     {
@@ -124,7 +124,7 @@ Boolean SimpleOrthoRaycastOnSpheresTask.getClosestHit(CCRay ray, io CCRayHit ray
     Scalar bestHitDistance = SCALAR_INFINITE;
     for(Index i=0; i < sphereIndicesToTest.size(); ++i)
     {
-        CCSphere sphere = this.getSphere(sphereIndicesToTest[i]);
+        Sphere sphere = this.getSphere(sphereIndicesToTest[i]);
         Scalar hitDistance;
         if (ray.intersectSphere(sphere, hitDistance))
         {

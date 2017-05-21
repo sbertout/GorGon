@@ -1,18 +1,18 @@
-object CCBoxBankKdTreeCellRayIntersectTask : CCTaskBase
+object BoxBankKdTreeCellRayIntersectTask : TaskBase
 {
     CCRay ray;
-    CCBoxBankKdTreeCell cell;
+    BoxBankKdTreeCell cell;
     Index validResultIndices[];
 };
 
-CCBoxBankKdTreeCellRayIntersectTask(CCRay ray, CCBoxBankKdTreeCell cell, Index validResultIndices[])
+BoxBankKdTreeCellRayIntersectTask(CCRay ray, BoxBankKdTreeCell cell, Index validResultIndices[])
 {
     this.ray = ray;
     this.cell = cell;
     this.validResultIndices = validResultIndices;
 }
 
-CCBoxBankKdTreeCellRayIntersectTask.execute!()
+BoxBankKdTreeCellRayIntersectTask.execute!()
 {
 //    Boolean result = this.cell.intersectRay(this.ray, this.validResultIndices);
 
@@ -20,8 +20,8 @@ CCBoxBankKdTreeCellRayIntersectTask.execute!()
 
     if (result)
     {
-        if (this.cell.negativeCell) this.owner.addTask(CCBoxBankKdTreeCellRayIntersectTask(this.ray, this.cell.negativeCell, this.validResultIndices));
-        if (this.cell.positiveCell) this.owner.addTask(CCBoxBankKdTreeCellRayIntersectTask(this.ray, this.cell.positiveCell, this.validResultIndices));
+        if (this.cell.negativeCell) this.owner.addTask(BoxBankKdTreeCellRayIntersectTask(this.ray, this.cell.negativeCell, this.validResultIndices));
+        if (this.cell.positiveCell) this.owner.addTask(BoxBankKdTreeCellRayIntersectTask(this.ray, this.cell.positiveCell, this.validResultIndices));
 
         AutoLock AL(this.owner.getSimpleLock());
         this.validResultIndices.push(this.cell.ownedBoxes);

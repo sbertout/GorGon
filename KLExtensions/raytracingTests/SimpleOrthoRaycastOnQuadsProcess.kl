@@ -1,5 +1,5 @@
 object SimpleOrthoRaycastOnQuadsTask;
-object SimpleOrthoRaycastOnQuadsProcess : CCTaskBase
+object SimpleOrthoRaycastOnQuadsProcess : TaskBase
 {
     private SimpleOrthoRaycastOnQuadsTask parentTask;
     private Index processIndex;
@@ -18,12 +18,12 @@ SimpleOrthoRaycastOnQuadsProcess(SimpleOrthoRaycastOnQuadsTask parentTask, Index
 
 SimpleOrthoRaycastOnQuadsProcess.execute!()
 {
-    CCPackedColor col(0.0, 0.0, 0.0);
+    PackedColor col(0.0, 0.0, 0.0);
 
     Scalar bestHitDistance = SCALAR_INFINITE;
     for(Index i=0; i<this.parentTask.getQuadCount(); ++i)
     {
-        CCQuad quad = this.parentTask.getQuad(i);
+        Quad quad = this.parentTask.getQuad(i);
         Scalar hitDistance;
         if (this.ray.intersectQuad(quad, hitDistance))
         {
@@ -35,11 +35,11 @@ SimpleOrthoRaycastOnQuadsProcess.execute!()
                     Vec3 hitNor = quad.getNormal();
 
                     Scalar kd = hitNor.dot(Vec3(0, 0, 1));
-                    col = CCPackedColor(Color(kd, kd, kd));
+                    col = PackedColor(Color(kd, kd, kd));
                 }
                 else
                 {
-                    col = CCPackedColor(Color(1.0, 0.0, 0.0).linearInterpolate(Color(0.0, 1.0, 0.0), (hitDistance - 5.0) / 5.0));
+                    col = PackedColor(Color(1.0, 0.0, 0.0).linearInterpolate(Color(0.0, 1.0, 0.0), (hitDistance - 5.0) / 5.0));
                 }
 
                 bestHitDistance = hitDistance;

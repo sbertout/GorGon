@@ -1,55 +1,55 @@
-object CCEntity;
-object CCTransformComponent;
+object Entity;
+object TransformComponent;
 
-object CCComponent
+object Component
 {
   private Index uid;
   private String name;	
-  private CCEntity ownerEntity;
+  private Entity ownerEntity;
 };
 
-CCComponent.createComponent!(String n)
+Component.createComponent!(String n)
 {
-  if (Singleton_has('CCComponentFactory') == false)
-    Singleton_set('CCComponentFactory', CCComponentFactory());
-  CCComponentFactory cf = Singleton_get('CCComponentFactory');
+  if (Singleton_has('ComponentFactory') == false)
+    Singleton_set('ComponentFactory', ComponentFactory());
+  ComponentFactory cf = Singleton_get('ComponentFactory');
 
   this.uid = cf.getUID();
   this.name = n;
 }
 
-String CCComponent.toString()
+String Component.toString()
 {
-  if (this == null) return 'null CCComponent';
-	return 'CCComponent: ' + this.name + " uid=" + this.uid + " ownerEntity=" + this.ownerEntity.getPaths();
+  if (this == null) return 'null Component';
+	return 'Component: ' + this.name + " uid=" + this.uid + " ownerEntity=" + this.ownerEntity.getPaths();
 }
 
-Index CCComponent.getUID()
+Index Component.getUID()
 { 
   return this.uid; 
 }
 
-String CCComponent.getName()
+String Component.getName()
 {
   return this.name; 
 }
 
-CCEntity CCComponent.getOwnerEntity()
+Entity Component.getOwnerEntity()
 {
 	return this.ownerEntity;
 }
 
-CCComponent.setOwnerEntity!(CCEntity e)
+Component.setOwnerEntity!(Entity e)
 {
 	this.ownerEntity = e;
 }
 
-Boolean == (CCComponent c1, CCComponent c2)
+Boolean == (Component c1, Component c2)
 {
   return c1 != null && c2 != null && c1.getUID() == c2.getUID();
 }
 
-Boolean != (CCComponent c1, CCComponent c2)
+Boolean != (Component c1, Component c2)
 {
   return !(c1 == c2);
 }

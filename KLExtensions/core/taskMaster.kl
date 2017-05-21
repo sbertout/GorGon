@@ -1,42 +1,42 @@
-object CCTaskMaster
+object TaskMaster
 {
-	private CCTaskBase tasks[];
+	private TaskBase tasks[];
 	private Boolean usePex;
 	private Boolean inExecuteAll;
 	private Boolean verbose, alreadyResized;
 	private Size currTaskCount; // only when alreadyResized is used
-	private CCTaskBase tasksAddedWhileInExecuteAll[];
+	private TaskBase tasksAddedWhileInExecuteAll[];
 	private SimpleLock simpleLock;
 };
 
-CCTaskMaster.init!(Boolean usePex)
+TaskMaster.init!(Boolean usePex)
 {
 	this.usePex = usePex;	
 	this.simpleLock = SimpleLock(String(this.uid()));
 }
 
 /// \dfgPresetTitle TaskMasterNoPEX
-CCTaskMaster()
+TaskMaster()
 {
 	this.init(false);
 }
 
-CCTaskMaster(Boolean usePex)
+TaskMaster(Boolean usePex)
 {
 	this.init(usePex);
 }
 
-CCTaskMaster(Boolean usePex, Size count)
+TaskMaster(Boolean usePex, Size count)
 {
 	this.init(usePex);
 	this.tasks.resize(count);
 	this.alreadyResized = true;
 }
 
-CCTaskMaster.verbose!() { this.verbose = true; }
-SimpleLock CCTaskMaster.getSimpleLock() { return this.simpleLock; }
+TaskMaster.verbose!() { this.verbose = true; }
+SimpleLock TaskMaster.getSimpleLock() { return this.simpleLock; }
 
-CCTaskMaster.addTask!(io CCTaskBase task)
+TaskMaster.addTask!(io TaskBase task)
 {
     if (this.verbose) task.verbose();
 	if (this.inExecuteAll)
@@ -60,7 +60,7 @@ CCTaskMaster.addTask!(io CCTaskBase task)
 	task.owner = this;
 }
 
-operator pex_executeAll<<<index>>>(io CCTaskBase tasks[], io Ref<CCTaskMaster> taskMaster)
+operator pex_executeAll<<<index>>>(io TaskBase tasks[], io Ref<TaskMaster> taskMaster)
 {
 	if (tasks[index].canBeExecuted())
 	{
@@ -76,7 +76,7 @@ operator pex_executeAll<<<index>>>(io CCTaskBase tasks[], io Ref<CCTaskMaster> t
 	}
 }
 
-private CCTaskMaster.executeAll!(io CCTaskBase tasks[])
+private TaskMaster.executeAll!(io TaskBase tasks[])
 {
 	if (this.usePex)
 	{
@@ -104,12 +104,12 @@ private CCTaskMaster.executeAll!(io CCTaskBase tasks[])
 	this.checkTasksAddedWhileInExecuteAll();
 }
 
-private CCTaskMaster.checkTasksAddedWhileInExecuteAll!()
+private TaskMaster.checkTasksAddedWhileInExecuteAll!()
 {
 	if (this.tasksAddedWhileInExecuteAll.size() == 0) return;
 
 	// keep a temp copy of all our tasks
-	CCTaskBase tasksAddedWhileInExecuteAllCopy[];
+	TaskBase tasksAddedWhileInExecuteAllCopy[];
 	for(Index i=0; i<this.tasksAddedWhileInExecuteAll.size(); ++i)
 		tasksAddedWhileInExecuteAllCopy.push(this.tasksAddedWhileInExecuteAll[i]);
 	this.tasksAddedWhileInExecuteAll.resize(0); // clear it before we execute again..
@@ -117,7 +117,7 @@ private CCTaskMaster.checkTasksAddedWhileInExecuteAll!()
 	this.executeAll(tasksAddedWhileInExecuteAllCopy);
 }
 
-CCTaskMaster.executeAll!()
+TaskMaster.executeAll!()
 {
     UInt64 currentTicks = getCurrentTicks();
 	this.inExecuteAll = true;

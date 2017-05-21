@@ -1,29 +1,29 @@
 require Math;
 
-object CCComponent;
+object Component;
 
-interface CCTransformComponentInterface
+interface TransformComponentInterface
 {
 	Xfo getLocalTransform!();
 	Size getChildCount!();
-	CCEntity getChild!(Index i);
+	Entity getChild!(Index i);
 };
 
-object CCTransformComponent : CCComponent, CCTransformComponentInterface permits CCEntity
+object TransformComponent : Component, TransformComponentInterface permits Entity
 {
 	Xfo _localTransform;
-	Ref<CCEntity> _parents[];
-	Ref<CCEntity> _children[];
+	Ref<Entity> _parents[];
+	Ref<Entity> _children[];
 };
 
 // getters
-Xfo CCTransformComponent.getGlobalTransform!()
+Xfo TransformComponent.getGlobalTransform!()
 {
 	Xfo parentXfo = this.hasParent() ? this.getParent().getGlobalTransform() : Xfo();
 	return parentXfo * this.getLocalTransform(); 
 }
 
-XfoArray CCTransformComponent.getGlobalTransforms!()
+XfoArray TransformComponent.getGlobalTransforms!()
 {
 	Xfo globalTransforms[];
 	if (this.hasParent() == false) 
@@ -45,59 +45,59 @@ XfoArray CCTransformComponent.getGlobalTransforms!()
 	return globalTransforms;
 }
 
-Xfo CCTransformComponent.getLocalTransform!()
+Xfo TransformComponent.getLocalTransform!()
 { 
 	return this._localTransform; 
 }
 
-Size CCTransformComponent.getChildCount!()
+Size TransformComponent.getChildCount!()
 { 
 	return this._children.size(); 
 }
 
-CCEntity CCTransformComponent.getChild!(Index i)
+Entity TransformComponent.getChild!(Index i)
 { 
 	return this._children[i]; 
 }
 
-CCEntity CCTransformComponent.getParent()
+Entity TransformComponent.getParent()
 { 
 	return this.getParent(0); 
 }
 
-CCEntity CCTransformComponent.getParent(Index i)
+Entity TransformComponent.getParent(Index i)
 { 
 	return this._parents[i]; 
 }
 
-Ref<CCEntity>[] CCTransformComponent.getParents()
+Ref<Entity>[] TransformComponent.getParents()
 { 
 	return this._parents; 
 }
 
-Size CCTransformComponent.getParentCount()
+Size TransformComponent.getParentCount()
 { 
 	return this._parents.size(); 
 }
 
-Boolean CCTransformComponent.hasParent()
+Boolean TransformComponent.hasParent()
 { 
 	return this._parents.size() > 0; 
 }
 
-Boolean CCTransformComponent.isInstanced()
+Boolean TransformComponent.isInstanced()
 { 
 	return this._parents.size() > 1; 
 }
 
-String CCTransformComponent.getPath()
+String TransformComponent.getPath()
 {
 	String path;
 	if (this.hasParent()) path = this.getParent().getPath();
 	return path + "/" + this.getOwnerEntity().getName();
 }
 
-String[] CCTransformComponent.getPaths()
+String[] TransformComponent.getPaths()
 {
 	String paths[];
 	if (this.hasParent() == false) {
@@ -114,34 +114,34 @@ String[] CCTransformComponent.getPaths()
 	return paths;
 }
 
-CCTransformComponent.setLocalTransform!(Xfo tr)
+TransformComponent.setLocalTransform!(Xfo tr)
 {
 	this._localTransform = tr;
 }
 
 // methods
-private CCTransformComponent.addParent!(CCEntity e)
+private TransformComponent.addParent!(Entity e)
 { 
 	this._parents.push(e); 
 }
 
-private CCTransformComponent.removeParent!(CCEntity e)
+private TransformComponent.removeParent!(Entity e)
 {
-	Ref<CCEntity> newParents[];
+	Ref<Entity> newParents[];
 	for(Index i=0; i<this._parents.size(); ++i) {
-		Ref<CCEntity> p = this._parents[i];
+		Ref<Entity> p = this._parents[i];
 		if (p == e) continue;
 		newParents.push(e);
 	} 
 	this._parents = newParents;
 }
 
-private CCTransformComponent.clearParents!()
+private TransformComponent.clearParents!()
 { 
 	this._parents.resize(0);
 }
 
-private CCTransformComponent.addChild!(CCEntity e)
+private TransformComponent.addChild!(Entity e)
 {
 	this._children.push(e);
 }

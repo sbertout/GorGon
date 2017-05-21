@@ -1,14 +1,14 @@
-object CCLambertianMaterial : RTMaterial
+object LambertianMaterial : RTMaterial
 {
     Color diffuseColor;
 };
 
-CCLambertianMaterial(Color diffuseColor)
+LambertianMaterial(Color diffuseColor)
 {
     this.diffuseColor = diffuseColor;
 }
 
-Color CCLambertianMaterial.shade(CCRayHit rayHit)
+Color LambertianMaterial.shade(CCRayHit rayHit)
 {
     Scalar kd = rayHit.hitNor.dot(Vec3(0, 0, 1));
     return Color(kd, kd, kd) * this.diffuseColor;

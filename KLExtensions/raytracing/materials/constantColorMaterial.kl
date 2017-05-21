@@ -1,14 +1,14 @@
-object CCConstantColorMaterial : RTMaterial
+object ConstantColorMaterial : RTMaterial
 {
     Color constantColor;
 };
 
-CCConstantColorMaterial(Color constantColor)
+ConstantColorMaterial(Color constantColor)
 {
     this.constantColor = constantColor;
 }
 
-Color CCConstantColorMaterial.shade(CCRayHit rayHit)
+Color ConstantColorMaterial.shade(CCRayHit rayHit)
 {
     return this.constantColor;
 }

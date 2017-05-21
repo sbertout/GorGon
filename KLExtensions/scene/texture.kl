@@ -1,10 +1,10 @@
 object CCTexture
 {
   String _path;
-  CCProperties _properties;
+  Properties _properties;
 };
 
-CCTexture(String path, CCProperties p)
+CCTexture(String path, Properties p)
 {
   this._path = path;
   this._properties = p;
@@ -15,7 +15,7 @@ String CCTexture.getPath()
   return this._path; 
 }
 
-CCProperties CCTexture.getProperties()
+Properties CCTexture.getProperties()
 { 
   return this._properties; 
 }

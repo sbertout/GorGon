@@ -1,0 +1,16 @@
+operator mr_Vec3_min(Vec3 input, io Vec3 output)
+{
+	output = Math_min(input, output);
+}
+
+operator mr_Vec3_max(Vec3 input, io Vec3 output)
+{
+	output = Math_max(input, output);
+}
+
+operator mr_Vec3_average(Vec3 input, io Vec3 output, Size index, Size count)
+{
+	Scalar si = count;
+	Scalar isi = 1.0 / si;
+	output += input * Vec3(isi, isi, isi);
+}

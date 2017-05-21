@@ -3,6 +3,7 @@
         "maths/_requires.kl", 
         "maths/assert.kl", 
         "maths/box.kl", 
+        "maths/mr_vec3.kl", 
         "maths/plane.kl", 
         "maths/quad.kl", 
         "maths/quatMethods.kl", 
@@ -11,6 +12,7 @@
         "maths/sphere.kl", 
         "maths/triangle.kl", 
         "maths/utils.kl", 
+        "maths/vec2Methods.kl", 
         "maths/vec3Methods.kl", 
         "maths/xfoMethods.kl"
     ], 

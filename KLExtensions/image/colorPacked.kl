@@ -1,32 +1,32 @@
-struct CCPackedColor
+struct PackedColor
 {
     Float32 r, g, b;
 };
-inline CCPackedColor(Float32 r, Float32 g, Float32 b)
+inline PackedColor(Float32 r, Float32 g, Float32 b)
 {
     this.r = r;
     this.g = g;
     this.b = b;
 }
-inline CCPackedColor(Color c)
+inline PackedColor(Color c)
 {
     this.r = c.r;
     this.g = c.g;
     this.b = c.b;
 }
 
-alias CCPackedColor CCPackedColorArray[];
+alias PackedColor PackedColorArray[];
 
-Vec3 CCPackedColor.asVec3() { return Vec3(this.r, this.g, this.b); }
+Vec3 PackedColor.asVec3() { return Vec3(this.r, this.g, this.b); }
 
-CCPackedColorArray.set!(CCPackedColor pc, Size x, Size y, Size w, Size h)
+PackedColorArray.set!(PackedColor pc, Size x, Size y, Size w, Size h)
 {
     if (x >= w) return;
     if (y >= h) return;
     this[y * w + x] = pc;
 }
 
-Vec3 CCPackedColorArray.getVec3(Size x, Size y, Size w, Size h)
+Vec3 PackedColorArray.getVec3(Size x, Size y, Size w, Size h)
 {
     if (x >= w) return Vec3();
     if (y >= h) return Vec3();

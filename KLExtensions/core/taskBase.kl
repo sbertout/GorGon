@@ -1,47 +1,47 @@
-interface CCTaskInterface
+interface TaskInterface
 {
     onFirstExecute!();
 	execute!();
 };
 
-object CCTaskMaster; // forward declaration
-object CCTaskBase : CCTaskInterface permits CCTaskMaster
+object TaskMaster; // forward declaration
+object TaskBase : TaskInterface permits TaskMaster
 {
 	private Boolean done, verbose;
 	private Count executeCount;
-	protected Ref<CCTaskMaster> owner;
-	private Ref<CCTaskBase> dependencies[];
+	protected Ref<TaskMaster> owner;
+	private Ref<TaskBase> dependencies[];
 };
 
-Count CCTaskBase.getExecuteCount() { return this.executeCount; }
-Boolean CCTaskBase.isDone() { return this.done; }
+Count TaskBase.getExecuteCount() { return this.executeCount; }
+Boolean TaskBase.isDone() { return this.done; }
 
 // doing nothing per default
-CCTaskBase.onFirstExecute!() {}
-CCTaskBase.execute!() {}
+TaskBase.onFirstExecute!() {}
+TaskBase.execute!() {}
 
-CCTaskBase.setDone!()
+TaskBase.setDone!()
 {
     this.executeCount += 1;
 	this.done = true;
 	if (this.verbose) report(' - ' + this.type() + " done!");
 }
-CCTaskBase.verbose!()
+TaskBase.verbose!()
 {
 	this.verbose = true;
 }
 
-CCTaskBase.dependsOn!(CCTaskBase other)
+TaskBase.dependsOn!(TaskBase other)
 {
 	this.dependencies.push(other);
 }
 
-CCTaskBase.removeAllDependencies!()
+TaskBase.removeAllDependencies!()
 {
     this.dependencies.resize(0);
 }
 
-Boolean CCTaskBase.canBeExecuted()
+Boolean TaskBase.canBeExecuted()
 {
 	if (this.dependencies.size() == 0) return true;
 	for(Index i=0; i<this.dependencies.size(); ++i)

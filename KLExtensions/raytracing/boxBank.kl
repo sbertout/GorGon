@@ -1,51 +1,51 @@
-object CCBoxBankTaskGetMin;
-object CCBoxBankTaskGetMax;
-object CCBoxBankKdTreeCell;
+object BoxBankTaskGetMin;
+object BoxBankTaskGetMax;
+object BoxBankKdTreeCell;
 
-object CCBoxBank permits CCBoxBankTaskGetMin, CCBoxBankTaskGetMax
+object BoxBank permits BoxBankTaskGetMin, BoxBankTaskGetMax
 {
-	private CCBox boxes[];
-	private CCBoxBankKdTreeCell kdTreeRoot;
+	private Box boxes[];
+	private BoxBankKdTreeCell kdTreeRoot;
 };
 
-CCBoxBank()
+BoxBank()
 {
 }
 
-CCBoxBankKdTreeCell CCBoxBank.getKdTreeRoot()
+BoxBankKdTreeCell BoxBank.getKdTreeRoot()
 {
     return this.kdTreeRoot;
 }
 
-CCBox CCBoxBank.getBox(Index idx)
+Box BoxBank.getBox(Index idx)
 {
     return this.boxes[idx];
 }
 
-Size CCBoxBank.getBoxCount()
+Size BoxBank.getBoxCount()
 {
     return this.boxes.size();
 }
 
-CCBoxBank.addBox!(CCBox box)
+BoxBank.addBox!(Box box)
 {
 	this.boxes.push(box);
 }
 
-CCBoxBank.addBoxes!(Vec3 points[], Scalar boxUSize)
+BoxBank.addBoxes!(Vec3 points[], Scalar boxUSize)
 {
     for(Index i=0; i<points.size(); ++i)
     {
-	    this.addBox(CCBox(points[i], boxUSize));
+	    this.addBox(Box(points[i], boxUSize));
     }
 }
 
-CCBoxBank.addBoxes!(Vec3 points[])
+BoxBank.addBoxes!(Vec3 points[])
 {
     this.addBoxes(points, 0);
 }
 
-CCBoxBank.buildKdTree!()
+BoxBank.buildKdTree!()
 {
 	Vec3 min, max, center;
 	this.getMinAndMax(min, max);
@@ -56,10 +56,10 @@ CCBoxBank.buildKdTree!()
 	boxesIndices.resize(this.boxes.size());
 	for(Index i=0; i<boxesIndices.size(); ++i) boxesIndices[i] = i;
 
-	this.kdTreeRoot = CCBoxBankKdTreeCell(this, min, max, boxesIndices);
+	this.kdTreeRoot = BoxBankKdTreeCell(this, min, max, boxesIndices);
 }
 
-CCBoxBank.checkConsistency()
+BoxBank.checkConsistency()
 {
 	Boolean boxReferenced[];
 	boxReferenced.resize(this.boxes.size());
@@ -73,19 +73,19 @@ CCBoxBank.checkConsistency()
 	}
 }
 
-Size CCBoxBank.computeMaxDepth()
+Size BoxBank.computeMaxDepth()
 {
 	Size depth = 0;
 	if (this.kdTreeRoot) depth = this.kdTreeRoot.computeMaxDepth(depth);
 	return depth;
 }
 
-CCBoxBank.getMinAndMax!(out Vec3 min, out Vec3 max)
+BoxBank.getMinAndMax!(out Vec3 min, out Vec3 max)
 {
-	CCBoxBankTaskGetMin getMinTask = CCBoxBankTaskGetMin(this);
-	CCBoxBankTaskGetMax getMaxTask = CCBoxBankTaskGetMax(this);
+	BoxBankTaskGetMin getMinTask = BoxBankTaskGetMin(this);
+	BoxBankTaskGetMax getMaxTask = BoxBankTaskGetMax(this);
 
-	CCTaskMaster tm = CCTaskMaster(false); // no PEX needed for that also it doesnt look like you can use map reduce from pex :(
+	TaskMaster tm = TaskMaster(false); // no PEX needed for that also it doesnt look like you can use map reduce from pex :(
 	tm.addTask(getMinTask);
 	tm.addTask(getMaxTask);
 
@@ -94,30 +94,30 @@ CCBoxBank.getMinAndMax!(out Vec3 min, out Vec3 max)
 	max = getMaxTask.get();
 }
 
-CCBoxBank.getLines(io Lines lines, Integer depth)
+BoxBank.getLines(io Lines lines, Integer depth)
 {
 	Integer d = depth;
 	this.kdTreeRoot.getLines(lines, d);
 }
 
-private Boolean[] CCBoxBank._bruteForceIntersectRay(CCRay ray, Boolean usePex)
+private Boolean[] BoxBank._bruteForceIntersectRay(CCRay ray, Boolean usePex)
 {
     Boolean boxesIntersectionResults[];
     boxesIntersectionResults.resize(this.boxes.size());
 
 //    report('this.boxes.size() = ' + this.boxes.size());
 
-    CCTaskMaster tm = CCTaskMaster(usePex);
+    TaskMaster tm = TaskMaster(usePex);
     for(Index i=0; i<this.boxes.size(); ++i)
     {
-        tm.addTask(CCBoxBankRayIntersectTask(ray, this.boxes[i], i, boxesIntersectionResults));
+        tm.addTask(BoxBankRayIntersectTask(ray, this.boxes[i], i, boxesIntersectionResults));
     }
     tm.executeAll();
 
     return boxesIntersectionResults;
 }
 
-Index[] CCBoxBank.bruteForceIntersectRay(CCRay ray, Boolean usePex)
+Index[] BoxBank.bruteForceIntersectRay(CCRay ray, Boolean usePex)
 {
     Index validResultIndices[];
     Boolean results[] = this._bruteForceIntersectRay(ray, usePex);
@@ -132,12 +132,12 @@ Index[] CCBoxBank.bruteForceIntersectRay(CCRay ray, Boolean usePex)
     return validResultIndices;
 }
 
-Index[] CCBoxBank.intersectRay(CCRay ray, Boolean usePex)
+Index[] BoxBank.intersectRay(CCRay ray, Boolean usePex)
 {
     Index validResultIndices[];
 
-    CCTaskMaster tm(usePex);
-    tm.addTask(CCBoxBankKdTreeCellRayIntersectTask(ray, this.kdTreeRoot, validResultIndices));
+    TaskMaster tm(usePex);
+    tm.addTask(BoxBankKdTreeCellRayIntersectTask(ray, this.kdTreeRoot, validResultIndices));
     tm.executeAll();
 
     return validResultIndices;

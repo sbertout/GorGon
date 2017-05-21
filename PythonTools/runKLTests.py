@@ -96,18 +96,18 @@ def generateKLFilesToTest(klFiles, returnBool=True):
             newFile.write('Boolean operator entry() { \n')
         else:
             newFile.write('operator entry() { \n')
-        newFile.write('\tSize testCount = 0; Size invalidTestCount = 0; report("Executing " + ColoredString_Blue("%s") + ".."); \n' % os.path.splitext(klFile)[0])
+        newFile.write('\tSize testCount = 0; Size invalidTestCount = 0; report("Executing " + AnsiEscapeCode_Blue("%s") + ".."); \n' % os.path.splitext(klFile)[0])
         for klObjectName in ordererdKlObjects:
             klObject = ordererdKlObjects[klObjectName]
             if klObject.canBeTested(ordererdKlObjects):
                 newFile.write('\n{\n\treport(" - %s:");\n' % (klObjectName))
                 newFile.write('\t%s tst(); tst.setOutFile("%s");\n' % (klObjectName, klFile.replace('.kl', '.out')))
                 for method in klObject.getTestMethods():
-                    newFile.write('\treport("   - executing.. " + ColoredString_Blue("%s"));\n' % (method))
+                    newFile.write('\treport("   - executing.. " + AnsiEscapeCode_Blue("%s"));\n' % (method))
                     newFile.write('\ttst.setTestFuncName("%s").setUp().%s().tearDown();\n' % (method, method))
                 newFile.write('\tinvalidTestCount += tst.isValid() ? 0 : 1; testCount ++;\n}\n')
         newFile.write('\n\tif (invalidTestCount == 0) report("Ran " + testCount + " test case(s).. OK!" + "\n");\n')
-        newFile.write('\telse report(ColoredString_Red("Failed test case(s) " + invalidTestCount + "/" + testCount + "\n"));\n')
+        newFile.write('\telse report(AnsiEscapeCode_Red("Failed test case(s) " + invalidTestCount + "/" + testCount + "\n"));\n')
         if returnBool:
             newFile.write('\treturn invalidTestCount == 0; \n')
         newFile.write('}')

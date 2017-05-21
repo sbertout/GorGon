@@ -1,28 +1,28 @@
 require Math;
 require Singletons;
 
-object CCUpdateComponent;
-object CCTransformComponent;
-object CCProperties;
+object UpdateComponent;
+object TransformComponent;
+object Properties;
 
-object CCEntityFactory
+object EntityFactory
 {
   Index _currentId;
 };
 
-CCEntityFactory()
+EntityFactory()
 {
   this._currentId = 0;
 }
 
-Index CCEntityFactory.getUID!()
+Index EntityFactory.getUID!()
 {
   return this._currentId ++;
 }
 
-CCEntityFactory getEntityFactory()
+EntityFactory getEntityFactory()
 {
-  if (Singleton_has('CCEntityFactory') == false)
-    Singleton_set('CCEntityFactory', CCEntityFactory());
-  return Singleton_get('CCEntityFactory');
+  if (Singleton_has('EntityFactory') == false)
+    Singleton_set('EntityFactory', EntityFactory());
+  return Singleton_get('EntityFactory');
 }

@@ -1,10 +1,10 @@
 object SimpleOrthoRaycastOnSphereShapesTask : SimpleOrthoRaycastBaseTask
 {
-    private CCSphereShape sphereShapes[];
-    private CCBoxBank boxBank;
+    private SphereShape sphereShapes[];
+    private BoxBank boxBank;
 };
 
-SimpleOrthoRaycastOnSphereShapesTask(CCOutputBuffer outputBuffer)
+SimpleOrthoRaycastOnSphereShapesTask(OutputBuffer outputBuffer)
 {
     Boolean cameraFacingLighting = false; // not used anymore
     this.initDefaults(true, outputBuffer, cameraFacingLighting);
@@ -20,27 +20,27 @@ inline SimpleOrthoRaycastOnSphereShapesTask.reservesSphereShapes!(Size count)
     this.sphereShapes.resize(count);
 }
 
-inline CCSphereShape SimpleOrthoRaycastOnSphereShapesTask.getSphereShape(Index idx)
+inline SphereShape SimpleOrthoRaycastOnSphereShapesTask.getSphereShape(Index idx)
 {
     return this.sphereShapes[idx];
 }
 
-inline SimpleOrthoRaycastOnSphereShapesTask.setSphereShape!(Index idx, CCSphereShape sphereShape)
+inline SimpleOrthoRaycastOnSphereShapesTask.setSphereShape!(Index idx, SphereShape sphereShape)
 {
     this.sphereShapes[idx] = sphereShape;
 }
 
-inline SimpleOrthoRaycastOnSphereShapesTask.addSphereShape!(CCSphereShape sphereShape)
+inline SimpleOrthoRaycastOnSphereShapesTask.addSphereShape!(SphereShape sphereShape)
 {
     this.sphereShapes.push(sphereShape);
 }
 
 SimpleOrthoRaycastOnSphereShapesTask.generateKdTree!()
 {
-    this.boxBank = CCBoxBank();
+    this.boxBank = BoxBank();
     for(Index i=0; i<this.sphereShapes.size(); ++i)
     {
-        CCSphereShape sphereShape = this.sphereShapes[i];
+        SphereShape sphereShape = this.sphereShapes[i];
         this.boxBank.addBox(sphereShape.getBox());
     }
     this.boxBank.buildKdTree();
@@ -60,7 +60,7 @@ SimpleOrthoRaycastOnSphereShapesTask.execute!()
     Scalar sh = height;
 
     Vec3 rayDirection(0, 0, -1);
-    CCTaskMaster tm(this.usePEX, width * height);
+    TaskMaster tm(this.usePEX, width * height);
     Index taskCount = 0;
     for(Index y=0; y<height; ++y)
     {
@@ -87,8 +87,8 @@ Boolean SimpleOrthoRaycastOnSphereShapesTask.getClosestHit(CCRay ray, io CCRayHi
     Scalar bestHitDistance = SCALAR_INFINITE;
     for(Index i=0; i < sphereIndicesToTest.size(); ++i)
     {
-        CCSphereShape sphereShape = this.getSphereShape(sphereIndicesToTest[i]);
-        CCSphere sphere = sphereShape.getSphere();
+        SphereShape sphereShape = this.getSphereShape(sphereIndicesToTest[i]);
+        Sphere sphere = sphereShape.getSphere();
         Scalar hitDistance;
         if (ray.intersectSphere(sphere, hitDistance))
         {

@@ -9,69 +9,69 @@ object TestSGScene : CCTestCase
 
 TestSGScene.testSceneManagerBasics!()
 {
-    CCScene s1('s1');
-    CCScene s2('s2');
-    this.assertEquals(getSceneManager().getSceneCount(), 2);
-    this.assert(getSceneManager().getScene(0) == s1);
-    this.assert(getSceneManager().getScene(1) == s2);
-    this.assert(getSceneManager().findScene('s1') == s1);
-    this.assert(getSceneManager().findScene('s2') == s2);
-    this.assert(getSceneManager().findScene('unexisting scene') == null);
-    this.assert(getSceneManager().findEntity('/s1') == s1);
-    this.assert(getSceneManager().findEntity('/s2') == s2);
+    Scene s1('s1');
+    Scene s2('s2');
+    this.AssertEquals(getSceneManager().getSceneCount(), 2);
+    this.Assert(getSceneManager().getScene(0) == s1);
+    this.Assert(getSceneManager().getScene(1) == s2);
+    this.Assert(getSceneManager().findScene('s1') == s1);
+    this.Assert(getSceneManager().findScene('s2') == s2);
+    this.Assert(getSceneManager().findScene('unexisting scene') == null);
+    this.Assert(getSceneManager().findEntity('/s1') == s1);
+    this.Assert(getSceneManager().findEntity('/s2') == s2);
     getSceneManager().removeAllScenes();
-    this.assertEquals(getSceneManager().getSceneCount(), 0);
+    this.AssertEquals(getSceneManager().getSceneCount(), 0);
 }
 
 TestSGScene.testSceneManagerFindEntity!()
 {
-  CCScene root('root');
-  CCEntity child0('child0');
+  Scene root('root');
+  Entity child0('child0');
   root.addChild(child0);
-  CCEntity child1('child1');
+  Entity child1('child1');
   root.addChild(child1);
-  CCEntity subchild00('subchild00'), subchild01('subchild01');
+  Entity subchild00('subchild00'), subchild01('subchild01');
   child0.addChild(subchild00);
   child0.addChild(subchild01);
-  CCEntity subchild10('subchild10'), subchild11('subchild11');
+  Entity subchild10('subchild10'), subchild11('subchild11');
   child1.addChild(subchild10);
   child1.addChild(subchild11);
 
   String allPaths[] = root.expandAllPaths();
-  this.assertEquals(allPaths.size(), 7);
+  this.AssertEquals(allPaths.size(), 7);
 
-  this.assertEquals(allPaths[0], '/root');
-  this.assertEquals(allPaths[1], '/root/child0');
-  this.assertEquals(allPaths[2], '/root/child0/subchild00');
-  this.assertEquals(allPaths[3], '/root/child0/subchild01');
-  this.assertEquals(allPaths[4], '/root/child1');
-  this.assertEquals(allPaths[5], '/root/child1/subchild10');
-  this.assertEquals(allPaths[6], '/root/child1/subchild11');
+  this.AssertEquals(allPaths[0], '/root');
+  this.AssertEquals(allPaths[1], '/root/child0');
+  this.AssertEquals(allPaths[2], '/root/child0/subchild00');
+  this.AssertEquals(allPaths[3], '/root/child0/subchild01');
+  this.AssertEquals(allPaths[4], '/root/child1');
+  this.AssertEquals(allPaths[5], '/root/child1/subchild10');
+  this.AssertEquals(allPaths[6], '/root/child1/subchild11');
 
   // find from the scene
-  this.assert(root.findEntity('/wont_find_that') == null);
-  this.assert(root.findEntity('/wont_find_that/or_that') == null);
-  this.assertEquals(root.findEntity('child0'), child0);
-  this.assertEquals(root.findEntity('child1'), child1);
-  this.assertEquals(root.findEntity('/child0/subchild00'), subchild00);
-  this.assertEquals(root.findEntity('/child0/subchild01'), subchild01);
-  this.assertEquals(root.findEntity('/child1/subchild10'), subchild10);
-  this.assertEquals(root.findEntity('/child1/subchild11'), subchild11);
+  this.Assert(root.findEntity('/wont_find_that') == null);
+  this.Assert(root.findEntity('/wont_find_that/or_that') == null);
+  this.AssertEquals(root.findEntity('child0'), child0);
+  this.AssertEquals(root.findEntity('child1'), child1);
+  this.AssertEquals(root.findEntity('/child0/subchild00'), subchild00);
+  this.AssertEquals(root.findEntity('/child0/subchild01'), subchild01);
+  this.AssertEquals(root.findEntity('/child1/subchild10'), subchild10);
+  this.AssertEquals(root.findEntity('/child1/subchild11'), subchild11);
 
   // find from the scene manager
-  this.assert(getSceneManager().findEntity('/wont_find_that') == null);
-  this.assert(getSceneManager().findEntity('/wont_find_that/or_that') == null);
-  this.assertEquals(getSceneManager().findEntity('root/child0'), child0);
-  this.assertEquals(getSceneManager().findEntity('root/child1'), child1);
-  this.assertEquals(getSceneManager().findEntity('/root/child0/subchild00'), subchild00);
-  this.assertEquals(getSceneManager().findEntity('/root/child0/subchild01'), subchild01);
-  this.assertEquals(getSceneManager().findEntity('/root/child1/subchild10'), subchild10);
-  this.assertEquals(getSceneManager().findEntity('/root/child1/subchild11'), subchild11);
+  this.Assert(getSceneManager().findEntity('/wont_find_that') == null);
+  this.Assert(getSceneManager().findEntity('/wont_find_that/or_that') == null);
+  this.AssertEquals(getSceneManager().findEntity('root/child0'), child0);
+  this.AssertEquals(getSceneManager().findEntity('root/child1'), child1);
+  this.AssertEquals(getSceneManager().findEntity('/root/child0/subchild00'), subchild00);
+  this.AssertEquals(getSceneManager().findEntity('/root/child0/subchild01'), subchild01);
+  this.AssertEquals(getSceneManager().findEntity('/root/child1/subchild10'), subchild10);
+  this.AssertEquals(getSceneManager().findEntity('/root/child1/subchild11'), subchild11);
 
   getSceneManager().removeAllScenes();
 }
 
-object CustomUpdateComponent2 : CCUpdateComponent {
+object CustomUpdateComponent2 : UpdateComponent {
   Integer onStartCalls, onUpdateCalls;
 };
 CustomUpdateComponent2(String name) {
@@ -89,12 +89,12 @@ CustomUpdateComponent2.onUpdate!()
 
 TestSGScene.testSceneManagerUpdate!()
 {
-  CCScene root('root');
+  Scene root('root');
   CustomUpdateComponent2 cuc0 = CustomUpdateComponent2('cuc0');
   CustomUpdateComponent2 cuc1 = CustomUpdateComponent2('cuc1');
-  CCEntity child0('child0', cuc0);
+  Entity child0('child0', cuc0);
   root.addChild(child0);
-  CCEntity child1('child1', cuc1);
+  Entity child1('child1', cuc1);
   root.addChild(child1);
 
   root.update();
@@ -102,10 +102,10 @@ TestSGScene.testSceneManagerUpdate!()
   root.update();
   root.update();  
 
-  this.assertEquals(cuc0.onStartCalls, 1);
-  this.assertEquals(cuc1.onStartCalls, 1);
-  this.assertEquals(cuc0.onUpdateCalls, 3);
-  this.assertEquals(cuc1.onUpdateCalls, 3);
+  this.AssertEquals(cuc0.onStartCalls, 1);
+  this.AssertEquals(cuc1.onStartCalls, 1);
+  this.AssertEquals(cuc0.onUpdateCalls, 3);
+  this.AssertEquals(cuc1.onUpdateCalls, 3);
 }
 //
 //Boolean test_sg_scene()

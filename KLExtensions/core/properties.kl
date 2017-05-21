@@ -1,4 +1,4 @@
-object CCProperties
+object Properties
 {
   private Boolean booleans[String];
   private Scalar scalars[String];
@@ -7,106 +7,106 @@ object CCProperties
   private Object objects[String];
 };
 
-Boolean CCProperties.isEmpty()
+Boolean Properties.isEmpty()
 {
   return this.booleans.size() == 0 && this.scalars.size() == 0 && this.integers.size() == 0 &&this.strings.size() == 0;
 }
 
-Boolean CCProperties.hasBoolean(String name)
+Boolean Properties.hasBoolean(String name)
 {
   for (d in this.booleans)
     if (d == name) return true;
   return false;
 }
 
-CCProperties.addBoolean!(String name, Boolean value)
+Properties.addBoolean!(String name, Boolean value)
 {
   this.booleans[name] = value;
 }
 
-Boolean CCProperties.getBooleanValue(String name)
+Boolean Properties.getBooleanValue(String name)
 {
   return this.booleans[name];
 }
 
-Boolean CCProperties.hasScalar(String name)
+Boolean Properties.hasScalar(String name)
 { 
   for (d in this.scalars)
     if (d == name) return true;
   return false;
 }
 
-CCProperties.addScalar!(String name, Scalar value)
+Properties.addScalar!(String name, Scalar value)
 {
   this.scalars[name] = value;
 }
 
-Scalar CCProperties.getScalarValue(String name)
+Scalar Properties.getScalarValue(String name)
 {
   return this.scalars[name];
 }
 
-Boolean CCProperties.hasInteger(String name)
+Boolean Properties.hasInteger(String name)
 { 
   for (d in this.integers)
     if (d == name) return true;
   return false;
 }
 
-CCProperties.addInteger!(String name, Integer value)
+Properties.addInteger!(String name, Integer value)
 {
   this.integers[name] = value;
 }
 
-Integer CCProperties.getIntegerValue(String name)
+Integer Properties.getIntegerValue(String name)
 {
   return this.integers[name];
 }
 
-Boolean CCProperties.hasString(String name)
+Boolean Properties.hasString(String name)
 { 
   for (d in this.strings)
     if (d == name) return true;
   return false;
 }
 
-CCProperties.addString!(String name, String value)
+Properties.addString!(String name, String value)
 {
   this.strings[name] = value;
 }
 
-String CCProperties.getStringValue(String name)
+String Properties.getStringValue(String name)
 {
   return this.strings[name];
 }
-String CCProperties.getStringValue(String name, String defaultValue)
+String Properties.getStringValue(String name, String defaultValue)
 {
   return (this.hasString(name)) ? this.strings[name] : defaultValue;
 }
 
-Boolean CCProperties.hasObject(String name)
+Boolean Properties.hasObject(String name)
 { 
   for (d in this.objects)
     if (d == name) return true;
   return false;
 }
 
-CCProperties.addObject!(String name, Object value)
+Properties.addObject!(String name, Object value)
 {
   this.objects[name] = value;
 }
 
-Object CCProperties.getObjectValue(String name)
+Object Properties.getObjectValue(String name)
 {
   return this.objects[name];
 }
 
-CCProperties.appendDesc(io String s)
+Properties.appendDesc(io String s)
 {
     s += this.toString();
 }
 
-String CCProperties.toString()
+String Properties.toString()
 {
   String s = '';
   if (this.booleans.size() > 0) s += this.booleans;

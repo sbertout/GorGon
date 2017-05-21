@@ -1,7 +1,7 @@
 require Fbx;
 require Geometry;
 
-CCinjectImporterOptions(io CCProperties p, ImporterOptions impO)
+CCinjectImporterOptions(io Properties p, ImporterOptions impO)
 {
   for(Size boolIdx=0; boolIdx<impO.boolKey.size(); ++boolIdx) 
     p.addBoolean(impO.boolKey[boolIdx], impO.boolValue[boolIdx]);
@@ -25,7 +25,7 @@ String CCextractFilenameFromPath(String path)
 //   return Singleton_get('CCTextureSet');
 // }
 
-CCEntity CCimportFBX(String fbxFilepath, String fbxTexFolder)
+Entity CCimportFBX(String fbxFilepath, String fbxTexFolder)
 {
   FbxHandle fh(); 
   fh.openFileHandle(fbxFilepath, fbxTexFolder);
@@ -37,7 +37,7 @@ CCEntity CCimportFBX(String fbxFilepath, String fbxTexFolder)
   String sa[] = fbxFilepath.split('/');
   // report(sa[sa.size()-1]);
 
-  CCEntity root(sa[sa.size()-1]);
+  Entity root(sa[sa.size()-1]);
 
 
   ImporterOptions options();
@@ -80,19 +80,19 @@ CCEntity CCimportFBX(String fbxFilepath, String fbxTexFolder)
       case 'TEXTURE':
         String name = CCextractFilenameFromPath(impI.name);
         CCTextureSet texSet = root.getOrCreateUpdateComponent('CCTextureSet');
-        CCProperties texProperties = CCProperties();
+        Properties texProperties = Properties();
         CCinjectImporterOptions(texProperties, impO);
         texSet.add(name, CCTexture(impI.name, texProperties));
       break;
 
       case 'MATERIAL':
         String name = impI.name;
-        //CCEntity e(name);
+        //Entity e(name);
         //CCinjectImporterOptions(e.getProperties(), impO); // inject into material instead !
         //root.addChild(e);
 
-        CCMaterialSet matSet = root.getOrCreateUpdateComponent('CCMaterialSet');
-        CCProperties matProperties = CCProperties();
+        MaterialSet matSet = root.getOrCreateUpdateComponent('MaterialSet');
+        Properties matProperties = Properties();
         CCinjectImporterOptions(matProperties, impO);
         matSet.add(name, BaseMaterial(matProperties));
 
@@ -100,18 +100,18 @@ CCEntity CCimportFBX(String fbxFilepath, String fbxTexFolder)
 
       case 'NULL': // just a transform !
         String name = impI.name;
-        CCEntity e(name);
+        Entity e(name);
         CCinjectImporterOptions(e.getProperties(), impO);
         root.addChild(e);      
       break;
 
       case 'MESH':
         String name = impI.name;
-        CCEntity e(name);
+        Entity e(name);
         CCinjectImporterOptions(e.getProperties(), impO);
 
         String parentPath = e.getProperties().getStringValue('parentPath', '');
-        CCEntity parentEntity = parentPath != '' ? root.findEntity(parentPath) : root;
+        Entity parentEntity = parentPath != '' ? root.findEntity(parentPath) : root;
 
         parentEntity.addChild(e); // should probably do some error check here !
 
@@ -123,7 +123,7 @@ CCEntity CCimportFBX(String fbxFilepath, String fbxTexFolder)
 
     }
 
-    // CCEntity e(impI.name);
+    // Entity e(impI.name);
     // root.addChild(e);
 
   }
@@ -132,7 +132,7 @@ CCEntity CCimportFBX(String fbxFilepath, String fbxTexFolder)
   //report(root.getChildCount());
   // report(root.toString());
   // report('MATERIAL SET !!!!');
-  // report(root.getUpdateComponent('CCMaterialSet').toString());
+  // report(root.getUpdateComponent('MaterialSet').toString());
   // for(Size i=0; i<root.getChildCount(); ++i) {
   //   report('child[' + i + '] = ' + root.getChild(i).toString());
   //   // report(root.getChild(i));
@@ -149,7 +149,7 @@ CCEntity CCimportFBX(String fbxFilepath, String fbxTexFolder)
   return root;
 }
 
-CCEntity CCimportAsset(String path, String secondaryPath)
+Entity CCimportAsset(String path, String secondaryPath)
 {
   return CCimportFBX(path, secondaryPath);
 }

@@ -1,22 +1,16 @@
-object CCPhongMaterial : RTMaterial
+object PhongMaterial : RTMaterial
 {
     Color diffuseColor;
     Color specularColor;
 };
 
-CCPhongMaterial(Color diffuseColor, Color specularColor)
+PhongMaterial(Color diffuseColor, Color specularColor)
 {
     this.diffuseColor = diffuseColor;
     this.specularColor = specularColor;
 }
 
-// TODO move to vec3 utils file
-//Vec3 reflect(Vec3 v, Vec3 n)
-//{
-//	return v - 2 * v.dot(n) * n;
-//}
-
-Color CCPhongMaterial.shade(CCRayHit rayHit)
+Color PhongMaterial.shade(CCRayHit rayHit)
 {
     Vec3 viewDir = Vec3(0, 0, -1);
 

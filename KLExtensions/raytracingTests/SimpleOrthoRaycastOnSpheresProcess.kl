@@ -1,5 +1,5 @@
 object SimpleOrthoRaycastOnSpheresTask;
-object SimpleOrthoRaycastOnSpheresProcess : CCTaskBase
+object SimpleOrthoRaycastOnSpheresProcess : TaskBase
 {
     private SimpleOrthoRaycastOnSpheresTask parentTask;
     private Index processIndex;
@@ -22,7 +22,7 @@ SimpleOrthoRaycastOnSpheresProcess.execute!()
     {
         for(Index x=0; x<this.parentTask.widthAreaPerProcess; x+=1)
         {
-            CCPackedColor col(0.0, 0.0, 0.0);
+            PackedColor col(0.0, 0.0, 0.0);
             Index curX = this.x + x;
             Index curY = this.y + y;
 
@@ -38,11 +38,11 @@ SimpleOrthoRaycastOnSpheresProcess.execute!()
                     Vec3 hitNor = rayHit.hitNor;
 
                     Scalar kd = hitNor.dot(Vec3(0, 0, 1));
-                    col = CCPackedColor(Color(kd, kd, kd));
+                    col = PackedColor(Color(kd, kd, kd));
                 }
                 else
                 {
-                    col = CCPackedColor(Color(1.0, 0.0, 0.0).linearInterpolate(Color(0.0, 1.0, 0.0), (rayHit.hitDistance - 5.0) / 5.0));
+                    col = PackedColor(Color(1.0, 0.0, 0.0).linearInterpolate(Color(0.0, 1.0, 0.0), (rayHit.hitDistance - 5.0) / 5.0));
                 }
             }
 

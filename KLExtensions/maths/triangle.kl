@@ -1,10 +1,10 @@
-object CCTriangle
+object Triangle
 {
     private Vec3 origin, uDir, vDir;
     private Scalar uLength, vLength;
 };
 
-CCTriangle(Vec3 origin, Scalar uLength, Vec3 uDir, Scalar vLength, Vec3 vDir)
+Triangle(Vec3 origin, Scalar uLength, Vec3 uDir, Scalar vLength, Vec3 vDir)
 {
     this.origin = origin;
     this.uLength = uLength;
@@ -13,7 +13,7 @@ CCTriangle(Vec3 origin, Scalar uLength, Vec3 uDir, Scalar vLength, Vec3 vDir)
     this.vDir = vDir;
 }
 
-CCTriangle(Vec3 p1, Vec3 p2, Vec3 p3)
+Triangle(Vec3 p1, Vec3 p2, Vec3 p3)
 {
     this.origin = p1; // we assume p1 is our pivot / origin
     Vec3 tu = p2 - p1;
@@ -25,14 +25,14 @@ CCTriangle(Vec3 p1, Vec3 p2, Vec3 p3)
 }
 
 // getters
-Vec3 CCTriangle.getOrigin() { return this.origin; }
-Scalar CCTriangle.getULength() { return this.uLength; }
-Vec3 CCTriangle.getUDir() { return this.uDir; }
-Scalar CCTriangle.getVLength() { return this.vLength; }
-Vec3 CCTriangle.getVDir() { return this.vDir; }
+Vec3 Triangle.getOrigin() { return this.origin; }
+Scalar Triangle.getULength() { return this.uLength; }
+Vec3 Triangle.getUDir() { return this.uDir; }
+Scalar Triangle.getVLength() { return this.vLength; }
+Vec3 Triangle.getVDir() { return this.vDir; }
 
 // methods
-Vec3 CCTriangle.getMin()
+Vec3 Triangle.getMin()
 {
     Vec3 m1 = this.origin + this.uDir * this.uLength;
     Vec3 m2 = this.origin + this.vDir * this.vLength;
@@ -40,19 +40,19 @@ Vec3 CCTriangle.getMin()
 //    return this.origin;
 }
 
-Vec3 CCTriangle.getMax()
+Vec3 Triangle.getMax()
 {
     Vec3 m1 = this.origin + this.uDir * this.uLength;
     Vec3 m2 = this.origin + this.vDir * this.vLength;
     return Math_max(this.origin, Math_max(m1, m2));
 }
 
-Vec3 CCTriangle.getNormal()
+Vec3 Triangle.getNormal()
 {
     return this.uDir.cross(this.vDir);
 }
 
-CCTriangle.getPoints(io Vec3 points[])
+Triangle.getPoints(io Vec3 points[])
 {
     points.resize(3);
     points[0] = this.origin;
@@ -60,7 +60,7 @@ CCTriangle.getPoints(io Vec3 points[])
     points[2] = this.origin + this.vDir * this.vLength;
 }
 
-Boolean CCTriangle.getUVCoordinates(Vec3 p, io Vec2 uvCoord)
+Boolean Triangle.getUVCoordinates(Vec3 p, io Vec2 uvCoord)
 {
     Vec3 pos = p - this.origin;
 

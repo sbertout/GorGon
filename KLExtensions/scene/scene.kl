@@ -1,25 +1,25 @@
-object CCScene;
-object CCEntity;
+object Scene;
+object Entity;
 
 
-object CCScene : CCEntity
+object Scene : Entity
 {
 };
 
-CCScene(String n)
+Scene(String n)
 {
-	this.createEntity(n, CCTransformComponent());
+	this.createEntity(n, TransformComponent());
 	getSceneManager().addScene(this);
 }
 
-CCEntity CCEntity.findEntity!(String p)
+Entity Entity.findEntity!(String p)
 {
   String path = p;
   if (path.startsWith('/') == false) path = '/' + path;
   String childName = path.partition('/')[2].partition('/')[0];
   String pathRemaining = path.partition('/')[2].partition('/')[2]; 
   for(Index i=0; i<this.getChildCount(); ++i) {
-    CCEntity e = this.getChild(i);
+    Entity e = this.getChild(i);
     if (e != null && e.getName() == childName) {
       if (pathRemaining == '') return e;
       else return e.findEntity('/' + pathRemaining);

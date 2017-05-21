@@ -1,22 +1,22 @@
-object CCBoxBank;
-object CCBoxBankTaskGetMax : CCTaskBase
+object BoxBank;
+object BoxBankTaskGetMax : TaskBase
 {
-	private CCBoxBank boxBank;
+	private BoxBank boxBank;
 	private Vec3 max;
 };
 
-CCBoxBankTaskGetMax(CCBoxBank boxBank)
+BoxBankTaskGetMax(BoxBank boxBank)
 {
 	this.boxBank = boxBank;
 	this.max = Vec3(BIGSCALAR_NEGATIVE, BIGSCALAR_NEGATIVE, BIGSCALAR_NEGATIVE);
 }
 
-Vec3 CCBoxBankTaskGetMax.get() { return this.max; }
+Vec3 BoxBankTaskGetMax.get() { return this.max; }
 
-CCBoxBankTaskGetMax.execute!()
+BoxBankTaskGetMax.execute!()
 {
-    ArrayProducer<CCBox> ap = createConstArray(this.boxBank.boxes);
-    ValueProducer<Vec3MaxResult> vp = createReduce(ap, mr_CCBox_max);
+    ArrayProducer<Box> ap = createConstArray(this.boxBank.boxes);
+    ValueProducer<Vec3MaxResult> vp = createReduce(ap, mr_Box_max);
     this.max = vp.produce().value;
 	this.parent.setDone(); // always call setDone on the parent class to make sure this.done is set properly
 }

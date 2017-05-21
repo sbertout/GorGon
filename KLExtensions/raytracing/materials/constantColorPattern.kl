@@ -1,14 +1,14 @@
-object CCConstantColorPattern
+object ConstantColorPattern
 {
     private Color color;
 };
 
-CCConstantColorPattern(Color color)
+ConstantColorPattern(Color color)
 {
     this.color = color;
 }
 
-Color CCConstantColorPattern.get()
+Color ConstantColorPattern.get()
 {
     return this.color;
 }

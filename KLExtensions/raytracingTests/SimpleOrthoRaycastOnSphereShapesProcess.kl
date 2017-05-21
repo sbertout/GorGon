@@ -1,5 +1,5 @@
 object SimpleOrthoRaycastOnSphereShapesTask;
-object SimpleOrthoRaycastOnSphereShapesProcess : CCTaskBase
+object SimpleOrthoRaycastOnSphereShapesProcess : TaskBase
 {
 
     private SimpleOrthoRaycastOnSphereShapesTask parentTask;
@@ -19,12 +19,12 @@ SimpleOrthoRaycastOnSphereShapesProcess(SimpleOrthoRaycastOnSphereShapesTask par
 
 SimpleOrthoRaycastOnSphereShapesProcess.execute!()
 {
-    CCPackedColor col(0.0, 0.0, 0.0);
+    PackedColor col(0.0, 0.0, 0.0);
 
     CCRayHit rayHit;
     if (this.parentTask.getClosestHit(this.ray, rayHit))
     {
-        col = CCPackedColor(this.parentTask.shade(rayHit));
+        col = PackedColor(this.parentTask.shade(rayHit));
     }
 
     this.parentTask.updateOutputBuffer(col, this.x, this.y);

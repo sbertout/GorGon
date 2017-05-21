@@ -1,28 +1,28 @@
-object CCOutputBuffer
+object OutputBuffer
 {
     private Size width, height;
-    private CCPackedColorArray buffer;
+    private PackedColorArray buffer;
 };
 
-CCOutputBuffer(Size width, Size height)
+OutputBuffer(Size width, Size height)
 {
     this.width = width;
     this.height = height;
     this.buffer.resize(this.width * this.height);
 }
 
-CCOutputBuffer(Size width, Size height, CCPackedColorArray buffer)
+OutputBuffer(Size width, Size height, PackedColorArray buffer)
 {
     this.width = width;
     this.height = height;
     this.buffer = buffer;
 }
 
-Size CCOutputBuffer.getWidth() { return this.width; }
-Size CCOutputBuffer.getHeight() { return this.height; }
-CCPackedColorArray CCOutputBuffer.getBuffer() { return this.buffer; }
+Size OutputBuffer.getWidth() { return this.width; }
+Size OutputBuffer.getHeight() { return this.height; }
+PackedColorArray OutputBuffer.getBuffer() { return this.buffer; }
 
-CCOutputBuffer.set!(CCPackedColor pc, Size x, Size y)
+OutputBuffer.set!(PackedColor pc, Size x, Size y)
 {
     this.buffer.set(pc, x, y, this.width, this.height);
 }

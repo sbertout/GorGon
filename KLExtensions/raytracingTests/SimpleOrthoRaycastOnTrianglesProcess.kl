@@ -1,5 +1,5 @@
 object SimpleOrthoRaycastOnTrianglesTask;
-object SimpleOrthoRaycastOnTrianglesProcess : CCTaskBase
+object SimpleOrthoRaycastOnTrianglesProcess : TaskBase
 {
     private SimpleOrthoRaycastOnTrianglesTask parentTask;
     private Count processIndex;
@@ -18,12 +18,12 @@ SimpleOrthoRaycastOnTrianglesProcess(SimpleOrthoRaycastOnTrianglesTask parentTas
 
 SimpleOrthoRaycastOnTrianglesProcess.execute!()
 {
-    CCPackedColor col(0.0, 0.0, 0.0);
+    PackedColor col(0.0, 0.0, 0.0);
 
     Scalar bestHitDistance = SCALAR_INFINITE;
     for(Index i=0; i<this.parentTask.getTriangleCount(); ++i)
     {
-        CCTriangle triangle = this.parentTask.getTriangle(i);
+        Triangle triangle = this.parentTask.getTriangle(i);
         Scalar hitDistance;
         if (this.ray.intersectTriangle(triangle, hitDistance))
         {
@@ -36,11 +36,11 @@ SimpleOrthoRaycastOnTrianglesProcess.execute!()
                     Vec3 hitNor = triangle.getNormal();
 
                     Scalar kd = hitNor.dot(Vec3(0, 0, 1));
-                    col = CCPackedColor(Color(kd, kd, kd));
+                    col = PackedColor(Color(kd, kd, kd));
                 }
                 else
                 {
-                    col = CCPackedColor(Color(1.0, 0.0, 0.0).linearInterpolate(Color(0.0, 1.0, 0.0), (hitDistance - 5.0) / 5.0));
+                    col = PackedColor(Color(1.0, 0.0, 0.0).linearInterpolate(Color(0.0, 1.0, 0.0), (hitDistance - 5.0) / 5.0));
                 }
 
                 bestHitDistance = hitDistance;

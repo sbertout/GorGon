@@ -1,158 +1,158 @@
-object CCRandomGen
+object RandomGen
 {
     Size seed, index;
 };
 
-CCRandomGen.init!(Size seed, Size index)
+RandomGen.init!(Size seed, Size index)
 {
     this.seed = seed;
     this.index = index;
-    if (Singleton_has('CCRandomGen') == false)
+    if (Singleton_has('RandomGen') == false)
     {
-        Singleton_set('CCRandomGen', this);
+        Singleton_set('RandomGen', this);
     }
 }
 
-CCRandomGenCleanup()
+RandomGenCleanup()
 {
-    Singleton_remove('CCRandomGen');
+    Singleton_remove('RandomGen');
 }
 
-CCRandomGen()
+RandomGen()
 {
     this.init(0, 0);
 }
 
-CCRandomGen(Size seed, Size index)
+RandomGen(Size seed, Size index)
 {
     this.init(seed, index);
 }
 
-Size CCRandomGen.getSeed() { return this.seed; }
-Size CCRandomGen.getIndex!() { return this.index++; }
-CCRandomGen.incrSeed!() { this.seed++; }
+Size RandomGen.getSeed() { return this.seed; }
+Size RandomGen.getIndex!() { return this.index++; }
+RandomGen.incrSeed!() { this.seed++; }
 
-Integer CCRandomGen.getRandomInteger!()
+Integer RandomGen.getRandomInteger!()
 {
     return mathRandomInteger(this.getSeed(), this.getIndex());
 }
 Integer CCrandomInteger()
 {
-    CCRandomGen rg = Singleton_get('CCRandomGen');
+    RandomGen rg = Singleton_get('RandomGen');
     return rg.getRandomInteger();
 }
 
-Integer CCRandomGen.getRandomInteger!(Integer min, Integer max)
+Integer RandomGen.getRandomInteger!(Integer min, Integer max)
 {
     return mathRandomUInt32(this.getSeed(), this.getIndex(), min, max);
 }
 Integer CCrandomInteger(Integer min, Integer max)
 {
-    CCRandomGen rg = Singleton_get('CCRandomGen');
+    RandomGen rg = Singleton_get('RandomGen');
     return rg.getRandomInteger(min, max);
 }
 
-Scalar CCRandomGen.getRandomScalar01!()
+Scalar RandomGen.getRandomScalar01!()
 {
     return mathRandomFloat32(this.getSeed(), this.getIndex(), 0.0, 1.0);
 }
 Scalar CCrandomScalar01()
 {
-    CCRandomGen rg = Singleton_get('CCRandomGen');
+    RandomGen rg = Singleton_get('RandomGen');
     return rg.getRandomScalar01();
 }
 
-Scalar CCRandomGen.getRandomUnitScalar!()
+Scalar RandomGen.getRandomUnitScalar!()
 {
     return mathRandomFloat32(this.getSeed(), this.getIndex(), -1.0, 1.0);
 }
 Scalar CCrandomUnitScalar()
 {
-    CCRandomGen rg = Singleton_get('CCRandomGen');
+    RandomGen rg = Singleton_get('RandomGen');
     return rg.getRandomUnitScalar();
 }
 
-Scalar CCRandomGen.getRandomScalar!()
+Scalar RandomGen.getRandomScalar!()
 {
     return mathRandomFloat32(this.getSeed(), this.getIndex(), BIGSCALAR_NEGATIVE, BIGSCALAR_POSITIVE);
 }
 Scalar CCrandomScalar()
 {
-    CCRandomGen rg = Singleton_get('CCRandomGen');
+    RandomGen rg = Singleton_get('RandomGen');
     return rg.getRandomScalar();
 }
 
-Scalar CCRandomGen.getRandomScalar!(Scalar min, Scalar max)
+Scalar RandomGen.getRandomScalar!(Scalar min, Scalar max)
 {
     return mathRandomFloat32(this.getSeed(), this.getIndex(), min, max);
 }
 Scalar CCrandomScalar(Scalar min, Scalar max)
 {
-    CCRandomGen rg = Singleton_get('CCRandomGen');
+    RandomGen rg = Singleton_get('RandomGen');
     return rg.getRandomScalar(min, max);
 }
 
-Vec2 CCRandomGen.getRandomVec2!()
+Vec2 RandomGen.getRandomVec2!()
 {
     return Vec2(mathRandomFloat32(this.getSeed(), this.getIndex()), mathRandomFloat32(this.getSeed(), this.getIndex()));
 }
 Vec2 CCrandomVec2()
 {
-    CCRandomGen rg = Singleton_get('CCRandomGen');
+    RandomGen rg = Singleton_get('RandomGen');
     return rg.getRandomVec2();
 }
 
-Vec2 CCRandomGen.getRandomUnitVec2!()
+Vec2 RandomGen.getRandomUnitVec2!()
 {
     return Vec2(mathRandomFloat32(this.getSeed(), this.getIndex(), -1.0, 1.0), mathRandomFloat32(this.getSeed(), this.getIndex(), -1.0, 1.0));
 }
 Vec2 CCrandomUnitVec2()
 {
-    CCRandomGen rg = Singleton_get('CCRandomGen');
+    RandomGen rg = Singleton_get('RandomGen');
     return rg.getRandomUnitVec2();
 }
 
-Vec3 CCRandomGen.getRandomVec3!()
+Vec3 RandomGen.getRandomVec3!()
 {
     return Vec3(mathRandomFloat32(this.getSeed(), this.getIndex()), mathRandomFloat32(this.getSeed(), this.getIndex()), mathRandomFloat32(this.getSeed(), this.getIndex()));
 }
 Vec3 CCrandomVec3()
 {
-    CCRandomGen rg = Singleton_get('CCRandomGen');
+    RandomGen rg = Singleton_get('RandomGen');
     return rg.getRandomVec3();
 }
 
-Color CCRandomGen.getRandomColor!()
+Color RandomGen.getRandomColor!()
 {
     return Color(this.getRandomScalar01(), this.getRandomScalar01(), this.getRandomScalar01());
 }
 Color CCrandomColor()
 {
-    CCRandomGen rg = Singleton_get('CCRandomGen');
+    RandomGen rg = Singleton_get('RandomGen');
     return rg.getRandomColor();
 }
 
-Vec3 CCRandomGen.getRandomUnitVec3!()
+Vec3 RandomGen.getRandomUnitVec3!()
 {
     return Vec3(mathRandomFloat32(this.getSeed(), this.getIndex(), -1.0, 1.0), mathRandomFloat32(this.getSeed(), this.getIndex(), -1.0, 1.0), mathRandomFloat32(this.getSeed(), this.getIndex(), -1.0, 1.0));
 }
 Vec3 CCrandomUnitVec3()
 {
-    CCRandomGen rg = Singleton_get('CCRandomGen');
+    RandomGen rg = Singleton_get('RandomGen');
     return rg.getRandomUnitVec3();
 }
 
-Vec4 CCRandomGen.getRandomVec4!()
+Vec4 RandomGen.getRandomVec4!()
 {
     return Vec4(mathRandomFloat32(this.getSeed(), this.getIndex()), mathRandomFloat32(this.getSeed(), this.getIndex()), mathRandomFloat32(this.getSeed(), this.getIndex()), mathRandomFloat32(this.getSeed(), this.getIndex()));
 }
 Vec4 CCrandomVec4()
 {
-    CCRandomGen rg = Singleton_get('CCRandomGen');
+    RandomGen rg = Singleton_get('RandomGen');
     return rg.getRandomVec4();
 }
 
-Vec3 CCRandomGen.getRandomOnUnitSphere!()
+Vec3 RandomGen.getRandomOnUnitSphere!()
 {
     Scalar x = this.getRandomUnitScalar();
     Scalar y = this.getRandomUnitScalar();
@@ -163,11 +163,11 @@ Vec3 CCRandomGen.getRandomOnUnitSphere!()
 }
 Vec3 CCrandomOnUnitSphere()
 {
-    CCRandomGen rg = Singleton_get('CCRandomGen');
+    RandomGen rg = Singleton_get('RandomGen');
     return rg.getRandomOnUnitSphere();
 }
 
-Vec3 CCRandomGen.getRandomInsideUnitSphere!()
+Vec3 RandomGen.getRandomInsideUnitSphere!()
 {
     Scalar x = this.getRandomUnitScalar();
     Scalar y = this.getRandomUnitScalar();
@@ -177,11 +177,11 @@ Vec3 CCRandomGen.getRandomInsideUnitSphere!()
 }
 Vec3 CCrandomInsideUnitSphere()
 {
-    CCRandomGen rg = Singleton_get('CCRandomGen');
+    RandomGen rg = Singleton_get('RandomGen');
     return rg.getRandomInsideUnitSphere();
 }
 
-Vec2 CCRandomGen.getRandomOnUnitDisk!()
+Vec2 RandomGen.getRandomOnUnitDisk!()
 {
     Scalar x = this.getRandomUnitScalar();
     Scalar y = this.getRandomUnitScalar();
@@ -191,11 +191,11 @@ Vec2 CCRandomGen.getRandomOnUnitDisk!()
 }
 Vec2 CCrandomOnUnitDisk()
 {
-    CCRandomGen rg = Singleton_get('CCRandomGen');
+    RandomGen rg = Singleton_get('RandomGen');
     return rg.getRandomOnUnitDisk();
 }
 
-Vec2 CCRandomGen.getRandomInsideUnitDisk!()
+Vec2 RandomGen.getRandomInsideUnitDisk!()
 {
     Scalar x = this.getRandomUnitScalar();
     Scalar y = this.getRandomUnitScalar();
@@ -204,21 +204,21 @@ Vec2 CCRandomGen.getRandomInsideUnitDisk!()
 }
 Vec2 CCrandomInsideUnitDisk()
 {
-    CCRandomGen rg = Singleton_get('CCRandomGen');
+    RandomGen rg = Singleton_get('RandomGen');
     return rg.getRandomInsideUnitDisk();
 }
 
-Quat CCRandomGen.getRandomQuat!()
+Quat RandomGen.getRandomQuat!()
 {
     return Quat(this.getRandomUnitVec3(), this.getRandomUnitVec3());
 }
 Quat CCrandomQuat()
 {
-    CCRandomGen rg = Singleton_get('CCRandomGen');
+    RandomGen rg = Singleton_get('RandomGen');
     return rg.getRandomQuat();
 }
 
-Vec3 CCRandomGen.getRandomUnitVec3!(Vec3 v)
+Vec3 RandomGen.getRandomUnitVec3!(Vec3 v)
 {
     Vec3 w = this.getRandomUnitVec3();
     if (w.dot(v) < 0) w *= -1.0;
@@ -226,6 +226,6 @@ Vec3 CCRandomGen.getRandomUnitVec3!(Vec3 v)
 }
 Vec3 CCrandomUnitVec3(Vec3 v)
 {
-    CCRandomGen rg = Singleton_get('CCRandomGen');
+    RandomGen rg = Singleton_get('RandomGen');
     return rg.getRandomUnitVec3(v);
 }

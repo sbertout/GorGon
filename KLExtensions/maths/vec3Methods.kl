@@ -2,3 +2,22 @@ Vec3 Vec3.reflect(Vec3 n)
 {
 	return this - 2 * this.dot(n) * n;
 }
+
+Vec3 Vec3.normalized()
+{
+    Vec3 v(this);
+    v.normalize();
+    return v;
+}
+
+CCeAxisType Vec3.getDominantAxis()
+{
+	if (this.x > this.y)
+	{
+		return this.x > this.z ? CCeAxisType_X : CCeAxisType_Z;
+    }
+    else
+    {
+        return this.y > this.z ? CCeAxisType_Y : CCeAxisType_Z;
+    }
+}

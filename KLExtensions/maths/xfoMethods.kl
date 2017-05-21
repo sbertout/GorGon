@@ -1,13 +1,11 @@
-require Math;
-
 alias Xfo XfoArray[];
 
-Xfo CCbuildXfo(Float32 x, Float32 y, Float32 z)
+Xfo BuildXfo(Float32 x, Float32 y, Float32 z)
 {
-  return CCbuildXfo(Vec3(x, y, z));
+  return BuildXfo(Vec3(x, y, z));
 }
 
-Xfo CCbuildXfo(Vec3 tr)
+Xfo BuildXfo(Vec3 tr)
 {
   Xfo xfo;
   xfo.setIdentity();
@@ -15,7 +13,7 @@ Xfo CCbuildXfo(Vec3 tr)
   return xfo;
 }
 
-Xfo CCbuildXfo(Vec3 tr, Quat ori)
+Xfo BuildXfo(Vec3 tr, Quat ori)
 {
   Xfo xfo;
   xfo.setIdentity();

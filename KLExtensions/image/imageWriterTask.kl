@@ -1,25 +1,25 @@
-object CCTaskBase;
+object TaskBase;
 
-object CCImageWriterTask : CCTaskBase
+object ImageWriterTask : TaskBase
 {
     String filePath;
-    CCOutputBuffer outputBuffer;
+    OutputBuffer outputBuffer;
 };
 
-CCImageWriterTask(String filePath, Size width, Size height, CCPackedColorArray pixels)
+ImageWriterTask(String filePath, Size width, Size height, PackedColorArray pixels)
 {
     this.filePath = filePath;
-    this.outputBuffer = CCOutputBuffer(width, height, pixels);
+    this.outputBuffer = OutputBuffer(width, height, pixels);
 }
 
-CCImageWriterTask(String filePath, CCOutputBuffer outputBuffer)
+ImageWriterTask(String filePath, OutputBuffer outputBuffer)
 {
     this.filePath = filePath;
     this.outputBuffer = outputBuffer;
 }
 
-CCImageWriterTask.execute!()
+ImageWriterTask.execute!()
 {
-    CCImageWriter(this.filePath, this.outputBuffer).write();
+    ImageWriter(this.filePath, this.outputBuffer).write();
     this.parent.setDone(); // always call setDone on the parent class to make sure this.done is set properly
 }

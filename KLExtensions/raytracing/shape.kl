@@ -1,21 +1,21 @@
-object CCShape
+object Shape
 {
 	protected Xfo xfo;
 	private RTMaterial material;
 };
 
-CCShape.setMaterial!(RTMaterial material)
+Shape.setMaterial!(RTMaterial material)
 {
     this.material = material;
     this.material.shade(CCRayHit());
 }
 
-RTMaterial CCShape.getMaterial()
+RTMaterial Shape.getMaterial()
 {
     return this.material;
 }
 
-Xfo CCShape.getXfo()
+Xfo Shape.getXfo()
 {
     return this.xfo;
 }

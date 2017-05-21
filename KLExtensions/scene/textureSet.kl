@@ -1,4 +1,4 @@
-object CCTextureSet : CCUpdateComponent
+object CCTextureSet : UpdateComponent
 {
   CCTexture textures[String];
 };

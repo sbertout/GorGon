@@ -7,57 +7,57 @@ object TestRTBoxBank : CCTestCase
 
 TestRTBoxBank.testBoxBank_getMinMax00!()
 {
-	CCBoxBank bb = CCBoxBank();
-	bb.addBox(CCBoxFromMinMax(Vec3(-10, -20, -30), Vec3(10, 20, 30)));
+	BoxBank bb = BoxBank();
+	bb.addBox(BoxFromMinMax(Vec3(-10, -20, -30), Vec3(10, 20, 30)));
 
 	Vec3 min, max;
 	bb.getMinAndMax(min, max);
 
-	this.assertEquals(min, Vec3(-10, -20, -30));
-	this.assertEquals(max, Vec3(10, 20, 30));
+	this.AssertEquals(min, Vec3(-10, -20, -30));
+	this.AssertEquals(max, Vec3(10, 20, 30));
 }
 
 TestRTBoxBank.testBoxBank_getMinMax01!()
 {
-	CCBoxBank bb = CCBoxBank();
-	bb.addBox(CCBoxFromMinMax(Vec3(10, 20, 30), Vec3(10, 20, 30)));
+	BoxBank bb = BoxBank();
+	bb.addBox(BoxFromMinMax(Vec3(10, 20, 30), Vec3(10, 20, 30)));
 
 	Vec3 min, max;
 	bb.getMinAndMax(min, max);
 
-	this.assertEquals(min, Vec3(10, 20, 30));
-	this.assertEquals(max, Vec3(10, 20, 30));
+	this.AssertEquals(min, Vec3(10, 20, 30));
+	this.AssertEquals(max, Vec3(10, 20, 30));
 }
 
 TestRTBoxBank.testBoxBank_getMinMax!()
 {
-	CCBoxBank bb = CCBoxBank();
+	BoxBank bb = BoxBank();
 	for(Index i=0; i<10; ++i)
 	{
 		Scalar is = i;
-		bb.addBox(CCBoxFromMinMax(Vec3(-is, -is, -is), Vec3(is+1, is+1, is+1)));
+		bb.addBox(BoxFromMinMax(Vec3(-is, -is, -is), Vec3(is+1, is+1, is+1)));
 	}
 
 	Vec3 min, max;
 	bb.getMinAndMax(min, max);
 
-	this.assertEquals(min, Vec3(-9, -9, -9));
-	this.assertEquals(max, Vec3(10, 10, 10));
+	this.AssertEquals(min, Vec3(-9, -9, -9));
+	this.AssertEquals(max, Vec3(10, 10, 10));
 }
 
 TestRTBoxBank.testBoxBank_kdTree_just1Box!()
 {
 
-	CCBoxBank bb = CCBoxBank();
-	bb.addBox(CCBox(Vec3(0, 0, 0), 1));
+	BoxBank bb = BoxBank();
+	bb.addBox(Box(Vec3(0, 0, 0), 1));
 	bb.buildKdTree();
 
-	this.assertEquals(bb.getKdTreeRoot().min, Vec3(-0.5, -0.5, -0.5));
-	this.assertEquals(bb.getKdTreeRoot().max, Vec3(+0.5, +0.5, +0.5));
-	this.assertEquals(bb.getKdTreeRoot().center, Vec3(0, 0, 0));
+	this.AssertEquals(bb.getKdTreeRoot().min, Vec3(-0.5, -0.5, -0.5));
+	this.AssertEquals(bb.getKdTreeRoot().max, Vec3(+0.5, +0.5, +0.5));
+	this.AssertEquals(bb.getKdTreeRoot().center, Vec3(0, 0, 0));
 
 	bb.checkConsistency();
-	this.assertEquals(bb.computeMaxDepth(), 1);
+	this.AssertEquals(bb.computeMaxDepth(), 1);
 }
 
 TestRTBoxBank.testBoxBank_kdTree_3Boxes!()
@@ -82,80 +82,80 @@ TestRTBoxBank.testBoxBank_kdTree_3Boxes!()
 
 
 
-	CCBoxBank bb = CCBoxBank();
-	bb.addBox(CCBox(Vec3(1, 1, 1), 2));
-	bb.addBox(CCBox(Vec3(5, 10, 5), 4));
-	bb.addBox(CCBox(Vec3(9, 19, 9), 2));
+	BoxBank bb = BoxBank();
+	bb.addBox(Box(Vec3(1, 1, 1), 2));
+	bb.addBox(Box(Vec3(5, 10, 5), 4));
+	bb.addBox(Box(Vec3(9, 19, 9), 2));
 	bb.buildKdTree();
 
-	this.assertEquals(bb.getKdTreeRoot().min, Vec3(0, 0, 0));
-	this.assertEquals(bb.getKdTreeRoot().max, Vec3(10, 20, 10));
-	this.assertEquals(bb.getKdTreeRoot().center, Vec3(5, 10, 5));
-	this.assertEquals(bb.getKdTreeRoot().axisType, CCeAxisType_Y);
-	this.assertEquals(String(bb.getKdTreeRoot().ownedBoxes), '[1,0,2]');
+	this.AssertEquals(bb.getKdTreeRoot().min, Vec3(0, 0, 0));
+	this.AssertEquals(bb.getKdTreeRoot().max, Vec3(10, 20, 10));
+	this.AssertEquals(bb.getKdTreeRoot().center, Vec3(5, 10, 5));
+	this.AssertEquals(bb.getKdTreeRoot().axisType, CCeAxisType_Y);
+	this.AssertEquals(String(bb.getKdTreeRoot().ownedBoxes), '[1,0,2]');
 
-	// CCBoxBankKdTreeCell negativeCell = bb.getKdTreeRoot().negativeCell;
-	// this.assertEquals(negativeCell.min, Vec3(0, 0, 0));
-	// this.assertEquals(negativeCell.max, Vec3(2, 2, 2));
-	// this.assertEquals(negativeCell.center, Vec3(1, 1, 1));
-	// this.assertEquals(negativeCell.axisType, CCeAxisType_Z);
-	// this.assertEquals(String(negativeCell.ownedBoxes), '[0]');
+	// BoxBankKdTreeCell negativeCell = bb.getKdTreeRoot().negativeCell;
+	// this.AssertEquals(negativeCell.min, Vec3(0, 0, 0));
+	// this.AssertEquals(negativeCell.max, Vec3(2, 2, 2));
+	// this.AssertEquals(negativeCell.center, Vec3(1, 1, 1));
+	// this.AssertEquals(negativeCell.axisType, CCeAxisType_Z);
+	// this.AssertEquals(String(negativeCell.ownedBoxes), '[0]');
 
-	// CCBoxBankKdTreeCell positiveCell = bb.getKdTreeRoot().positiveCell;
-	// this.assertEquals(positiveCell.min, Vec3(8, 18, 8));
-	// this.assertEquals(positiveCell.max, Vec3(10, 20, 10));
-	// this.assertEquals(positiveCell.center, Vec3(9, 19, 9));
-	// this.assertEquals(positiveCell.axisType, CCeAxisType_Y);
-	// this.assertEquals(String(positiveCell.ownedBoxes), '[2]');
+	// BoxBankKdTreeCell positiveCell = bb.getKdTreeRoot().positiveCell;
+	// this.AssertEquals(positiveCell.min, Vec3(8, 18, 8));
+	// this.AssertEquals(positiveCell.max, Vec3(10, 20, 10));
+	// this.AssertEquals(positiveCell.center, Vec3(9, 19, 9));
+	// this.AssertEquals(positiveCell.axisType, CCeAxisType_Y);
+	// this.AssertEquals(String(positiveCell.ownedBoxes), '[2]');
 
 	bb.checkConsistency();
-	this.assertEquals(bb.computeMaxDepth(), 1);
+	this.AssertEquals(bb.computeMaxDepth(), 1);
 }
 
 TestRTBoxBank.testBoxBank_kdTree_2emptyBoxes!()
 {
 
-	CCBoxBank bb = CCBoxBank();
-	bb.addBox(CCBox(Vec3(0, 0, 0), 0));
-	bb.addBox(CCBox(Vec3(10, 20, 10), 0));
+	BoxBank bb = BoxBank();
+	bb.addBox(Box(Vec3(0, 0, 0), 0));
+	bb.addBox(Box(Vec3(10, 20, 10), 0));
 	bb.buildKdTree();
 
-	this.assertEquals(bb.getKdTreeRoot().min, Vec3(0, 0, 0));
-	this.assertEquals(bb.getKdTreeRoot().max, Vec3(10, 20, 10));
-	this.assertEquals(bb.getKdTreeRoot().center, Vec3(5, 10, 5));
-	this.assertEquals(bb.getKdTreeRoot().axisType, CCeAxisType_Y);
-	this.assertEquals(String(bb.getKdTreeRoot().ownedBoxes), '[0,1]');
+	this.AssertEquals(bb.getKdTreeRoot().min, Vec3(0, 0, 0));
+	this.AssertEquals(bb.getKdTreeRoot().max, Vec3(10, 20, 10));
+	this.AssertEquals(bb.getKdTreeRoot().center, Vec3(5, 10, 5));
+	this.AssertEquals(bb.getKdTreeRoot().axisType, CCeAxisType_Y);
+	this.AssertEquals(String(bb.getKdTreeRoot().ownedBoxes), '[0,1]');
 
-	// CCBoxBankKdTreeCell negativeCell = bb.getKdTreeRoot().negativeCell;
-	// this.assertEquals(negativeCell.min, Vec3(0, 0, 0));
-	// this.assertEquals(negativeCell.max, Vec3(0, 0, 0));
-	// this.assertEquals(negativeCell.center, Vec3(0, 0, 0));
-	// this.assertEquals(negativeCell.axisType, CCeAxisType_Z);
-	// this.assertEquals(String(negativeCell.ownedBoxes), '[0]');
+	// BoxBankKdTreeCell negativeCell = bb.getKdTreeRoot().negativeCell;
+	// this.AssertEquals(negativeCell.min, Vec3(0, 0, 0));
+	// this.AssertEquals(negativeCell.max, Vec3(0, 0, 0));
+	// this.AssertEquals(negativeCell.center, Vec3(0, 0, 0));
+	// this.AssertEquals(negativeCell.axisType, CCeAxisType_Z);
+	// this.AssertEquals(String(negativeCell.ownedBoxes), '[0]');
 
-	// CCBoxBankKdTreeCell positiveCell = bb.getKdTreeRoot().positiveCell;
-	// this.assertEquals(positiveCell.min, Vec3(10, 20, 10));
-	// this.assertEquals(positiveCell.max, Vec3(10, 20, 10));
-	// this.assertEquals(positiveCell.center, Vec3(10, 20, 10));
-	// this.assertEquals(positiveCell.axisType, CCeAxisType_Y);
-	// this.assertEquals(String(positiveCell.ownedBoxes), '[1]');
+	// BoxBankKdTreeCell positiveCell = bb.getKdTreeRoot().positiveCell;
+	// this.AssertEquals(positiveCell.min, Vec3(10, 20, 10));
+	// this.AssertEquals(positiveCell.max, Vec3(10, 20, 10));
+	// this.AssertEquals(positiveCell.center, Vec3(10, 20, 10));
+	// this.AssertEquals(positiveCell.axisType, CCeAxisType_Y);
+	// this.AssertEquals(String(positiveCell.ownedBoxes), '[1]');
 
 	bb.checkConsistency();
-	this.assertEquals(bb.computeMaxDepth(), 1);
+	this.AssertEquals(bb.computeMaxDepth(), 1);
 }
 
 TestRTBoxBank.testBoxBank_kdTree_alembic!()
 {
 
-	CCBoxBank bb = CCBoxBank();
+	BoxBank bb = BoxBank();
 
 	String filePath = "${FABRIC_DIR}/Resources/fireworks.abc";
-	CCAlembicReader alembicReader(FilePath(filePath));
+	AlembicReader alembicReader(FilePath(filePath));
 	bb.addBoxes(alembicReader.getPoints(4.0));
 
 	bb.buildKdTree();
 	bb.checkConsistency();
-	this.assertEquals(bb.computeMaxDepth(), 2935);
+	this.AssertEquals(bb.computeMaxDepth(), 2935);
 }
 
 TestRTBoxBank.testBoxBank_raytrace_bruteForceSimple!()
@@ -170,20 +170,20 @@ TestRTBoxBank.testBoxBank_raytrace_bruteForceSimplePEX!()
 
 TestRTBoxBank._testBoxBank_raytrace_bruteForceSimple!(Boolean usePEX)
 {
-    CCBoxBank bb = CCBoxBank();
+    BoxBank bb = BoxBank();
 
     for(Index i=0; i<10; ++i)
     {
-        bb.addBox(CCBox(Vec3(0, 0, 10), 10));
-        bb.addBox(CCBox(Vec3(0, 0,-10), 10));
-        bb.addBox(CCBox(Vec3(2, 0, 10), 10));
-        bb.addBox(CCBox(Vec3(2, 0,-10), 10));
-        bb.addBox(CCBox(Vec3(-2, 0, 10), 10));
-        bb.addBox(CCBox(Vec3(-2, 0,-10), 10));
-        bb.addBox(CCBox(Vec3(4, 0, 10), 10));
-        bb.addBox(CCBox(Vec3(4, 0,-10), 10));
-        bb.addBox(CCBox(Vec3(-4, 0, 10), 10));
-        bb.addBox(CCBox(Vec3(-4, 0,-10), 10));
+        bb.addBox(Box(Vec3(0, 0, 10), 10));
+        bb.addBox(Box(Vec3(0, 0,-10), 10));
+        bb.addBox(Box(Vec3(2, 0, 10), 10));
+        bb.addBox(Box(Vec3(2, 0,-10), 10));
+        bb.addBox(Box(Vec3(-2, 0, 10), 10));
+        bb.addBox(Box(Vec3(-2, 0,-10), 10));
+        bb.addBox(Box(Vec3(4, 0, 10), 10));
+        bb.addBox(Box(Vec3(4, 0,-10), 10));
+        bb.addBox(Box(Vec3(-4, 0, 10), 10));
+        bb.addBox(Box(Vec3(-4, 0,-10), 10));
     }
     bb.buildKdTree();
 
@@ -192,8 +192,8 @@ TestRTBoxBank._testBoxBank_raytrace_bruteForceSimple!(Boolean usePEX)
     CCRay ray(origin, direction);
 
     Index validResultIndices[] = bb.bruteForceIntersectRay(ray, usePEX);
-    this.assertEquals(validResultIndices.size(), 50);
-    this.assertEquals(String(validResultIndices), "[0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,50,52,54,56,58,60,62,64,66,68,70,72,74,76,78,80,82,84,86,88,90,92,94,96,98]");
+    this.AssertEquals(validResultIndices.size(), 50);
+    this.AssertEquals(String(validResultIndices), "[0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,50,52,54,56,58,60,62,64,66,68,70,72,74,76,78,80,82,84,86,88,90,92,94,96,98]");
 }
 
 TestRTBoxBank.testBoxBank_raytrace_bruteForceSimple_alembic!()
@@ -209,10 +209,10 @@ TestRTBoxBank.testBoxBank_raytrace_bruteForceSimple_alembicPEX!()
 TestRTBoxBank._testBoxBank_raytrace_bruteForceSimple_alembic!(Boolean usePEX)
 {
 
-    CCBoxBank bb = CCBoxBank();
+    BoxBank bb = BoxBank();
 
 	String filePath = "${FABRIC_DIR}/Resources/fireworks.abc";
-	CCAlembicReader alembicReader(FilePath(filePath));
+	AlembicReader alembicReader(FilePath(filePath));
 	bb.addBoxes(alembicReader.getPoints(4.0), 10); // we create "fat" boxes to make sure we have hit as we don't use the kd tree here
     bb.buildKdTree();
 
@@ -221,8 +221,8 @@ TestRTBoxBank._testBoxBank_raytrace_bruteForceSimple_alembic!(Boolean usePEX)
     CCRay ray(origin, direction);
 
     Index validResultIndices[] = bb.bruteForceIntersectRay(ray, usePEX);
-    this.assertEquals(validResultIndices.size(), 103);
-    this.assertEquals(String(validResultIndices), "[134,190,219,234,241,278,338,348,452,508,558,566,727,728,775,779,791,797,798,799,801,808,811,813,823,861,873,879,880,881,883,890,893,895,934,946,952,954,955,956,963,966,968,1031,1037,1039,1048,1051,1053,1058,1070,1250,1265,1415,1440,1446,1448,1457,1460,1462,1467,1612,1753,1762,1843,1851,1865,1873,1884,1888,1889,1905,1906,2132,2316,2338,2342,2343,3026,3210,3231,3235,3236,3921,4105,4130,4131,4986,4987,5723,5877,5878,6540,6567,6614,6740,6828,6829,7299,7310,7314,7315,7331]");
+    this.AssertEquals(validResultIndices.size(), 103);
+    this.AssertEquals(String(validResultIndices), "[134,190,219,234,241,278,338,348,452,508,558,566,727,728,775,779,791,797,798,799,801,808,811,813,823,861,873,879,880,881,883,890,893,895,934,946,952,954,955,956,963,966,968,1031,1037,1039,1048,1051,1053,1058,1070,1250,1265,1415,1440,1446,1448,1457,1460,1462,1467,1612,1753,1762,1843,1851,1865,1873,1884,1888,1889,1905,1906,2132,2316,2338,2342,2343,3026,3210,3231,3235,3236,3921,4105,4130,4131,4986,4987,5723,5877,5878,6540,6567,6614,6740,6828,6829,7299,7310,7314,7315,7331]");
 }
 
 TestRTBoxBank.testBoxBank_raytrace_kdTree_alembic!()
@@ -237,10 +237,10 @@ TestRTBoxBank.testBoxBank_raytrace_kdTree_alembicPEX!()
 
 TestRTBoxBank._testBoxBank_raytrace_kdTree_alembic!(Boolean usePEX)
 {
-    CCBoxBank bb = CCBoxBank();
+    BoxBank bb = BoxBank();
 
 	String filePath = "${FABRIC_DIR}/Resources/fireworks.abc";
-	CCAlembicReader alembicReader(FilePath(filePath));
+	AlembicReader alembicReader(FilePath(filePath));
 	bb.addBoxes(alembicReader.getPoints(4.0), 0.5);
     bb.buildKdTree();
 
@@ -251,7 +251,7 @@ TestRTBoxBank._testBoxBank_raytrace_kdTree_alembic!(Boolean usePEX)
 
     Index validResultIndices[] = bb.intersectRay(ray, usePEX);
 
-    this.assertEquals(bb.getBoxCount(), 7445);
-    this.assertEquals(validResultIndices.size(), 318);
-    this.assertEquals(String(validResultIndices.sorted()), "[146,184,187,251,259,262,283,305,306,309,330,334,401,409,410,437,477,494,513,514,523,526,550,574,583,609,627,636,637,663,673,675,677,684,706,718,742,750,769,787,794,839,844,857,860,873,874,876,882,924,930,949,954,959,965,988,998,1011,1031,1038,1086,1116,1139,1159,1204,1256,1270,1286,1310,1383,1392,1402,1615,1626,1643,1692,1701,1794,1822,1840,1846,1884,1892,1921,2022,2043,2064,2074,2077,2098,2103,2173,2190,2207,2235,2242,2249,2286,2305,2306,2329,2348,2356,2535,2563,2564,2567,2595,2795,2809,2811,2835,2845,2861,2883,2887,2888,2909,2929,2937,2946,2949,2967,2987,2997,3003,3014,3023,3037,3047,3056,3067,3074,3101,3106,3123,3124,3147,3160,3180,3199,3218,3229,3241,3251,3341,3456,3485,3488,3508,3637,3639,3656,3664,3672,3684,3688,3693,3705,3713,3729,3738,3753,3774,3776,3781,3817,3839,3842,3843,3860,3863,3883,3888,3890,3892,3910,3915,3928,3951,3969,3988,3996,4016,4018,4019,4042,4055,4058,4066,4097,4114,4116,4118,4124,4136,4140,4216,4295,4300,4360,4379,4392,4400,4402,4531,4541,4567,4576,4597,4599,4600,4605,4607,4632,4647,4670,4741,4809,4827,4839,4869,4876,4877,4935,4955,4959,4964,4974,4976,4981,4996,5001,5009,5060,5069,5083,5151,5156,5211,5251,5411,5421,5437,5448,5456,5487,5498,5504,5519,5583,5587,5608,5611,5616,5633,5718,5745,5765,5767,5768,5846,5850,5855,5867,5872,5900,5939,5951,5960,5974,6047,6102,6141,6301,6311,6338,6346,6361,6366,6377,6388,6394,6409,6472,6473,6477,6503,6541,6551,6577,6599,6613,6641,6671,6678,6705,6713,6728,6740,6796,6806,6809,6820,6918,6963,7016,7035,7085,7103,7113,7308,7310,7319,7346,7347,7421,7442]");
+    this.AssertEquals(bb.getBoxCount(), 7445);
+    this.AssertEquals(validResultIndices.size(), 318);
+    this.AssertEquals(String(validResultIndices.sorted()), "[146,184,187,251,259,262,283,305,306,309,330,334,401,409,410,437,477,494,513,514,523,526,550,574,583,609,627,636,637,663,673,675,677,684,706,718,742,750,769,787,794,839,844,857,860,873,874,876,882,924,930,949,954,959,965,988,998,1011,1031,1038,1086,1116,1139,1159,1204,1256,1270,1286,1310,1383,1392,1402,1615,1626,1643,1692,1701,1794,1822,1840,1846,1884,1892,1921,2022,2043,2064,2074,2077,2098,2103,2173,2190,2207,2235,2242,2249,2286,2305,2306,2329,2348,2356,2535,2563,2564,2567,2595,2795,2809,2811,2835,2845,2861,2883,2887,2888,2909,2929,2937,2946,2949,2967,2987,2997,3003,3014,3023,3037,3047,3056,3067,3074,3101,3106,3123,3124,3147,3160,3180,3199,3218,3229,3241,3251,3341,3456,3485,3488,3508,3637,3639,3656,3664,3672,3684,3688,3693,3705,3713,3729,3738,3753,3774,3776,3781,3817,3839,3842,3843,3860,3863,3883,3888,3890,3892,3910,3915,3928,3951,3969,3988,3996,4016,4018,4019,4042,4055,4058,4066,4097,4114,4116,4118,4124,4136,4140,4216,4295,4300,4360,4379,4392,4400,4402,4531,4541,4567,4576,4597,4599,4600,4605,4607,4632,4647,4670,4741,4809,4827,4839,4869,4876,4877,4935,4955,4959,4964,4974,4976,4981,4996,5001,5009,5060,5069,5083,5151,5156,5211,5251,5411,5421,5437,5448,5456,5487,5498,5504,5519,5583,5587,5608,5611,5616,5633,5718,5745,5765,5767,5768,5846,5850,5855,5867,5872,5900,5939,5951,5960,5974,6047,6102,6141,6301,6311,6338,6346,6361,6366,6377,6388,6394,6409,6472,6473,6477,6503,6541,6551,6577,6599,6613,6641,6671,6678,6705,6713,6728,6740,6796,6806,6809,6820,6918,6963,7016,7035,7085,7103,7113,7308,7310,7319,7346,7347,7421,7442]");
 }

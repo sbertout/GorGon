@@ -8,14 +8,14 @@ interface RTMaterialInterface
 object RTMaterial : RTMaterialInterface, BaseMaterial
 {
     // String name;
-    // CCProperties _properties;
+    // Properties _properties;
 };
 
 RTMaterial()
 {
 }
 
-RTMaterial(CCProperties p)
+RTMaterial(Properties p)
 {
     this.init(p);
 }

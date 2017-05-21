@@ -1,21 +1,21 @@
-object CCShape;
+object Shape;
 
-object CCBoxShape : CCShape
+object BoxShape : Shape
 {
 	Vec3 size;
 };
 
-CCBoxShape(Xfo xfo, Vec3 size)
+BoxShape(Xfo xfo, Vec3 size)
 {
 	this.xfo = xfo;
 	this.size = size;
 }
 
-CCBox CCBoxShape.getBox()
+Box BoxShape.getBox()
 {
 	Vec3 scaling, translation;
 	Mat33 rotation;
 	this.xfo.toMat44().decompose(scaling, rotation, translation);
 
-	return CCBox(translation, this.size * scaling);
+	return Box(translation, this.size * scaling);
 }

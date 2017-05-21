@@ -1,10 +1,10 @@
-object CCQuad
+object Quad
 {
     Vec3 center, uDir, vDir;
     Scalar uLength, vLength;
 };
 
-CCQuad(Vec3 center, Scalar uLength, Vec3 uDir, Scalar vLength, Vec3 vDir)
+Quad(Vec3 center, Scalar uLength, Vec3 uDir, Scalar vLength, Vec3 vDir)
 {
     this.center = center;
     this.uLength = uLength;
@@ -14,29 +14,29 @@ CCQuad(Vec3 center, Scalar uLength, Vec3 uDir, Scalar vLength, Vec3 vDir)
 }
 
 // getters
-Vec3 CCQuad.getCenter() { return this.center; }
-Scalar CCQuad.getULength() { return this.uLength; }
-Vec3 CCQuad.getUDir() { return this.uDir; }
-Scalar CCQuad.getVLength() { return this.vLength; }
-Vec3 CCQuad.getVDir() { return this.vDir; }
+Vec3 Quad.getCenter() { return this.center; }
+Scalar Quad.getULength() { return this.uLength; }
+Vec3 Quad.getUDir() { return this.uDir; }
+Scalar Quad.getVLength() { return this.vLength; }
+Vec3 Quad.getVDir() { return this.vDir; }
 
 // methods
-Vec3 CCQuad.getMin()
+Vec3 Quad.getMin()
 {
     return this.center - this.uDir * this.uLength * 0.5 - this.vDir * this.vLength * 0.5;
 }
 
-Vec3 CCQuad.getMax()
+Vec3 Quad.getMax()
 {
     return this.center + this.uDir * this.uLength * 0.5 + this.vDir * this.vLength * 0.5;
 }
 
-Vec3 CCQuad.getNormal()
+Vec3 Quad.getNormal()
 {
     return this.uDir.cross(this.vDir);
 }
 
-CCQuad.getPoints(io Vec3 points[])
+Quad.getPoints(io Vec3 points[])
 {
     points.resize(4);
     points[0] = this.center - this.uDir * this.uLength * 0.5 - this.vDir * this.vLength * 0.5;
@@ -45,7 +45,7 @@ CCQuad.getPoints(io Vec3 points[])
     points[3] = this.center - this.uDir * this.uLength * 0.5 + this.vDir * this.vLength * 0.5;
 }
 
-Boolean CCQuad.getUVCoordinates(Vec3 p, io Vec2 uv) // also called barycentric coordinates
+Boolean Quad.getUVCoordinates(Vec3 p, io Vec2 uv) // also called barycentric coordinates
 {
     Vec3 pos = p - this.center;
     uv =  Vec2(0.5) +

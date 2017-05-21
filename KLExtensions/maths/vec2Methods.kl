@@ -1,0 +1,5 @@
+Boolean Vec2.inBetween(Scalar min, Scalar max)
+{
+    return this.x >= min && this.x <= max
+        && this.y >= min && this.y <= max;
+}
