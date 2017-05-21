@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 FABRIC_PATH='/Users/stephane/Documents/FabricEngine/'
-FABRIC_VERSION='FabricEngine-2.2.0-Darwin-x86_64'
+FABRIC_VERSION='FabricEngine-2.3.0-Darwin-x86_64'
 
 echo 'Using '$FABRIC_VERSION' from '$FABRIC_PATH
 echo 'Execute:'

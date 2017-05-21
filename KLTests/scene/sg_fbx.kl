@@ -30,9 +30,9 @@ TestSGFbx.testFBXSimpleMesh!()
 
   CCTextureSet texSet = root.getUpdateComponent('CCTextureSet');
   this.AssertEquals(texSet.getTextureCount(), 1);
-  this.AssertEquals(texSet.getPath('FarmWorld_01.tga'), 'C:/Trains/repository/Unity/Assets/Textures/Levels/FarmWorld_01.tga');
+  this.AssertEquals(texSet.getPath('FarmWorld_01.tga'), 'KLTests/_assets/FarmWorld_01.tga');
   this.AssertEquals(texSet.getTextureKeys()[0], 'FarmWorld_01.tga');
-  this.AssertEquals(texSet.getTexturePaths()[0], 'C:/Trains/repository/Unity/Assets/Textures/Levels/FarmWorld_01.tga');
+  this.AssertEquals(texSet.getTexturePaths()[0], 'KLTests/_assets/FarmWorld_01.tga');
 
   MaterialSet matSet = root.getUpdateComponent('MaterialSet');
   this.AssertEquals(matSet.getMaterialCount(), 1);
