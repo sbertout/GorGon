@@ -12,14 +12,14 @@ TestSGTransforms.testTransformComponentWithNonIdentityTransform!()
 {
   Entity e("e");
   Vec3 ePos(10, 20, 30); Quat eRot(Euler(PI/2, 0, 0));
-  e.setLocalTransform(BuildXfo(ePos, eRot));
+  e.setLocalTransform(Xfo(ePos, eRot));
   Xfo eTr = e.getLocalTransform();
   this.AssertEquals(eTr.getPosition(), ePos);
   this.AssertEquals(eTr.getRotation(), eRot);
 
   Entity ec("ec");
   Vec3 ecPos(15, 30, 45); Quat ecRot(Euler(0, PI/2, 0));
-  ec.setLocalTransform(BuildXfo(ecPos, ecRot));
+  ec.setLocalTransform(Xfo(ecPos, ecRot));
   Xfo ecTr = ec.getLocalTransform();
   this.AssertEquals(ecTr.getPosition(), ecPos);
   this.AssertEquals(ecTr.getRotation(), ecRot);
@@ -33,18 +33,18 @@ TestSGTransforms.testTransformComponentWithNonIdentityTransform!()
 
 TestSGTransforms.testTransformComponentGetGlobalTransform!()
 {
-  Entity e("e", BuildXfo(Vec3(10, 20, 30)));
+  Entity e("e", Xfo(Vec3(10, 20, 30)));
   Xfo elTr = e.getLocalTransform();
   Xfo egTr = e.getGlobalTransform();
   this.AssertEquals(elTr, egTr);
 
-  Entity p("p", BuildXfo(Vec3(-10, -20, -30)));
+  Entity p("p", Xfo(Vec3(-10, -20, -30)));
   p.addChild(e);
 
   this.AssertEquals(e.getLocalTransform().getPosition(), Vec3(10, 20, 30));
   this.AssertEquals(e.getGlobalTransform().getPosition(), Vec3(0, 0, 0));
 
-  Entity f = Entity("f", BuildXfo(Vec3(10, 20, 30)));
+  Entity f = Entity("f", Xfo(Vec3(10, 20, 30)));
   p.addChild(f, true);
 
   this.AssertEquals(f.getLocalTransform().getPosition(), Vec3(20, 40, 60));
@@ -53,14 +53,14 @@ TestSGTransforms.testTransformComponentGetGlobalTransform!()
 
 TestSGTransforms.testTransformComponentGetGlobalTransformComplex!()
 {
-  Entity scene("scene", BuildXfo(Vec3(1, 2, 3)));
-  Entity group("group", BuildXfo(Vec3(10, 20, 30)));
+  Entity scene("scene", Xfo(Vec3(1, 2, 3)));
+  Entity group("group", Xfo(Vec3(10, 20, 30)));
   scene.addChild(group);
   this.AssertEquals(scene.getLocalTransform().getPosition(), Vec3(1, 2, 3));
   this.AssertEquals(scene.getGlobalTransform().getPosition(), Vec3(1, 2, 3));
   this.AssertEquals(group.getLocalTransform().getPosition(), Vec3(10, 20, 30));
   this.AssertEquals(group.getGlobalTransform().getPosition(), Vec3(11, 22, 33));
-  Entity mesh("mesh", BuildXfo(Vec3(100, 200, 300)));
+  Entity mesh("mesh", Xfo(Vec3(100, 200, 300)));
   group.addChild(mesh);
   this.AssertEquals(mesh.getLocalTransform().getPosition(), Vec3(100, 200, 300));
   this.AssertEquals(mesh.getGlobalTransform().getPosition(), Vec3(111, 222, 333));
@@ -70,14 +70,14 @@ TestSGTransforms.testTransformComponentReparentingEntityWithNonIdentityTransform
 {
   Entity e("e");
   Vec3 ePos(10, 20, 30); Quat eRot(Euler(PI/2, 0, 0));
-  e.setLocalTransform(BuildXfo(ePos, eRot));
+  e.setLocalTransform(Xfo(ePos, eRot));
   Xfo eTr = e.getLocalTransform();
   this.AssertEquals(eTr.getPosition(), ePos);
   this.AssertEquals(eTr.getRotation(), eRot);
 
   Entity ec("ec");
   Vec3 ecPos(15, 30, 45); Quat ecRot(Euler(0, PI/2, 0));
-  ec.setLocalTransform(BuildXfo(ecPos, ecRot));
+  ec.setLocalTransform(Xfo(ecPos, ecRot));
   Xfo ecTr = ec.getLocalTransform();
   this.AssertEquals(ecTr.getPosition(), ecPos);
   this.AssertEquals(ecTr.getRotation(), ecRot);
@@ -91,12 +91,12 @@ TestSGTransforms.testTransformComponentReparentingEntityWithNonIdentityTransform
 
 TestSGTransforms.testTransformComponentReparentingEntityAlreadyParentedWithNonIdentityTransform!()
 {
-  Entity scene1("scene1", BuildXfo(50, 0, 0));
-  Entity scene2("scene2", BuildXfo(-50, 0, 0));
+  Entity scene1("scene1", Xfo(Vec3(50, 0, 0)));
+  Entity scene2("scene2", Xfo(Vec3(-50, 0, 0)));
   this.Assert(scene1.isInstanced() == false);
   this.Assert(scene2.isInstanced() == false);
 
-  Entity c("c", BuildXfo(50, 0, 0));
+  Entity c("c", Xfo(Vec3(50, 0, 0)));
   scene1.addChild(c, true);
   
   AssertAlmostEquals(c.getLocalTransform().getPosition(), Vec3(0, 0, 0), 0.001);
@@ -114,10 +114,10 @@ TestSGTransforms.testTransformComponentReparentingEntityAlreadyParentedWithNonId
 
 TestSGTransforms.testTransformComponentInstancing!()
 {
-  Entity scene1("scene1", BuildXfo(50, 0, 0));
-  Entity scene2("scene2", BuildXfo(-50, 0, 0));
+  Entity scene1("scene1", Xfo(Vec3(50, 0, 0)));
+  Entity scene2("scene2", Xfo(Vec3(-50, 0, 0)));
 
-  Entity c("c", BuildXfo(0, 0, 0));
+  Entity c("c", Xfo());
   scene1.addChild(c);
   scene2.addChild(c);
 
@@ -138,10 +138,10 @@ TestSGTransforms.testTransformComponentInstancing!()
 
 TestSGTransforms.testTransformComponentDeepInstancing!()
 {
-  Entity scene1("scene1", BuildXfo(50, 0, 0));
-  Entity scene2("scene2", BuildXfo(-50, 0, 0));
+  Entity scene1("scene1", Xfo(Vec3(50, 0, 0)));
+  Entity scene2("scene2", Xfo(Vec3(-50, 0, 0)));
 
-  Entity c("c", BuildXfo(0, 0, 0));
+  Entity c("c", Xfo());
   scene1.addChild(c);
   scene2.addChild(c);
 
@@ -174,7 +174,7 @@ TestSGTransforms.testCustomTransformComponent!()
 {
   Entity scene("scene");
   Entity e("e");
-  e.setTransformComponent(CustomTransformComponent(BuildXfo(50,0,0), BuildXfo(-50,0,0)));
+  e.setTransformComponent(CustomTransformComponent(Xfo(Vec3(50,0,0)), Xfo(Vec3(-50,0,0))));
   this.AssertEquals(e.getLocalTransform(), Xfo());
 }
 
@@ -201,8 +201,8 @@ TestSGTransforms.testCustomTransformComponentUsingContext!()
   Entity e("e");
 
   ContextBasedTransformComponent cbtc();
-  Xfo xfo_on_0(BuildXfo(50,0,0));
-  Xfo xfo_on_10(BuildXfo(-50,0,0));
+  Xfo xfo_on_0(Xfo(Vec3(50,0,0)));
+  Xfo xfo_on_10(Xfo(Vec3(-50,0,0)));
   cbtc.addXfo(xfo_on_0, 0);
   cbtc.addXfo(Xfo(), 5);
   cbtc.addXfo(xfo_on_10, 10);

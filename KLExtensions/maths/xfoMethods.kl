@@ -1,27 +1,5 @@
 alias Xfo XfoArray[];
 
-Xfo BuildXfo(Float32 x, Float32 y, Float32 z)
-{
-  return BuildXfo(Vec3(x, y, z));
-}
-
-Xfo BuildXfo(Vec3 tr)
-{
-  Xfo xfo;
-  xfo.setIdentity();
-  xfo.tr = tr;
-  return xfo;
-}
-
-Xfo BuildXfo(Vec3 tr, Quat ori)
-{
-  Xfo xfo;
-  xfo.setIdentity();
-  xfo.tr = tr;
-  xfo.ori = ori;
-  return xfo;
-}
-
 Vec3 Xfo.getPosition() 
 { 
   return this.tr; 
