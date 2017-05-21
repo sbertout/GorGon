@@ -46,7 +46,7 @@ CCTestCase.setOutFile!(String fp)
 {
 	this.reader = TextReader(fp);
 }
-CCTestCase.report!(String s)
+CCTestCase.report!(String s) // ???
 {
 	this.AssertEquals(s, this.reader.readLine());
 }

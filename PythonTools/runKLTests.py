@@ -56,7 +56,7 @@ def findKLFiles(rootDir, mask):
                 klFiles.append(klFile)
     return klFiles
 
-def generateKLFilesToTest(klFiles, returnBool=True):
+def generateKLFilesToTest(klFiles, returnBool=True, verbose=False):
     klTestFiles = []
     c = FECore.createClient()
     for klFile in klFiles:
@@ -96,18 +96,20 @@ def generateKLFilesToTest(klFiles, returnBool=True):
             newFile.write('Boolean operator entry() { \n')
         else:
             newFile.write('operator entry() { \n')
-        newFile.write('\tSize testCount = 0; Size invalidTestCount = 0; report("Executing " + AnsiEscapeCode_Blue("%s") + ".."); \n' % os.path.splitext(klFile)[0])
+        newFile.write('\tSize testCount = 0; Size invalidTestCount = 0; report("[GG_KLTEST] Executing " + AnsiEscapeCode_Blue("%s") + ".."); \n' % os.path.splitext(klFile)[0])
         for klObjectName in ordererdKlObjects:
             klObject = ordererdKlObjects[klObjectName]
             if klObject.canBeTested(ordererdKlObjects):
-                newFile.write('\n{\n\treport(" - %s:");\n' % (klObjectName))
+                newFile.write('\n{\n\treport("[GG_KLTEST] - %s:");\n' % (klObjectName))
                 newFile.write('\t%s tst(); tst.setOutFile("%s");\n' % (klObjectName, klFile.replace('.kl', '.out')))
+                # if verbose:
+                #     newFile.write('tst.verbose();')
                 for method in klObject.getTestMethods():
-                    newFile.write('\treport("   - executing.. " + AnsiEscapeCode_Blue("%s"));\n' % (method))
+                    newFile.write('\treport("[GG_KLTEST]   - executing.. " + AnsiEscapeCode_Blue("%s"));\n' % (method))
                     newFile.write('\ttst.setTestFuncName("%s").setUp().%s().tearDown();\n' % (method, method))
                 newFile.write('\tinvalidTestCount += tst.isValid() ? 0 : 1; testCount ++;\n}\n')
-        newFile.write('\n\tif (invalidTestCount == 0) report("Ran " + testCount + " test case(s).. OK!" + "\n");\n')
-        newFile.write('\telse report(AnsiEscapeCode_Red("Failed test case(s) " + invalidTestCount + "/" + testCount + "\n"));\n')
+        newFile.write('\n\tif (invalidTestCount == 0) report("[GG_KLTEST] Ran " + testCount + " test case(s).. OK!");\n')
+        newFile.write('\telse report("[GG_KLTEST]" + AnsiEscapeCode_Red("Failed test case(s) " + invalidTestCount + "/" + testCount));\n')
         if returnBool:
             newFile.write('\treturn invalidTestCount == 0; \n')
         newFile.write('}')
@@ -116,13 +118,13 @@ def generateKLFilesToTest(klFiles, returnBool=True):
     return klTestFiles
 
 def execKL(klFile):
-    print 'Testing ' + klFile
+    print '[GG_PYTEST] Testing ' + klFile
     output = Popen('kl ' + klFile, shell=True, stdin=PIPE, stdout=PIPE, stderr=STDOUT, close_fds=True).stdout.read()
     if args.quiet == False: print output
     errorCount = output.count('KL stack trace:')
     if errorCount > 0:
         if args.quiet: print output
-        print ColoredString.Red('%s Error(s) found!!\n' % errorCount)
+        print "[GG_PYTEST] " + ColoredString.Red('%s Error(s) found!!\n' % errorCount)
     return errorCount > 0#    returnCode = 1
 
 parser = argparse.ArgumentParser(description='Run KL test files')
@@ -137,7 +139,7 @@ returnCode = 0
 initTestRootDir()
 klFiles = findKLFiles(args.rootDir, args.mask)
 if args.consolidate:
-    klFilesToTest = generateKLFilesToTest(klFiles)
+    klFilesToTest = generateKLFilesToTest(klFiles, returnBool=True, verbose=not args.quiet)
     consolidatedKLFileName = testRootDir + '/kltest_consolidated.kl'
     consolidatedKLFile = open(consolidatedKLFileName, 'w')
     funcs = []
@@ -157,10 +159,9 @@ if args.consolidate:
     consolidatedKLFile.close()
     returnCode |= execKL(consolidatedKLFileName)
 else:
-    klFilesToTest = generateKLFilesToTest(klFiles, returnBool=False)
-    if args.quiet == False: print '\n'
+    klFilesToTest = generateKLFilesToTest(klFiles, returnBool=False, verbose=not args.quiet)
     for klFileToTest in klFilesToTest:
         returnCode |= execKL(klFileToTest)
 if args.debugMode == False: rmTestRootDir()
-if args.quiet and returnCode == 0: print 'OK!'
+if args.quiet and returnCode == 0: print '[GG_PYTEST] OK!'
 sys.exit(returnCode)

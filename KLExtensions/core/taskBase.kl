@@ -24,7 +24,7 @@ TaskBase.setDone!()
 {
     this.executeCount += 1;
 	this.done = true;
-	if (this.verbose) report(' - ' + this.type() + " done!");
+	if (this.verbose) report('[GG_CORE  ] - ' + this.type() + " done!");
 }
 TaskBase.verbose!()
 {

@@ -121,8 +121,8 @@ TaskMaster.executeAll!()
 {
     UInt64 currentTicks = getCurrentTicks();
 	this.inExecuteAll = true;
-	if (this.verbose) report(this.type() + " executing.. taskCount=" + this.tasks.size() + ' usePex=' + this.usePex);
+	if (this.verbose) report("[GG_CORE__] " + this.type() + " executing.. taskCount=" + this.tasks.size() + ' usePex=' + this.usePex);
 	this.executeAll(this.tasks);
 	this.inExecuteAll = false;
-	if (this.verbose) report(this.type() + " executed in " + getSecondsBetweenTicks(currentTicks, getCurrentTicks())  + " seconds.");
+	if (this.verbose) report("[GG_CORE__] " + this.type() + " executed in " + getSecondsBetweenTicks(currentTicks, getCurrentTicks())  + " seconds.");
 }
