@@ -1,7 +1,12 @@
 require Math;
-require GGscene;
 require Fbx;
 require Geometry;
+
+require GorGon_ECS;
+using namespace GorGon::ECS;
+
+require GorGon_Scene;
+using namespace GorGon::Scene;
 
 object TestSG : CCTestCase
 {
@@ -155,4 +160,21 @@ TestSG.testTransformComponentBasics!()
   this.Assert(tc.getChildCount() == 1);
   this.Assert(ec.getLocalTransform() == Xfo());
   this.AssertEquals(ec.getPath(), String("/" + eName + "/" + ecName));
+}
+
+object SuicideUpdateComponentBuilder : ComponentBuilder {};
+Component SuicideUpdateComponentBuilder.createComponent(String name)
+{
+    return SuicideUpdateComponent(name);
+}
+
+TestSG.testGetOrCreateNewComponent!()
+{
+    Entity e('entity');
+    UpdateComponent uc = e.getOrCreateUpdateComponent('SuicideUpdateComponent');
+    this.Assert(uc == null); // not known yet!
+
+    GorGon::ECS::getComponentFactory().addComponentBuilder('SuicideUpdateComponent', SuicideUpdateComponentBuilder());
+    uc = e.getOrCreateUpdateComponent('SuicideUpdateComponent');
+    this.Assert(uc != null); // now we know this component!
 }

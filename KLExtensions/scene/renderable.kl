@@ -1,12 +1,19 @@
-object CCRenderable : UpdateComponent
-{ // todo render component !
-  private PolygonMesh mesh;
-  private BaseMaterial material;
-};
+using namespace GorGon::ECS;
+using namespace GorGon::Rendering;
 
-CCRenderable(String name, PolygonMesh mesh, BaseMaterial material)
+namespace GorGon::Scene
 {
-  this.createComponent(name);
-  this.mesh = mesh;
-  this.material = material;
+    object CCRenderable : UpdateComponent
+    {
+        // todo render component !
+        private PolygonMesh mesh;
+        private BaseMaterial material;
+    };
+
+    CCRenderable(String name, PolygonMesh mesh, BaseMaterial material)
+    {
+        this.createComponent(name);
+        this.mesh = mesh;
+        this.material = material;
+    }
 }

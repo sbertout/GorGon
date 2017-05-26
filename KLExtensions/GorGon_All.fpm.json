@@ -1,0 +1,7 @@
+{
+    "code": [
+        "all/__requires.kl", 
+        "all/_init.kl"
+    ], 
+    "version": "0.1.0"
+}

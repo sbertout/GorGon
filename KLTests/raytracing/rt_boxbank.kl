@@ -1,5 +1,8 @@
-require GGraytracing;
-require GGimport;
+require GorGon_Raytracing;
+using namespace GorGon::Raytracing;
+
+require GorGon_Import;
+using namespace GorGon::Import;
 
 object TestRTBoxBank : CCTestCase
 {

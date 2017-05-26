@@ -1,20 +1,26 @@
-object BaseMaterial;
-object MaterialSet : UpdateComponent
-{
-    BaseMaterial materials[String];
-};
+using namespace GorGon::ECS;
+using namespace GorGon::Rendering;
 
-MaterialSet(String name)
+namespace GorGon::Scene
 {
-    this.createComponent(name);
-}
+    object MaterialSet : UpdateComponent
+    // todo: prefix with UpdateComponent or Component or UC ??
+    {
+        BaseMaterial materials[String];
+    };
 
-Size MaterialSet.getMaterialCount()
-{ 
-    return this.materials.size();
-}
+    MaterialSet(String name)
+    {
+        this.createComponent(name);
+    }
 
-MaterialSet.add!(String name, BaseMaterial material)
-{
-    this.materials[name] = material;
+    Size MaterialSet.getMaterialCount()
+    {
+        return this.materials.size();
+    }
+
+    MaterialSet.add!(String name, BaseMaterial material)
+    {
+        this.materials[name] = material;
+    }
 }

@@ -1,32 +1,38 @@
-object SimpleOrthoRaycastOnSphereShapesTask;
-object SimpleOrthoRaycastOnSphereShapesProcess : TaskBase
+using namespace GorGon::Image;
+using namespace GorGon::Raytracing;
+
+namespace GorGon::RaytracingTests
 {
-
-    private SimpleOrthoRaycastOnSphereShapesTask parentTask;
-    private Index processIndex;
-    private Size x, y;
-    private CCRay ray;
-};
-
-SimpleOrthoRaycastOnSphereShapesProcess(SimpleOrthoRaycastOnSphereShapesTask parentTask, Index processIndex, Size x, Size y, CCRay ray)
-{
-    this.parentTask = parentTask;
-    this.processIndex = processIndex;
-    this.x = x;
-    this.y = y;
-    this.ray = ray;
-}
-
-SimpleOrthoRaycastOnSphereShapesProcess.execute!()
-{
-    PackedColor col(0.0, 0.0, 0.0);
-
-    CCRayHit rayHit;
-    if (this.parentTask.getClosestHit(this.ray, rayHit))
+    object SimpleOrthoRaycastOnSphereShapesTask;
+    object SimpleOrthoRaycastOnSphereShapesProcess : TaskBase
     {
-        col = PackedColor(this.parentTask.shade(rayHit));
+
+        private SimpleOrthoRaycastOnSphereShapesTask parentTask;
+        private Index processIndex;
+        private Size x, y;
+        private CCRay ray;
+    };
+
+    SimpleOrthoRaycastOnSphereShapesProcess(SimpleOrthoRaycastOnSphereShapesTask parentTask, Index processIndex, Size x, Size y, CCRay ray)
+    {
+        this.parentTask = parentTask;
+        this.processIndex = processIndex;
+        this.x = x;
+        this.y = y;
+        this.ray = ray;
     }
 
-    this.parentTask.updateOutputBuffer(col, this.x, this.y);
-//    report("done " + this.processIndex + " - [" + this.x + "," + this.y + "]");
+    SimpleOrthoRaycastOnSphereShapesProcess.execute!()
+    {
+        PackedColor col(0.0, 0.0, 0.0);
+
+        CCRayHit rayHit;
+        if (this.parentTask.getClosestHit(this.ray, rayHit))
+        {
+            col = PackedColor(this.parentTask.shade(rayHit));
+        }
+
+        this.parentTask.updateOutputBuffer(col, this.x, this.y);
+    //    report("done " + this.processIndex + " - [" + this.x + "," + this.y + "]");
+    }
 }

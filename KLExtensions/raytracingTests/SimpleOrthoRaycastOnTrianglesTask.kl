@@ -1,58 +1,64 @@
-object SimpleOrthoRaycastOnTrianglesTask : SimpleOrthoRaycastBaseTask
-{
-    private Triangle triangles[];
-};
+using namespace GorGon::Image;
+using namespace GorGon::Raytracing;
 
-SimpleOrthoRaycastOnTrianglesTask(OutputBuffer outputBuffer, Boolean cameraFacingLighting)
+namespace GorGon::RaytracingTests
 {
-    // way slower with pex!??
-    this.initDefaults(false, outputBuffer, cameraFacingLighting);
-}
-
-SimpleOrthoRaycastOnTrianglesTask(OutputBuffer outputBuffer, Triangle triangle, Boolean cameraFacingLighting)
-{
-    // way slower with pex!??
-    this.initDefaults(false, outputBuffer, cameraFacingLighting);
-    this.addTriangle(triangle);
-}
-
-inline Count SimpleOrthoRaycastOnTrianglesTask.getTriangleCount()
-{
-    return this.triangles.size();
-}
-
-inline Triangle SimpleOrthoRaycastOnTrianglesTask.getTriangle(Index idx)
-{
-    return this.triangles[idx];
-}
-
-inline SimpleOrthoRaycastOnTrianglesTask.addTriangle!(Triangle triangle)
-{
-    this.triangles.push(triangle);
-}
-
-SimpleOrthoRaycastOnTrianglesTask.execute!()
-{
-    Size width = this.outputBuffer.getWidth();
-    Size height = this.outputBuffer.getHeight();
-    Scalar sw = width;
-    Scalar sh = height;
-
-    Count processIndex = 0;
-    TaskMaster tm(this.usePEX, width * height);
-    for(Index y=0; y<height; ++y)
+    object SimpleOrthoRaycastOnTrianglesTask : SimpleOrthoRaycastBaseTask
     {
-        Scalar yo = 2.0 * (0.5 + Scalar(y)) / sh - 1.0;
-        for(Index x=0; x<width; ++x)
-        {
-            Scalar xo = 2.0 * (0.5 + Scalar(x)) / sw - 1.0;
-            Vec3 rayOrigin(Vec3(xo, yo, 0) * this.viewSize);
-            rayOrigin.z = this.rayZPos;
+        private Triangle triangles[];
+    };
 
-            tm.addTask(SimpleOrthoRaycastOnTrianglesProcess(this, processIndex++, x, y, CCRay(rayOrigin, this.rayDirection)));
-        }
+    SimpleOrthoRaycastOnTrianglesTask(OutputBuffer outputBuffer, Boolean cameraFacingLighting)
+    {
+        // way slower with pex!??
+        this.initDefaults(false, outputBuffer, cameraFacingLighting);
     }
-    tm.executeAll();
 
-    this.parent.setDone(); // always call setDone on the parent class to make sure this.done is set properly
+    SimpleOrthoRaycastOnTrianglesTask(OutputBuffer outputBuffer, Triangle triangle, Boolean cameraFacingLighting)
+    {
+        // way slower with pex!??
+        this.initDefaults(false, outputBuffer, cameraFacingLighting);
+        this.addTriangle(triangle);
+    }
+
+    inline Count SimpleOrthoRaycastOnTrianglesTask.getTriangleCount()
+    {
+        return this.triangles.size();
+    }
+
+    inline Triangle SimpleOrthoRaycastOnTrianglesTask.getTriangle(Index idx)
+    {
+        return this.triangles[idx];
+    }
+
+    inline SimpleOrthoRaycastOnTrianglesTask.addTriangle!(Triangle triangle)
+    {
+        this.triangles.push(triangle);
+    }
+
+    SimpleOrthoRaycastOnTrianglesTask.execute!()
+    {
+        Size width = this.outputBuffer.getWidth();
+        Size height = this.outputBuffer.getHeight();
+        Scalar sw = width;
+        Scalar sh = height;
+
+        Count processIndex = 0;
+        TaskMaster tm(this.usePEX, width * height);
+        for(Index y=0; y<height; ++y)
+        {
+            Scalar yo = 2.0 * (0.5 + Scalar(y)) / sh - 1.0;
+            for(Index x=0; x<width; ++x)
+            {
+                Scalar xo = 2.0 * (0.5 + Scalar(x)) / sw - 1.0;
+                Vec3 rayOrigin(Vec3(xo, yo, 0) * this.viewSize);
+                rayOrigin.z = this.rayZPos;
+
+                tm.addTask(SimpleOrthoRaycastOnTrianglesProcess(this, processIndex++, x, y, CCRay(rayOrigin, this.rayDirection)));
+            }
+        }
+        tm.executeAll();
+
+        this.parent.setDone(); // always call setDone on the parent class to make sure this.done is set properly
+    }
 }

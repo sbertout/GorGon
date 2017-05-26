@@ -10,14 +10,17 @@ Vec3 Vec3.normalized()
     return v;
 }
 
-CCeAxisType Vec3.getDominantAxis()
+namespace GorGon::Maths
 {
-	if (this.x > this.y)
-	{
-		return this.x > this.z ? CCeAxisType_X : CCeAxisType_Z;
-    }
-    else
+    CCeAxisType Vec3.getDominantAxis()
     {
-        return this.y > this.z ? CCeAxisType_Y : CCeAxisType_Z;
+        if (this.x > this.y)
+        {
+            return this.x > this.z ? CCeAxisType_X : CCeAxisType_Z;
+        }
+        else
+        {
+            return this.y > this.z ? CCeAxisType_Y : CCeAxisType_Z;
+        }
     }
 }

@@ -1,5 +1,7 @@
-require GGraytracing;
-require GGimage;
+require GorGon_Raytracing;
+using namespace GorGon::Raytracing;
+
+require GorGon_Image;
 
 object TestRTImage : CCTestCase
 {

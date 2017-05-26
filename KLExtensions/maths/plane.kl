@@ -1,44 +1,52 @@
-object Plane
+namespace GorGon::Maths
 {
-    private Vec3 normal;
-    private Scalar distance;
-};
+    object Plane
+    {
+        private Vec3 normal;
+        private Scalar distance;
+    };
 
-Plane(Vec3 normal, Scalar distance)
-{
-    this.normal = normal; // we assume normal has already been normalised!
-    this.distance = distance;
-}
+    Plane(Vec3 normal, Scalar distance)
+    {
+        this.normal = normal; // we assume normal has already been normalised!
+        this.distance = distance;
+    }
 
-Plane(Vec3 position, Vec3 normal)
-{
-    this.normal = normal; // we assume normal has already been normalised!
-    this.distance = normal.dot(position);
-}
+    Plane(Vec3 position, Vec3 normal)
+    {
+        this.normal = normal; // we assume normal has already been normalised!
+        this.distance = normal.dot(position);
+    }
 
-Plane(Vec3 p1, Vec3 p2, Vec3 p3)
-{
-    this.normal = Vec3(p2 - p1).cross(Vec3(p3 - p1));
-    this.normal.normalize();
-    this.distance = this.normal.dot(p1);
-}
+    Plane(Vec3 p1, Vec3 p2, Vec3 p3)
+    {
+        this.normal = Vec3(p2 - p1).cross(Vec3(p3 - p1));
+        this.normal.normalize();
+        this.distance = this.normal.dot(p1);
+    }
 
-// getters
-Vec3 Plane.getNormal() { return this.normal; }
-Scalar Plane.getDistance() { return this.distance; }
+    Vec3 Plane.getNormal()
+    {
+        return this.normal;
+    }
 
-// methods
-Scalar Plane.distanceTo(Vec3 p)
-{
-    return p.dot(this.normal) - this.distance;
-}
+    Scalar Plane.getDistance()
+    {
+        return this.distance;
+    }
 
-Vec3 Plane.reflectPoint(Vec3 p)
-{
-    return this.normal * this.distanceTo(p) * (-2.0) + p;
-}
+    Scalar Plane.distanceTo(Vec3 p)
+    {
+        return p.dot(this.normal) - this.distance;
+    }
 
-Vec3 Plane.reflectVector(Vec3 v)
-{
-    return v - this.normal * (this.normal.dot(v)) * 2.0;
+    Vec3 Plane.reflectPoint(Vec3 p)
+    {
+        return this.normal * this.distanceTo(p) * (-2.0) + p;
+    }
+
+    Vec3 Plane.reflectVector(Vec3 v)
+    {
+        return v - this.normal * (this.normal.dot(v)) * 2.0;
+    }
 }

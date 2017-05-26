@@ -1,0 +1,8 @@
+namespace GorGon
+{
+    // todo auto generate it!
+    function initExtensions()
+    {
+        GorGon::Scene::initExtension();
+    }
+}

@@ -1,61 +1,62 @@
-object Scene;
-object Entity;
+using namespace GorGon::ECS;
 
-object SceneManager
+namespace GorGon::Scene
 {
-  Scene _scenes[];
-};
+    object SceneManager
+    {
+      Scene _scenes[];
+    };
 
-SceneManager getSceneManager()
-{
-	if (Singleton_has('SceneManager') == false)
-		Singleton_set('SceneManager', SceneManager());
-	return Singleton_get('SceneManager');
+    SceneManager getSceneManager()
+    {
+        if (Singleton_has('SceneManager') == false)
+            Singleton_set('SceneManager', SceneManager());
+        return Singleton_get('SceneManager');
+    }
+
+    SceneManager()
+    {
+    }
+
+    SceneManager.addScene!(Scene s)
+    {
+      this._scenes.push(s);
+    }
+
+    Size SceneManager.getSceneCount()
+    {
+        return this._scenes.size();
+    }
+
+    Scene SceneManager.getScene(Index i)
+    {
+        return this._scenes[i];
+    }
+
+    SceneManager.removeAllScenes!()
+    {
+        this._scenes.resize(0);
+    }
+
+    Scene SceneManager.findScene(String name)
+    {
+      for(Index i=0; i<this.getSceneCount(); ++i)
+      {
+        Scene scene = this.getScene(i);
+        if (scene.getName() == name) return scene;
+      }
+      return null;
+    }
+
+    Entity SceneManager.findEntity(String p)
+    {
+      String path = p;
+      if (path.startsWith('/') == false) path = '/' + path;
+      String sceneName = path.partition('/')[2].partition('/')[0];
+      String entityPath = path.partition('/')[2].partition('/')[2];
+      Scene scene = this.findScene(sceneName);
+      if (scene == null) return null;
+      if (entityPath != '') return scene.findEntity('/' + entityPath);
+      else return scene;
+    }
 }
-
-SceneManager()
-{
-}
-
-SceneManager.addScene!(Scene s)
-{
-  this._scenes.push(s);
-}
-
-Size SceneManager.getSceneCount()
-{
-	return this._scenes.size();
-}
-
-Scene SceneManager.getScene(Index i)
-{
-	return this._scenes[i];
-}
-
-SceneManager.removeAllScenes!()
-{
-	this._scenes.resize(0);
-}
-
-Scene SceneManager.findScene(String name)
-{
-  for(Index i=0; i<this.getSceneCount(); ++i) 
-  {
-    Scene scene = this.getScene(i);
-    if (scene.getName() == name) return scene;
-  }
-  return null;
-}
-
-Entity SceneManager.findEntity(String p)
-{
-  String path = p;
-  if (path.startsWith('/') == false) path = '/' + path;
-  String sceneName = path.partition('/')[2].partition('/')[0];
-  String entityPath = path.partition('/')[2].partition('/')[2]; 
-  Scene scene = this.findScene(sceneName);
-  if (scene == null) return null;
-  if (entityPath != '') return scene.findEntity('/' + entityPath);
-  else return scene;
-}
-

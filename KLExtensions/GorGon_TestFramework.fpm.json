@@ -1,6 +1,6 @@
 {
     "code": [
-        "testFramework/_requires.kl", 
+        "testFramework/__requires.kl", 
         "testFramework/testCase.kl", 
         "testFramework/testSuite.kl"
     ], 

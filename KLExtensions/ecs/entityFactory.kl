@@ -1,28 +1,27 @@
-require Math;
-require Singletons;
-
-object UpdateComponent;
-object TransformComponent;
-object Properties;
-
-object EntityFactory
+namespace GorGon::ECS
 {
-  Index _currentId;
-};
+    object UpdateComponent;
+    object TransformComponent;
 
-EntityFactory()
-{
-  this._currentId = 0;
-}
+    object EntityFactory
+    {
+      Index _currentId;
+    };
 
-Index EntityFactory.getUID!()
-{
-  return this._currentId ++;
-}
+    EntityFactory()
+    {
+      this._currentId = 0;
+    }
 
-EntityFactory getEntityFactory()
-{
-  if (Singleton_has('EntityFactory') == false)
-    Singleton_set('EntityFactory', EntityFactory());
-  return Singleton_get('EntityFactory');
+    Index EntityFactory.getUID!()
+    {
+      return this._currentId ++;
+    }
+
+    EntityFactory getEntityFactory()
+    {
+      if (Singleton_has('EntityFactory') == false)
+        Singleton_set('EntityFactory', EntityFactory());
+      return Singleton_get('EntityFactory');
+    }
 }

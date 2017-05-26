@@ -1,128 +1,138 @@
-object TaskMaster
+namespace GorGon::Core
 {
-	private TaskBase tasks[];
-	private Boolean usePex;
-	private Boolean inExecuteAll;
-	private Boolean verbose, alreadyResized;
-	private Size currTaskCount; // only when alreadyResized is used
-	private TaskBase tasksAddedWhileInExecuteAll[];
-	private SimpleLock simpleLock;
-};
+    object TaskMaster
+    {
+        private TaskBase tasks[];
+        private Boolean usePex;
+        private Boolean inExecuteAll;
+        private Boolean verbose, alreadyResized;
+        private Size currTaskCount; // only when alreadyResized is used
+        private TaskBase tasksAddedWhileInExecuteAll[];
+        private SimpleLock simpleLock;
+    };
 
-TaskMaster.init!(Boolean usePex)
-{
-	this.usePex = usePex;	
-	this.simpleLock = SimpleLock(String(this.uid()));
-}
+    TaskMaster.init!(Boolean usePex)
+    {
+        this.usePex = usePex;
+        this.simpleLock = SimpleLock(String(this.uid()));
+    }
 
-/// \dfgPresetTitle TaskMasterNoPEX
-TaskMaster()
-{
-	this.init(false);
-}
+    /// \dfgPresetTitle TaskMasterNoPEX
+    TaskMaster()
+    {
+        this.init(false);
+    }
 
-TaskMaster(Boolean usePex)
-{
-	this.init(usePex);
-}
+    TaskMaster(Boolean usePex)
+    {
+        this.init(usePex);
+    }
 
-TaskMaster(Boolean usePex, Size count)
-{
-	this.init(usePex);
-	this.tasks.resize(count);
-	this.alreadyResized = true;
-}
+    TaskMaster(Boolean usePex, Size count)
+    {
+        this.init(usePex);
+        this.tasks.resize(count);
+        this.alreadyResized = true;
+    }
 
-TaskMaster.verbose!() { this.verbose = true; }
-SimpleLock TaskMaster.getSimpleLock() { return this.simpleLock; }
+    TaskMaster.verbose!()
+    {
+        this.verbose = true;
+    }
 
-TaskMaster.addTask!(io TaskBase task)
-{
-    if (this.verbose) task.verbose();
-	if (this.inExecuteAll)
-	{
-		AutoLock AL(this.simpleLock);		
-		this.tasksAddedWhileInExecuteAll.push(task);
-	}
-	else		
-	{
-	    if (this.alreadyResized)
-	    {
-		    this.tasks[this.currTaskCount++] = task;
-	    }
-	    else
-	    {
-		    this.tasks.push(task);
-	    }
+    SimpleLock TaskMaster.getSimpleLock()
+    {
+        return this.simpleLock;
+    }
+
+    TaskMaster.addTask!(io TaskBase task)
+    {
+        if (this.verbose) task.verbose();
+        if (this.inExecuteAll)
+        {
+            AutoLock AL(this.simpleLock);
+            this.tasksAddedWhileInExecuteAll.push(task);
+        }
+        else
+        {
+            if (this.alreadyResized)
+            {
+                this.tasks[this.currTaskCount++] = task;
+            }
+            else
+            {
+                this.tasks.push(task);
+            }
 
 
-	}
-	task.owner = this;
-}
+        }
+        task.owner = this;
+    }
 
-operator pex_executeAll<<<index>>>(io TaskBase tasks[], io Ref<TaskMaster> taskMaster)
-{
-	if (tasks[index].canBeExecuted())
-	{
-	    if (tasks[index].getExecuteCount() == 0)
-	    {
-		    tasks[index].onFirstExecute();
-	    }
-		tasks[index].execute();
-	}
-	else
-	{
-		taskMaster.addTask(tasks[index]);
-	}
-}
+    operator pex_executeAll<<<index>>>(io TaskBase tasks[], io Ref<TaskMaster> taskMaster)
+    {
+        if (tasks[index].canBeExecuted())
+        {
+            if (tasks[index].getExecuteCount() == 0)
+            {
+                tasks[index].onFirstExecute();
+            }
+            tasks[index].execute();
+        }
+        else
+        {
+            taskMaster.addTask(tasks[index]);
+        }
+    }
 
-private TaskMaster.executeAll!(io TaskBase tasks[])
-{
-	if (this.usePex)
-	{
-		pex_executeAll<<<tasks.size()>>>(tasks, this);
-	}
-	else
-	{
-		for(Index i=0; i<tasks.size(); ++i)
-		{
-			if (tasks[i].canBeExecuted())
-			{
-                if (tasks[i].getExecuteCount() == 0)
+    private TaskMaster.executeAll!(io TaskBase tasks[])
+    {
+        if (this.usePex)
+        {
+            pex_executeAll<<<tasks.size()>>>(tasks, this);
+        }
+        else
+        {
+            for(Index i=0; i<tasks.size(); ++i)
+            {
+                if (tasks[i].canBeExecuted())
                 {
-                    tasks[i].onFirstExecute();
+                    if (tasks[i].getExecuteCount() == 0)
+                    {
+                        tasks[i].onFirstExecute();
+                    }
+                    tasks[i].execute();
                 }
-				tasks[i].execute();
-			}
-			else
-			{
-				this.addTask(tasks[i]);
-			}
-		}
-	}
-	// let's now check in case we've added some new tasks!
-	this.checkTasksAddedWhileInExecuteAll();
-}
+                else
+                {
+                    this.addTask(tasks[i]);
+                }
+            }
+        }
+        // let's now check in case we've added some new tasks!
+        this.checkTasksAddedWhileInExecuteAll();
+    }
 
-private TaskMaster.checkTasksAddedWhileInExecuteAll!()
-{
-	if (this.tasksAddedWhileInExecuteAll.size() == 0) return;
+    private TaskMaster.checkTasksAddedWhileInExecuteAll!()
+    {
+        if (this.tasksAddedWhileInExecuteAll.size() == 0) return;
 
-	// keep a temp copy of all our tasks
-	TaskBase tasksAddedWhileInExecuteAllCopy[];
-	for(Index i=0; i<this.tasksAddedWhileInExecuteAll.size(); ++i)
-		tasksAddedWhileInExecuteAllCopy.push(this.tasksAddedWhileInExecuteAll[i]);
-	this.tasksAddedWhileInExecuteAll.resize(0); // clear it before we execute again..
+        // keep a temp copy of all our tasks
+        TaskBase tasksAddedWhileInExecuteAllCopy[];
+        for(Index i=0; i<this.tasksAddedWhileInExecuteAll.size(); ++i)
+            tasksAddedWhileInExecuteAllCopy.push(this.tasksAddedWhileInExecuteAll[i]);
+        this.tasksAddedWhileInExecuteAll.resize(0); // clear it before we execute again..
 
-	this.executeAll(tasksAddedWhileInExecuteAllCopy);
-}
+        this.executeAll(tasksAddedWhileInExecuteAllCopy);
+    }
 
-TaskMaster.executeAll!()
-{
-    UInt64 currentTicks = getCurrentTicks();
-	this.inExecuteAll = true;
-	if (this.verbose) report("[GG_CORE__] " + this.type() + " executing.. taskCount=" + this.tasks.size() + ' usePex=' + this.usePex);
-	this.executeAll(this.tasks);
-	this.inExecuteAll = false;
-	if (this.verbose) report("[GG_CORE__] " + this.type() + " executed in " + getSecondsBetweenTicks(currentTicks, getCurrentTicks())  + " seconds.");
+    TaskMaster.executeAll!()
+    {
+        UInt64 currentTicks = getCurrentTicks();
+        this.inExecuteAll = true;
+        if (this.verbose) report("[GG_CORE__] " + this.type() + " executing.. taskCount=" + this.tasks.size() + ' usePex=' + this.usePex);
+        this.executeAll(this.tasks);
+        this.inExecuteAll = false;
+        if (this.verbose) report("[GG_CORE__] " + this.type() + " executed in " + getSecondsBetweenTicks(currentTicks, getCurrentTicks())  + " seconds.");
+    }
 }

@@ -1,21 +1,29 @@
-object BoxBank;
-object BoxBankTaskGetMin : TaskBase
-{
-	private BoxBank boxBank;
-	private Vec3 min;
-};
+using namespace GorGon::Core;
+using namespace GorGon::Maths;
 
-BoxBankTaskGetMin(BoxBank boxBank)
+namespace GorGon::Raytracing
 {
-	this.boxBank = boxBank;
-}
+    object BoxBankTaskGetMin : TaskBase
+    {
+        private BoxBank boxBank;
+        private Vec3 min;
+    };
 
-Vec3 BoxBankTaskGetMin.get() { return this.min; }
+    BoxBankTaskGetMin(BoxBank boxBank)
+    {
+        this.boxBank = boxBank;
+    }
 
-BoxBankTaskGetMin.execute!()
-{
-    ArrayProducer<Box> ap = createConstArray(this.boxBank.boxes);
-    ValueProducer<Vec3MinResult> vp = createReduce(ap, mr_Box_min);
-    this.min = vp.produce().value;
-	this.parent.setDone(); // always call setDone on the parent class to make sure this.done is set properly
+    Vec3 BoxBankTaskGetMin.get()
+    {
+        return this.min;
+    }
+
+    BoxBankTaskGetMin.execute!()
+    {
+//        ArrayProducer<Box> ap = createConstArray(this.boxBank.boxes);
+//        ValueProducer<Vec3MinResult> vp = createReduce(ap, mr_Box_min);
+//        this.min = vp.produce().value;
+//        this.parent.setDone(); // always call setDone on the parent class to make sure this.done is set properly
+    }
 }

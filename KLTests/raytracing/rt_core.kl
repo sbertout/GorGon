@@ -1,4 +1,5 @@
-require GGraytracing;
+require GorGon_Raytracing;
+using namespace GorGon::Raytracing;
 
 object TestRTCore : CCTestCase
 {

@@ -1,14 +1,17 @@
-object ConstantColorPattern
+namespace GorGon::Raytracing
 {
-    private Color color;
-};
+    object ConstantColorPattern
+    {
+        private Color color;
+    };
 
-ConstantColorPattern(Color color)
-{
-    this.color = color;
-}
+    ConstantColorPattern(Color color)
+    {
+        this.color = color;
+    }
 
-Color ConstantColorPattern.get()
-{
-    return this.color;
+    Color ConstantColorPattern.get()
+    {
+        return this.color;
+    }
 }

@@ -1,29 +1,35 @@
-object BoxBankKdTreeCellRayIntersectTask : TaskBase
+using namespace GorGon::Core;
+using namespace GorGon::Maths;
+
+namespace GorGon::Raytracing
 {
-    CCRay ray;
-    BoxBankKdTreeCell cell;
-    Index validResultIndices[];
-};
-
-BoxBankKdTreeCellRayIntersectTask(CCRay ray, BoxBankKdTreeCell cell, Index validResultIndices[])
-{
-    this.ray = ray;
-    this.cell = cell;
-    this.validResultIndices = validResultIndices;
-}
-
-BoxBankKdTreeCellRayIntersectTask.execute!()
-{
-//    Boolean result = this.cell.intersectRay(this.ray, this.validResultIndices);
-
-    Boolean result = this.ray.intersectBox(this.cell.box);
-
-    if (result)
+    object BoxBankKdTreeCellRayIntersectTask : TaskBase
     {
-        if (this.cell.negativeCell) this.owner.addTask(BoxBankKdTreeCellRayIntersectTask(this.ray, this.cell.negativeCell, this.validResultIndices));
-        if (this.cell.positiveCell) this.owner.addTask(BoxBankKdTreeCellRayIntersectTask(this.ray, this.cell.positiveCell, this.validResultIndices));
+        CCRay ray;
+        BoxBankKdTreeCell cell;
+        Index validResultIndices[];
+    };
 
-        AutoLock AL(this.owner.getSimpleLock());
-        this.validResultIndices.push(this.cell.ownedBoxes);
+    BoxBankKdTreeCellRayIntersectTask(CCRay ray, BoxBankKdTreeCell cell, Index validResultIndices[])
+    {
+        this.ray = ray;
+        this.cell = cell;
+        this.validResultIndices = validResultIndices;
+    }
+
+    BoxBankKdTreeCellRayIntersectTask.execute!()
+    {
+    //    Boolean result = this.cell.intersectRay(this.ray, this.validResultIndices);
+
+        Boolean result = this.ray.intersectBox(this.cell.box);
+
+        if (result)
+        {
+            if (this.cell.negativeCell) this.owner.addTask(BoxBankKdTreeCellRayIntersectTask(this.ray, this.cell.negativeCell, this.validResultIndices));
+            if (this.cell.positiveCell) this.owner.addTask(BoxBankKdTreeCellRayIntersectTask(this.ray, this.cell.positiveCell, this.validResultIndices));
+
+            AutoLock AL(this.owner.getSimpleLock());
+            this.validResultIndices.push(this.cell.ownedBoxes);
+        }
     }
 }

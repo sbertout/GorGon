@@ -1,11 +1,12 @@
-require Math;
+namespace GorGon::Maths
+{
+    alias UInt32 CCeAxisType;
+    const CCeAxisType CCeAxisType_X = 0;
+    const CCeAxisType CCeAxisType_Y = 1;
+    const CCeAxisType CCeAxisType_Z = 2;
 
-alias UInt32 CCeAxisType;
-const CCeAxisType CCeAxisType_X = 0;
-const CCeAxisType CCeAxisType_Y = 1;
-const CCeAxisType CCeAxisType_Z = 2;
-
-alias UInt32 CCeSideType;
-const CCeSideType CCeSideType_Negative = 0;
-const CCeSideType CCeSideType_Inside = 1;
-const CCeSideType CCeSideType_Positive = 2;
+    alias UInt32 CCeSideType;
+    const CCeSideType CCeSideType_Negative = 0;
+    const CCeSideType CCeSideType_Inside = 1;
+    const CCeSideType CCeSideType_Positive = 2;
+}

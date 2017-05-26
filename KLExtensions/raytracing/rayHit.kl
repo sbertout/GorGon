@@ -1,10 +1,11 @@
-//object CCMaterial;
-
-struct CCRayHit
+namespace GorGon::Raytracing
 {
-    Vec3 hitPos, hitNor;
-    Scalar hitDistance;
+    struct CCRayHit
+    {
+        Vec3 hitPos, hitNor;
+        Scalar hitDistance;
 
-    RTMaterial material; // ??? UserData?
-    // Object userData;
-};
+        RTMaterial material; // ??? UserData?
+        // Object userData;
+    };
+}

@@ -1,4 +1,4 @@
 // Fabric
 
 // GorGon
-require GGcore;
+require GorGon_Core;

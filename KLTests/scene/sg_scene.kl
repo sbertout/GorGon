@@ -1,7 +1,12 @@
 require Math;
-require GGscene;
 require Fbx;
 require Geometry;
+
+require GorGon_ECS;
+using namespace GorGon::ECS;
+
+require GorGon_Scene;
+using namespace GorGon::Scene;
 
 object TestSGScene : CCTestCase
 {
@@ -107,18 +112,3 @@ TestSGScene.testSceneManagerUpdate!()
   this.AssertEquals(cuc0.onUpdateCalls, 3);
   this.AssertEquals(cuc1.onUpdateCalls, 3);
 }
-//
-//Boolean test_sg_scene()
-//{
-//  report('Running.. test_sg_scene');
-//  TestSGScene ts();
-//
-//  ts.testSceneManagerBasics();
-//  ts.testSceneManagerFindEntity();
-//  ts.testSceneManagerUpdate();
-//
-//  if (ts.testFailed) report('tests FAILED !');
-//  else report('tests OK');
-//
-//  return ts.testFailed == false;
-//}

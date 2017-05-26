@@ -1,6 +1,6 @@
 {
     "code": [
-        "image/_requires.kl", 
+        "image/__requires.kl", 
         "image/colorPacked.kl", 
         "image/imageReader.kl", 
         "image/imageWriter.kl", 

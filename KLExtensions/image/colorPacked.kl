@@ -1,34 +1,42 @@
-struct PackedColor
+namespace GorGon::Image
 {
-    Float32 r, g, b;
-};
-inline PackedColor(Float32 r, Float32 g, Float32 b)
-{
-    this.r = r;
-    this.g = g;
-    this.b = b;
-}
-inline PackedColor(Color c)
-{
-    this.r = c.r;
-    this.g = c.g;
-    this.b = c.b;
-}
+    struct PackedColor
+    {
+        Float32 r, g, b;
+    };
 
-alias PackedColor PackedColorArray[];
+    inline PackedColor(Float32 r, Float32 g, Float32 b)
+    {
+        this.r = r;
+        this.g = g;
+        this.b = b;
+    }
 
-Vec3 PackedColor.asVec3() { return Vec3(this.r, this.g, this.b); }
+    inline PackedColor(Color c)
+    {
+        this.r = c.r;
+        this.g = c.g;
+        this.b = c.b;
+    }
 
-PackedColorArray.set!(PackedColor pc, Size x, Size y, Size w, Size h)
-{
-    if (x >= w) return;
-    if (y >= h) return;
-    this[y * w + x] = pc;
-}
+    alias PackedColor PackedColorArray[];
 
-Vec3 PackedColorArray.getVec3(Size x, Size y, Size w, Size h)
-{
-    if (x >= w) return Vec3();
-    if (y >= h) return Vec3();
-    return this[y * w + x].asVec3();
+    Vec3 PackedColor.asVec3()
+    {
+        return Vec3(this.r, this.g, this.b);
+    }
+
+    PackedColorArray.set!(PackedColor pc, Size x, Size y, Size w, Size h)
+    {
+        if (x >= w) return;
+        if (y >= h) return;
+        this[y * w + x] = pc;
+    }
+
+    Vec3 PackedColorArray.getVec3(Size x, Size y, Size w, Size h)
+    {
+        if (x >= w) return Vec3();
+        if (y >= h) return Vec3();
+        return this[y * w + x].asVec3();
+    }
 }

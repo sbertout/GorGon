@@ -65,6 +65,12 @@ def generateKLFilesToTest(klFiles, returnBool=True, verbose=False):
         file.close()
         ast = c.getKLJSONAST('AST.kl', sourceCode, False)
         data = json.loads(ast.getStringCString())['ast']
+
+        if len(data) == 0:
+            # probably a compiler error!
+            execKL(klFile)
+            return
+
         data = data[0]['globalList']
 
         klObjects = {}
@@ -88,11 +94,16 @@ def generateKLFilesToTest(klFiles, returnBool=True, verbose=False):
         klTmpFilePrefix = testRootDir + '/kltest_'
         newFileName = klTmpFilePrefix + klFile.replace('/', '_').replace('.', '_') + ".kl"
         newFile = open(newFileName, 'w')
+        newFile.write('// --- added by runKLTests.py ---\n')
+        newFile.write('require GorGon_TestFramework;\n')
+        newFile.write('using namespace GorGon::TestFramework;\n')
+        newFile.write('require GorGon_Core;\n')
+        newFile.write('using namespace GorGon::Core;\n')
+        newFile.write('\n\n')
         newFile.write(sourceCode)
 
         newFile.write('\n\n')
-        newFile.write('require GGtestFramework;\n')
-        newFile.write('require GGcore;\n')
+        # newFile.write('require GorGon_Core;\n')
         if returnBool:
             newFile.write('Boolean operator entry() { \n')
         else:
@@ -144,25 +155,27 @@ if args.consolidate:
     consolidatedKLFileName = testRootDir + '/kltest_consolidated.kl'
     consolidatedKLFile = open(consolidatedKLFileName, 'w')
     funcs = []
-    for klFileToTest in klFilesToTest:
-        klFileBase = os.path.splitext(os.path.basename(klFileToTest))[0]
-        funcs.append(klFileBase)
-        klFile = open(klFileToTest, 'r')
-        klFileContent = klFile.read()
-        klFile.close()
-        klFileContent = klFileContent.replace('operator entry', klFileBase)
-        consolidatedKLFile.write(klFileContent + '\n\n')
-    consolidatedKLFile.write('operator entry() {\n')
-    consolidatedKLFile.write('Boolean stillOK = true;\n')
-    for func in funcs:
-        consolidatedKLFile.write('\tif (stillOK) {stillOK = %s();}\n' % func)
-    consolidatedKLFile.write('}\n')
-    consolidatedKLFile.close()
-    returnCode |= execKL(consolidatedKLFileName)
+    if klFilesToTest:
+        for klFileToTest in klFilesToTest:
+            klFileBase = os.path.splitext(os.path.basename(klFileToTest))[0]
+            funcs.append(klFileBase)
+            klFile = open(klFileToTest, 'r')
+            klFileContent = klFile.read()
+            klFile.close()
+            klFileContent = klFileContent.replace('operator entry', klFileBase)
+            consolidatedKLFile.write(klFileContent + '\n\n')
+        consolidatedKLFile.write('operator entry() {\n')
+        consolidatedKLFile.write('Boolean stillOK = true;\n')
+        for func in funcs:
+            consolidatedKLFile.write('\tif (stillOK) {stillOK = %s();}\n' % func)
+        consolidatedKLFile.write('}\n')
+        consolidatedKLFile.close()
+        returnCode |= execKL(consolidatedKLFileName)
 else:
     klFilesToTest = generateKLFilesToTest(klFiles, returnBool=False, verbose=not args.quiet)
-    for klFileToTest in klFilesToTest:
-        returnCode |= execKL(klFileToTest)
+    if klFilesToTest:
+        for klFileToTest in klFilesToTest:
+            returnCode |= execKL(klFileToTest)
 if args.debugMode == False: rmTestRootDir()
 if args.quiet and returnCode == 0: print '[GG_PYTEST] OK!'
 sys.exit(returnCode)

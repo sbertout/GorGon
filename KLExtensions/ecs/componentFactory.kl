@@ -1,17 +1,54 @@
-require Singletons;
-object Entity;
-
-object ComponentFactory
+namespace GorGon::ECS
 {
-  private Index _currentId;
-};
+    object Entity;
 
-ComponentFactory()
-{
-  this._currentId = 0;
-}
+    interface ComponentBuilder
+    {
+        Component createComponent(String name);
+    };
 
-Index ComponentFactory.getUID!()
-{
-  return this._currentId ++;
+    object ComponentFactory
+    {
+        private Index _currentId;
+        private ComponentBuilder componentBuilders[String];
+    };
+
+    ComponentFactory getComponentFactory()
+    {
+        if (Singleton_has('ComponentFactory') == false)
+            Singleton_set('ComponentFactory', ComponentFactory());
+        return Singleton_get('ComponentFactory');
+    }
+
+    ComponentFactory()
+    {
+        this._currentId = 0;
+    }
+
+    Index ComponentFactory.getUID!()
+    {
+        return this._currentId ++;
+    }
+
+    ComponentFactory.addComponentBuilder!(String type, ComponentBuilder componentBuilder)
+    {
+        if (this.componentBuilders.has(type))
+        {
+            // TODO nice error reporting
+//            setError("Already Unknown builder: " + type);
+            return;
+        }
+        this.componentBuilders[type] = componentBuilder;
+    }
+
+    Component ComponentFactory.createComponent(String type, String name)
+    {
+        if (this.componentBuilders.has(type) == false)
+        {
+            // TODO nice error reporting
+//            setError("Unknown type: " + type);
+            return null;
+        }
+        return this.componentBuilders[type].createComponent(name);
+    }
 }

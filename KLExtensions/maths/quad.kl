@@ -1,55 +1,75 @@
-object Quad
+namespace GorGon::Maths
 {
-    Vec3 center, uDir, vDir;
-    Scalar uLength, vLength;
-};
+    object Quad // should that be a struct ? same for other maths types??
+    {
+        Vec3 center, uDir, vDir;
+        Scalar uLength, vLength;
+    };
 
-Quad(Vec3 center, Scalar uLength, Vec3 uDir, Scalar vLength, Vec3 vDir)
-{
-    this.center = center;
-    this.uLength = uLength;
-    this.uDir = uDir;
-    this.vLength = vLength;
-    this.vDir = vDir;
-}
+    Quad(Vec3 center, Scalar uLength, Vec3 uDir, Scalar vLength, Vec3 vDir)
+    {
+        this.center = center;
+        this.uLength = uLength;
+        this.uDir = uDir;
+        this.vLength = vLength;
+        this.vDir = vDir;
+    }
 
-// getters
-Vec3 Quad.getCenter() { return this.center; }
-Scalar Quad.getULength() { return this.uLength; }
-Vec3 Quad.getUDir() { return this.uDir; }
-Scalar Quad.getVLength() { return this.vLength; }
-Vec3 Quad.getVDir() { return this.vDir; }
+    Vec3 Quad.getCenter()
+    {
+        return this.center;
+    }
 
-// methods
-Vec3 Quad.getMin()
-{
-    return this.center - this.uDir * this.uLength * 0.5 - this.vDir * this.vLength * 0.5;
-}
+    Scalar Quad.getULength()
+    {
+        return this.uLength;
+    }
 
-Vec3 Quad.getMax()
-{
-    return this.center + this.uDir * this.uLength * 0.5 + this.vDir * this.vLength * 0.5;
-}
+    Vec3 Quad.getUDir()
+    {
+        return this.uDir;
+    }
 
-Vec3 Quad.getNormal()
-{
-    return this.uDir.cross(this.vDir);
-}
+    Scalar Quad.getVLength()
+    {
+        return this.vLength;
+    }
 
-Quad.getPoints(io Vec3 points[])
-{
-    points.resize(4);
-    points[0] = this.center - this.uDir * this.uLength * 0.5 - this.vDir * this.vLength * 0.5;
-    points[1] = this.center + this.uDir * this.uLength * 0.5 - this.vDir * this.vLength * 0.5;
-    points[2] = this.center + this.uDir * this.uLength * 0.5 + this.vDir * this.vLength * 0.5;
-    points[3] = this.center - this.uDir * this.uLength * 0.5 + this.vDir * this.vLength * 0.5;
-}
+    Vec3 Quad.getVDir()
+    {
+        return this.vDir;
+    }
 
-Boolean Quad.getUVCoordinates(Vec3 p, io Vec2 uv) // also called barycentric coordinates
-{
-    Vec3 pos = p - this.center;
-    uv =  Vec2(0.5) +
-          Vec2(this.uDir.dot(pos) / (1.0 * this.uLength),
-               this.vDir.dot(pos) / (1.0 * this.vLength));
-    return uv.inBetween(0, 1);
+    Vec3 Quad.getMin()
+    {
+        return this.center - this.uDir * this.uLength * 0.5 - this.vDir * this.vLength * 0.5;
+    }
+
+    Vec3 Quad.getMax()
+    {
+        return this.center + this.uDir * this.uLength * 0.5 + this.vDir * this.vLength * 0.5;
+    }
+
+    Vec3 Quad.getNormal()
+    {
+        return this.uDir.cross(this.vDir);
+    }
+
+    Quad.getPoints(io Vec3 points[])
+    {
+        points.resize(4);
+        points[0] = this.center - this.uDir * this.uLength * 0.5 - this.vDir * this.vLength * 0.5;
+        points[1] = this.center + this.uDir * this.uLength * 0.5 - this.vDir * this.vLength * 0.5;
+        points[2] = this.center + this.uDir * this.uLength * 0.5 + this.vDir * this.vLength * 0.5;
+        points[3] = this.center - this.uDir * this.uLength * 0.5 + this.vDir * this.vLength * 0.5;
+    }
+
+    Boolean Quad.getUVCoordinates(Vec3 p, io Vec2 uv) // also called barycentric coordinates
+    {
+        Vec3 pos = p - this.center;
+        uv =  Vec2(0.5) +
+              Vec2(this.uDir.dot(pos) / (1.0 * this.uLength),
+                   this.vDir.dot(pos) / (1.0 * this.vLength));
+        return uv.inBetween(0, 1);
+    }
 }

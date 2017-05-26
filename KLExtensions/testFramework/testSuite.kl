@@ -1,228 +1,230 @@
-object CCTestSuite
+namespace GorGon::TestFramework
 {
-    Boolean testFailed;
-    private String testDesc;
-};
+    object CCTestSuite
+    {
+        Boolean testFailed;
+        private String testDesc;
+    };
 
-CCTestSuite()
-{
-  this.testFailed = false;
-  this.testDesc = "";
+    CCTestSuite()
+    {
+      this.testFailed = false;
+      this.testDesc = "";
+    }
+
+    ~CCTestSuite()
+    {
+      this.report();
+    }
+
+    Boolean CCTestSuite.isValid() { return this.testFailed == false; }
+
+    CCTestSuite.setTestDesc!(String s)
+    {
+      this.testDesc = s;
+    }
+
+    CCTestSuite.setError!(String s)
+    {
+      this.testFailed = true;
+      String ss;
+      if (this.testDesc != '') ss = " (" + this.testDesc + ")";
+      setError(s + ss);
+    }
+
+    // should use proper UnitTest framework..
+    Boolean CCTestSuite.Assert!(Boolean test)
+    {
+      if (! test)
+      {
+        this.setError("Assert");
+        return false;
+      }
+      return true;
+    }
+
+    Boolean CCTestSuite.AssertTrue!(Boolean test)
+    {
+        return this.AssertEquals(test, true);
+    }
+
+    Boolean CCTestSuite.AssertFalse!(Boolean test)
+    {
+        return this.AssertEquals(test, false);
+    }
+
+    Boolean CCTestSuite.AssertEquals!(Size s1, Size s2)
+    {
+      if (s1 != s2)
+      {
+        this.setError("AssertEquals: " + s1 + " != " + s2);
+        return false;
+      }
+      return true;
+    }
+
+    Boolean CCTestSuite.AssertEquals!(Integer s1, Integer s2)
+    {
+      if (s1 != s2)
+      {
+        this.setError("AssertEquals: " + s1 + " != " + s2);
+        return false;
+      }
+      return true;
+    }
+
+    Boolean CCTestSuite.AssertEquals!(Scalar s1, Scalar s2)
+    {
+      if (s1 != s2)
+      {
+        this.setError("AssertEquals: " + s1 + " != " + s2);
+        return false;
+      }
+      return true;
+    }
+
+    Boolean CCTestSuite.AssertAlmostEquals!(Scalar s1, Scalar s2)
+    {
+        return this.AssertAlmostEquals(s1, s2, 0.0001);
+    }
+
+    Boolean CCTestSuite.AssertAlmostEquals!(Scalar s1, Scalar s2, Float32 eps)
+    {
+      if (abs(s1 - s2) > eps)
+      {
+        this.setError("AssertAlmostEquals: " + s1 + " != " + s2);
+        return false;
+      }
+      return true;
+    }
+
+    Boolean CCTestSuite.AssertEquals!(String s1, String s2)
+    {
+      if (s1 != s2)
+      {
+        this.setError("AssertEquals: " + s1 + " != " + s2);
+        return false;
+      }
+      return true;
+    }
+
+    Boolean CCTestSuite.AssertEquals!(Vec2 s1, Vec2 s2)
+    {
+      if (s1 != s2)
+      {
+        this.setError("AssertEquals: " + s1 + " != " + s2);
+        return false;
+      }
+      return true;
+    }
+
+    Boolean CCTestSuite.AssertAlmostEquals!(Vec2 s1, Vec2 s2)
+    {
+      return this.AssertAlmostEquals(s1, s2, 0.0001);
+    }
+
+
+    Boolean CCTestSuite.AssertAlmostEquals!(Vec2 s1, Vec2 s2, Float32 eps)
+    {
+      if (!s1.almostEqual(s2, eps))
+      {
+        this.setError("AssertAlmostEquals: " + s1 + " != " + s2);
+        return false;
+      }
+      return true;
+    }
+
+    Boolean CCTestSuite.AssertEquals!(Vec3 s1, Vec3 s2)
+    {
+      if (s1 != s2)
+      {
+        this.setError("AssertEquals: " + s1 + " != " + s2);
+        return false;
+      }
+      return true;
+    }
+
+    Boolean CCTestSuite.AssertAlmostEquals!(Vec3 s1, Vec3 s2)
+    {
+      return this.AssertAlmostEquals(s1, s2, 0.0001);
+    }
+
+
+    Boolean CCTestSuite.AssertAlmostEquals!(Vec3 s1, Vec3 s2, Float32 eps)
+    {
+      if (!s1.almostEqual(s2, eps))
+      {
+        this.setError("AssertAlmostEquals: " + s1 + " != " + s2);
+        return false;
+      }
+      return true;
+    }
+
+    Boolean CCTestSuite.AssertEquals!(Vec4 s1, Vec4 s2)
+    {
+      if (s1 != s2)
+      {
+        this.setError("AssertEquals: " + s1 + " != " + s2);
+        return false;
+      }
+      return true;
+    }
+
+    Boolean CCTestSuite.AssertAlmostEquals!(Vec4 s1, Vec4 s2)
+    {
+      return this.AssertAlmostEquals(s1, s2, 0.0001);
+    }
+
+
+    Boolean CCTestSuite.AssertAlmostEquals!(Vec4 s1, Vec4 s2, Float32 eps)
+    {
+      if (!s1.almostEqual(s2, eps))
+      {
+        this.setError("AssertAlmostEquals: " + s1 + " != " + s2);
+        return false;
+      }
+      return true;
+    }
+
+    Boolean CCTestSuite.AssertEquals!(Quat s1, Quat s2)
+    {
+      if (s1 != s2)
+      {
+        this.setError("AssertEquals: " + s1 + " != " + s2);
+        return false;
+      }
+      return true;
+    }
+
+    Boolean CCTestSuite.AssertAlmostEquals!(Quat s1, Quat s2)
+    {
+      return this.AssertAlmostEquals(s1, s2, 0.0001);
+    }
+
+
+    Boolean CCTestSuite.AssertAlmostEquals!(Quat s1, Quat s2, Float32 eps)
+    {
+      if (!s1.almostEqual(s2, eps))
+      {
+        this.setError("AssertAlmostEquals: " + s1 + " != " + s2);
+        return false;
+      }
+      return true;
+    }
+
+    Boolean CCTestSuite.AssertEquals!(Xfo s1, Xfo s2)
+    {
+      if (s1 != s2)
+      {
+        this.setError("AssertEquals: " + s1 + " != " + s2);
+        return false;
+      }
+      return true;
+    }
+
+    CCTestSuite.report()
+    {
+      if (this.testFailed) report('tests FAILED !');
+      else report('tests OK');
+    }
 }
-
-~CCTestSuite()
-{
-  this.report();
-}
-
-Boolean CCTestSuite.isValid() { return this.testFailed == false; }
-
-CCTestSuite.setTestDesc!(String s)
-{
-  this.testDesc = s;
-}
-
-CCTestSuite.setError!(String s)
-{
-  this.testFailed = true;
-  String ss;
-  if (this.testDesc != '') ss = " (" + this.testDesc + ")";
-  setError(s + ss);
-}
-
-// should use proper UnitTest framework..
-Boolean CCTestSuite.Assert!(Boolean test)
-{
-  if (! test)
-  {
-    this.setError("Assert");
-    return false;
-  }
-  return true;
-}
-
-Boolean CCTestSuite.AssertTrue!(Boolean test)
-{
-    return this.AssertEquals(test, true);
-}
-
-Boolean CCTestSuite.AssertFalse!(Boolean test)
-{
-    return this.AssertEquals(test, false);
-}
-
-Boolean CCTestSuite.AssertEquals!(Size s1, Size s2)
-{
-  if (s1 != s2)
-  {
-    this.setError("AssertEquals: " + s1 + " != " + s2);
-    return false;
-  }
-  return true;
-}
-
-Boolean CCTestSuite.AssertEquals!(Integer s1, Integer s2)
-{
-  if (s1 != s2)
-  {
-    this.setError("AssertEquals: " + s1 + " != " + s2);
-    return false;
-  }
-  return true;
-}
-
-Boolean CCTestSuite.AssertEquals!(Scalar s1, Scalar s2)
-{
-  if (s1 != s2)
-  {
-    this.setError("AssertEquals: " + s1 + " != " + s2);
-    return false;
-  }
-  return true;
-}
-
-Boolean CCTestSuite.AssertAlmostEquals!(Scalar s1, Scalar s2)
-{
-    return this.AssertAlmostEquals(s1, s2, 0.0001);
-}
-
-Boolean CCTestSuite.AssertAlmostEquals!(Scalar s1, Scalar s2, Float32 eps)
-{
-  if (abs(s1 - s2) > eps)
-  {
-    this.setError("AssertAlmostEquals: " + s1 + " != " + s2);
-    return false;
-  }
-  return true;
-}
-
-Boolean CCTestSuite.AssertEquals!(String s1, String s2)
-{
-  if (s1 != s2)
-  {
-    this.setError("AssertEquals: " + s1 + " != " + s2);
-    return false;
-  }
-  return true;
-}
-
-Boolean CCTestSuite.AssertEquals!(Vec2 s1, Vec2 s2)
-{
-  if (s1 != s2)
-  {
-    this.setError("AssertEquals: " + s1 + " != " + s2);
-    return false;
-  }
-  return true;
-}
-
-Boolean CCTestSuite.AssertAlmostEquals!(Vec2 s1, Vec2 s2)
-{
-  return this.AssertAlmostEquals(s1, s2, 0.0001);
-}
-
-
-Boolean CCTestSuite.AssertAlmostEquals!(Vec2 s1, Vec2 s2, Float32 eps)
-{
-  if (!s1.almostEqual(s2, eps))
-  {
-    this.setError("AssertAlmostEquals: " + s1 + " != " + s2);
-    return false;
-  }
-  return true;
-}
-
-Boolean CCTestSuite.AssertEquals!(Vec3 s1, Vec3 s2)
-{
-  if (s1 != s2)
-  {
-    this.setError("AssertEquals: " + s1 + " != " + s2);
-    return false;
-  }
-  return true;
-}
-
-Boolean CCTestSuite.AssertAlmostEquals!(Vec3 s1, Vec3 s2)
-{
-  return this.AssertAlmostEquals(s1, s2, 0.0001);
-}
-
-
-Boolean CCTestSuite.AssertAlmostEquals!(Vec3 s1, Vec3 s2, Float32 eps)
-{
-  if (!s1.almostEqual(s2, eps))
-  {
-    this.setError("AssertAlmostEquals: " + s1 + " != " + s2);
-    return false;
-  }
-  return true;
-}
-
-Boolean CCTestSuite.AssertEquals!(Vec4 s1, Vec4 s2)
-{
-  if (s1 != s2)
-  {
-    this.setError("AssertEquals: " + s1 + " != " + s2);
-    return false;
-  }
-  return true;
-}
-
-Boolean CCTestSuite.AssertAlmostEquals!(Vec4 s1, Vec4 s2)
-{
-  return this.AssertAlmostEquals(s1, s2, 0.0001);
-}
-
-
-Boolean CCTestSuite.AssertAlmostEquals!(Vec4 s1, Vec4 s2, Float32 eps)
-{
-  if (!s1.almostEqual(s2, eps))
-  {
-    this.setError("AssertAlmostEquals: " + s1 + " != " + s2);
-    return false;
-  }
-  return true;
-}
-
-Boolean CCTestSuite.AssertEquals!(Quat s1, Quat s2)
-{
-  if (s1 != s2)
-  {
-    this.setError("AssertEquals: " + s1 + " != " + s2);
-    return false;
-  }
-  return true;
-}
-
-Boolean CCTestSuite.AssertAlmostEquals!(Quat s1, Quat s2)
-{
-  return this.AssertAlmostEquals(s1, s2, 0.0001);
-}
-
-
-Boolean CCTestSuite.AssertAlmostEquals!(Quat s1, Quat s2, Float32 eps)
-{
-  if (!s1.almostEqual(s2, eps))
-  {
-    this.setError("AssertAlmostEquals: " + s1 + " != " + s2);
-    return false;
-  }
-  return true;
-}
-
-Boolean CCTestSuite.AssertEquals!(Xfo s1, Xfo s2)
-{
-  if (s1 != s2)
-  {
-    this.setError("AssertEquals: " + s1 + " != " + s2);
-    return false;
-  }
-  return true;
-}
-
-CCTestSuite.report()
-{
-  if (this.testFailed) report('tests FAILED !');
-  else report('tests OK');  
-}
-

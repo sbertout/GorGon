@@ -1,457 +1,467 @@
-object CCRay // can't rename there a Ray in Fabric!
+namespace GorGon::Maths
 {
-	private Vec3 origin;
-	private Vec3 direction;
-};
-
-CCRay(Vec3 origin, Vec3 direction)
-{
-	this.origin = origin;
-	this.direction = direction;
-}
-
-inline Vec3 CCRay.getOrigin() { return this.origin; }
-inline Vec3 CCRay.getDirection() { return this.direction; }
-
-Vec3 CCRay.getPosition(Scalar dist)
-{
-    return this.origin + dist * this.direction;
-}
-
-Boolean CCRay.intersectPlane(Plane plane, out Vec3 hitPos)
-{
-    Scalar hitDistance;
-    Boolean ret = this.intersectPlane(plane, hitDistance);
-    hitPos = hitDistance == SCALAR_INFINITE ? Vec3(SCALAR_INFINITE, SCALAR_INFINITE, SCALAR_INFINITE) : (this.getPosition(hitDistance));
-    return ret;
-}
-
-Boolean CCRay.intersectPlane(Plane plane, out Scalar hitDistance)
-{
-    Scalar d = plane.getNormal().dot(this.direction);
-    if (d == 0) return false;
-
-    hitDistance = - ((plane.getNormal().dot(this.origin)) - plane.getDistance()) /  d;
-    return hitDistance >= 0;
-}
-
-Boolean CCRay.intersectSphere(Sphere sphere, out Vec3 hitPos)
-{
-    Scalar hitDistance;
-    Boolean ret = this.intersectSphere(sphere, hitDistance);
-    hitPos = hitDistance == SCALAR_INFINITE ? Vec3(SCALAR_INFINITE, SCALAR_INFINITE, SCALAR_INFINITE) : (this.getPosition(hitDistance));
-    return ret;
-}
-
-/// \dfgPresetTitle IntersectSphereGetDist
-Boolean CCRay.intersectSphere(Sphere sphere, out Scalar hitDistance)
-{
-	hitDistance = SCALAR_INFINITE;
-
-    Scalar radius = sphere.getRadius();
-    Vec3 v = this.getOrigin() - sphere.getCenter();
-    Scalar B = (2.0) * (this.getDirection().dot(v));
-    Scalar C = (v.dot(v)) - (radius * radius);
-
-    // compute discriminant if negative, there is no intersection
-    Scalar discr = B*B - (4.0)*C;
-
-    if (discr < 0.0)
+    object CCRay // can't rename there a Ray in Fabric!
     {
-		// line and Sphere3 do not intersect
-		return false;
+        private Vec3 origin;
+        private Vec3 direction;
+    };
+
+    CCRay(Vec3 origin, Vec3 direction)
+    {
+        this.origin = origin;
+        this.direction = direction;
     }
-    else
+
+    inline Vec3 CCRay.getOrigin()
     {
-		// t0: (-B - sqrt(B^2 - 4AC)) / 2A  (A = 1)
-		Scalar sqroot = sqrt(discr);
-		hitDistance = (-B - sqroot) * (0.5);
-
-		if (hitDistance < 0.0)
-		{
-		    // no intersection, try t1: (-B + sqrt(B^2 - 4AC)) / 2A  (A = 1)
-		    hitDistance = (-B + sqroot) * (0.5);
-		}
-
-		if (hitDistance < 0.0)
-		    return false;
+        return this.origin;
     }
-    return true;
-}
 
-/// \dfgPresetTitle IntersectBoxSimple
-Boolean CCRay.intersectBox(Box box)
-{
-    Scalar t;
-    // r.dir is unit direction vector of ray
-    Vec3 raydir = this.direction + Vec3(0.0000000001, 0.0000000001, 0.0000000001);
-    Vec3 dirfrac = Vec3(1, 1, 1) / raydir;
-    Vec3 lb = box.getMin();
-    Vec3 rt = box.getMax();
-    // lb is the corner of AABB with minimal coordinates - left bottom, rt is maximal corner
-    // r.org is origin of ray
-//    Scalar t1 = (lb.x - this.origin.x)*dirfrac.x;
-//    Scalar t3 = (lb.y - this.origin.y)*dirfrac.y;
-//    Scalar t5 = (lb.z - this.origin.z)*dirfrac.z;
-    Vec3 tv1 = (lb - this.origin) * dirfrac;
-    Scalar t1 = tv1.x;
-    Scalar t3 = tv1.y;
-    Scalar t5 = tv1.z;
-
-//    Scalar t2 = (rt.x - this.origin.x)*dirfrac.x;
-//    Scalar t4 = (rt.y - this.origin.y)*dirfrac.y;
-//    Scalar t6 = (rt.z - this.origin.z)*dirfrac.z;
-    Vec3 tv2 = (rt - this.origin) * dirfrac;
-    Scalar t2 = tv2.x;
-    Scalar t4 = tv2.y;
-    Scalar t6 = tv2.z;
-
-    Scalar tmin = Math_max(Math_max(Math_min(t1, t2), Math_min(t3, t4)), Math_min(t5, t6));
-    Scalar tmax = Math_min(Math_min(Math_max(t1, t2), Math_max(t3, t4)), Math_max(t5, t6));
-
-    // if tmax < 0, ray (line) is intersecting AABB, but whole AABB is behing us
-    if (tmax < 0)
+    inline Vec3 CCRay.getDirection()
     {
-        t = tmax;
+        return this.direction;
+    }
+
+    Vec3 CCRay.getPosition(Scalar dist)
+    {
+        return this.origin + dist * this.direction;
+    }
+
+    Boolean CCRay.intersectPlane(Plane plane, out Vec3 hitPos)
+    {
+        Scalar hitDistance;
+        Boolean ret = this.intersectPlane(plane, hitDistance);
+        hitPos = hitDistance == SCALAR_INFINITE ? Vec3(SCALAR_INFINITE, SCALAR_INFINITE, SCALAR_INFINITE) : (this.getPosition(hitDistance));
+        return ret;
+    }
+
+    Boolean CCRay.intersectPlane(Plane plane, out Scalar hitDistance)
+    {
+        Scalar d = plane.getNormal().dot(this.direction);
+        if (d == 0) return false;
+
+        hitDistance = - ((plane.getNormal().dot(this.origin)) - plane.getDistance()) /  d;
+        return hitDistance >= 0;
+    }
+
+    Boolean CCRay.intersectSphere(Sphere sphere, out Vec3 hitPos)
+    {
+        Scalar hitDistance;
+        Boolean ret = this.intersectSphere(sphere, hitDistance);
+        hitPos = hitDistance == SCALAR_INFINITE ? Vec3(SCALAR_INFINITE, SCALAR_INFINITE, SCALAR_INFINITE) : (this.getPosition(hitDistance));
+        return ret;
+    }
+
+    /// \dfgPresetTitle IntersectSphereGetDist
+    Boolean CCRay.intersectSphere(Sphere sphere, out Scalar hitDistance)
+    {
+        hitDistance = SCALAR_INFINITE;
+
+        Scalar radius = sphere.getRadius();
+        Vec3 v = this.getOrigin() - sphere.getCenter();
+        Scalar B = (2.0) * (this.getDirection().dot(v));
+        Scalar C = (v.dot(v)) - (radius * radius);
+
+        // compute discriminant if negative, there is no intersection
+        Scalar discr = B*B - (4.0)*C;
+
+        if (discr < 0.0)
+        {
+            // line and Sphere3 do not intersect
+            return false;
+        }
+        else
+        {
+            // t0: (-B - sqrt(B^2 - 4AC)) / 2A  (A = 1)
+            Scalar sqroot = sqrt(discr);
+            hitDistance = (-B - sqroot) * (0.5);
+
+            if (hitDistance < 0.0)
+            {
+                // no intersection, try t1: (-B + sqrt(B^2 - 4AC)) / 2A  (A = 1)
+                hitDistance = (-B + sqroot) * (0.5);
+            }
+
+            if (hitDistance < 0.0)
+                return false;
+        }
+        return true;
+    }
+
+    /// \dfgPresetTitle IntersectBoxSimple
+    Boolean CCRay.intersectBox(Box box)
+    {
+        Scalar t;
+        // r.dir is unit direction vector of ray
+        Vec3 raydir = this.direction + Vec3(0.0000000001, 0.0000000001, 0.0000000001);
+        Vec3 dirfrac = Vec3(1, 1, 1) / raydir;
+        Vec3 lb = box.getMin();
+        Vec3 rt = box.getMax();
+        // lb is the corner of AABB with minimal coordinates - left bottom, rt is maximal corner
+        // r.org is origin of ray
+    //    Scalar t1 = (lb.x - this.origin.x)*dirfrac.x;
+    //    Scalar t3 = (lb.y - this.origin.y)*dirfrac.y;
+    //    Scalar t5 = (lb.z - this.origin.z)*dirfrac.z;
+        Vec3 tv1 = (lb - this.origin) * dirfrac;
+        Scalar t1 = tv1.x;
+        Scalar t3 = tv1.y;
+        Scalar t5 = tv1.z;
+
+    //    Scalar t2 = (rt.x - this.origin.x)*dirfrac.x;
+    //    Scalar t4 = (rt.y - this.origin.y)*dirfrac.y;
+    //    Scalar t6 = (rt.z - this.origin.z)*dirfrac.z;
+        Vec3 tv2 = (rt - this.origin) * dirfrac;
+        Scalar t2 = tv2.x;
+        Scalar t4 = tv2.y;
+        Scalar t6 = tv2.z;
+
+        Scalar tmin = Math_max(Math_max(Math_min(t1, t2), Math_min(t3, t4)), Math_min(t5, t6));
+        Scalar tmax = Math_min(Math_min(Math_max(t1, t2), Math_max(t3, t4)), Math_max(t5, t6));
+
+        // if tmax < 0, ray (line) is intersecting AABB, but whole AABB is behing us
+        if (tmax < 0)
+        {
+            t = tmax;
+            return false;
+        }
+
+        // if tmin > tmax, ray doesn't intersect AABB
+        if (tmin > tmax)
+        {
+            t = tmax;
+            return false;
+        }
+
+        t = tmin;
+        //report(t); t seems correct just return distance to first hit point
+        return true;
+    }
+
+    /// \dfgPresetTitle IntersectBoxGetDist
+    Boolean CCRay.intersectBox(Box box, out Scalar hitDistance)
+    {
+        hitDistance = SCALAR_INFINITE;
+        Vec3 entry, exit;
+        if (!this.intersectBox(box, entry, exit)) return false;
+
+        Vec3 rayOrigin = this.getOrigin();
+        Vec3 rayDirection = this.getDirection();
+        Scalar den = (entry - rayOrigin).length();
+        Scalar dex = (exit - rayOrigin).length();
+
+        if (den == 0 || dex == 0)
+        {
+            hitDistance = 0;
+            return true;
+        }
+
+        Vec3 vden = Vec3(entry - rayOrigin); vden.normalize();
+        Vec3 vdex = Vec3(exit - rayOrigin); vdex.normalize();
+
+        if (rayDirection.dot(vden) < 0) den *= -1;
+        if (rayDirection.dot(vdex) < 0) dex *= -1;
+
+        if (den > 0 && dex > 0)
+            hitDistance = Math_min(den, dex);
+        else
+            hitDistance = Math_max(den, dex);
+
+        return hitDistance > 0;
+    }
+
+    Boolean CCRay.intersectBox(Box box, out Vec3 entry, out Vec3 exit)
+    {
+        // The following description assumes that the ray's origin is outside
+        // the box, but the code below works even if the origin is inside the
+        // box:
+        //
+        // Between one and three "frontfacing" sides of the box are oriented
+        // towards the ray's origin, and between one and three "backfacing"
+        // sides are oriented away from the ray's origin.
+        // We intersect the ray with the planes that contain the sides of the
+        // box, and compare the distances between the ray's origin and the
+        // ray-plane intersections.  The ray intersects the box if the most
+        // distant frontfacing intersection is nearer than the nearest
+        // backfacing intersection.  If the ray does intersect the box, then
+        // the most distant frontfacing ray-plane intersection is the entry
+        // point and the nearest backfacing ray-plane intersection is the
+        // exit point.
+        //
+
+        Vec3 rpos = this.getOrigin();
+        Vec3 rdir = this.getDirection();
+        Vec3 boxmin = box.getMin();
+        Vec3 boxmax = box.getMax();
+
+        Scalar TMAX = BIGSCALAR_POSITIVE;
+
+        Scalar tFrontMax = -TMAX;
+        Scalar tBackMin = TMAX;
+
+        // Minimum and maximum X sides.
+        if (rdir.x >= 0)
+        {
+            Scalar d1 = boxmax.x - rpos.x;
+            Scalar d2 = boxmin.x - rpos.x;
+
+            if (rdir.x > 1 ||
+                (abs (d1) < TMAX * rdir.x &&
+                 abs (d2) < TMAX * rdir.x))
+            {
+                Scalar t1 = d1 / rdir.x;
+                Scalar t2 = d2 / rdir.x;
+
+                if (tBackMin > t1)
+                {
+                    tBackMin = t1;
+
+                    exit.x = boxmax.x;
+                    exit.y = Math_clamp (rpos.y + t1 * rdir.y, boxmin.y, boxmax.y);
+                    exit.z = Math_clamp (rpos.z + t1 * rdir.z, boxmin.z, boxmax.z);
+                }
+
+                if (tFrontMax < t2)
+                {
+                    tFrontMax = t2;
+
+                    entry.x = boxmin.x;
+                    entry.y = Math_clamp (rpos.y + t2 * rdir.y, boxmin.y, boxmax.y);
+                    entry.z = Math_clamp (rpos.z + t2 * rdir.z, boxmin.z, boxmax.z);
+                }
+            }
+            else if (rpos.x < boxmin.x || rpos.x > boxmax.x)
+            {
+                return false;
+            }
+        }
+        else // rdir.x < 0
+        {
+            Scalar d1 = boxmin.x - rpos.x;
+            Scalar d2 = boxmax.x - rpos.x;
+
+            if (rdir.x < -1 ||
+                (abs (d1) < -TMAX * rdir.x &&
+                 abs (d2) < -TMAX * rdir.x))
+            {
+                Scalar t1 = d1 / rdir.x;
+                Scalar t2 = d2 / rdir.x;
+
+                if (tBackMin > t1)
+                {
+                    tBackMin = t1;
+
+                    exit.x = boxmin.x;
+                    exit.y = Math_clamp (rpos.y + t1 * rdir.y, boxmin.y, boxmax.y);
+                    exit.z = Math_clamp (rpos.z + t1 * rdir.z, boxmin.z, boxmax.z);
+                }
+
+                if (tFrontMax < t2)
+                {
+                    tFrontMax = t2;
+
+                    entry.x = boxmax.x;
+                    entry.y = Math_clamp (rpos.y + t2 * rdir.y, boxmin.y, boxmax.y);
+                    entry.z = Math_clamp (rpos.z + t2 * rdir.z, boxmin.z, boxmax.z);
+                }
+            }
+            else if (rpos.x < boxmin.x || rpos.x > boxmax.x)
+            {
+                return false;
+            }
+        }
+
+        // Minimum and maximum Y sides.
+        if (rdir.y >= 0)
+        {
+            Scalar d1 = boxmax.y - rpos.y;
+            Scalar d2 = boxmin.y - rpos.y;
+
+            if (rdir.y > 1 ||
+                (abs (d1) < TMAX * rdir.y &&
+                 abs (d2) < TMAX * rdir.y))
+            {
+                Scalar t1 = d1 / rdir.y;
+                Scalar t2 = d2 / rdir.y;
+
+                if (tBackMin > t1)
+                {
+                    tBackMin = t1;
+
+                    exit.x = Math_clamp (rpos.x + t1 * rdir.x, boxmin.x, boxmax.x);
+                    exit.y = boxmax.y;
+                    exit.z = Math_clamp (rpos.z + t1 * rdir.z, boxmin.z, boxmax.z);
+                }
+
+                if (tFrontMax < t2)
+                {
+                    tFrontMax = t2;
+
+                    entry.x = Math_clamp (rpos.x + t2 * rdir.x, boxmin.x, boxmax.x);
+                    entry.y = boxmin.y;
+                    entry.z = Math_clamp (rpos.z + t2 * rdir.z, boxmin.z, boxmax.z);
+                }
+            }
+            else if (rpos.y < boxmin.y || rpos.y > boxmax.y)
+            {
+                return false;
+            }
+        }
+        else // rdir.y < 0
+        {
+            Scalar d1 = boxmin.y - rpos.y;
+            Scalar d2 = boxmax.y - rpos.y;
+
+            if (rdir.y < -1 ||
+                (abs (d1) < -TMAX * rdir.y &&
+                 abs (d2) < -TMAX * rdir.y))
+            {
+                Scalar t1 = d1 / rdir.y;
+                Scalar t2 = d2 / rdir.y;
+
+                if (tBackMin > t1)
+                {
+                    tBackMin = t1;
+
+                    exit.x = Math_clamp (rpos.x + t1 * rdir.x, boxmin.x, boxmax.x);
+                    exit.y = boxmin.y;
+                    exit.z = Math_clamp (rpos.z + t1 * rdir.z, boxmin.z, boxmax.z);
+                }
+
+                if (tFrontMax < t2)
+                {
+                    tFrontMax = t2;
+
+                    entry.x = Math_clamp (rpos.x + t2 * rdir.x, boxmin.x, boxmax.x);
+                    entry.y = boxmax.y;
+                    entry.z = Math_clamp (rpos.z + t2 * rdir.z, boxmin.z, boxmax.z);
+                }
+            }
+            else if (rpos.y < boxmin.y || rpos.y > boxmax.y)
+            {
+                return false;
+            }
+        }
+
+        // Minimum and maximum Z sides.
+        if (rdir.z >= 0)
+        {
+            Scalar d1 = boxmax.z - rpos.z;
+            Scalar d2 = boxmin.z - rpos.z;
+
+            if (rdir.z > 1 ||
+                (abs (d1) < TMAX * rdir.z &&
+                 abs (d2) < TMAX * rdir.z))
+            {
+                Scalar t1 = d1 / rdir.z;
+                Scalar t2 = d2 / rdir.z;
+
+                if (tBackMin > t1)
+                {
+                    tBackMin = t1;
+
+                    exit.x = Math_clamp (rpos.x + t1 * rdir.x, boxmin.x, boxmax.x);
+                    exit.y = Math_clamp (rpos.y + t1 * rdir.y, boxmin.y, boxmax.y);
+                    exit.z = boxmax.z;
+                }
+
+                if (tFrontMax < t2)
+                {
+                    tFrontMax = t2;
+
+                    entry.x = Math_clamp (rpos.x + t2 * rdir.x, boxmin.x, boxmax.x);
+                    entry.y = Math_clamp (rpos.y + t2 * rdir.y, boxmin.y, boxmax.y);
+                    entry.z = boxmin.z;
+                }
+            }
+            else if (rpos.z < boxmin.z || rpos.z > boxmax.z)
+            {
+                return false;
+            }
+        }
+        else // rdir.z < 0
+        {
+            Scalar d1 = boxmin.z - rpos.z;
+            Scalar d2 = boxmax.z - rpos.z;
+
+            if (rdir.z < -1 ||
+                (abs (d1) < -TMAX * rdir.z &&
+                 abs (d2) < -TMAX * rdir.z))
+            {
+                Scalar t1 = d1 / rdir.z;
+                Scalar t2 = d2 / rdir.z;
+
+                if (tBackMin > t1)
+                {
+                    tBackMin = t1;
+
+                    exit.x = Math_clamp (rpos.x + t1 * rdir.x, boxmin.x, boxmax.x);
+                    exit.y = Math_clamp (rpos.y + t1 * rdir.y, boxmin.y, boxmax.y);
+                    exit.z = boxmin.z;
+                }
+
+                if (tFrontMax < t2)
+                {
+                    tFrontMax = t2;
+
+                    entry.x = Math_clamp (rpos.x + t2 * rdir.x, boxmin.x, boxmax.x);
+                    entry.y = Math_clamp (rpos.y + t2 * rdir.y, boxmin.y, boxmax.y);
+                    entry.z = boxmax.z;
+                }
+            }
+            else if (rpos.z < boxmin.z || rpos.z > boxmax.z)
+            {
+                return false;
+            }
+        }
+
+        return tFrontMax <= tBackMin && (!(tFrontMax < 0 && tBackMin < 0));
+    }
+
+    Boolean CCRay.intersectQuad(Quad quad, out Scalar hitDistance)
+    {
+        Vec3 hitPos;
+        Vec2 hitUVs;
+        if (this.intersectQuad(quad, hitPos, hitUVs))
+        {
+            hitDistance = Vec3(hitPos - this.getOrigin()).length();
+            return true;
+        }
         return false;
     }
 
-    // if tmin > tmax, ray doesn't intersect AABB
-    if (tmin > tmax)
+    Boolean CCRay.intersectQuad(Quad quad, io Vec3 hitPos, io Vec2 hitUVs)
     {
-        t = tmax;
+        Plane plane(quad.getCenter(), quad.getNormal());
+        Scalar hitDistance;
+        if (this.intersectPlane(plane, hitDistance) && hitDistance > 0)
+        {
+            hitPos = this.getPosition(hitDistance);
+            return quad.getUVCoordinates(hitPos, hitUVs);
+        }
         return false;
     }
 
-    t = tmin;
-    //report(t); t seems correct just return distance to first hit point
-    return true;
-}
-
-/// \dfgPresetTitle IntersectBoxGetDist
-Boolean CCRay.intersectBox(Box box, out Scalar hitDistance)
-{
-    hitDistance = SCALAR_INFINITE;
-	Vec3 entry, exit;
-	if (!this.intersectBox(box, entry, exit)) return false;
-
-	Vec3 rayOrigin = this.getOrigin();
-	Vec3 rayDirection = this.getDirection();
-	Scalar den = (entry - rayOrigin).length();
-	Scalar dex = (exit - rayOrigin).length();
-
-	if (den == 0 || dex == 0)
-	{
-		hitDistance = 0;
-		return true;
-	}
-
-	Vec3 vden = Vec3(entry - rayOrigin); vden.normalize();
-	Vec3 vdex = Vec3(exit - rayOrigin); vdex.normalize();
-
-	if (rayDirection.dot(vden) < 0) den *= -1;
-	if (rayDirection.dot(vdex) < 0) dex *= -1;
-
-	if (den > 0 && dex > 0)
-		hitDistance = Math_min(den, dex);
-	else
-		hitDistance = Math_max(den, dex);
-
-	return hitDistance > 0;
-}
-
-Boolean CCRay.intersectBox(Box box, out Vec3 entry, out Vec3 exit)
-{
-    // The following description assumes that the ray's origin is outside
-    // the box, but the code below works even if the origin is inside the
-    // box:
-    //
-    // Between one and three "frontfacing" sides of the box are oriented
-    // towards the ray's origin, and between one and three "backfacing"
-    // sides are oriented away from the ray's origin.
-    // We intersect the ray with the planes that contain the sides of the
-    // box, and compare the distances between the ray's origin and the
-    // ray-plane intersections.  The ray intersects the box if the most
-    // distant frontfacing intersection is nearer than the nearest
-    // backfacing intersection.  If the ray does intersect the box, then
-    // the most distant frontfacing ray-plane intersection is the entry
-    // point and the nearest backfacing ray-plane intersection is the
-    // exit point.
-    //
-
-    Vec3 rpos = this.getOrigin();
-    Vec3 rdir = this.getDirection();
-    Vec3 boxmin = box.getMin();
-    Vec3 boxmax = box.getMax();
-
-    Scalar TMAX = BIGSCALAR_POSITIVE;
-
-    Scalar tFrontMax = -TMAX;
-    Scalar tBackMin = TMAX;
-
-    // Minimum and maximum X sides.
-    if (rdir.x >= 0)
+    Boolean CCRay.intersectTriangle(Triangle tri, out Scalar hitDistance)
     {
-		Scalar d1 = boxmax.x - rpos.x;
-		Scalar d2 = boxmin.x - rpos.x;
-
-		if (rdir.x > 1 ||
-		    (abs (d1) < TMAX * rdir.x &&
-		     abs (d2) < TMAX * rdir.x))
-		{
-		    Scalar t1 = d1 / rdir.x;
-		    Scalar t2 = d2 / rdir.x;
-
-		    if (tBackMin > t1)
-		    {
-				tBackMin = t1;
-
-				exit.x = boxmax.x; 
-				exit.y = Math_clamp (rpos.y + t1 * rdir.y, boxmin.y, boxmax.y);
-				exit.z = Math_clamp (rpos.z + t1 * rdir.z, boxmin.z, boxmax.z);
-		    }
-
-		    if (tFrontMax < t2)
-		    {
-				tFrontMax = t2;
-
-				entry.x = boxmin.x; 
-				entry.y = Math_clamp (rpos.y + t2 * rdir.y, boxmin.y, boxmax.y);
-				entry.z = Math_clamp (rpos.z + t2 * rdir.z, boxmin.z, boxmax.z);
-		    }
-		}
-		else if (rpos.x < boxmin.x || rpos.x > boxmax.x)
-		{
-		    return false;
-		}
-    }
-    else // rdir.x < 0
-    {
-		Scalar d1 = boxmin.x - rpos.x;
-		Scalar d2 = boxmax.x - rpos.x;
-
-		if (rdir.x < -1 ||
-		    (abs (d1) < -TMAX * rdir.x &&
-		     abs (d2) < -TMAX * rdir.x))
-		{
-		    Scalar t1 = d1 / rdir.x;
-		    Scalar t2 = d2 / rdir.x;
-
-		    if (tBackMin > t1)
-		    {
-				tBackMin = t1;
-
-				exit.x = boxmin.x; 
-				exit.y = Math_clamp (rpos.y + t1 * rdir.y, boxmin.y, boxmax.y);
-				exit.z = Math_clamp (rpos.z + t1 * rdir.z, boxmin.z, boxmax.z);
-		    }
-
-		    if (tFrontMax < t2)
-		    {
-				tFrontMax = t2;
-
-				entry.x = boxmax.x; 
-				entry.y = Math_clamp (rpos.y + t2 * rdir.y, boxmin.y, boxmax.y);
-				entry.z = Math_clamp (rpos.z + t2 * rdir.z, boxmin.z, boxmax.z);
-		    }
-		}
-		else if (rpos.x < boxmin.x || rpos.x > boxmax.x)
-		{
-		    return false;
-		}
+        Vec3 hitPos;
+        Vec2 hitUVs;
+        if (this.intersectTriangle(tri, hitPos, hitUVs))
+        {
+            hitDistance = Vec3(hitPos - this.getOrigin()).length();
+            return true;
+        }
+        return false;
     }
 
-    // Minimum and maximum Y sides.
-    if (rdir.y >= 0)
+    Boolean CCRay.intersectTriangle(Triangle tri, io Vec3 hitPos, io Vec2 hitUVs)
     {
-		Scalar d1 = boxmax.y - rpos.y;
-		Scalar d2 = boxmin.y - rpos.y;
-
-		if (rdir.y > 1 ||
-		    (abs (d1) < TMAX * rdir.y &&
-		     abs (d2) < TMAX * rdir.y))
-		{
-		    Scalar t1 = d1 / rdir.y;
-		    Scalar t2 = d2 / rdir.y;
-
-		    if (tBackMin > t1)
-		    {
-				tBackMin = t1;
-
-				exit.x = Math_clamp (rpos.x + t1 * rdir.x, boxmin.x, boxmax.x);
-				exit.y = boxmax.y; 
-				exit.z = Math_clamp (rpos.z + t1 * rdir.z, boxmin.z, boxmax.z);
-		    }
-
-		    if (tFrontMax < t2)
-		    {
-				tFrontMax = t2;
-
-				entry.x = Math_clamp (rpos.x + t2 * rdir.x, boxmin.x, boxmax.x);
-				entry.y = boxmin.y; 
-				entry.z = Math_clamp (rpos.z + t2 * rdir.z, boxmin.z, boxmax.z);
-		    }
-		}
-		else if (rpos.y < boxmin.y || rpos.y > boxmax.y)
-		{
-		    return false;
-		}
+        Plane plane(tri.getOrigin(), tri.getNormal());
+        Scalar hitDistance;
+        if (this.intersectPlane(plane, hitDistance) && hitDistance > 0)
+        {
+            hitPos = this.getPosition(hitDistance);
+            return tri.getUVCoordinates(hitPos, hitUVs);
+        }
+        return false;
     }
-    else // rdir.y < 0
-    {
-		Scalar d1 = boxmin.y - rpos.y;
-		Scalar d2 = boxmax.y - rpos.y;
-
-		if (rdir.y < -1 ||
-		    (abs (d1) < -TMAX * rdir.y &&
-		     abs (d2) < -TMAX * rdir.y))
-		{
-		    Scalar t1 = d1 / rdir.y;
-		    Scalar t2 = d2 / rdir.y;
-
-		    if (tBackMin > t1)
-		    {
-				tBackMin = t1;
-
-				exit.x = Math_clamp (rpos.x + t1 * rdir.x, boxmin.x, boxmax.x);
-				exit.y = boxmin.y; 
-				exit.z = Math_clamp (rpos.z + t1 * rdir.z, boxmin.z, boxmax.z);
-		    }
-
-		    if (tFrontMax < t2)
-		    {
-				tFrontMax = t2;
-
-				entry.x = Math_clamp (rpos.x + t2 * rdir.x, boxmin.x, boxmax.x);
-				entry.y = boxmax.y; 
-				entry.z = Math_clamp (rpos.z + t2 * rdir.z, boxmin.z, boxmax.z);
-		    }
-		}
-		else if (rpos.y < boxmin.y || rpos.y > boxmax.y)
-		{
-		    return false;
-		}
-    }
-
-    // Minimum and maximum Z sides.
-    if (rdir.z >= 0)
-    {
-		Scalar d1 = boxmax.z - rpos.z;
-		Scalar d2 = boxmin.z - rpos.z;
-
-		if (rdir.z > 1 ||
-		    (abs (d1) < TMAX * rdir.z &&
-		     abs (d2) < TMAX * rdir.z))
-		{
-		    Scalar t1 = d1 / rdir.z;
-		    Scalar t2 = d2 / rdir.z;
-
-		    if (tBackMin > t1)
-		    {
-				tBackMin = t1;
-
-				exit.x = Math_clamp (rpos.x + t1 * rdir.x, boxmin.x, boxmax.x);
-				exit.y = Math_clamp (rpos.y + t1 * rdir.y, boxmin.y, boxmax.y);
-				exit.z = boxmax.z; 
-		    }
-
-		    if (tFrontMax < t2)
-		    {
-				tFrontMax = t2;
-
-				entry.x = Math_clamp (rpos.x + t2 * rdir.x, boxmin.x, boxmax.x);
-				entry.y = Math_clamp (rpos.y + t2 * rdir.y, boxmin.y, boxmax.y);
-				entry.z = boxmin.z; 
-		    }
-		}
-		else if (rpos.z < boxmin.z || rpos.z > boxmax.z)
-		{
-		    return false;
-		}
-    }
-    else // rdir.z < 0
-    {
-		Scalar d1 = boxmin.z - rpos.z;
-		Scalar d2 = boxmax.z - rpos.z;
-
-		if (rdir.z < -1 ||
-		    (abs (d1) < -TMAX * rdir.z &&
-		     abs (d2) < -TMAX * rdir.z))
-		{
-		    Scalar t1 = d1 / rdir.z;
-		    Scalar t2 = d2 / rdir.z;
-
-		    if (tBackMin > t1)
-		    {
-				tBackMin = t1;
-
-				exit.x = Math_clamp (rpos.x + t1 * rdir.x, boxmin.x, boxmax.x);
-				exit.y = Math_clamp (rpos.y + t1 * rdir.y, boxmin.y, boxmax.y);
-				exit.z = boxmin.z; 
-		    }
-
-		    if (tFrontMax < t2)
-		    {
-				tFrontMax = t2;
-
-				entry.x = Math_clamp (rpos.x + t2 * rdir.x, boxmin.x, boxmax.x);
-				entry.y = Math_clamp (rpos.y + t2 * rdir.y, boxmin.y, boxmax.y);
-				entry.z = boxmax.z; 
-		    }
-		}
-		else if (rpos.z < boxmin.z || rpos.z > boxmax.z)
-		{
-		    return false;
-		}
-    }
-
-    return tFrontMax <= tBackMin && (!(tFrontMax < 0 && tBackMin < 0));
-}
-
-Boolean CCRay.intersectQuad(Quad quad, out Scalar hitDistance)
-{
-    Vec3 hitPos;
-    Vec2 hitUVs;
-    if (this.intersectQuad(quad, hitPos, hitUVs))
-    {
-        hitDistance = Vec3(hitPos - this.getOrigin()).length();
-        return true;
-    }
-    return false;
-}
-
-Boolean CCRay.intersectQuad(Quad quad, io Vec3 hitPos, io Vec2 hitUVs)
-{
-    Plane plane(quad.getCenter(), quad.getNormal());
-    Scalar hitDistance;
-    if (this.intersectPlane(plane, hitDistance) && hitDistance > 0)
-    {
-        hitPos = this.getPosition(hitDistance);
-        return quad.getUVCoordinates(hitPos, hitUVs);
-    }
-    return false;
-}
-
-Boolean CCRay.intersectTriangle(Triangle tri, out Scalar hitDistance)
-{
-    Vec3 hitPos;
-    Vec2 hitUVs;
-    if (this.intersectTriangle(tri, hitPos, hitUVs))
-    {
-        hitDistance = Vec3(hitPos - this.getOrigin()).length();
-        return true;
-    }
-    return false;
-}
-
-Boolean CCRay.intersectTriangle(Triangle tri, io Vec3 hitPos, io Vec2 hitUVs)
-{
-    Plane plane(tri.getOrigin(), tri.getNormal());
-    Scalar hitDistance;
-    if (this.intersectPlane(plane, hitDistance) && hitDistance > 0)
-    {
-        hitPos = this.getPosition(hitDistance);
-        return tri.getUVCoordinates(hitPos, hitUVs);
-    }
-    return false;
 }

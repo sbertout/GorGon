@@ -1,81 +1,101 @@
-object Triangle
+namespace GorGon::Maths
 {
-    private Vec3 origin, uDir, vDir;
-    private Scalar uLength, vLength;
-};
+    object Triangle
+    {
+        private Vec3 origin, uDir, vDir;
+        private Scalar uLength, vLength;
+    };
 
-Triangle(Vec3 origin, Scalar uLength, Vec3 uDir, Scalar vLength, Vec3 vDir)
-{
-    this.origin = origin;
-    this.uLength = uLength;
-    this.uDir = uDir;
-    this.vLength = vLength;
-    this.vDir = vDir;
-}
+    Triangle(Vec3 origin, Scalar uLength, Vec3 uDir, Scalar vLength, Vec3 vDir)
+    {
+        this.origin = origin;
+        this.uLength = uLength;
+        this.uDir = uDir;
+        this.vLength = vLength;
+        this.vDir = vDir;
+    }
 
-Triangle(Vec3 p1, Vec3 p2, Vec3 p3)
-{
-    this.origin = p1; // we assume p1 is our pivot / origin
-    Vec3 tu = p2 - p1;
-    Vec3 tv = p3 - p1;
-    this.uLength = tu.length();
-    this.vLength = tv.length();
-    this.uDir = tu.normalized();
-    this.vDir = tv.normalized();
-}
+    Triangle(Vec3 p1, Vec3 p2, Vec3 p3)
+    {
+        this.origin = p1; // we assume p1 is our pivot / origin
+        Vec3 tu = p2 - p1;
+        Vec3 tv = p3 - p1;
+        this.uLength = tu.length();
+        this.vLength = tv.length();
+        this.uDir = tu.normalized();
+        this.vDir = tv.normalized();
+    }
 
-// getters
-Vec3 Triangle.getOrigin() { return this.origin; }
-Scalar Triangle.getULength() { return this.uLength; }
-Vec3 Triangle.getUDir() { return this.uDir; }
-Scalar Triangle.getVLength() { return this.vLength; }
-Vec3 Triangle.getVDir() { return this.vDir; }
+    Vec3 Triangle.getOrigin()
+    {
+        return this.origin;
+    }
 
-// methods
-Vec3 Triangle.getMin()
-{
-    Vec3 m1 = this.origin + this.uDir * this.uLength;
-    Vec3 m2 = this.origin + this.vDir * this.vLength;
-    return Math_min(this.origin, Math_min(m1, m2));
-//    return this.origin;
-}
+    Scalar Triangle.getULength()
+    {
+        return this.uLength;
+    }
 
-Vec3 Triangle.getMax()
-{
-    Vec3 m1 = this.origin + this.uDir * this.uLength;
-    Vec3 m2 = this.origin + this.vDir * this.vLength;
-    return Math_max(this.origin, Math_max(m1, m2));
-}
+    Vec3 Triangle.getUDir()
+    {
+        return this.uDir;
+    }
 
-Vec3 Triangle.getNormal()
-{
-    return this.uDir.cross(this.vDir);
-}
+    Scalar Triangle.getVLength()
+    {
+        return this.vLength;
+    }
 
-Triangle.getPoints(io Vec3 points[])
-{
-    points.resize(3);
-    points[0] = this.origin;
-    points[1] = this.origin + this.uDir * this.uLength;
-    points[2] = this.origin + this.vDir * this.vLength;
-}
+    Vec3 Triangle.getVDir()
+    {
+        return this.vDir;
+    }
 
-Boolean Triangle.getUVCoordinates(Vec3 p, io Vec2 uvCoord)
-{
-    Vec3 pos = p - this.origin;
+    Vec3 Triangle.getMin()
+    {
+        Vec3 m1 = this.origin + this.uDir * this.uLength;
+        Vec3 m2 = this.origin + this.vDir * this.vLength;
+        return Math_min(this.origin, Math_min(m1, m2));
+    //    return this.origin;
+    }
 
-    Scalar uu = this.uDir.dot(this.uDir);
-    Scalar uv = this.uDir.dot(this.vDir);
-    Scalar vv = this.vDir.dot(this.vDir);
-    Scalar D = uv * uv - uu * vv;
+    Vec3 Triangle.getMax()
+    {
+        Vec3 m1 = this.origin + this.uDir * this.uLength;
+        Vec3 m2 = this.origin + this.vDir * this.vLength;
+        return Math_max(this.origin, Math_max(m1, m2));
+    }
 
-    Scalar posU = this.uDir.dot(pos) / this.uLength;
-    Scalar posV = this.vDir.dot(pos) / this.vLength;
+    Vec3 Triangle.getNormal()
+    {
+        return this.uDir.cross(this.vDir);
+    }
 
-    uvCoord = Vec2((uv * posV - vv * posU) / D,
-                   (uv * posU - uu * posV) / D);
+    Triangle.getPoints(io Vec3 points[])
+    {
+        points.resize(3);
+        points[0] = this.origin;
+        points[1] = this.origin + this.uDir * this.uLength;
+        points[2] = this.origin + this.vDir * this.vLength;
+    }
 
-    if (uvCoord.x < 0.0 || uvCoord.x > 1.0 || uvCoord.y < 0.0 || (uvCoord.x + uvCoord.y) > 1.0)
-        return false;
-    return true;
+    Boolean Triangle.getUVCoordinates(Vec3 p, io Vec2 uvCoord)
+    {
+        Vec3 pos = p - this.origin;
+
+        Scalar uu = this.uDir.dot(this.uDir);
+        Scalar uv = this.uDir.dot(this.vDir);
+        Scalar vv = this.vDir.dot(this.vDir);
+        Scalar D = uv * uv - uu * vv;
+
+        Scalar posU = this.uDir.dot(pos) / this.uLength;
+        Scalar posV = this.vDir.dot(pos) / this.vLength;
+
+        uvCoord = Vec2((uv * posV - vv * posU) / D,
+                       (uv * posU - uu * posV) / D);
+
+        if (uvCoord.x < 0.0 || uvCoord.x > 1.0 || uvCoord.y < 0.0 || (uvCoord.x + uvCoord.y) > 1.0)
+            return false;
+        return true;
+    }
 }

@@ -1,4 +1,5 @@
-require GGcore;
+require GorGon_Core;
+using namespace GorGon::Core;
 
 object TestCoreTasks : CCTestCase
 {

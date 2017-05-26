@@ -1,22 +1,30 @@
-object BoxBank;
-object BoxBankTaskGetMax : TaskBase
-{
-	private BoxBank boxBank;
-	private Vec3 max;
-};
+using namespace GorGon::Core;
+using namespace GorGon::Maths;
 
-BoxBankTaskGetMax(BoxBank boxBank)
+namespace GorGon::Raytracing
 {
-	this.boxBank = boxBank;
-	this.max = Vec3(BIGSCALAR_NEGATIVE, BIGSCALAR_NEGATIVE, BIGSCALAR_NEGATIVE);
-}
+    object BoxBankTaskGetMax : TaskBase
+    {
+        private BoxBank boxBank;
+        private Vec3 max;
+    };
 
-Vec3 BoxBankTaskGetMax.get() { return this.max; }
+    BoxBankTaskGetMax(BoxBank boxBank)
+    {
+        this.boxBank = boxBank;
+        this.max = Vec3(BIGSCALAR_NEGATIVE, BIGSCALAR_NEGATIVE, BIGSCALAR_NEGATIVE);
+    }
 
-BoxBankTaskGetMax.execute!()
-{
-    ArrayProducer<Box> ap = createConstArray(this.boxBank.boxes);
-    ValueProducer<Vec3MaxResult> vp = createReduce(ap, mr_Box_max);
-    this.max = vp.produce().value;
-	this.parent.setDone(); // always call setDone on the parent class to make sure this.done is set properly
+    Vec3 BoxBankTaskGetMax.get()
+    {
+        return this.max;
+    }
+
+    BoxBankTaskGetMax.execute!()
+    {
+        ArrayProducer<Box> ap = createConstArray(this.boxBank.boxes);
+        ValueProducer<Vec3MaxResult> vp = createReduce(ap, mr_Box_max);
+        this.max = vp.produce().value;
+        this.parent.setDone(); // always call setDone on the parent class to make sure this.done is set properly
+    }
 }

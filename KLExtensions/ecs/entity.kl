@@ -1,294 +1,321 @@
-require Math;
-require Singletons;
-
-object UpdateComponent;
-object TransformComponent;
-object Properties;
-
-alias UpdateComponent UpdateComponentArray[];
-
-object Entity
+namespace GorGon::ECS
 {
-  private Index uid;
-  private String name;
+    object UpdateComponent;
+    object TransformComponent;
 
-  private TransformComponent transformComponent;
-  private UpdateComponentArray updateComponents;
-  private UpdateComponentArray updateComponentsToRemove;
+    alias UpdateComponent UpdateComponentArray[];
 
-  private Properties properties;
-};
+    object Entity
+    {
+      private Index uid;
+      private String name;
 
-Entity.appendDesc(io String s)
-{
-  s += this.toString();
-} 
+      private TransformComponent transformComponent;
+      private UpdateComponentArray updateComponents;
+      private UpdateComponentArray updateComponentsToRemove;
 
-String Entity.toString()
-{
-  if (this == null) return 'null Entity';
-  return String(this.name 
-               + ' paths=' + this.getPaths() 
-               + ' properties=' + this.properties.toString()
-               // + ' transformComponent=' + this.transformComponent
-               // + ' updateComponents=' + this.updateComponents 
-               );
-} 
+      private GorGon::Core::Properties properties;
+    };
 
-// constructors
-Entity.createEntity!(String n, io TransformComponent tc)
-{
-  EntityFactory ef = getEntityFactory();
+    Entity.appendDesc(io String s)
+    {
+      s += this.toString();
+    }
 
-  this.uid = ef.getUID();
-  this.name = n;
-  this.properties = Properties();
-  this.setTransformComponent(tc);
-}
+    String Entity.toString()
+    {
+      if (this == null) return 'null Entity';
+      return String(this.name
+                   + ' paths=' + this.getPaths()
+                   + ' properties=' + this.properties.toString()
+                   // + ' transformComponent=' + this.transformComponent
+                   // + ' updateComponents=' + this.updateComponents
+                   );
+    }
 
-Entity(String n)
-{
-  this.createEntity(n, TransformComponent());
-}
+    // constructors
+    Entity.createEntity!(String n, io TransformComponent tc)
+    {
+      EntityFactory ef = getEntityFactory();
 
-Entity(String n, io UpdateComponent uc)
-{
-  this.createEntity(n, TransformComponent());
-  this.addUpdateComponent(uc);
-}
+      this.uid = ef.getUID();
+      this.name = n;
+      this.properties = GorGon::Core::Properties();
+      this.setTransformComponent(tc);
+    }
 
-Entity(String n, Xfo xfo)
-{
-  this.createEntity(n, TransformComponent());
-  this.setLocalTransform(xfo);
-}
+    Entity(String n)
+    {
+      this.createEntity(n, TransformComponent());
+    }
 
-~Entity()
-{
-  report('byebye'); // doesnt work ???
-}
+    Entity(String n, io UpdateComponent uc)
+    {
+      this.createEntity(n, TransformComponent());
+      this.addUpdateComponent(uc);
+    }
 
-Index Entity.getUID()
-{ 
-  return this.uid; 
-}
+    Entity(String n, Xfo xfo)
+    {
+      this.createEntity(n, TransformComponent());
+      this.setLocalTransform(xfo);
+    }
 
-String Entity.getName()
-{ 
-  return this.name; 
-}
+    ~Entity()
+    {
+      report('byebye'); // doesnt work ???
+    }
 
-TransformComponent Entity.getTransformComponent()
-{ 
-  return this.transformComponent; 
-}
+    Index Entity.getUID()
+    {
+      return this.uid;
+    }
 
-Properties Entity.getProperties()
-{ 
-  return this.properties; 
-}
+    String Entity.getName()
+    {
+      return this.name;
+    }
 
-String Entity.getPath()
-{ 
-  return this.transformComponent.getPath(); 
-}
+    TransformComponent Entity.getTransformComponent()
+    {
+      return this.transformComponent;
+    }
 
-String[] Entity.getPaths()
-{ 
-  return this.transformComponent.getPaths(); 
-}
+    GorGon::Core::Properties Entity.getProperties()
+    {
+      return this.properties;
+    }
 
-Xfo Entity.getLocalTransform!()
-{ 
-  return this.transformComponent.getLocalTransform(); 
-}
+    String Entity.getPath()
+    {
+      return this.transformComponent.getPath();
+    }
 
-Xfo Entity.getGlobalTransform!()
-{ 
-  return this.transformComponent.getGlobalTransform(); 
-}
+    String[] Entity.getPaths()
+    {
+      return this.transformComponent.getPaths();
+    }
 
-XfoArray Entity.getGlobalTransforms!()
-{ 
-  return this.transformComponent.getGlobalTransforms(); 
-}
+    Xfo Entity.getLocalTransform!()
+    {
+      return this.transformComponent.getLocalTransform();
+    }
 
-Size Entity.getChildCount!()
-{ 
-  return this.transformComponent.getChildCount(); 
-}
+    Xfo Entity.getGlobalTransform!()
+    {
+      return this.transformComponent.getGlobalTransform();
+    }
 
-Entity Entity.getChild!(Index i)
-{ 
-  return this.transformComponent.getChild(i); 
-}
+    XfoArray Entity.getGlobalTransforms!()
+    {
+      return this.transformComponent.getGlobalTransforms();
+    }
 
-Boolean Entity.hasParent()
-{ 
-  return this.transformComponent.hasParent(); 
-}
+    Size Entity.getChildCount!()
+    {
+      return this.transformComponent.getChildCount();
+    }
 
-Entity Entity.getParent()
-{ 
-  return this.transformComponent.getParent(0); 
-}
+    Entity Entity.getChild!(Index i)
+    {
+      return this.transformComponent.getChild(i);
+    }
 
-Ref<Entity>[] Entity.getParents()
-{ 
-  return this.transformComponent.getParents(); 
-}
+    Boolean Entity.hasParent()
+    {
+      return this.transformComponent.hasParent();
+    }
 
-Boolean Entity.isInstanced()
-{
-  Boolean isInstanced = this.getParents().size() > 1;
-  if (isInstanced) return true;
-  if (this.hasParent() == false) return false;
-  return this.getParent().isInstanced();
-}
+    Entity Entity.getParent()
+    {
+      return this.transformComponent.getParent(0);
+    }
 
-Size Entity.getUpdateComponentCount()
-{ 
-  return this.updateComponents.size(); 
-}
+    Ref<Entity>[] Entity.getParents()
+    {
+      return this.transformComponent.getParents();
+    }
 
-Entity.setLocalTransform!(Xfo tr)
-{
-  this.transformComponent.setLocalTransform(tr);
-}
+    Boolean Entity.isInstanced()
+    {
+      Boolean isInstanced = this.getParents().size() > 1;
+      if (isInstanced) return true;
+      if (this.hasParent() == false) return false;
+      return this.getParent().isInstanced();
+    }
 
-Entity.setTransformComponent!(io TransformComponent tc)
-{ 
-  this.transformComponent = tc; 
-  tc.setOwnerEntity(this);
-}
+    Size Entity.getUpdateComponentCount()
+    {
+      return this.updateComponents.size();
+    }
 
-Boolean Entity.addUpdateComponent!(io UpdateComponent uc)
-{
-  if (this.hasUpdateComponent(uc)) return false;
-  this.updateComponents.push(uc);
-  uc.setOwnerEntity(this);
-  return true;
-}
+    Entity.setLocalTransform!(Xfo tr)
+    {
+      this.transformComponent.setLocalTransform(tr);
+    }
 
-Boolean Entity.removeUpdateComponent!(io UpdateComponent uc)
-{
-  if (this.hasUpdateComponent(uc) == false) return false;
+    Entity.setTransformComponent!(io TransformComponent tc)
+    {
+      this.transformComponent = tc;
+      tc.setOwnerEntity(this);
+    }
 
-  UpdateComponentArray newComponents;
-  for(Size i=0; i<this.updateComponents.size(); ++i) 
-  {
-    if (this.updateComponents[i] != uc)
-      newComponents.push(uc);
-  }
-  this.updateComponents = newComponents;
-
-  return true;
-}
-
-Boolean Entity.safeRemoveUpdateComponent!(io UpdateComponent uc)
-{
-  if (this.hasUpdateComponent(uc) == false) return false;
-  this.updateComponentsToRemove.push(uc);
-  return true;  
-}
-
-Boolean Entity.hasUpdateComponent(UpdateComponent uc)
-{
-  return this.hasUpdateComponent(uc.getName());
-}
-
-Boolean Entity.hasUpdateComponent(String ucName)
-{
-  for(Size i=0; i<this.updateComponents.size(); ++i) 
-  {
-    if (this.updateComponents[i].getName() == ucName)
+    Boolean Entity.addUpdateComponent!(io UpdateComponent uc)
+    {
+      if (this.hasUpdateComponent(uc)) return false;
+      this.updateComponents.push(uc);
+      uc.setOwnerEntity(this);
       return true;
-  }
-  return false;
-}
-
-UpdateComponent Entity.getUpdateComponent(String ucName)
-{
-  for(Size i=0; i<this.updateComponents.size(); ++i) 
-  {
-    if (this.updateComponents[i].getName() == ucName)
-      return this.updateComponents[i];
-  }
-  return null;
-}
-
-UpdateComponentArray Entity.getUpdateComponents()
-{
-  return this.updateComponents;
-}
-
-Boolean == (Entity e1, Entity e2)
-{
-  return e1 != null && e2 != null && e1.getUID() == e2.getUID();
-}
-
-Boolean != (Entity e1, Entity e2)
-{
-  return !(e1 == e2);
-}
-
-Entity.addChild!(io Entity e)
-{
-  this.addChild(e, false);
-}
-
-Entity.addChild!(io Entity e, Boolean reparentChild)
-{
-  if (reparentChild) {
-    Xfo invTr = this.getGlobalTransform().inverse();
-    Xfo newChildTr = invTr * e.getGlobalTransform();
-    e.setLocalTransform(newChildTr);
-
-    // if we do reparent we have to clear our parents array
-    e.getTransformComponent().clearParents();  
-    // if (e.hasParent()) e.getTransformComponent().removeParent(e.getParent());  
-  }
-
-  this.transformComponent.addChild(e);
-  e.getTransformComponent().addParent(this);
-}
-
-Entity.destroy()
-{
-  // foreach(Entity p in this.getParents()) {
-  //   p.removeChild(this);
-  // }
-}
-
-Entity.update!()
-{
-  for(Index i=0; i<this.updateComponents.size(); ++i)
-  {
-    UpdateComponent uc = this.updateComponents[i];
-
-    if (uc.started == false)
-    {
-      uc.onStart();
-      uc.started = true;
-    } 
-    else
-    {
-      uc.onUpdate();
     }
-  }
 
-  for(Index i=0; i<this.getChildCount(); ++i)
-  {
-    this.getChild(i).update();
-  }
-
-  if (this.updateComponentsToRemove.size() > 0)
-  {
-    for(Index i=0; i<this.updateComponentsToRemove.size(); ++i)
+    Boolean Entity.removeUpdateComponent!(io UpdateComponent uc)
     {
-      UpdateComponent uc = this.updateComponents[i];
-      this.removeUpdateComponent(uc);
+      if (this.hasUpdateComponent(uc) == false) return false;
+
+      UpdateComponentArray newComponents;
+      for(Size i=0; i<this.updateComponents.size(); ++i)
+      {
+        if (this.updateComponents[i] != uc)
+          newComponents.push(uc);
+      }
+      this.updateComponents = newComponents;
+
+      return true;
     }
-    this.updateComponentsToRemove.resize(0);
-  }  
+
+    Boolean Entity.safeRemoveUpdateComponent!(io UpdateComponent uc)
+    {
+      if (this.hasUpdateComponent(uc) == false) return false;
+      this.updateComponentsToRemove.push(uc);
+      return true;
+    }
+
+    Boolean Entity.hasUpdateComponent(UpdateComponent uc)
+    {
+      return this.hasUpdateComponent(uc.getName());
+    }
+
+    Boolean Entity.hasUpdateComponent(String ucName)
+    {
+      for(Size i=0; i<this.updateComponents.size(); ++i)
+      {
+        if (this.updateComponents[i].getName() == ucName)
+          return true;
+      }
+      return false;
+    }
+
+    UpdateComponent Entity.getUpdateComponent(String ucName)
+    {
+      for(Size i=0; i<this.updateComponents.size(); ++i)
+      {
+        if (this.updateComponents[i].getName() == ucName)
+          return this.updateComponents[i];
+      }
+      return null;
+    }
+
+    UpdateComponentArray Entity.getUpdateComponents()
+    {
+      return this.updateComponents;
+    }
+
+    Boolean == (Entity e1, Entity e2)
+    {
+      return e1 != null && e2 != null && e1.getUID() == e2.getUID();
+    }
+
+    Boolean != (Entity e1, Entity e2)
+    {
+      return !(e1 == e2);
+    }
+
+    Entity.addChild!(io Entity e)
+    {
+      this.addChild(e, false);
+    }
+
+    Entity.addChild!(io Entity e, Boolean reparentChild)
+    {
+      if (reparentChild) {
+        Xfo invTr = this.getGlobalTransform().inverse();
+        Xfo newChildTr = invTr * e.getGlobalTransform();
+        e.setLocalTransform(newChildTr);
+
+        // if we do reparent we have to clear our parents array
+        e.getTransformComponent().clearParents();
+        // if (e.hasParent()) e.getTransformComponent().removeParent(e.getParent());
+      }
+
+      this.transformComponent.addChild(e);
+      e.getTransformComponent().addParent(this);
+    }
+
+    Entity.destroy()
+    {
+      // foreach(Entity p in this.getParents()) {
+      //   p.removeChild(this);
+      // }
+    }
+
+    Entity.update!()
+    {
+      for(Index i=0; i<this.updateComponents.size(); ++i)
+      {
+        UpdateComponent uc = this.updateComponents[i];
+
+        if (uc.started == false)
+        {
+          uc.onStart();
+          uc.started = true;
+        }
+        else
+        {
+          uc.onUpdate();
+        }
+      }
+
+      for(Index i=0; i<this.getChildCount(); ++i)
+      {
+        this.getChild(i).update();
+      }
+
+      if (this.updateComponentsToRemove.size() > 0)
+      {
+        for(Index i=0; i<this.updateComponentsToRemove.size(); ++i)
+        {
+          UpdateComponent uc = this.updateComponents[i];
+          this.removeUpdateComponent(uc);
+        }
+        this.updateComponentsToRemove.resize(0);
+      }
+    }
+
+    String[] Entity.expandAllPaths!()
+    {
+      String paths[] = this.getPaths();
+      Size cc = this.getChildCount();
+      for(Size i=0; i<cc; ++i)
+      {
+        paths += this.getChild(i).expandAllPaths();
+      }
+      return paths;
+    }
+
+    UpdateComponent Entity.getOrCreateUpdateComponent!(String type)
+    {
+        if (this.hasUpdateComponent(type) == false)
+        {
+            UpdateComponent uc = getComponentFactory().createComponent(type, type);
+            if (uc != null)
+            {
+                this.addUpdateComponent(uc);
+            }
+            return uc;
+        }
+        else
+        {
+            return this.getUpdateComponent(type);
+        }
+    }
 }

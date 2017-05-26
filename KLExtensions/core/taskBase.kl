@@ -1,53 +1,65 @@
-interface TaskInterface
+namespace GorGon::Core
 {
-    onFirstExecute!();
-	execute!();
-};
+    interface TaskInterface
+    {
+        onFirstExecute!();
+        execute!();
+    };
 
-object TaskMaster; // forward declaration
-object TaskBase : TaskInterface permits TaskMaster
-{
-	private Boolean done, verbose;
-	private Count executeCount;
-	protected Ref<TaskMaster> owner;
-	private Ref<TaskBase> dependencies[];
-};
+    object TaskMaster; // forward declare
 
-Count TaskBase.getExecuteCount() { return this.executeCount; }
-Boolean TaskBase.isDone() { return this.done; }
+    object TaskBase : TaskInterface permits TaskMaster
+    {
+        private Boolean done, verbose;
+        private Count executeCount;
+        protected Ref<TaskMaster> owner;
+        private Ref<TaskBase> dependencies[];
+    };
 
-// doing nothing per default
-TaskBase.onFirstExecute!() {}
-TaskBase.execute!() {}
+    Count TaskBase.getExecuteCount()
+    {
+        return this.executeCount;
+    }
 
-TaskBase.setDone!()
-{
-    this.executeCount += 1;
-	this.done = true;
-	if (this.verbose) report('[GG_CORE  ] - ' + this.type() + " done!");
-}
-TaskBase.verbose!()
-{
-	this.verbose = true;
-}
+    Boolean TaskBase.isDone()
+    {
+        return this.done;
+    }
 
-TaskBase.dependsOn!(TaskBase other)
-{
-	this.dependencies.push(other);
-}
+    // doing nothing per default
+    TaskBase.onFirstExecute!() {}
+    TaskBase.execute!() {}
 
-TaskBase.removeAllDependencies!()
-{
-    this.dependencies.resize(0);
-}
+    TaskBase.setDone!()
+    {
+        this.executeCount += 1;
+        this.done = true;
+        if (this.verbose) report('[GG_CORE  ] - ' + this.type() + " done!");
+    }
 
-Boolean TaskBase.canBeExecuted()
-{
-	if (this.dependencies.size() == 0) return true;
-	for(Index i=0; i<this.dependencies.size(); ++i)
-	{
-	    if (this.dependencies[i].isDone() == false)
-	        return false;
-	}
-	return true;
+    TaskBase.verbose!()
+    {
+        this.verbose = true;
+    }
+
+    TaskBase.dependsOn!(TaskBase other)
+    {
+        this.dependencies.push(other);
+    }
+
+    TaskBase.removeAllDependencies!()
+    {
+        this.dependencies.resize(0);
+    }
+
+    Boolean TaskBase.canBeExecuted()
+    {
+        if (this.dependencies.size() == 0) return true;
+        for(Index i=0; i<this.dependencies.size(); ++i)
+        {
+            if (this.dependencies[i].isDone() == false)
+                return false;
+        }
+        return true;
+    }
 }

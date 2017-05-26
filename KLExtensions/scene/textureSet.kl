@@ -1,45 +1,51 @@
-object CCTextureSet : UpdateComponent
+using namespace GorGon::ECS;
+
+namespace GorGon::Scene
 {
-  CCTexture textures[String];
-};
+    object CCTextureSet : UpdateComponent
+    {
+      CCTexture textures[String];
+    };
 
-CCTextureSet(String name)
-{
-  this.createComponent(name);
-}
+    CCTextureSet(String name)
+    {
+      this.createComponent(name);
+    }
 
-CCTextureSet.add!(String name, CCTexture tex)
-{
-  this.textures[name] = tex;
-}
+    CCTextureSet.add!(String name, CCTexture tex)
+    {
+//    report(Boolean(this.textures == null));
+      this.textures[name] = tex;
+    }
 
-Size CCTextureSet.getTextureCount()
-{ 
-  return this.textures.size(); 
-}
+    Size CCTextureSet.getTextureCount()
+    {
+      return this.textures.size();
+    }
 
-CCTexture CCTextureSet.getTexture(String key)
-{ 
-  return this.textures[key]; 
-}
+    CCTexture CCTextureSet.getTexture(String key)
+    {
+      return this.textures[key];
+    }
 
-String CCTextureSet.getPath(String key)
-{ 
-  return this.textures[key].getPath(); 
-}
+    String CCTextureSet.getPath(String key)
+    {
+      return this.textures[key].getPath();
+    }
 
-String[] CCTextureSet.getTextureKeys()
-{
-  String keys[];
-  for (key in this.textures)
-    keys.push(key);
-  return keys;
-}
+    String[] CCTextureSet.getTextureKeys()
+    {
+      String keys[];
+      for (key in this.textures)
+        keys.push(key);
+      return keys;
+    }
 
-String[] CCTextureSet.getTexturePaths()
-{
-  String values[];
-  for (key in this.textures)
-    values.push(this.textures[key].getPath());
-  return values;
+    String[] CCTextureSet.getTexturePaths()
+    {
+      String values[];
+      for (key in this.textures)
+        values.push(this.textures[key].getPath());
+      return values;
+    }
 }

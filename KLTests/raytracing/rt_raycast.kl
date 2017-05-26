@@ -1,6 +1,11 @@
-require GGimport;
-require GGimage;
+require GorGon_Import;
+using namespace GorGon::Import;
+
+require GorGon_Image;
+using namespace GorGon::Image;
+
 require GGraytracingTests;
+using namespace GorGon::RaytracingTests;
 
 object TestRTSimpleRaycast : CCTestCase
 {

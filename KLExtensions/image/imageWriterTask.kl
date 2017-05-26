@@ -1,25 +1,28 @@
-object TaskBase;
+using namespace GorGon::Core;
 
-object ImageWriterTask : TaskBase
+namespace GorGon::Image
 {
-    String filePath;
-    OutputBuffer outputBuffer;
-};
+    object ImageWriterTask : TaskBase
+    {
+        String filePath;
+        OutputBuffer outputBuffer;
+    };
 
-ImageWriterTask(String filePath, Size width, Size height, PackedColorArray pixels)
-{
-    this.filePath = filePath;
-    this.outputBuffer = OutputBuffer(width, height, pixels);
-}
+    ImageWriterTask(String filePath, Size width, Size height, PackedColorArray pixels)
+    {
+        this.filePath = filePath;
+        this.outputBuffer = OutputBuffer(width, height, pixels);
+    }
 
-ImageWriterTask(String filePath, OutputBuffer outputBuffer)
-{
-    this.filePath = filePath;
-    this.outputBuffer = outputBuffer;
-}
+    ImageWriterTask(String filePath, OutputBuffer outputBuffer)
+    {
+        this.filePath = filePath;
+        this.outputBuffer = outputBuffer;
+    }
 
-ImageWriterTask.execute!()
-{
-    ImageWriter(this.filePath, this.outputBuffer).write();
-    this.parent.setDone(); // always call setDone on the parent class to make sure this.done is set properly
+    ImageWriterTask.execute!()
+    {
+        ImageWriter(this.filePath, this.outputBuffer).write();
+        this.parent.setDone(); // always call setDone on the parent class to make sure this.done is set properly
+    }
 }

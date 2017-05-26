@@ -2,8 +2,14 @@ require Math;
 require Fbx;
 require Geometry;
 
-require GGscene;
-require GGimport;
+require GorGon_ECS;
+using namespace GorGon::ECS;
+
+require GorGon_Scene;
+using namespace GorGon::Scene;
+
+require GorGon_Import;
+using namespace GorGon::Import;
 
 object TestSGFbx : CCTestCase
 {
@@ -19,6 +25,8 @@ String fixPath(String s)
 
 TestSGFbx.testFBXSimpleMesh!()
 {
+  GorGon::Scene::initExtension();
+
   String fbxFilepath = fixPath("_assets/house.fbx");
   String fbxTexFolder = fixPath("testAssets");
 
@@ -47,6 +55,8 @@ TestSGFbx.testFBXSimpleMesh!()
 
 TestSGFbx.testFBXSimpleMesh2!()
 {
+  GorGon::Scene::initExtension();
+
   String fbxFilepath = fixPath("_assets/barn.fbx");
   String fbxTexFolder = fixPath("testAssets");
 
@@ -73,6 +83,8 @@ TestSGFbx.testFBXSimpleMesh2!()
 
 TestSGFbx.testFBXSimpleMesh3!()
 {
+  GorGon::Scene::initExtension();
+
   String fbxFilepath = fixPath("_assets/station.fbx");
   String fbxTexFolder = fixPath("testAssets");
 

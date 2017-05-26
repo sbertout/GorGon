@@ -1,55 +1,54 @@
-object Entity;
-object TransformComponent;
-
-object Component
+namespace GorGon::ECS
 {
-  private Index uid;
-  private String name;	
-  private Entity ownerEntity;
-};
+    object Entity;
+    object TransformComponent;
 
-Component.createComponent!(String n)
-{
-  if (Singleton_has('ComponentFactory') == false)
-    Singleton_set('ComponentFactory', ComponentFactory());
-  ComponentFactory cf = Singleton_get('ComponentFactory');
+    object Component
+    {
+      private Index uid;
+      private String name;
+      private Entity ownerEntity;
+    };
 
-  this.uid = cf.getUID();
-  this.name = n;
-}
+    Component.createComponent!(String n)
+    {
+      this.uid = getComponentFactory().getUID();
+      this.name = n;
+    }
 
-String Component.toString()
-{
-  if (this == null) return 'null Component';
-	return 'Component: ' + this.name + " uid=" + this.uid + " ownerEntity=" + this.ownerEntity.getPaths();
-}
+    String Component.toString()
+    {
+      if (this == null) return 'null Component';
+        return 'Component: ' + this.name + " uid=" + this.uid + " ownerEntity=" + this.ownerEntity.getPaths();
+    }
 
-Index Component.getUID()
-{ 
-  return this.uid; 
-}
+    Index Component.getUID()
+    {
+      return this.uid;
+    }
 
-String Component.getName()
-{
-  return this.name; 
-}
+    String Component.getName()
+    {
+      return this.name;
+    }
 
-Entity Component.getOwnerEntity()
-{
-	return this.ownerEntity;
-}
+    Entity Component.getOwnerEntity()
+    {
+        return this.ownerEntity;
+    }
 
-Component.setOwnerEntity!(Entity e)
-{
-	this.ownerEntity = e;
-}
+    Component.setOwnerEntity!(Entity e)
+    {
+        this.ownerEntity = e;
+    }
 
-Boolean == (Component c1, Component c2)
-{
-  return c1 != null && c2 != null && c1.getUID() == c2.getUID();
-}
+    Boolean == (Component c1, Component c2)
+    {
+      return c1 != null && c2 != null && c1.getUID() == c2.getUID();
+    }
 
-Boolean != (Component c1, Component c2)
-{
-  return !(c1 == c2);
+    Boolean != (Component c1, Component c2)
+    {
+      return !(c1 == c2);
+    }
 }

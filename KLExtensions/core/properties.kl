@@ -1,118 +1,122 @@
-object Properties
+namespace GorGon::Core
 {
-  private Boolean booleans[String];
-  private Scalar scalars[String];
-  private Integer integers[String];
-  private String strings[String];
-  private Object objects[String];
-};
+    object Properties
+    {
+      private Boolean booleans[String];
+      private Scalar scalars[String];
+      private Integer integers[String];
+      private String strings[String];
+      private Object objects[String];
+    };
 
-Boolean Properties.isEmpty()
-{
-  return this.booleans.size() == 0 && this.scalars.size() == 0 && this.integers.size() == 0 &&this.strings.size() == 0;
-}
+    Boolean Properties.isEmpty()
+    {
+      return this.booleans.size() == 0 && this.scalars.size() == 0 && this.integers.size() == 0 &&this.strings.size() == 0;
+    }
 
-Boolean Properties.hasBoolean(String name)
-{
-  for (d in this.booleans)
-    if (d == name) return true;
-  return false;
-}
+    Boolean Properties.hasBoolean(String name)
+    {
+      for (d in this.booleans)
+        if (d == name) return true;
+      return false;
+    }
 
-Properties.addBoolean!(String name, Boolean value)
-{
-  this.booleans[name] = value;
-}
+    Properties.addBoolean!(String name, Boolean value)
+    {
+      this.booleans[name] = value;
+    }
 
-Boolean Properties.getBooleanValue(String name)
-{
-  return this.booleans[name];
-}
+    Boolean Properties.getBooleanValue(String name)
+    {
+      return this.booleans[name];
+    }
 
-Boolean Properties.hasScalar(String name)
-{ 
-  for (d in this.scalars)
-    if (d == name) return true;
-  return false;
-}
+    Boolean Properties.hasScalar(String name)
+    {
+      for (d in this.scalars)
+        if (d == name) return true;
+      return false;
+    }
 
-Properties.addScalar!(String name, Scalar value)
-{
-  this.scalars[name] = value;
-}
+    Properties.addScalar!(String name, Scalar value)
+    {
+      this.scalars[name] = value;
+    }
 
-Scalar Properties.getScalarValue(String name)
-{
-  return this.scalars[name];
-}
+    Scalar Properties.getScalarValue(String name)
+    {
+      return this.scalars[name];
+    }
 
-Boolean Properties.hasInteger(String name)
-{ 
-  for (d in this.integers)
-    if (d == name) return true;
-  return false;
-}
+    Boolean Properties.hasInteger(String name)
+    {
+      for (d in this.integers)
+        if (d == name) return true;
+      return false;
+    }
 
-Properties.addInteger!(String name, Integer value)
-{
-  this.integers[name] = value;
-}
+    Properties.addInteger!(String name, Integer value)
+    {
+      this.integers[name] = value;
+    }
 
-Integer Properties.getIntegerValue(String name)
-{
-  return this.integers[name];
-}
+    Integer Properties.getIntegerValue(String name)
+    {
+      return this.integers[name];
+    }
 
-Boolean Properties.hasString(String name)
-{ 
-  for (d in this.strings)
-    if (d == name) return true;
-  return false;
-}
+    Boolean Properties.hasString(String name)
+    {
+      for (d in this.strings)
+        if (d == name) return true;
+      return false;
+    }
 
-Properties.addString!(String name, String value)
-{
-  this.strings[name] = value;
-}
+    Properties.addString!(String name, String value)
+    {
+      this.strings[name] = value;
+    }
 
-String Properties.getStringValue(String name)
-{
-  return this.strings[name];
-}
-String Properties.getStringValue(String name, String defaultValue)
-{
-  return (this.hasString(name)) ? this.strings[name] : defaultValue;
-}
+    String Properties.getStringValue(String name)
+    {
+      return this.strings[name];
+    }
 
-Boolean Properties.hasObject(String name)
-{ 
-  for (d in this.objects)
-    if (d == name) return true;
-  return false;
-}
+    String Properties.getStringValue(String name, String defaultValue)
+    {
+      return (this.hasString(name)) ? this.strings[name] : defaultValue;
+    }
 
-Properties.addObject!(String name, Object value)
-{
-  this.objects[name] = value;
-}
+    Boolean Properties.hasObject(String name)
+    {
+      for (d in this.objects)
+        if (d == name) return true;
+      return false;
+    }
 
-Object Properties.getObjectValue(String name)
-{
-  return this.objects[name];
-}
+    Properties.addObject!(String name, Object value)
+    {
+      this.objects[name] = value;
+    }
 
-Properties.appendDesc(io String s)
-{
-    s += this.toString();
-}
+    Object Properties.getObjectValue(String name)
+    {
+      return this.objects[name];
+    }
 
-String Properties.toString()
-{
-  String s = '';
-  if (this.booleans.size() > 0) s += this.booleans;
-  if (this.scalars.size() > 0) s += this.scalars;
-  if (this.integers.size() > 0) s += this.integers;
-  if (this.strings.size() > 0) s += this.strings;
-  if (this.objects.size() > 0) s += this.objects;
-  return s != '' ? s : 'none';
+    Properties.appendDesc(io String s)
+    {
+        s += this.toString();
+    }
+
+    String Properties.toString()
+    {
+      String s = '';
+      if (this.booleans.size() > 0) s += this.booleans;
+      if (this.scalars.size() > 0) s += this.scalars;
+      if (this.integers.size() > 0) s += this.integers;
+      if (this.strings.size() > 0) s += this.strings;
+      if (this.objects.size() > 0) s += this.objects;
+      return s != '' ? s : 'none';
+    }
 }

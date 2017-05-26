@@ -5,5 +5,5 @@ require Util;
 require Singletons;
 
 // GorGon
-require GGecs;
-require GGrendering;
+require GorGon_ECS;
+require GorGon_Rendering;

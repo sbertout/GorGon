@@ -1,39 +1,40 @@
-require AlembicWrapper;
-
-object AlembicReader
+namespace GorGon::Import
 {
-    FilePath filePath;
-    AlembicArchiveReader reader;
-};
+    object AlembicReader
+    {
+        FilePath filePath;
+        AlembicArchiveReader reader;
+    };
 
-AlembicReader(FilePath filePath)
-{
-    this.filePath = filePath;
-    this.reader =  AlembicArchiveReader(this.getFilePathAsString());
-}
+    AlembicReader(FilePath filePath)
+    {
+        this.filePath = filePath;
+        this.reader =  AlembicArchiveReader(this.getFilePathAsString());
+    }
 
-String AlembicReader.getFilePathAsString()
-{
-    return this.filePath.expandEnvVars().string();
-}
+    String AlembicReader.getFilePathAsString()
+    {
+        return this.filePath.expandEnvVars().string();
+    }
 
-Vec3[] AlembicReader.getPoints!(Float64 time)
-{
-    Vec3 points[];
-    String pointsPaths[] = this.reader.getPathsOfType('Points');
+    Vec3[] AlembicReader.getPoints!(Float64 time)
+    {
+        Vec3 points[];
+        String pointsPaths[] = this.reader.getPathsOfType('Points');
 
-	for(Size i=0;i<pointsPaths.size();i++)
-	{
-		AlembicPointsReader pointsReader = this.reader.getPoints(pointsPaths[i]);
-		GeometryAttributes attr = GeometryAttributes();
-		pointsReader.readSample(time, attr);
+        for(Size i=0;i<pointsPaths.size();i++)
+        {
+            AlembicPointsReader pointsReader = this.reader.getPoints(pointsPaths[i]);
+            GeometryAttributes attr = GeometryAttributes();
+            pointsReader.readSample(time, attr);
 
-		Ref<Vec3Attribute> positions = attr.getPositions();
-		for(Index j=0; j<positions.size(); ++j)
-		{
-			points.push(positions.values[j]);
-		}
-	}
+            Ref<Vec3Attribute> positions = attr.getPositions();
+            for(Index j=0; j<positions.size(); ++j)
+            {
+                points.push(positions.values[j]);
+            }
+        }
 
-	return points;
+        return points;
+    }
 }

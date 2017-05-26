@@ -1,0 +1,32 @@
+namespace GorGon::Maths
+{
+    struct Vec3MinResult
+    {
+        Vec3 value;
+    };
+
+    function Vec3MinResult()
+    {
+        this.value = Vec3(BIGSCALAR_POSITIVE, BIGSCALAR_POSITIVE, BIGSCALAR_POSITIVE);
+    }
+
+    struct Vec3MaxResult
+    {
+        Vec3 value;
+    };
+
+    function Vec3MaxResult()
+    {
+        this.value = Vec3(BIGSCALAR_NEGATIVE, BIGSCALAR_NEGATIVE, BIGSCALAR_NEGATIVE);
+    }
+
+    operator mr_Box_min(Box input, io Vec3MinResult output)
+    {
+        output.value = Math_min(input.getMin(), output.value);
+    }
+
+    operator mr_Box_max(Box input, io Vec3MaxResult output)
+    {
+        output.value = Math_max(input.getMax(), output.value);
+    }
+}

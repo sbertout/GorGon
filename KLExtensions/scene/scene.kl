@@ -1,29 +1,30 @@
-object Scene;
-object Entity;
+using namespace GorGon::ECS;
 
-
-object Scene : Entity
+namespace GorGon::Scene
 {
-};
+    object Scene : Entity
+    {
+    };
 
-Scene(String n)
-{
-	this.createEntity(n, TransformComponent());
-	getSceneManager().addScene(this);
-}
-
-Entity Entity.findEntity!(String p)
-{
-  String path = p;
-  if (path.startsWith('/') == false) path = '/' + path;
-  String childName = path.partition('/')[2].partition('/')[0];
-  String pathRemaining = path.partition('/')[2].partition('/')[2]; 
-  for(Index i=0; i<this.getChildCount(); ++i) {
-    Entity e = this.getChild(i);
-    if (e != null && e.getName() == childName) {
-      if (pathRemaining == '') return e;
-      else return e.findEntity('/' + pathRemaining);
+    Scene(String n)
+    {
+        this.createEntity(n, TransformComponent());
+        getSceneManager().addScene(this);
     }
-  }
-  return null;
+
+    Entity Entity.findEntity!(String p)
+    {
+      String path = p;
+      if (path.startsWith('/') == false) path = '/' + path;
+      String childName = path.partition('/')[2].partition('/')[0];
+      String pathRemaining = path.partition('/')[2].partition('/')[2];
+      for(Index i=0; i<this.getChildCount(); ++i) {
+        Entity e = this.getChild(i);
+        if (e != null && e.getName() == childName) {
+          if (pathRemaining == '') return e;
+          else return e.findEntity('/' + pathRemaining);
+        }
+      }
+      return null;
+    }
 }

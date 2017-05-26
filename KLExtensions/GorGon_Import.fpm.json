@@ -1,6 +1,6 @@
 {
     "code": [
-        "import/_requires.kl", 
+        "import/__requires.kl", 
         "import/alembic.kl", 
         "import/fbx.kl"
     ], 

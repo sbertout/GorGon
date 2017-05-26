@@ -1,26 +1,29 @@
-object OutputBuffer;
-
-object ImageWriter
+namespace GorGon::Image
 {
-    String filePath;
-    OutputBuffer outputBuffer;
-};
+    object OutputBuffer;
 
-ImageWriter(String filePath, OutputBuffer outputBuffer)
-{
-    this.filePath = filePath;
-    this.outputBuffer = outputBuffer;
-}
+    object ImageWriter
+    {
+        String filePath;
+        OutputBuffer outputBuffer;
+    };
 
-ImageWriter.write()
-{
-    OpenImageSpec spec(this.outputBuffer.getWidth(), this.outputBuffer.getHeight(), 3, OpenImageTypeDescTypeColor());
-    OpenImageTypeDesc desc = OpenImageTypeDesc(OpenImage_BASETYPE_FLOAT, OpenImage_AGGREGATE_SCALAR, OpenImage_VECSEMANTICS_NOXFORM);
+    ImageWriter(String filePath, OutputBuffer outputBuffer)
+    {
+        this.filePath = filePath;
+        this.outputBuffer = outputBuffer;
+    }
 
-    FilePath path(this.filePath);
-    OpenImageOutput img();
-    img.create(path.string());
-    img.open(path.string(), spec);
-    img.write_image(desc, this.outputBuffer.getBuffer().data(), 0, 0, 0);
-    img.close();
+    ImageWriter.write()
+    {
+        OpenImageSpec spec(this.outputBuffer.getWidth(), this.outputBuffer.getHeight(), 3, OpenImageTypeDescTypeColor());
+        OpenImageTypeDesc desc = OpenImageTypeDesc(OpenImage_BASETYPE_FLOAT, OpenImage_AGGREGATE_SCALAR, OpenImage_VECSEMANTICS_NOXFORM);
+
+        FilePath path(this.filePath);
+        OpenImageOutput img();
+        img.create(path.string());
+        img.open(path.string(), spec);
+        img.write_image(desc, this.outputBuffer.getBuffer().data(), 0, 0, 0);
+        img.close();
+    }
 }

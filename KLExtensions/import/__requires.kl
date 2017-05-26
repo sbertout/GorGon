@@ -1,0 +1,11 @@
+// Fabric
+require Alembic;
+require AlembicWrapper;
+require Fbx;
+require FileIO;
+require Geometry;
+
+// GorGon
+require GorGon_Core;
+require GorGon_ECS;
+require GorGon_Scene;

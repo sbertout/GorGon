@@ -1,40 +1,46 @@
-// base task object SimpleOrthoRaycastBaseTask
-object SimpleOrthoRaycastBaseTask : TaskBase
-{
-    protected Boolean usePEX;
-    protected OutputBuffer outputBuffer;
-    protected Boolean cameraFacingLighting;
-    protected Vec3 viewSize, rayDirection;
-    protected Scalar rayZPos;
-};
+using namespace GorGon::Core;
+using namespace GorGon::Image;
+using namespace GorGon::Raytracing;
 
-SimpleOrthoRaycastBaseTask.setViewSize!(Vec3 viewSize)
+namespace GorGon::RaytracingTests
 {
-    this.viewSize = viewSize;
-}
+    object SimpleOrthoRaycastBaseTask : TaskBase
+    {
+        protected Boolean usePEX;
+        protected OutputBuffer outputBuffer;
+        protected Boolean cameraFacingLighting;
+        protected Vec3 viewSize, rayDirection;
+        protected Scalar rayZPos;
+    };
 
-SimpleOrthoRaycastBaseTask.setRayZPos!(Scalar rayZPos)
-{
-    this.rayZPos = rayZPos;
-}
+    SimpleOrthoRaycastBaseTask.setViewSize!(Vec3 viewSize)
+    {
+        this.viewSize = viewSize;
+    }
 
-SimpleOrthoRaycastBaseTask.initDefaults!(Boolean usePEX, OutputBuffer outputBuffer, Boolean cameraFacingLighting)
-{
-    this.usePEX = usePEX;
-    this.outputBuffer = outputBuffer;
-    this.cameraFacingLighting = cameraFacingLighting;
+    SimpleOrthoRaycastBaseTask.setRayZPos!(Scalar rayZPos)
+    {
+        this.rayZPos = rayZPos;
+    }
 
-    this.viewSize = Vec3(10);
-    this.rayDirection = Vec3(0, 0, -1);
-    this.rayZPos = 0;
-}
+    SimpleOrthoRaycastBaseTask.initDefaults!(Boolean usePEX, OutputBuffer outputBuffer, Boolean cameraFacingLighting)
+    {
+        this.usePEX = usePEX;
+        this.outputBuffer = outputBuffer;
+        this.cameraFacingLighting = cameraFacingLighting;
 
-inline Boolean SimpleOrthoRaycastBaseTask.getCameraFacingLighting()
-{
-    return this.cameraFacingLighting;
-}
+        this.viewSize = Vec3(10);
+        this.rayDirection = Vec3(0, 0, -1);
+        this.rayZPos = 0;
+    }
 
-inline SimpleOrthoRaycastBaseTask.updateOutputBuffer!(PackedColor col, Size x, Size y)
-{
-    this.outputBuffer.set(col, x, y);
+    inline Boolean SimpleOrthoRaycastBaseTask.getCameraFacingLighting()
+    {
+        return this.cameraFacingLighting;
+    }
+
+    inline SimpleOrthoRaycastBaseTask.updateOutputBuffer!(PackedColor col, Size x, Size y)
+    {
+        this.outputBuffer.set(col, x, y);
+    }
 }

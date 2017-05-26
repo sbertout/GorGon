@@ -1,30 +1,33 @@
-object ImageReader
+namespace GorGon::Image
 {
-    String filePath;
-};
-
-ImageReader(String filePath)
-{
-    this.filePath = filePath;
-}
-
-PackedColorArray ImageReader.read(io Size width, io Size height)
-{
-    PackedColorArray pixels;
-    OpenImageInput oiimage = OpenImageInput();
-    oiimage.open(this.filePath);
-
-    if (oiimage.valid())
+    object ImageReader
     {
-        OpenImageTypeDesc desc = OpenImageTypeDesc(OpenImage_BASETYPE_FLOAT, OpenImage_AGGREGATE_SCALAR, OpenImage_VECSEMANTICS_NOXFORM);
-        OpenImageSpec spec = oiimage.spec();
+        String filePath;
+    };
 
-        width = spec.get_full_width();
-        height = spec.get_full_height();
-        pixels.resize(width * height);
-
-        Data data = pixels.data();
-        oiimage.read_image(desc, data, 0, 0, 0);
+    ImageReader(String filePath)
+    {
+        this.filePath = filePath;
     }
-    return pixels;
+
+    PackedColorArray ImageReader.read(io Size width, io Size height)
+    {
+        PackedColorArray pixels;
+        OpenImageInput oiimage = OpenImageInput();
+        oiimage.open(this.filePath);
+
+        if (oiimage.valid())
+        {
+            OpenImageTypeDesc desc = OpenImageTypeDesc(OpenImage_BASETYPE_FLOAT, OpenImage_AGGREGATE_SCALAR, OpenImage_VECSEMANTICS_NOXFORM);
+            OpenImageSpec spec = oiimage.spec();
+
+            width = spec.get_full_width();
+            height = spec.get_full_height();
+            pixels.resize(width * height);
+
+            Data data = pixels.data();
+            oiimage.read_image(desc, data, 0, 0, 0);
+        }
+        return pixels;
+    }
 }

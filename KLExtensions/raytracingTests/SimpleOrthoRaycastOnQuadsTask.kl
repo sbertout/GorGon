@@ -1,60 +1,66 @@
-object SimpleOrthoRaycastOnQuadsTask : SimpleOrthoRaycastBaseTask
-{
-    private Quad quads[];
-};
+using namespace GorGon::Image;
+using namespace GorGon::Raytracing;
 
-SimpleOrthoRaycastOnQuadsTask(OutputBuffer outputBuffer, Boolean cameraFacingLighting)
+namespace GorGon::RaytracingTests
 {
-    // way slower with pex!??
-    this.initDefaults(false, outputBuffer, cameraFacingLighting);
-}
-
-SimpleOrthoRaycastOnQuadsTask(OutputBuffer outputBuffer, Quad quad, Boolean cameraFacingLighting)
-{
-    // way slower with pex!??
-    this.initDefaults(false, outputBuffer, cameraFacingLighting);
-    this.addQuad(quad);
-}
-
-inline Count SimpleOrthoRaycastOnQuadsTask.getQuadCount()
-{
-    return this.quads.size();
-}
-
-inline Quad SimpleOrthoRaycastOnQuadsTask.getQuad(Index idx)
-{
-    return this.quads[idx];
-}
-
-inline SimpleOrthoRaycastOnQuadsTask.addQuad!(Quad quad)
-{
-    this.quads.push(quad);
-}
-
-SimpleOrthoRaycastOnQuadsTask.execute!()
-{
-    Vec3 viewSize(10);
-    Size width = this.outputBuffer.getWidth();
-    Size height = this.outputBuffer.getHeight();
-    Scalar sw = width;
-    Scalar sh = height;
-
-    Count taskCount = 0;
-    Vec3 rayDirection(0, 0, -1);
-    TaskMaster tm(this.usePEX, width * height);
-    for(Index y=0; y<height; ++y)
+    object SimpleOrthoRaycastOnQuadsTask : SimpleOrthoRaycastBaseTask
     {
-        Scalar yo = 2.0 * (0.5 + Scalar(y)) / sh - 1.0;
-        for(Index x=0; x<width; ++x)
-        {
-            Scalar xo = 2.0 * (0.5 + Scalar(x)) / sw - 1.0;
-            Vec3 rayOrigin(Vec3(xo, yo, 0) * this.viewSize);
-            rayOrigin.z = this.rayZPos;
+        private Quad quads[];
+    };
 
-            tm.addTask(SimpleOrthoRaycastOnQuadsProcess(this, taskCount++, x, y, CCRay(rayOrigin, rayDirection)));
-        }
+    SimpleOrthoRaycastOnQuadsTask(OutputBuffer outputBuffer, Boolean cameraFacingLighting)
+    {
+        // way slower with pex!??
+        this.initDefaults(false, outputBuffer, cameraFacingLighting);
     }
-    tm.executeAll();
 
-    this.parent.setDone(); // always call setDone on the parent class to make sure this.done is set properly
+    SimpleOrthoRaycastOnQuadsTask(OutputBuffer outputBuffer, Quad quad, Boolean cameraFacingLighting)
+    {
+        // way slower with pex!??
+        this.initDefaults(false, outputBuffer, cameraFacingLighting);
+        this.addQuad(quad);
+    }
+
+    inline Count SimpleOrthoRaycastOnQuadsTask.getQuadCount()
+    {
+        return this.quads.size();
+    }
+
+    inline Quad SimpleOrthoRaycastOnQuadsTask.getQuad(Index idx)
+    {
+        return this.quads[idx];
+    }
+
+    inline SimpleOrthoRaycastOnQuadsTask.addQuad!(Quad quad)
+    {
+        this.quads.push(quad);
+    }
+
+    SimpleOrthoRaycastOnQuadsTask.execute!()
+    {
+        Vec3 viewSize(10);
+        Size width = this.outputBuffer.getWidth();
+        Size height = this.outputBuffer.getHeight();
+        Scalar sw = width;
+        Scalar sh = height;
+
+        Count taskCount = 0;
+        Vec3 rayDirection(0, 0, -1);
+        TaskMaster tm(this.usePEX, width * height);
+        for(Index y=0; y<height; ++y)
+        {
+            Scalar yo = 2.0 * (0.5 + Scalar(y)) / sh - 1.0;
+            for(Index x=0; x<width; ++x)
+            {
+                Scalar xo = 2.0 * (0.5 + Scalar(x)) / sw - 1.0;
+                Vec3 rayOrigin(Vec3(xo, yo, 0) * this.viewSize);
+                rayOrigin.z = this.rayZPos;
+
+                tm.addTask(SimpleOrthoRaycastOnQuadsProcess(this, taskCount++, x, y, CCRay(rayOrigin, rayDirection)));
+            }
+        }
+        tm.executeAll();
+
+        this.parent.setDone(); // always call setDone on the parent class to make sure this.done is set properly
+    }
 }

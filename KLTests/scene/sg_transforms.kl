@@ -1,8 +1,12 @@
 require Math;
-require GGscene;
-require GGmaths;
 require Fbx;
 require Geometry;
+
+require GorGon_ECS;
+using namespace GorGon::ECS;
+
+require GorGon_Scene;
+using namespace GorGon::Scene;
 
 object TestSGTransforms : CCTestCase
 {

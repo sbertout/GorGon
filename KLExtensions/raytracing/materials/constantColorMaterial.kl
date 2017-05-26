@@ -1,14 +1,17 @@
-object ConstantColorMaterial : RTMaterial
+namespace GorGon::Raytracing
 {
-    Color constantColor;
-};
+    object ConstantColorMaterial : RTMaterial
+    {
+        private Color constantColor;
+    };
 
-ConstantColorMaterial(Color constantColor)
-{
-    this.constantColor = constantColor;
-}
+    ConstantColorMaterial(Color constantColor)
+    {
+        this.constantColor = constantColor;
+    }
 
-Color ConstantColorMaterial.shade(CCRayHit rayHit)
-{
-    return this.constantColor;
+    Color ConstantColorMaterial.shade(CCRayHit rayHit)
+    {
+        return this.constantColor;
+    }
 }

@@ -1,15 +1,18 @@
-object LambertianMaterial : RTMaterial
+namespace GorGon::Raytracing
 {
-    Color diffuseColor;
-};
+    object LambertianMaterial : RTMaterial
+    {
+        private Color diffuseColor;
+    };
 
-LambertianMaterial(Color diffuseColor)
-{
-    this.diffuseColor = diffuseColor;
-}
+    LambertianMaterial(Color diffuseColor)
+    {
+        this.diffuseColor = diffuseColor;
+    }
 
-Color LambertianMaterial.shade(CCRayHit rayHit)
-{
-    Scalar kd = rayHit.hitNor.dot(Vec3(0, 0, 1));
-    return Color(kd, kd, kd) * this.diffuseColor;
+    Color LambertianMaterial.shade(CCRayHit rayHit)
+    {
+        Scalar kd = rayHit.hitNor.dot(Vec3(0, 0, 1));
+        return Color(kd, kd, kd) * this.diffuseColor;
+    }
 }

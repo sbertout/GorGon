@@ -1,11 +1,10 @@
 {
     "code": [
-        "ecs/_requires.kl", 
+        "ecs/__requires.kl", 
         "ecs/component.kl", 
         "ecs/componentFactory.kl", 
         "ecs/entity.kl", 
         "ecs/entityFactory.kl", 
-        "ecs/entityUtils.kl", 
         "ecs/transformComponent.kl", 
         "ecs/updateComponent.kl"
     ], 

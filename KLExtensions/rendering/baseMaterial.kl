@@ -1,29 +1,23 @@
-//interface CCMaterialInterface
-//{
-//    Color shade(CCRayHit rayHit);
-//};
-
-object BaseMaterial// : CCMaterialInterface
+namespace GorGon::Rendering
 {
-    String name;
-    Properties _properties;
-};
+    object BaseMaterial
+    {
+        String name;
+        GorGon::Core::Properties _properties;
+    };
 
-protected BaseMaterial.init!(Properties p)
-{
-    this._properties = p;
+    protected BaseMaterial.init!(GorGon::Core::Properties p)
+    {
+        this._properties = p;
+    }
+
+    BaseMaterial()
+    {
+    }
+
+    BaseMaterial(GorGon::Core::Properties p)
+    {
+        this.init(p);
+    }
 }
 
-BaseMaterial()
-{
-}
-
-BaseMaterial(Properties p)
-{
-    this.init(p);
-}
-
-//Color CCMaterial.shade(CCRayHit rayHit)
-//{
-//    return Color(0.0, 1.0, 1.0); // default if function not overriden!
-//}

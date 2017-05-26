@@ -1,41 +1,44 @@
-object Component;
-
-interface UpdateComponentInterface
+namespace GorGon::ECS
 {
-	onStart!();
-	onUpdate!();
-	onDestroy!();
-};
+    object Component;
 
-object UpdateComponent : Component, UpdateComponentInterface permits Entity
-{
-	private Boolean started;
-};
+    interface UpdateComponentInterface
+    {
+        onStart!();
+        onUpdate!();
+        onDestroy!();
+    };
 
-UpdateComponent.createComponent!(String n)
-{
-	this.parent.createComponent(n);
-	this.started = false;
-}
+    object UpdateComponent : Component, UpdateComponentInterface permits Entity
+    {
+        private Boolean started;
+    };
 
-UpdateComponent.onStart!()
-{
-}
+    UpdateComponent.createComponent!(String n)
+    {
+        this.parent.createComponent(n);
+        this.started = false;
+    }
 
-UpdateComponent.onUpdate!()
-{
-}
+    UpdateComponent.onStart!()
+    {
+    }
 
-UpdateComponent.onDestroy!()
-{
-}
+    UpdateComponent.onUpdate!()
+    {
+    }
 
-Boolean == (UpdateComponent c1, UpdateComponent c2)
-{
-  return c1 != null && c2 != null && c1.getUID() == c2.getUID();
-}
+    UpdateComponent.onDestroy!()
+    {
+    }
 
-Boolean != (UpdateComponent c1, UpdateComponent c2)
-{
-  return !(c1 == c2);
+    Boolean == (UpdateComponent c1, UpdateComponent c2)
+    {
+        return c1 != null && c2 != null && c1.getUID() == c2.getUID();
+    }
+
+    Boolean != (UpdateComponent c1, UpdateComponent c2)
+    {
+        return !(c1 == c2);
+    }
 }

@@ -1,10 +1,10 @@
 {
     "code": [
-        "core/_requires.kl", 
-        "core/array.kl", 
+        "core/__requires.kl", 
+        "core/ansiEscapeCodes.kl", 
         "core/assert.kl", 
-        "core/coloredString.kl", 
         "core/context.kl", 
+        "core/indexArray.kl", 
         "core/properties.kl", 
         "core/stringArray.kl", 
         "core/taskBase.kl", 

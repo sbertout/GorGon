@@ -1,147 +1,148 @@
-require Math;
-
-object Component;
-
-interface TransformComponentInterface
+namespace GorGon::ECS
 {
-	Xfo getLocalTransform!();
-	Size getChildCount!();
-	Entity getChild!(Index i);
-};
+    object Component;
 
-object TransformComponent : Component, TransformComponentInterface permits Entity
-{
-	Xfo _localTransform;
-	Ref<Entity> _parents[];
-	Ref<Entity> _children[];
-};
+    interface TransformComponentInterface
+    {
+        Xfo getLocalTransform!();
+        Size getChildCount!();
+        Entity getChild!(Index i);
+    };
 
-// getters
-Xfo TransformComponent.getGlobalTransform!()
-{
-	Xfo parentXfo = this.hasParent() ? this.getParent().getGlobalTransform() : Xfo();
-	return parentXfo * this.getLocalTransform(); 
-}
+    object TransformComponent : Component, TransformComponentInterface permits Entity
+    {
+        Xfo _localTransform;
+        Ref<Entity> _parents[];
+        Ref<Entity> _children[];
+    };
 
-XfoArray TransformComponent.getGlobalTransforms!()
-{
-	Xfo globalTransforms[];
-	if (this.hasParent() == false) 
-	{
-		globalTransforms.push(this.getGlobalTransform());
-	} 
-	else 
-	{
-		for(Index i=0; i<this.getParentCount(); ++i) 
-		{
-			// for now..
-			Xfo parentXfos[] = this.getParent(i).getGlobalTransforms();
-			for(Index j=0; j<parentXfos.size(); ++j) 
-			{
-				globalTransforms.push(parentXfos[j] * this.getLocalTransform()); 
-			}
-		}
-	}
-	return globalTransforms;
-}
+    // getters
+    Xfo TransformComponent.getGlobalTransform!()
+    {
+        Xfo parentXfo = this.hasParent() ? this.getParent().getGlobalTransform() : Xfo();
+        return parentXfo * this.getLocalTransform();
+    }
 
-Xfo TransformComponent.getLocalTransform!()
-{ 
-	return this._localTransform; 
-}
+    XfoArray TransformComponent.getGlobalTransforms!()
+    {
+        Xfo globalTransforms[];
+        if (this.hasParent() == false)
+        {
+            globalTransforms.push(this.getGlobalTransform());
+        }
+        else
+        {
+            for(Index i=0; i<this.getParentCount(); ++i)
+            {
+                // for now..
+                Xfo parentXfos[] = this.getParent(i).getGlobalTransforms();
+                for(Index j=0; j<parentXfos.size(); ++j)
+                {
+                    globalTransforms.push(parentXfos[j] * this.getLocalTransform());
+                }
+            }
+        }
+        return globalTransforms;
+    }
 
-Size TransformComponent.getChildCount!()
-{ 
-	return this._children.size(); 
-}
+    Xfo TransformComponent.getLocalTransform!()
+    {
+        return this._localTransform;
+    }
 
-Entity TransformComponent.getChild!(Index i)
-{ 
-	return this._children[i]; 
-}
+    Size TransformComponent.getChildCount!()
+    {
+        return this._children.size();
+    }
 
-Entity TransformComponent.getParent()
-{ 
-	return this.getParent(0); 
-}
+    Entity TransformComponent.getChild!(Index i)
+    {
+        return this._children[i];
+    }
 
-Entity TransformComponent.getParent(Index i)
-{ 
-	return this._parents[i]; 
-}
+    Entity TransformComponent.getParent()
+    {
+        return this.getParent(0);
+    }
 
-Ref<Entity>[] TransformComponent.getParents()
-{ 
-	return this._parents; 
-}
+    Entity TransformComponent.getParent(Index i)
+    {
+        return this._parents[i];
+    }
 
-Size TransformComponent.getParentCount()
-{ 
-	return this._parents.size(); 
-}
+    Ref<Entity>[] TransformComponent.getParents()
+    {
+        return this._parents;
+    }
 
-Boolean TransformComponent.hasParent()
-{ 
-	return this._parents.size() > 0; 
-}
+    Size TransformComponent.getParentCount()
+    {
+        return this._parents.size();
+    }
 
-Boolean TransformComponent.isInstanced()
-{ 
-	return this._parents.size() > 1; 
-}
+    Boolean TransformComponent.hasParent()
+    {
+        return this._parents.size() > 0;
+    }
 
-String TransformComponent.getPath()
-{
-	String path;
-	if (this.hasParent()) path = this.getParent().getPath();
-	return path + "/" + this.getOwnerEntity().getName();
-}
+    Boolean TransformComponent.isInstanced()
+    {
+        return this._parents.size() > 1;
+    }
 
-String[] TransformComponent.getPaths()
-{
-	String paths[];
-	if (this.hasParent() == false) {
-		paths.push(this.getPath());
-	}
-	else {
-		for(Index i=0; i<this.getParentCount(); ++i) {
-			String parentPaths[] = this.getParent(i).getPaths();
-			for(Index j=0; j<parentPaths.size(); ++j) {
-				paths.push(parentPaths[j] + "/" + this.getOwnerEntity().getName());
-			}
-		}
-	}
-	return paths;
-}
+    String TransformComponent.getPath()
+    {
+        String path;
+        if (this.hasParent()) path = this.getParent().getPath();
+        return path + "/" + this.getOwnerEntity().getName();
+    }
 
-TransformComponent.setLocalTransform!(Xfo tr)
-{
-	this._localTransform = tr;
-}
+    String[] TransformComponent.getPaths()
+    {
+        String paths[];
+        if (this.hasParent() == false) {
+            paths.push(this.getPath());
+        }
+        else {
+            for(Index i=0; i<this.getParentCount(); ++i) {
+                String parentPaths[] = this.getParent(i).getPaths();
+                for(Index j=0; j<parentPaths.size(); ++j) {
+                    paths.push(parentPaths[j] + "/" + this.getOwnerEntity().getName());
+                }
+            }
+        }
+        return paths;
+    }
 
-// methods
-private TransformComponent.addParent!(Entity e)
-{ 
-	this._parents.push(e); 
-}
+    TransformComponent.setLocalTransform!(Xfo tr)
+    {
+        this._localTransform = tr;
+    }
 
-private TransformComponent.removeParent!(Entity e)
-{
-	Ref<Entity> newParents[];
-	for(Index i=0; i<this._parents.size(); ++i) {
-		Ref<Entity> p = this._parents[i];
-		if (p == e) continue;
-		newParents.push(e);
-	} 
-	this._parents = newParents;
-}
+    // methods
+    private TransformComponent.addParent!(Entity e)
+    {
+        this._parents.push(e);
+    }
 
-private TransformComponent.clearParents!()
-{ 
-	this._parents.resize(0);
-}
+    private TransformComponent.removeParent!(Entity e)
+    {
+        Ref<Entity> newParents[];
+        for(Index i=0; i<this._parents.size(); ++i) {
+            Ref<Entity> p = this._parents[i];
+            if (p == e) continue;
+            newParents.push(e);
+        }
+        this._parents = newParents;
+    }
 
-private TransformComponent.addChild!(Entity e)
-{
-	this._children.push(e);
+    private TransformComponent.clearParents!()
+    {
+        this._parents.resize(0);
+    }
+
+    private TransformComponent.addChild!(Entity e)
+    {
+        this._children.push(e);
+    }
 }

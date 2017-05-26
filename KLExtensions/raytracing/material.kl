@@ -1,26 +1,30 @@
-struct CCRayHit;
+using namespace GorGon::Core;
+using namespace GorGon::Rendering;
 
-interface RTMaterialInterface
+namespace GorGon::Raytracing
 {
-    Color shade(CCRayHit rayHit);
-};
+    struct CCRayHit;
 
-object RTMaterial : RTMaterialInterface, BaseMaterial
-{
-    // String name;
-    // Properties _properties;
-};
+    interface RTMaterialInterface
+    {
+        Color shade(CCRayHit rayHit2);
+    };
 
-RTMaterial()
-{
-}
+    object RTMaterial : RTMaterialInterface, BaseMaterial
+    {
+    };
 
-RTMaterial(Properties p)
-{
-    this.init(p);
-}
+    RTMaterial()
+    {
+    }
 
-Color RTMaterial.shade(CCRayHit rayHit)
-{
-    return Color(0.0, 1.0, 1.0); // default if function not overriden!
+    RTMaterial(Properties p)
+    {
+        this.init(p);
+    }
+
+    Color RTMaterial.shade(CCRayHit rayHit)
+    {
+        return Color(0.0, 1.0, 1.0); // default if function not overriden!
+    }
 }

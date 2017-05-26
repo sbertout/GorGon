@@ -1,4 +1,5 @@
-require GGmaths;
+require GorGon_Maths;
+using namespace GorGon::Maths;
 
 object TestMaths : CCTestCase
 {

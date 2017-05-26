@@ -3,5 +3,5 @@ require OpenImageIO;
 require FileIO;
 
 // GorGon
-require GGcore;
-require GGmaths;
+require GorGon_Core;
+require GorGon_Maths;

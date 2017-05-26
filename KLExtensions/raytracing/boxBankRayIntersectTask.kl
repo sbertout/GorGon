@@ -1,24 +1,30 @@
-object BoxBankRayIntersectTask : TaskBase
-{
-    CCRay ray;
-    Box box;
-    Index idx;
-    Boolean results<>;
-};
+using namespace GorGon::Core;
+using namespace GorGon::Maths;
 
-BoxBankRayIntersectTask(CCRay ray, Box box, Index idx, Boolean results<>)
+namespace GorGon::Raytracing
 {
-    this.ray = ray;
-    this.box = box;
-    this.idx = idx;
-    this.results = results;
-}
+    object BoxBankRayIntersectTask : TaskBase
+    {
+        CCRay ray;
+        Box box;
+        Index idx;
+        Boolean results<>;
+    };
 
-BoxBankRayIntersectTask.execute!()
-{
-    Scalar hitDistance;
-    Boolean ret = this.ray.intersectBox(this.box);
-//    Boolean ret = this.ray.intersectBox(this.box, hitDistance);
-//    report(this.idx + " " + this.ray + ' vs ' + this.box + ' ret = ' + ret);
-    this.results[this.idx] = ret;
+    BoxBankRayIntersectTask(CCRay ray, Box box, Index idx, Boolean results<>)
+    {
+        this.ray = ray;
+        this.box = box;
+        this.idx = idx;
+        this.results = results;
+    }
+
+    BoxBankRayIntersectTask.execute!()
+    {
+        Scalar hitDistance;
+        Boolean ret = this.ray.intersectBox(this.box);
+    //    Boolean ret = this.ray.intersectBox(this.box, hitDistance);
+    //    report(this.idx + " " + this.ray + ' vs ' + this.box + ' ret = ' + ret);
+        this.results[this.idx] = ret;
+    }
 }

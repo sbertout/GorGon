@@ -1,5 +1,8 @@
-require GGcore;
-require GGmaths;
+require GorGon_Core;
+using namespace GorGon::Core;
+
+require GorGon_Maths;
+using namespace GorGon::Maths;
 
 object TestCoreMR : CCTestCase
 {

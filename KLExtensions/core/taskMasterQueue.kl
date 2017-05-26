@@ -1,21 +1,24 @@
-object TaskMasterQueue
+namespace GorGon::Core
 {
-    TaskMaster queue[];
-};
-
-TaskMasterQueue()
-{
-}
-
-TaskMasterQueue.add!(TaskMaster tm)
-{
-    this.queue.push(tm);
-}
-
-TaskMasterQueue.execute!()
-{
-    for(Index i=0; i<this.queue.size(); ++i)
+    object TaskMasterQueue
     {
-        this.queue[i].executeAll();
+        TaskMaster queue[];
+    };
+
+    TaskMasterQueue()
+    {
+    }
+
+    TaskMasterQueue.add!(TaskMaster tm)
+    {
+        this.queue.push(tm);
+    }
+
+    TaskMasterQueue.execute!()
+    {
+        for(Index i=0; i<this.queue.size(); ++i)
+        {
+            this.queue[i].executeAll();
+        }
     }
 }

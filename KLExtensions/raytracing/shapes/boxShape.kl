@@ -1,21 +1,24 @@
-object Shape;
+using namespace GorGon::Maths;
 
-object BoxShape : Shape
+namespace GorGon::Raytracing
 {
-	Vec3 size;
-};
+    object BoxShape : Shape
+    {
+        private Vec3 size;
+    };
 
-BoxShape(Xfo xfo, Vec3 size)
-{
-	this.xfo = xfo;
-	this.size = size;
-}
+    BoxShape(Xfo xfo, Vec3 size)
+    {
+        this.xfo = xfo;
+        this.size = size;
+    }
 
-Box BoxShape.getBox()
-{
-	Vec3 scaling, translation;
-	Mat33 rotation;
-	this.xfo.toMat44().decompose(scaling, rotation, translation);
+    Box BoxShape.getBox()
+    {
+        Vec3 scaling, translation;
+        Mat33 rotation;
+        this.xfo.toMat44().decompose(scaling, rotation, translation);
 
-	return Box(translation, this.size * scaling);
+        return Box(translation, this.size * scaling);
+    }
 }

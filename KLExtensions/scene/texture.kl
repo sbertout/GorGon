@@ -1,21 +1,26 @@
-object CCTexture
+using namespace GorGon::Core;
+
+namespace GorGon::Scene
 {
-  String _path;
-  Properties _properties;
-};
+    object CCTexture
+    {
+      String _path;
+      Properties _properties;
+    };
 
-CCTexture(String path, Properties p)
-{
-  this._path = path;
-  this._properties = p;
-}
+    CCTexture(String path, Properties p)
+    {
+      this._path = path;
+      this._properties = p;
+    }
 
-String CCTexture.getPath()
-{ 
-  return this._path; 
-}
+    String CCTexture.getPath()
+    {
+      return this._path;
+    }
 
-Properties CCTexture.getProperties()
-{ 
-  return this._properties; 
+    Properties CCTexture.getProperties()
+    {
+      return this._properties;
+    }
 }

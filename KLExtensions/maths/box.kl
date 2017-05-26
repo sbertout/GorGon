@@ -1,97 +1,100 @@
-object Box
+namespace GorGon::Maths
 {
-	private Vec3 center;
-	private Vec3 size;
-};
+    object Box
+    {
+        private Vec3 center;
+        private Vec3 size;
+    };
 
-Box(Vec3 center, Vec3 size)
-{
-	this.center = center;
-	this.size = size;
-}
+    Box(Vec3 center, Vec3 size)
+    {
+        this.center = center;
+        this.size = size;
+    }
 
-Box(Vec3 center, Scalar usize)
-{
-	this.center = center;
-	this.size = Vec3(usize, usize, usize);
-}
+    Box(Vec3 center, Scalar usize)
+    {
+        this.center = center;
+        this.size = Vec3(usize, usize, usize);
+    }
 
-inline Vec3 Box.getCenter() { return this.center; }
-inline Vec3 Box.getSize() { return this.size; }
-inline Vec3 Box.getMin() { return this.center - 0.5 * this.size; }
-inline Vec3 Box.getMax() { return this.center + 0.5 * this.size; }
+    inline Vec3 Box.getCenter()
+    {
+        return this.center;
+    }
 
-struct Vec3MinResult { Vec3 value; };
-Vec3MinResult() { this.value = Vec3(BIGSCALAR_POSITIVE, BIGSCALAR_POSITIVE, BIGSCALAR_POSITIVE); }
-struct Vec3MaxResult { Vec3 value; };
-Vec3MaxResult() { this.value = Vec3(BIGSCALAR_NEGATIVE, BIGSCALAR_NEGATIVE, BIGSCALAR_NEGATIVE); }
+    inline Vec3 Box.getSize()
+    {
+        return this.size;
+    }
 
-operator mr_Box_min(Box input, io Vec3MinResult output)
-{
-	output.value = Math_min(input.getMin(), output.value);
-}
+    inline Vec3 Box.getMin()
+    {
+        return this.center - 0.5 * this.size;
+    }
 
-operator mr_Box_max(Box input, io Vec3MaxResult output)
-{
-	output.value = Math_max(input.getMax(), output.value);
-}
+    inline Vec3 Box.getMax()
+    {
+        return this.center + 0.5 * this.size;
+    }
 
-inline CCeSideType Box.getSideType(CCeAxisType axisType, Scalar value)
-{
-	Vec3 min = this.getMin();
-	Vec3 max = this.getMax();
+    inline CCeSideType Box.getSideType(CCeAxisType axisType, Scalar value)
+    {
+        Vec3 min = this.getMin();
+        Vec3 max = this.getMax();
 
-	if (axisType == CCeAxisType_X)
-	{
-		if (value < min.x) return CCeSideType_Positive;
-		if (value > max.x) return CCeSideType_Negative;
-		return CCeSideType_Inside;
-	}
+        if (axisType == CCeAxisType_X)
+        {
+            if (value < min.x) return CCeSideType_Positive;
+            if (value > max.x) return CCeSideType_Negative;
+            return CCeSideType_Inside;
+        }
 
-	if (axisType == CCeAxisType_Y)
-	{
-		if (value < min.y) return CCeSideType_Positive;
-		if (value > max.y) return CCeSideType_Negative;
-		return CCeSideType_Inside;
-	}
+        if (axisType == CCeAxisType_Y)
+        {
+            if (value < min.y) return CCeSideType_Positive;
+            if (value > max.y) return CCeSideType_Negative;
+            return CCeSideType_Inside;
+        }
 
-	if (value < min.z) return CCeSideType_Positive;
-	if (value > max.z) return CCeSideType_Negative;
-	return CCeSideType_Inside;
-}
+        if (value < min.z) return CCeSideType_Positive;
+        if (value > max.z) return CCeSideType_Negative;
+        return CCeSideType_Inside;
+    }
 
-inline CCeSideType Box.getSideType(CCeAxisType axisType, Vec3 value)
-{
-	Vec3 min = this.getMin();
-	Vec3 max = this.getMax();
+    inline CCeSideType Box.getSideType(CCeAxisType axisType, Vec3 value)
+    {
+        Vec3 min = this.getMin();
+        Vec3 max = this.getMax();
 
-	if (axisType == CCeAxisType_X)
-	{
-		if (value.x < min.x) return CCeSideType_Positive;
-		if (value.x > max.x) return CCeSideType_Negative;
-		return CCeSideType_Inside;
-	}
+        if (axisType == CCeAxisType_X)
+        {
+            if (value.x < min.x) return CCeSideType_Positive;
+            if (value.x > max.x) return CCeSideType_Negative;
+            return CCeSideType_Inside;
+        }
 
-	if (axisType == CCeAxisType_Y)
-	{
-		if (value.y < min.y) return CCeSideType_Positive;
-		if (value.y > max.y) return CCeSideType_Negative;
-		return CCeSideType_Inside;
-	}
+        if (axisType == CCeAxisType_Y)
+        {
+            if (value.y < min.y) return CCeSideType_Positive;
+            if (value.y > max.y) return CCeSideType_Negative;
+            return CCeSideType_Inside;
+        }
 
-	if (value.z < min.z) return CCeSideType_Positive;
-	if (value.z > max.z) return CCeSideType_Negative;
-	return CCeSideType_Inside;
-}
+        if (value.z < min.z) return CCeSideType_Positive;
+        if (value.z > max.z) return CCeSideType_Negative;
+        return CCeSideType_Inside;
+    }
 
-Box BoxFromMinMax(Vec3 min, Vec3 max)
-{
-	Vec3 center = (min + max) * 0.5;
-	Vec3 size = (max - min);
-	return Box(center, size);
-}
+    Box BoxFromMinMax(Vec3 min, Vec3 max)
+    {
+        Vec3 center = (min + max) * 0.5;
+        Vec3 size = (max - min);
+        return Box(center, size);
+    }
 
-Box BoxFromMinMax(Scalar minX, Scalar minY, Scalar minZ, Scalar maxX, Scalar maxY, Scalar maxZ)
-{
-	return BoxFromMinMax(Vec3(minX, minY, minZ), Vec3(maxX, maxY, maxZ));
+    Box BoxFromMinMax(Scalar minX, Scalar minY, Scalar minZ, Scalar maxX, Scalar maxY, Scalar maxZ)
+    {
+        return BoxFromMinMax(Vec3(minX, minY, minZ), Vec3(maxX, maxY, maxZ));
+    }
 }

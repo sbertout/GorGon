@@ -1,21 +1,24 @@
-object Shape
+namespace GorGon::Raytracing
 {
-	protected Xfo xfo;
-	private RTMaterial material;
-};
+    object Shape
+    {
+        protected Xfo xfo;
+        private RTMaterial material;
+    };
 
-Shape.setMaterial!(RTMaterial material)
-{
-    this.material = material;
-    this.material.shade(CCRayHit());
-}
+    Shape.setMaterial!(RTMaterial material)
+    {
+        this.material = material;
+        this.material.shade(CCRayHit());
+    }
 
-RTMaterial Shape.getMaterial()
-{
-    return this.material;
-}
+    RTMaterial Shape.getMaterial()
+    {
+        return this.material;
+    }
 
-Xfo Shape.getXfo()
-{
-    return this.xfo;
+    Xfo Shape.getXfo()
+    {
+        return this.xfo;
+    }
 }

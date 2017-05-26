@@ -1,32 +1,37 @@
-object SphereShape : Shape
-{
-	private Sphere sphere;
-	private Box box;
-};
+using namespace GorGon::Maths;
 
-SphereShape(Xfo xfo, Scalar radius)
+namespace GorGon::Raytracing
 {
-	//TODO: make sure Xfo doesnt have a non uniform scale!
-	this.xfo = xfo;
-	this.init(radius);
-}
+    object SphereShape : Shape
+    {
+        private Sphere sphere;
+        private Box box;
+    };
 
-inline Box SphereShape.getBox()
-{
-    return this.box;
-}
+    SphereShape(Xfo xfo, Scalar radius)
+    {
+        //TODO: make sure Xfo doesnt have a non uniform scale!
+        this.xfo = xfo;
+        this.init(radius);
+    }
 
-inline Sphere SphereShape.getSphere()
-{
-    return this.sphere;
-}
+    inline Box SphereShape.getBox()
+    {
+        return this.box;
+    }
 
-private SphereShape.init!(Scalar radius)
-{
-	Vec3 scaling, translation;
-	Mat33 rotation;
-	this.xfo.toMat44().decompose(scaling, rotation, translation);
+    inline Sphere SphereShape.getSphere()
+    {
+        return this.sphere;
+    }
 
-	this.sphere = Sphere(translation, radius * scaling.x); // we assume we have a uniform scale !
-	this.box = this.sphere.getBox();
+    private SphereShape.init!(Scalar radius)
+    {
+        Vec3 scaling, translation;
+        Mat33 rotation;
+        this.xfo.toMat44().decompose(scaling, rotation, translation);
+
+        this.sphere = Sphere(translation, radius * scaling.x); // we assume we have a uniform scale !
+        this.box = this.sphere.getBox();
+    }
 }
