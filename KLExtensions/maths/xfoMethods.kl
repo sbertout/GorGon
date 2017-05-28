@@ -9,3 +9,11 @@ Quat Xfo.getRotation()
 { 
   return this.ori; 
 }
+
+Boolean Xfo.almostEqual(Xfo other, Float32 epsilon)
+{
+    if (this.ori.almostEqual(other.ori, epsilon) == false) return false;
+    if (this.tr.almostEqual(other.tr, epsilon) == false) return false;
+    if (this.sc.almostEqual(other.sc, epsilon) == false) return false;
+    return true;
+}

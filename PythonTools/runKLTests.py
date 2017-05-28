@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import os, sys, argparse, json, shutil, collections
 import FabricEngine.Core as FECore
 from subprocess import Popen, PIPE, STDOUT

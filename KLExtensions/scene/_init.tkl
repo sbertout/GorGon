@@ -1,0 +1,43 @@
+// ---------------------------------------------------------
+// Auto-generated file by codegenKLFile.py.. DO NOT MODIFY !
+// ---------------------------------------------------------
+
+using namespace GorGon::ECS;
+
+namespace GorGon::ECS
+{
+    interface ComponentBuilder;
+}
+
+namespace {{extension}}
+{
+
+{% set counter = 0 -%}
+{% for component in components -%}
+
+//  {{component}} Section
+    object {{component}};
+    object {{component}}Builder : ComponentBuilder {};
+    function Component {{component}}Builder.createComponent(String name)
+    {
+        return {{component}}(name);
+    }
+
+{% set counter = counter + 1 -%}
+{% endfor -%}
+
+//  added initExtension global function
+    function initExtension()
+    {
+{% set counter = 0 -%}
+{% for component in components -%}
+
+//      {{component}} Section
+        GorGon::ECS::getComponentFactory().addComponentBuilder('{{component}}', {{component}}Builder());
+        
+{% set counter = counter + 1 -%}
+{% endfor -%}
+//  end of initExtension
+    }
+
+}

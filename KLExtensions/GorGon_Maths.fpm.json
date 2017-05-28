@@ -1,6 +1,7 @@
 {
     "code": [
         "maths/__requires.kl", 
+        "maths/assert.kl", 
         "maths/box.kl", 
         "maths/mr_box.kl", 
         "maths/mr_vec3.kl", 

@@ -1,0 +1,22 @@
+namespace {{extension}}
+{
+
+{% set counter = 0 -%}
+{% for component in components -%}
+
+    AssertEquals({{component}} s1, {{component}} s2)
+    {
+      if (s1 != s2)
+        setError("AssertEquals: " + s1 + " != " + s2);
+    }
+
+    AssertAlmostEquals({{component}} s1, {{component}} s2, Float32 eps)
+    {
+      if (!s1.almostEqual(s2, eps))
+        setError("AssertAlmostEquals: " + s1 + " != " + s2);
+    }
+
+{% set counter = counter + 1 -%}
+{% endfor -%}
+
+}

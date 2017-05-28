@@ -1,6 +1,7 @@
-namespace GorGon::Core
+namespace GorGon::Maths
 {
-    AssertEquals(Vec3 s1, Vec3 s2)
+
+AssertEquals(Vec3 s1, Vec3 s2)
     {
       if (s1 != s2)
         setError("AssertEquals: " + s1 + " != " + s2);
@@ -12,7 +13,7 @@ namespace GorGon::Core
         setError("AssertAlmostEquals: " + s1 + " != " + s2);
     }
 
-    AssertEquals(Quat s1, Quat s2)
+AssertEquals(Quat s1, Quat s2)
     {
       if (s1 != s2)
         setError("AssertEquals: " + s1 + " != " + s2);
@@ -24,9 +25,16 @@ namespace GorGon::Core
         setError("AssertAlmostEquals: " + s1 + " != " + s2);
     }
 
-    AssertEquals(Xfo s1, Xfo s2)
+AssertEquals(Xfo s1, Xfo s2)
     {
       if (s1 != s2)
         setError("AssertEquals: " + s1 + " != " + s2);
     }
+
+    AssertAlmostEquals(Xfo s1, Xfo s2, Float32 eps)
+    {
+      if (!s1.almostEqual(s2, eps))
+        setError("AssertAlmostEquals: " + s1 + " != " + s2);
+    }
+
 }

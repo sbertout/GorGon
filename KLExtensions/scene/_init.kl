@@ -1,3 +1,7 @@
+// ---------------------------------------------------------
+// Auto-generated file by codegenKLFile.py.. DO NOT MODIFY !
+// ---------------------------------------------------------
+
 using namespace GorGon::ECS;
 
 namespace GorGon::ECS
@@ -7,24 +11,33 @@ namespace GorGon::ECS
 
 namespace GorGon::Scene
 {
-    // todo auto generate this file!
 
+//  MaterialSet Section
+    object MaterialSet;
     object MaterialSetBuilder : ComponentBuilder {};
-    Component MaterialSetBuilder.createComponent(String name)
+    function Component MaterialSetBuilder.createComponent(String name)
     {
         return MaterialSet(name);
     }
 
+//  CCTextureSet Section
+    object CCTextureSet;
     object CCTextureSetBuilder : ComponentBuilder {};
-    Component CCTextureSetBuilder.createComponent(String name)
+    function Component CCTextureSetBuilder.createComponent(String name)
     {
         return CCTextureSet(name);
     }
 
-
+//  added initExtension global function
     function initExtension()
     {
+//      MaterialSet Section
         GorGon::ECS::getComponentFactory().addComponentBuilder('MaterialSet', MaterialSetBuilder());
+        
+//      CCTextureSet Section
         GorGon::ECS::getComponentFactory().addComponentBuilder('CCTextureSet', CCTextureSetBuilder());
+        
+//  end of initExtension
     }
+
 }
