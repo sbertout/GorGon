@@ -6,6 +6,7 @@ class KLNamespace:
         self.__objects = {}
         self.__structs = {}
         self.__functions = {}
+        self.__operators = []
         self.__aliases = {}
 
     def getName(self):
@@ -58,6 +59,15 @@ class KLNamespace:
 
     def hasFunction(self, functionName):
         return functionName in self.__functions
+
+    def getOperatorCount(self):
+        return len(self.__operators)
+
+    def addOperator(self, op):
+        self.__operators.append(op)
+
+    def getOperator(self, idx):
+        return self.__operators[idx]
 
     def getAliasCount(self):
         return len(self.__aliases)

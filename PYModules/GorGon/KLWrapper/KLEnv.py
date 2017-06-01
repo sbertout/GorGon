@@ -55,14 +55,14 @@ class KLEnv:
         return True
 
     def __preparse(self, data, currentKLNamespace):
-        elementTypeToSkip = ['Function', 'MethodOpImpl', 'Destructor'] # supported in __parse
+        elementTypeToSkip = ['Function', 'MethodOpImpl', 'Destructor', 'AssignOpImpl'] # supported in __parse
         elementTypeToSkip.append('Operator') # for now
         elementTypeToSkip.append('GlobalConstDecl') # for now
         elementTypeToSkip.append('ASTUsingGlobal') # for now
         elementTypeToSkip.append('ASTInterfaceDecl') # for now
         elementTypeToSkip.append('RequireGlobal') # for now
         elementTypeToSkip.append('ComparisonOpImpl') # for now
-        elementTypeToSkip.append('BinOpImpl') # for now
+        # elementTypeToSkip.append('BinOpImpl') # for now
         elementTypeToSkip.append('ASTUniOpDecl') # for now
         if isinstance(data, dict):
             if 'globalList' in data:
@@ -204,7 +204,7 @@ class KLEnv:
 
                         klAlias.addMethod(methodName, returnType, params, access)
                     else:
-                        print '******** WTF (alias?) ?? cant find', objectName, methodName
+                        print '******** WTF.MethodOpImpl (alias?) ?? cant find', objectName, methodName
 
                 elif elementType == 'AssignOpImpl':
                     opName = elementList['assignOpType']
@@ -229,7 +229,18 @@ class KLEnv:
                         klAlias.addOperator(opName, params, access)
 
                     else:
-                        print '******** WTF (alias?) ?? cant find', objectName
+                        print '******** WTF.AssignOpImpl (alias?) ?? cant find', objectName
+
+                elif elementType == 'BinOpImpl':
+
+                    opName = elementList['binOpType']
+                    returnType = elementList['returnType']
+                    access = elementList['access']
+
+                    klOp = KLFunction(opName, returnType=returnType, access=access)
+                    klOp.addParams(elementList['lhs'])
+                    klOp.addParams(elementList['rhs'])
+                    currentKLNamespace.addOperator(klOp)
 
                 else:
                     pass # parse should let us know if/when something is not supported!

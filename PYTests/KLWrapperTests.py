@@ -704,6 +704,31 @@ class KLWrapper(unittest.TestCase):
         self.assertEqual(klOp.getParam(0).getType(), 'Scalar')
         self.assertEqual(klOp.getParam(0).getName(), 'k')
 
+        # =========================================================================
+
+    def test_KLNamespaceOperators(self):
+        sourceCode = '''
+             struct Foo
+             {
+                 public Integer value;
+             };
+             Foo + (Foo a, Foo b) {
+               return Foo(a.value + b.value);
+             }
+             '''
+        klEnv = KLEnv(sourceCode)
+        self.assertEqual(klEnv.getGlobalNamespace().getStructCount(), 1)
+        self.assertEqual(klEnv.getGlobalNamespace().getOperatorCount(), 1)
+        klOp = klEnv.getGlobalNamespace().getOperator(0)
+        self.assertEqual(klOp.getName(), 'add')
+        self.assertEqual(klOp.getReturnType(), 'Foo')
+        self.assertEqual(klOp.getAccess(), 'unspecified')
+        self.assertEqual(klOp.getParamCount(), 2)
+        self.assertEqual(klOp.getParam(0).getName(), 'a')
+        self.assertEqual(klOp.getParam(0).getType(), 'Foo')
+        self.assertEqual(klOp.getParam(1).getName(), 'b')
+        self.assertEqual(klOp.getParam(1).getType(), 'Foo')
+
     #=========================================================================
     def test_RequireGorGonCore(self):
         sourceCode = '''

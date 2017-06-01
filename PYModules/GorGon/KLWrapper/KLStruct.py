@@ -41,7 +41,6 @@ class KLStruct:
         return len(self.__members)
 
     def getMember(self, idx):
-        print self.__members[idx]
         return self.__members[idx]
 
     def getGetterCount(self):
