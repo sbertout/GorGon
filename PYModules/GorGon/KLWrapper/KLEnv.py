@@ -4,6 +4,7 @@ from KLNamespace import KLNamespace
 from KLObject import KLObject
 from KLStruct import KLStruct
 from KLFunction import KLFunction
+from KLAlias import KLAlias
 
 class KLEnv:
     def __init__(self, sourceCode):
@@ -55,6 +56,17 @@ class KLEnv:
 
     def __preparse(self, data, currentKLNamespace):
         elementTypeToSkip = ['Function', 'MethodOpImpl']
+        elementTypeToSkip.append('Destructor') # for now
+        elementTypeToSkip.append('Operator') # for now
+        elementTypeToSkip.append('GlobalConstDecl') # for now
+        elementTypeToSkip.append('ASTUsingGlobal') # for now
+        elementTypeToSkip.append('AssignOpImpl') # for now
+        elementTypeToSkip.append('ASTInterfaceDecl') # for now
+        elementTypeToSkip.append('RequireGlobal') # for now
+        # elementTypeToSkip.append('Alias') # for now
+        elementTypeToSkip.append('ComparisonOpImpl') # for now
+        elementTypeToSkip.append('BinOpImpl') # for now
+        elementTypeToSkip.append('ASTUniOpDecl') # for now
         if isinstance(data, dict):
             if 'globalList' in data:
                 self.__preparse(data['globalList'], currentKLNamespace)
@@ -84,6 +96,18 @@ class KLEnv:
                         currentKLNamespace.addStruct(KLStruct(structName, structMembers))
                     else:
                         currentKLNamespace.getStruct(structName).setMembers(structMembers)
+
+                elif elementType == 'Alias':
+                    print 'YEAH'
+                    print elementList.keys()
+                    print elementList.values()
+                    aliasName = elementList['newUserName']
+                    aliasSourceName = elementList['oldUserName']
+                    if not currentKLNamespace.hasAlias(aliasName):
+                        currentKLNamespace.addAlias(KLAlias(aliasName, aliasSourceName))
+                    else:
+                        print 'Alias defined again? WTF?'
+
 
                 elif elementType not in elementTypeToSkip:
                     print '================ Unsupported AST element type:', elementType
@@ -152,19 +176,27 @@ class KLEnv:
                             klObject.addMethod(methodName, returnType, params, access)
 
                     elif currentKLNamespace.hasStruct(objectName):
-                        klObject = currentKLNamespace.getObject(objectName)
+                        klStruct = currentKLNamespace.getStruct(objectName)
 
                         access = elementList['access']
                         returnType = elementList['returnType'] if 'returnType' in elementList else None
                         params = elementList['params'] if 'params' in elementList else None
 
                         if KLEnv.isGetter(methodName):
-                            klObject.addGetter(methodName, returnType, access)
+                            klStruct.addGetter(methodName, returnType, access)
                         elif KLEnv.isSetter(methodName):
-                            klObject.addSetter(methodName, params, access)
+                            klStruct.addSetter(methodName, params, access)
                         else:
-                            klObject.addMethod(methodName, returnType, params, access)
+                            klStruct.addMethod(methodName, returnType, params, access)
 
+                    elif currentKLNamespace.hasAlias(objectName):
+                        klAlias = currentKLNamespace.getAlias(objectName)
+
+                        access = elementList['access']
+                        returnType = elementList['returnType'] if 'returnType' in elementList else None
+                        params = elementList['params'] if 'params' in elementList else None
+
+                        klAlias.addMethod(methodName, returnType, params, access)
                     else:
                         print '******** WTF (alias?) ?? cant find', objectName, methodName
 

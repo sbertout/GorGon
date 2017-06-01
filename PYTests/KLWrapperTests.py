@@ -21,6 +21,63 @@ class KLWrapper(unittest.TestCase):
         self.assertEqual(KLEnv.isGetter('getX'), True)
         self.assertEqual(KLEnv.isGetter('getup'), False)
 
+
+    def test_KLAlias(self):
+        sourceCode = '''
+            alias UInt32 SomeIntAlias;
+            '''
+        klEnv = KLEnv(sourceCode)
+        self.assertEqual(klEnv.getGlobalNamespace().getAliasCount(), 1)
+        self.assertEqual(klEnv.getGlobalNamespace().getAlias('SomeIntAlias').getName(), 'SomeIntAlias')
+        self.assertEqual(klEnv.getGlobalNamespace().getAlias('SomeIntAlias').getSourceName(), 'UInt32')
+
+
+    def test_KLAliasFunc(self):
+        sourceCode = '''
+            alias UInt32 SomeIntAlias;
+            SomeIntAlias SomeIntAlias.clamp(in SomeIntAlias min, in SomeIntAlias max) {
+                return (this < min ? min : (this > max ? max : this));
+            }
+            '''
+        klEnv = KLEnv(sourceCode)
+        self.assertEqual(klEnv.getGlobalNamespace().getAliasCount(), 1)
+        self.assertEqual(klEnv.getGlobalNamespace().getAlias('SomeIntAlias').getName(), 'SomeIntAlias')
+        self.assertEqual(klEnv.getGlobalNamespace().getAlias('SomeIntAlias').getSourceName(), 'UInt32')
+        self.assertEqual(klEnv.getGlobalNamespace().getAlias('SomeIntAlias').getMethodCount(), 1)
+        self.assertEqual(klEnv.getGlobalNamespace().getAlias('SomeIntAlias').getMethod(0).getParamCount(), 2)
+        self.assertEqual(klEnv.getGlobalNamespace().getAlias('SomeIntAlias').getMethod(0).getReturnType(), 'SomeIntAlias')
+
+
+    def test_KLAliasWithinNamespace(self):
+        sourceCode = '''
+            namespace NS { alias UInt32 SomeIntAlias; }
+            '''
+        klEnv = KLEnv(sourceCode)
+        klNamespace = klEnv.getNamespace('NS')
+        self.assertEqual(klNamespace.getAliasCount(), 1)
+        self.assertEqual(klNamespace.getAlias('SomeIntAlias').getName(), 'SomeIntAlias')
+        self.assertEqual(klNamespace.getAlias('SomeIntAlias').getSourceName(), 'UInt32')
+
+
+    def test_KLAliasFuncWithinNamespace(self):
+        sourceCode = '''
+            namespace NS { 
+                alias UInt32 SomeIntAlias;
+                SomeIntAlias SomeIntAlias.clamp(in SomeIntAlias min, in SomeIntAlias max) {
+                    return (this < min ? min : (this > max ? max : this));
+                }
+            }
+            '''
+        klEnv = KLEnv(sourceCode)
+        klNamespace = klEnv.getNamespace('NS')
+        self.assertEqual(klNamespace.getAliasCount(), 1)
+        self.assertEqual(klNamespace.getAlias('SomeIntAlias').getName(), 'SomeIntAlias')
+        self.assertEqual(klNamespace.getAlias('SomeIntAlias').getSourceName(), 'UInt32')
+        self.assertEqual(klNamespace.getAlias('SomeIntAlias').getMethodCount(), 1)
+        self.assertEqual(klNamespace.getAlias('SomeIntAlias').getMethod(0).getParamCount(), 2)
+        self.assertEqual(klNamespace.getAlias('SomeIntAlias').getMethod(0).getReturnType(), 'SomeIntAlias')
+
+
     def test_KLObject(self):
         sourceCode = '''
             object Foo {};
@@ -469,28 +526,24 @@ class KLWrapper(unittest.TestCase):
         self.assertEqual(klObject.getMethod(1).getReturnType(), 'String')
 
 
-    def __test_RequireGorGonCore(self):
+    def test_RequireGorGonCore(self):
         sourceCode = '''
             require GorGon_Core;
             '''
         klEnv = KLEnv(sourceCode)
         self.assertEqual(klEnv.getGlobalNamespace().getObjectCount(), 9)
         self.assertEqual(klEnv.getGlobalNamespace().getStructCount(), 26)
-        self.assertEqual(str(klEnv.getGlobalNamespace().getObjectNames()), "[u'InitializeBracket', u'MultithreadAdvisor', u'ComputeContext', u'AsyncTask', u'FewObjectsRecyclingAllocator', u'FastReadersWriterLock', u'SimpleLock', u'Float32', u'IndexArray', u'LightReentrantLock', u'SingletonHandle', u'ActiveWaitLoopControl', u'AsyncTaskQueue', u'AsyncTaskCircularBuffer', u'ReadersWriterLock_writeLock', u'LightLock', u'MultithreadAdvisorBracket', u'MultithreadAdvisorBatchBracket', u'ReadersWriterLock_readLock', u'LightReadersWriterLock', u'LockedInitialize', u'ThreadSafeAttachedData', u'ComputeContextRTValWrapper', u'StringArray']")
-        # self.assertEqual(klEnv.getNamespaceCount(), 1)
-        # self.assertEqual(str(klEnv.getNamespaceNames()), "[u'GorGon::Core']")
-        # klNamespace = klEnv.getNamespace('GorGon::Core')
-        # self.assertEqual(klNamespace.getObjectCount(), 5)
-        # self.assertEqual(klNamespace.getFunctionCount(), 19)
+        self.assertEqual(klEnv.getGlobalNamespace().getFunctionCount(), 42)
 
 
-    def __test_RequireFabricMaths(self):
+    def test_RequireFabricMaths(self):
         sourceCode = '''
             require Math;
             '''
         klEnv = KLEnv(sourceCode)
-        # self.assertEqual(klEnv.getGlobalNamespace().getObjectCount(), 66)
-        # self.assertEqual(klEnv.getGlobalNamespace().getFunctionCount(), 137)
+        self.assertEqual(klEnv.getGlobalNamespace().getObjectCount(), 0)
+        self.assertEqual(klEnv.getGlobalNamespace().getStructCount(), 57)
+        self.assertEqual(klEnv.getGlobalNamespace().getFunctionCount(), 80)
 
 
 if __name__ == '__main__':

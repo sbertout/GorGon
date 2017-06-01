@@ -6,6 +6,7 @@ class KLNamespace:
         self.__objects = {}
         self.__structs = {}
         self.__functions = {}
+        self.__aliases = {}
 
     def getName(self):
         return self.__name
@@ -24,9 +25,6 @@ class KLNamespace:
 
     def hasObject(self, objectName):
         return objectName in self.__objects
-
-    def getObjectNames(self):
-        return self.__objects.keys()
 
     def getStructCount(self):
         return len(self.__structs)
@@ -60,3 +58,21 @@ class KLNamespace:
 
     def hasFunction(self, functionName):
         return functionName in self.__functions
+
+    def getAliasCount(self):
+        return len(self.__aliases)
+
+    def getAliasNames(self):
+        return self.__aliases.keys()
+
+    def addAlias(self, obj):
+        self.__aliases[obj.getName()] = obj
+
+    def getAlias(self, aliasName):
+        return self.__aliases[aliasName]
+
+    def hasAlias(self, aliasName):
+        return aliasName in self.__aliases
+
+    def getAliasNames(self):
+        return self.__aliases.keys()
