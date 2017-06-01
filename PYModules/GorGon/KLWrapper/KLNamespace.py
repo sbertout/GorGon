@@ -4,6 +4,7 @@ class KLNamespace:
     def __init__(self, name):
         self.__name = name
         self.__objects = {}
+        self.__structs = {}
         self.__functions = {}
 
     def getName(self):
@@ -27,8 +28,29 @@ class KLNamespace:
     def getObjectNames(self):
         return self.__objects.keys()
 
+    def getStructCount(self):
+        return len(self.__structs)
+
+    def getStructNames(self):
+        return self.__structs.keys()
+
+    def addStruct(self, obj):
+        self.__structs[obj.getName()] = obj
+
+    def getStruct(self, structName):
+        return self.__structs[structName]
+
+    def hasStruct(self, structName):
+        return structName in self.__structs
+
+    def getStructNames(self):
+        return self.__structs.keys()
+
     def getFunctionCount(self):
         return len(self.__functions)
+
+    def getFunctionNames(self):
+        return  self.__functions.keys()
 
     def addFunction(self, func):
         self.__functions[func.getName()] = func

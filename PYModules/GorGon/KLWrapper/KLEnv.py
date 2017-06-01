@@ -2,6 +2,7 @@ import json
 import FabricEngine.Core as FECore
 from KLNamespace import KLNamespace
 from KLObject import KLObject
+from KLStruct import KLStruct
 from KLFunction import KLFunction
 
 class KLEnv:
@@ -12,6 +13,9 @@ class KLEnv:
         ast = self.__fabricClient.getKLJSONAST('AST.kl', sourceCode, True)
         data = json.loads(ast.getStringCString())['ast']
         # print len(data)
+        for ext in data:
+            for d in ext:
+                self.__preparse(d, self.__globalNamespace)
         for ext in data:
             for d in ext:
                 self.__parse(d, self.__globalNamespace)
@@ -49,6 +53,47 @@ class KLEnv:
         if funcName[3].islower(): return False
         return True
 
+    def __preparse(self, data, currentKLNamespace):
+        elementTypeToSkip = ['Function', 'MethodOpImpl']
+        if isinstance(data, dict):
+            if 'globalList' in data:
+                self.__preparse(data['globalList'], currentKLNamespace)
+        elif isinstance(data, list):
+            for elementList in data:
+                elementType = elementList['type']
+
+                if elementType == 'ASTNamespaceGlobal':
+                    klNamespaceName = elementList['namespacePath']
+                    klNamespace = self.getNamespace(klNamespaceName)
+                    if klNamespace is None:
+                        klNamespace = self.addNamespace(klNamespaceName)
+                    self.__preparse(elementList['globalList'], klNamespace)
+
+                elif elementType == 'ASTObjectDecl':
+                    objectName = elementList['name']
+                    objectMembers = elementList['members'] if 'members' in elementList else []
+                    if not currentKLNamespace.hasObject(objectName):
+                        currentKLNamespace.addObject(KLObject(objectName, objectMembers))
+                    else:
+                        currentKLNamespace.getObject(objectName).setMembers(objectMembers)
+
+                elif elementType == 'ASTStructDecl':
+                    structName = elementList['name']
+                    structMembers = elementList['members'] if 'members' in elementList else []
+                    if not currentKLNamespace.hasStruct(structName):
+                        currentKLNamespace.addStruct(KLStruct(structName, structMembers))
+                    else:
+                        currentKLNamespace.getStruct(structName).setMembers(structMembers)
+
+                elif elementType not in elementTypeToSkip:
+                    print '================ Unsupported AST element type:', elementType
+                    print elementList.keys()
+                    print elementList.values()
+
+        else:
+            for d in data:
+                self.__preparse(d, currentKLNamespace)
+
     def __parse(self, data, currentKLNamespace):
         if isinstance(data, dict):
             if 'globalList' in data:
@@ -60,19 +105,13 @@ class KLEnv:
                 if elementType == 'ASTNamespaceGlobal':
                     klNamespaceName = elementList['namespacePath']
                     klNamespace = self.getNamespace(klNamespaceName)
-                    if klNamespace is None:
-                        klNamespace = self.addNamespace(klNamespaceName)
-                    print klNamespace
-                    print type(klNamespace)
                     self.__parse(elementList['globalList'], klNamespace)
 
                 elif elementType == 'ASTObjectDecl':
-                    objectName = elementList['name']
-                    objectMembers = elementList['members'] if 'members' in elementList else []
-                    if not currentKLNamespace.hasObject(objectName):
-                        currentKLNamespace.addObject(KLObject(objectName, objectMembers))
-                    else:
-                        currentKLNamespace.getObject(objectName).setMembers(objectMembers)
+                    pass # already processed in __preparse
+
+                elif elementType == 'ASTStructDecl':
+                    pass # already processed in __preparse
 
                 elif elementType == 'Function':
                     functionName = elementList['name']
@@ -87,30 +126,53 @@ class KLEnv:
                         klObject = currentKLNamespace.getObject(functionName)
                         klObject.addConstructor(klFunction)
                     else:
-                        currentKLNamespace.addFunction(klFunction)
+                        if currentKLNamespace.hasStruct(functionName):
+                            klStruct = currentKLNamespace.getStruct(functionName)
+                            klStruct.addConstructor(klFunction)
+                        else:
+                            # not an object or a struct so it's a global function
+                            currentKLNamespace.addFunction(klFunction)
 
                 elif elementType == 'MethodOpImpl':
                     methodName = elementList['name']
                     objectName = elementList['thisType']
-                    if not currentKLNamespace.hasObject(objectName):
-                        currentKLNamespace.addObject(KLObject(objectName))
-                    klObject = currentKLNamespace.getObject(objectName)
 
-                    access = elementList['access']
-                    returnType = elementList['returnType'] if 'returnType' in elementList else None
-                    params = elementList['params'] if 'params' in elementList else None
+                    if currentKLNamespace.hasObject(objectName):
+                        klObject = currentKLNamespace.getObject(objectName)
 
-                    if KLEnv.isGetter(methodName):
-                        klObject.addGetter(methodName, returnType, access)
-                    elif KLEnv.isSetter(methodName):
-                        klObject.addSetter(methodName, params, access)
+                        access = elementList['access']
+                        returnType = elementList['returnType'] if 'returnType' in elementList else None
+                        params = elementList['params'] if 'params' in elementList else None
+
+                        if KLEnv.isGetter(methodName):
+                            klObject.addGetter(methodName, returnType, access)
+                        elif KLEnv.isSetter(methodName):
+                            klObject.addSetter(methodName, params, access)
+                        else:
+                            klObject.addMethod(methodName, returnType, params, access)
+
+                    elif currentKLNamespace.hasStruct(objectName):
+                        klObject = currentKLNamespace.getObject(objectName)
+
+                        access = elementList['access']
+                        returnType = elementList['returnType'] if 'returnType' in elementList else None
+                        params = elementList['params'] if 'params' in elementList else None
+
+                        if KLEnv.isGetter(methodName):
+                            klObject.addGetter(methodName, returnType, access)
+                        elif KLEnv.isSetter(methodName):
+                            klObject.addSetter(methodName, params, access)
+                        else:
+                            klObject.addMethod(methodName, returnType, params, access)
+
                     else:
-                        klObject.addMethod(methodName, returnType, params, access)
+                        print '******** WTF (alias?) ?? cant find', objectName, methodName
 
                 else:
-                    print '================ Unsupported AST element type:', elementType
+                    pass
+                    # print '================ Unsupported AST element type:', elementType
                     # print elementList.keys()
                     # print elementList.values()
         else:
             for d in data:
-                self.__parse(d, klNamespace)
+                self.__parse(d, currentKLNamespace)
