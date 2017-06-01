@@ -6,6 +6,7 @@ class KLAlias:
         self.__name = name
         self.__sourceName = sourceName
         self.__methods = []
+        self.__operators = []
 
     def getName(self):
         return self.__name
@@ -23,3 +24,14 @@ class KLAlias:
 
     def getMethod(self, idx):
         return self.__methods[idx]
+
+    def getOperatorCount(self):
+        return len(self.__operators)
+
+    def addOperator(self, operatorName, params, access):
+        operatorFunc = KLFunction(operatorName, access=access)
+        operatorFunc.addParams(params)
+        self.__operators.append(operatorFunc)
+
+    def getOperator(self, idx):
+        return self.__operators[idx]

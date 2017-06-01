@@ -55,15 +55,12 @@ class KLEnv:
         return True
 
     def __preparse(self, data, currentKLNamespace):
-        elementTypeToSkip = ['Function', 'MethodOpImpl']
-        # elementTypeToSkip.append('Destructor') # for now
+        elementTypeToSkip = ['Function', 'MethodOpImpl', 'Destructor'] # supported in __parse
         elementTypeToSkip.append('Operator') # for now
         elementTypeToSkip.append('GlobalConstDecl') # for now
         elementTypeToSkip.append('ASTUsingGlobal') # for now
-        elementTypeToSkip.append('AssignOpImpl') # for now
         elementTypeToSkip.append('ASTInterfaceDecl') # for now
         elementTypeToSkip.append('RequireGlobal') # for now
-        # elementTypeToSkip.append('Alias') # for now
         elementTypeToSkip.append('ComparisonOpImpl') # for now
         elementTypeToSkip.append('BinOpImpl') # for now
         elementTypeToSkip.append('ASTUniOpDecl') # for now
@@ -98,16 +95,12 @@ class KLEnv:
                         currentKLNamespace.getStruct(structName).setMembers(structMembers)
 
                 elif elementType == 'Alias':
-                    print 'YEAH'
-                    print elementList.keys()
-                    print elementList.values()
                     aliasName = elementList['newUserName']
                     aliasSourceName = elementList['oldUserName']
                     if not currentKLNamespace.hasAlias(aliasName):
                         currentKLNamespace.addAlias(KLAlias(aliasName, aliasSourceName))
                     else:
                         print 'Alias defined again? WTF?'
-
 
                 elif elementType not in elementTypeToSkip:
                     print '================ Unsupported AST element type:', elementType
@@ -164,6 +157,9 @@ class KLEnv:
                     if currentKLNamespace.hasObject(objectName):
                         klObject = currentKLNamespace.getObject(objectName)
                         klObject.setHasDestructor(True)
+                    elif currentKLNamespace.hasStruct(objectName):
+                        klStruct = currentKLNamespace.getStruct(objectName)
+                        klStruct.setHasDestructor(True)
                     else:
                         print '******** WTF (destructor on unknown type??) ??', objectName
 
@@ -210,11 +206,34 @@ class KLEnv:
                     else:
                         print '******** WTF (alias?) ?? cant find', objectName, methodName
 
+                elif elementType == 'AssignOpImpl':
+                    opName = elementList['assignOpType']
+                    objectName = elementList['thisType']
+
+                    if currentKLNamespace.hasObject(objectName):
+                        klObject = currentKLNamespace.getObject(objectName)
+                        access = elementList['access']
+                        params = elementList['rhs']
+                        klObject.addOperator(opName, params, access)
+
+                    elif currentKLNamespace.hasStruct(objectName):
+                        klStruct = currentKLNamespace.getStruct(objectName)
+                        access = elementList['access']
+                        params = elementList['rhs']
+                        klStruct.addOperator(opName, params, access)
+
+                    elif currentKLNamespace.hasAlias(objectName):
+                        klAlias = currentKLNamespace.getAlias(objectName)
+                        access = elementList['access']
+                        params = elementList['rhs']
+                        klAlias.addOperator(opName, params, access)
+
+                    else:
+                        print '******** WTF (alias?) ?? cant find', objectName
+
                 else:
-                    pass
-                    # print '================ Unsupported AST element type:', elementType
-                    # print elementList.keys()
-                    # print elementList.values()
+                    pass # parse should let us know if/when something is not supported!
+
         else:
             for d in data:
                 self.__parse(d, currentKLNamespace)

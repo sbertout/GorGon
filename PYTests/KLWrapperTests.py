@@ -34,6 +34,40 @@ class KLWrapper(unittest.TestCase):
         self.assertEqual(klEnv.getGlobalNamespace().getAlias('SomeIntAlias').getSourceName(), 'UInt32')
 
     #=========================================================================
+    def test_KLAliasOperators(self):
+        sourceCode = '''
+            alias UInt32 SomeIntAlias;
+            SomeIntAlias. *= (Integer other) {
+              this = this * other;
+            }
+            SomeIntAlias. += (Boolean b) {
+              this += b;
+            }
+            SomeIntAlias. *= (Scalar k) {
+              this = this * k;
+            }
+            '''
+        klEnv = KLEnv(sourceCode)
+        self.assertEqual(klEnv.getGlobalNamespace().getAliasCount(), 1)
+        klAlias = klEnv.getGlobalNamespace().getAlias('SomeIntAlias')
+        self.assertEqual(klAlias.getOperatorCount(), 3)
+        klOp = klAlias.getOperator(0)
+        self.assertEqual(klOp.getName(), 'mul')
+        self.assertEqual(klOp.getParamCount(), 1)
+        self.assertEqual(klOp.getParam(0).getType(), 'Integer')
+        self.assertEqual(klOp.getParam(0).getName(), 'other')
+        klOp = klAlias.getOperator(1)
+        self.assertEqual(klOp.getName(), 'add')
+        self.assertEqual(klOp.getParamCount(), 1)
+        self.assertEqual(klOp.getParam(0).getType(), 'Boolean')
+        self.assertEqual(klOp.getParam(0).getName(), 'b')
+        klOp = klAlias.getOperator(2)
+        self.assertEqual(klOp.getName(), 'mul')
+        self.assertEqual(klOp.getParamCount(), 1)
+        self.assertEqual(klOp.getParam(0).getType(), 'Scalar')
+        self.assertEqual(klOp.getParam(0).getName(), 'k')
+
+    #=========================================================================
     def test_KLAliasFunc(self):
         sourceCode = '''
             alias UInt32 SomeIntAlias;
@@ -403,6 +437,24 @@ class KLWrapper(unittest.TestCase):
         self.assertEqual(klConstructor.getParam(1).getType(), 'Boolean')
 
     #=========================================================================
+    def test_KLStructDestructor(self):
+        sourceCode = '''
+            struct Foo
+            {
+                private String name;
+                private Boolean state;
+            };
+            Foo(String name) { this.name = name; }
+            ~Foo() {}
+            '''
+        klEnv = KLEnv(sourceCode)
+        self.assertEqual(klEnv.getGlobalNamespace().getStructCount(), 1)
+        klStruct = klEnv.getGlobalNamespace().getStruct('Foo')
+        self.assertEqual(klStruct.getName(), 'Foo')
+        self.assertEqual(klStruct.getConstructorCount(), 1)
+        self.assertEqual(klStruct.getHasDestructor(), True)
+
+    #=========================================================================
     def test_KLObjectConstructors_ObjectForwardDeclared(self):
         sourceCode = '''
             object Foo;
@@ -545,6 +597,112 @@ class KLWrapper(unittest.TestCase):
         self.assertEqual(klObject.getMethod(1).getName(), 'doSomething')
         self.assertEqual(klObject.getMethod(1).getParamCount(), 0)
         self.assertEqual(klObject.getMethod(1).getReturnType(), 'String')
+
+    #=========================================================================
+    def test_KLObjectOperators(self):
+        sourceCode = '''
+            object Foo
+            {
+                private Integer value;
+            };
+            Foo(Integer value) { this.value = name; }
+            Foo. *= (Integer other) {
+              this.value = this.value * other;
+            }
+            Foo. += (Boolean b) {
+              this.value += b;
+            }
+            Foo. *= (Scalar k) {
+              this.value = this.value * k;
+            }
+            '''
+        klEnv = KLEnv(sourceCode)
+        self.assertEqual(klEnv.getGlobalNamespace().getObjectCount(), 1)
+        klObject = klEnv.getGlobalNamespace().getObject('Foo')
+        self.assertEqual(klObject.getOperatorCount(), 3)
+        klOp = klObject.getOperator(0)
+        self.assertEqual(klOp.getName(), 'mul')
+        self.assertEqual(klOp.getParamCount(), 1)
+        self.assertEqual(klOp.getParam(0).getType(), 'Integer')
+        self.assertEqual(klOp.getParam(0).getName(), 'other')
+        klOp = klObject.getOperator(1)
+        self.assertEqual(klOp.getName(), 'add')
+        self.assertEqual(klOp.getParamCount(), 1)
+        self.assertEqual(klOp.getParam(0).getType(), 'Boolean')
+        self.assertEqual(klOp.getParam(0).getName(), 'b')
+        klOp = klObject.getOperator(2)
+        self.assertEqual(klOp.getName(), 'mul')
+        self.assertEqual(klOp.getParamCount(), 1)
+        self.assertEqual(klOp.getParam(0).getType(), 'Scalar')
+        self.assertEqual(klOp.getParam(0).getName(), 'k')
+
+    #=========================================================================
+    def test_KLStructMethods(self):
+        sourceCode = '''
+            struct Foo
+            {
+                private String name;
+                private Boolean state;
+            };
+            Foo(String name) { this.setName(name); }
+            public String Foo.getName() { return this.name; }
+            protected Foo.setName!(String name) { this.name = name; }
+            private Boolean Foo.getState() { return this.state; }
+            Foo.setState!(Boolean state) { this.state = state; }
+            Foo.setup(Boolean b) {}
+            String Foo.doSomething() {}
+            '''
+        klEnv = KLEnv(sourceCode)
+        self.assertEqual(klEnv.getGlobalNamespace().getStructCount(), 1)
+        klStruct = klEnv.getGlobalNamespace().getStruct('Foo')
+        self.assertEqual(klStruct.getName(), 'Foo')
+        self.assertEqual(klStruct.getMethodCount(), 2)
+        self.assertEqual(klStruct.getMethod(0).getName(), 'setup')
+        self.assertEqual(klStruct.getMethod(0).getReturnType(), None)
+        self.assertEqual(klStruct.getMethod(0).getParamCount(), 1)
+        self.assertEqual(klStruct.getMethod(0).getParam(0).getName(), 'b')
+        self.assertEqual(klStruct.getMethod(0).getParam(0).getType(), 'Boolean')
+        self.assertEqual(klStruct.getMethod(1).getName(), 'doSomething')
+        self.assertEqual(klStruct.getMethod(1).getParamCount(), 0)
+        self.assertEqual(klStruct.getMethod(1).getReturnType(), 'String')
+
+    #=========================================================================
+    def test_KLStructOperators(self):
+        sourceCode = '''
+            struct Foo
+            {
+                private Integer value;
+            };
+            Foo(Integer value) { this.value = name; }
+            Foo. *= (Integer other) {
+              this.value = this.value * other;
+            }
+            Foo. += (Boolean b) {
+              this.value += b;
+            }
+            Foo. *= (Scalar k) {
+              this.value = this.value * k;
+            }
+            '''
+        klEnv = KLEnv(sourceCode)
+        self.assertEqual(klEnv.getGlobalNamespace().getStructCount(), 1)
+        klStruct = klEnv.getGlobalNamespace().getStruct('Foo')
+        self.assertEqual(klStruct.getOperatorCount(), 3)
+        klOp = klStruct.getOperator(0)
+        self.assertEqual(klOp.getName(), 'mul')
+        self.assertEqual(klOp.getParamCount(), 1)
+        self.assertEqual(klOp.getParam(0).getType(), 'Integer')
+        self.assertEqual(klOp.getParam(0).getName(), 'other')
+        klOp = klStruct.getOperator(1)
+        self.assertEqual(klOp.getName(), 'add')
+        self.assertEqual(klOp.getParamCount(), 1)
+        self.assertEqual(klOp.getParam(0).getType(), 'Boolean')
+        self.assertEqual(klOp.getParam(0).getName(), 'b')
+        klOp = klStruct.getOperator(2)
+        self.assertEqual(klOp.getName(), 'mul')
+        self.assertEqual(klOp.getParamCount(), 1)
+        self.assertEqual(klOp.getParam(0).getType(), 'Scalar')
+        self.assertEqual(klOp.getParam(0).getName(), 'k')
 
     #=========================================================================
     def test_RequireGorGonCore(self):

@@ -9,12 +9,20 @@ class KLStruct:
         if members is not None:
             self.setMembers(members)
         self.__constructors = []
+        self.__hasDestructor = False
         self.__getters = []
         self.__setters = []
         self.__methods = []
+        self.__operators = []
 
     def getName(self):
         return self.__name
+
+    def setHasDestructor(self, b):
+        self.__hasDestructor = b
+
+    def getHasDestructor(self):
+        return self.__hasDestructor
 
     def getConstructorCount(self):
         return len(self.__constructors)
@@ -66,3 +74,14 @@ class KLStruct:
 
     def getMethod(self, idx):
         return self.__methods[idx]
+
+    def getOperatorCount(self):
+        return len(self.__operators)
+
+    def addOperator(self, operatorName, params, access):
+        operatorFunc = KLFunction(operatorName, access=access)
+        operatorFunc.addParams(params)
+        self.__operators.append(operatorFunc)
+
+    def getOperator(self, idx):
+        return self.__operators[idx]

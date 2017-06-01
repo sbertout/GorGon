@@ -8,8 +8,11 @@ class KLFunction:
         self.__params = []
 
     def addParams(self, params):
-        for p in params:
-            self.__params.append(KLParam(p['typeUserName'], p['name']))
+        if isinstance(params, list):
+            for p in params:
+                self.__params.append(KLParam(p['typeUserName'], p['name']))
+        else:
+            self.__params.append(KLParam(params['typeUserName'], params['name']))
 
     def getParamCount(self):
         return len(self.__params)
