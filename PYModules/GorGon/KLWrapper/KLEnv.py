@@ -56,7 +56,7 @@ class KLEnv:
 
     def __preparse(self, data, currentKLNamespace):
         elementTypeToSkip = ['Function', 'MethodOpImpl']
-        elementTypeToSkip.append('Destructor') # for now
+        # elementTypeToSkip.append('Destructor') # for now
         elementTypeToSkip.append('Operator') # for now
         elementTypeToSkip.append('GlobalConstDecl') # for now
         elementTypeToSkip.append('ASTUsingGlobal') # for now
@@ -129,6 +129,7 @@ class KLEnv:
                 if elementType == 'ASTNamespaceGlobal':
                     klNamespaceName = elementList['namespacePath']
                     klNamespace = self.getNamespace(klNamespaceName)
+                    # no namespace to create but we still need to parse it!
                     self.__parse(elementList['globalList'], klNamespace)
 
                 elif elementType == 'ASTObjectDecl':
@@ -156,6 +157,15 @@ class KLEnv:
                         else:
                             # not an object or a struct so it's a global function
                             currentKLNamespace.addFunction(klFunction)
+
+                elif elementType == "Destructor":
+                    objectName = elementList['thisType']
+
+                    if currentKLNamespace.hasObject(objectName):
+                        klObject = currentKLNamespace.getObject(objectName)
+                        klObject.setHasDestructor(True)
+                    else:
+                        print '******** WTF (destructor on unknown type??) ??', objectName
 
                 elif elementType == 'MethodOpImpl':
                     methodName = elementList['name']
