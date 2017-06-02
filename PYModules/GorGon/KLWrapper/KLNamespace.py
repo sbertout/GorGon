@@ -1,6 +1,7 @@
 class KLNamespace:
     def __init__(self, name):
         self.__name = name
+        self.__interfaces = {}
         self.__objects = {}
         self.__structs = {}
         self.__functions = {}
@@ -11,6 +12,21 @@ class KLNamespace:
 
     def getName(self):
         return self.__name
+
+    def getInterfaceCount(self):
+        return len(self.__interfaces)
+
+    def getInterfaceNames(self):
+        return self.__interfaces.keys()
+
+    def addInterface(self, interface):
+        self.__interfaces[interface.getName()] = interface
+
+    def getInterface(self, interfaceName):
+        return self.__interfaces[interfaceName]
+
+    def hasInterface(self, interfaceName):
+        return interfaceName in self.__interfaces
 
     def getObjectCount(self):
         return len(self.__objects)

@@ -1,6 +1,7 @@
 import json
 import FabricEngine.Core as FECore
 from KLNamespace import KLNamespace
+from KLInterface import KLInterface
 from KLObject import KLObject
 from KLStruct import KLStruct
 from KLFunction import KLFunction
@@ -64,8 +65,6 @@ class KLEnv:
     def __preparse(self, data, currentKLNamespace):
         elementTypeToSkip = ['Function', 'MethodOpImpl', 'Destructor', 'AssignOpImpl', 'BinOpImpl', 'ComparisonOpImpl', 'ASTUniOpDecl', 'GlobalConstDecl'] # supported in __parse
         elementTypeToSkip.append('Operator') # for now
-        elementTypeToSkip.append('ASTInterfaceDecl') # for now
-        elementTypeToSkip.append('RequireGlobal') # for now
         if isinstance(data, dict):
             if 'globalList' in data:
                 self.__preparse(data['globalList'], currentKLNamespace)
@@ -79,6 +78,13 @@ class KLEnv:
                     if klNamespace is None:
                         klNamespace = self.addNamespace(klNamespaceName)
                     self.__preparse(elementList['globalList'], klNamespace)
+
+                elif elementType == 'ASTInterfaceDecl':
+                    interfaceName = elementList['name']
+                    interfaceMembers = elementList['members'] if 'members' in elementList else []
+                    if not currentKLNamespace.hasInterface(interfaceName):
+                        currentKLNamespace.addInterface(KLInterface(interfaceName))
+                    currentKLNamespace.getInterface(interfaceName).setMembers(interfaceMembers)
 
                 elif elementType == 'ASTObjectDecl':
                     objectName = elementList['name']
@@ -109,6 +115,19 @@ class KLEnv:
                     if currentKLNamespace.hasExtension(extensionName) is False:
                         currentKLNamespace.addExtension(KLExtension(extensionName))
                     currentKLNamespace.getExtension(extensionName).addExtensionDependency(elementList['namespacePath'])
+
+                elif elementType == 'RequireGlobal':
+                    if 'owningExtName' in elementList:
+                        extensionName = elementList['owningExtName']
+                        if currentKLNamespace.hasExtension(extensionName) is False:
+                            currentKLNamespace.addExtension(KLExtension(extensionName))
+                        for d in elementList['requires']:
+                            currentKLNamespace.getExtension(extensionName).addExtensionDependency(d['name'])
+                    else:
+                        for d in elementList['requires']:
+                            extensionName = d['name']
+                            if currentKLNamespace.hasExtension(extensionName) is False:
+                                currentKLNamespace.addExtension(KLExtension(extensionName))
 
                 elif elementType not in elementTypeToSkip:
                     print '================ Unsupported AST element type:', elementType

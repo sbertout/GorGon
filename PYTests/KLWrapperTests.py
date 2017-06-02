@@ -164,6 +164,36 @@ class KLWrapperTests(unittest.TestCase):
         self.assertEqual(klNamespace.getAlias('SomeIntAlias').getMethod(0).getReturnType(), 'SomeIntAlias')
 
     #=========================================================================
+    def test_KLInterface(self):
+        sourceCode = '''
+            interface Foo {
+                Boolean doSomething(Scalar s, Integer i);
+                doSomethingElse(String s);
+                doNothing();
+            };
+            '''
+        self.klEnv.parseSourceCode(sourceCode)
+        self.assertEqual(self.klEnv.getGlobalNamespace().getInterfaceCount(), 1)
+        self.assertEqual(str(self.klEnv.getGlobalNamespace().getInterfaceNames()), "[u'Foo']")
+        klInterface = self.klEnv.getGlobalNamespace().getInterface('Foo')
+        self.assertEqual(klInterface.getMemberCount(), 3)
+        self.assertEqual(klInterface.getMember(0).getName(), 'doSomething')
+        self.assertEqual(klInterface.getMember(0).getReturnType(), 'Boolean')
+        self.assertEqual(klInterface.getMember(0).getParamCount(), 2)
+        self.assertEqual(klInterface.getMember(0).getParam(0).getName(), 's')
+        self.assertEqual(klInterface.getMember(0).getParam(0).getType(), 'Scalar')
+        self.assertEqual(klInterface.getMember(0).getParam(1).getName(), 'i')
+        self.assertEqual(klInterface.getMember(0).getParam(1).getType(), 'Integer')
+        self.assertEqual(klInterface.getMember(1).getName(), 'doSomethingElse')
+        self.assertEqual(klInterface.getMember(1).getReturnType(), None)
+        self.assertEqual(klInterface.getMember(1).getParamCount(), 1)
+        self.assertEqual(klInterface.getMember(1).getParam(0).getName(), 's')
+        self.assertEqual(klInterface.getMember(1).getParam(0).getType(), 'String')
+        self.assertEqual(klInterface.getMember(2).getName(), 'doNothing')
+        self.assertEqual(klInterface.getMember(2).getReturnType(), None)
+        self.assertEqual(klInterface.getMember(2).getParamCount(), 0)
+
+    #=========================================================================
     def test_KLObject(self):
         sourceCode = '''
             object Foo {};
@@ -841,7 +871,8 @@ class KLWrapperTests(unittest.TestCase):
         self.assertEqual(self.klEnv.getGlobalNamespace().getFunctionCount(), 80)
         self.assertEqual(self.klEnv.getGlobalNamespace().getOperatorCount(), 534)
         self.assertEqual(self.klEnv.getGlobalNamespace().getConstantCount(), 19)
-        self.assertEqual(str(self.klEnv.getGlobalNamespace().getExtensionNames()), "[]")
+        self.assertEqual(str(self.klEnv.getGlobalNamespace().getExtensionNames()), "[u'Math']")
+        self.assertEqual(str(self.klEnv.getGlobalNamespace().getExtension('Math').getExtensionDependencies()), "[]")
 
 
 if __name__ == '__main__':
