@@ -1,5 +1,3 @@
-from KLObject import KLObject
-
 class KLNamespace:
     def __init__(self, name):
         self.__name = name
@@ -9,6 +7,7 @@ class KLNamespace:
         self.__operators = []
         self.__aliases = {}
         self.__constants = {}
+        self.__extensions = {}
 
     def getName(self):
         return self.__name
@@ -42,9 +41,6 @@ class KLNamespace:
 
     def hasStruct(self, structName):
         return structName in self.__structs
-
-    def getStructNames(self):
-        return self.__structs.keys()
 
     def getFunctionCount(self):
         return len(self.__functions)
@@ -85,9 +81,6 @@ class KLNamespace:
     def hasAlias(self, aliasName):
         return aliasName in self.__aliases
 
-    def getAliasNames(self):
-        return self.__constants.keys()
-
     def getConstantCount(self):
         return len(self.__constants)
 
@@ -103,5 +96,14 @@ class KLNamespace:
     def hasConstant(self, constantName):
         return constantName in self.__constants
 
-    def getConstantNames(self):
-        return self.__constants.keys()
+    def getExtensionNames(self):
+        return self.__extensions.keys()
+
+    def addExtension(self, ext):
+        self.__extensions[ext.getName()] = ext
+
+    def getExtension(self, extensionName):
+        return self.__extensions[extensionName]
+
+    def hasExtension(self, extensionName):
+        return extensionName in self.__extensions

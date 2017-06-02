@@ -6,6 +6,7 @@ from KLStruct import KLStruct
 from KLFunction import KLFunction
 from KLAlias import KLAlias
 from KLConstant import KLConstant
+from KLExtension import KLExtension
 
 class KLEnv:
 
@@ -63,8 +64,6 @@ class KLEnv:
     def __preparse(self, data, currentKLNamespace):
         elementTypeToSkip = ['Function', 'MethodOpImpl', 'Destructor', 'AssignOpImpl', 'BinOpImpl', 'ComparisonOpImpl', 'ASTUniOpDecl', 'GlobalConstDecl'] # supported in __parse
         elementTypeToSkip.append('Operator') # for now
-        # elementTypeToSkip.append('GlobalConstDecl') # for now
-        elementTypeToSkip.append('ASTUsingGlobal') # for now
         elementTypeToSkip.append('ASTInterfaceDecl') # for now
         elementTypeToSkip.append('RequireGlobal') # for now
         if isinstance(data, dict):
@@ -104,6 +103,12 @@ class KLEnv:
                         currentKLNamespace.addAlias(KLAlias(aliasName, aliasSourceName))
                     else:
                         print 'Alias defined again? WTF?'
+
+                elif elementType == 'ASTUsingGlobal':
+                    extensionName = elementList['owningExtName']
+                    if currentKLNamespace.hasExtension(extensionName) is False:
+                        currentKLNamespace.addExtension(KLExtension(extensionName))
+                    currentKLNamespace.getExtension(extensionName).addExtensionDependency(elementList['namespacePath'])
 
                 elif elementType not in elementTypeToSkip:
                     print '================ Unsupported AST element type:', elementType
@@ -257,62 +262,33 @@ class KLEnv:
                 elif elementType == 'GlobalConstDecl':
 
                     val = elementList['constDecl']['value']
-                    print val.keys()
-                    print val.values()
                     constType = val['type']
-                    # constType = val['type']
                     constName = elementList['constDecl']['name']
 
                     if 'valueBool' not in val and 'valueString' not in val:
-                        print ''
-                        # print elementList['constDecl'].keys()
-                        # print elementList['constDecl'].values()
-                        # print elementList['sourceInfo']
-                        # print ''
-                        print val.keys()
-                        print val.values()
 
                         if 'binOpType' in val:
 
                             constType = val['binOpType']
-
-                            print val['binOpType']
-                            print val['type']
-                            # print val['lhs']
-                            # print val['rhs']
-                            # print ''
                             lhs_val = val['lhs']
+                            rhs_val = val['rhs']
+
                             if 'valueBool' not in lhs_val and 'valueString' not in lhs_val:
-                                print lhs_val.keys()
-                                print lhs_val.values()
                                 lhs_value = lhs_val['name']
                             else:
                                 lhs_value = lhs_val['valueBool'] if 'valueBool' in lhs_val else lhs_val['valueString']
 
-                            rhs_val = val['rhs']
                             if 'valueBool' not in val and 'valueString' not in rhs_val:
-                                print rhs_val.keys()
-                                print rhs_val.values()
                                 rhs_value = rhs_val['name']
                             else:
                                 rhs_value = rhs_val['valueBool'] if 'valueBool' in rhs_val else rhs_val['valueString']
-
-                            print lhs_value, rhs_value
-
-                            print val['binOpType']
 
                             constValue  = '{}({},{})'.format(val['binOpType'], lhs_value, rhs_value)
 
                         elif 'uniOpType' in val:
 
-                            print val['uniOpType']
-                            print val['type']
-
                             constType = val['uniOpType']
-                            # constValue = val['child']['valueString']
                             constValue = '{}({})'.format(val['uniOpType'], val['child']['valueString'])
-
-                        print constValue
 
                     else:
                         constValue = val['valueBool'] if 'valueBool' in val else val['valueString']

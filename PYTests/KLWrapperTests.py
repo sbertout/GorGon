@@ -816,6 +816,19 @@ class KLWrapperTests(unittest.TestCase):
         self.assertEqual(self.klEnv.getNamespace('GorGon::Core').getFunctionCount(), 19)
         self.assertEqual(self.klEnv.getNamespace('GorGon::Core').getOperatorCount(), 0)
         self.assertEqual(self.klEnv.getNamespace('GorGon::Core').getConstantCount(), 0)
+        self.assertEqual(str(self.klEnv.getGlobalNamespace().getExtensionNames()), "[u'GorGon_Core']")
+        self.assertEqual(str(self.klEnv.getGlobalNamespace().getExtension('GorGon_Core').getExtensionDependencies()), "[u'Singletons', u'FabricSynchronization']")
+
+    #=========================================================================
+    def test_RequireGorGonECS(self):
+        sourceCode = '''
+            require GorGon_ECS;
+            '''
+        self.klEnv.parseSourceCode(sourceCode)
+        self.assertEqual(str(self.klEnv.getGlobalNamespace().getExtensionNames()), "[u'GorGon_ECS', u'GorGon_Maths', u'GorGon_Core']")
+        self.assertEqual(str(self.klEnv.getGlobalNamespace().getExtension('GorGon_Core').getExtensionDependencies()), "[u'Singletons', u'FabricSynchronization']")
+        self.assertEqual(str(self.klEnv.getGlobalNamespace().getExtension('GorGon_Maths').getExtensionDependencies()), "[u'Singletons', u'Math']")
+        self.assertEqual(str(self.klEnv.getGlobalNamespace().getExtension('GorGon_ECS').getExtensionDependencies()), "[u'Singletons', u'Math', u'GorGon_Core', u'GorGon_Maths']")
 
     #=========================================================================
     def test_RequireFabricMaths(self):
@@ -828,6 +841,7 @@ class KLWrapperTests(unittest.TestCase):
         self.assertEqual(self.klEnv.getGlobalNamespace().getFunctionCount(), 80)
         self.assertEqual(self.klEnv.getGlobalNamespace().getOperatorCount(), 534)
         self.assertEqual(self.klEnv.getGlobalNamespace().getConstantCount(), 19)
+        self.assertEqual(str(self.klEnv.getGlobalNamespace().getExtensionNames()), "[]")
 
 
 if __name__ == '__main__':
