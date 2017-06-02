@@ -1,7 +1,18 @@
 import unittest
 from GorGon.KLWrapper.KLEnv import KLEnv
 
-class KLWrapper(unittest.TestCase):
+class KLWrapperTests(unittest.TestCase):
+
+    def __init__(self, *args, **kwargs):
+        super(KLWrapperTests, self).__init__(*args, **kwargs)
+
+    @classmethod
+    def setUpClass(cls):
+        cls.klEnv = KLEnv()
+
+    def tearDown(self):
+        super(KLWrapperTests, self).tearDown()
+        self.klEnv.reset()
 
     #=========================================================================
     def test_IsSetter(self):
@@ -24,14 +35,53 @@ class KLWrapper(unittest.TestCase):
         self.assertEqual(KLEnv.isGetter('getup'), False)
 
     #=========================================================================
-    def test_KLAlias(self):
+    def test_KLConstants(self):
+        sourceCode = '''
+            const Boolean DebugSomething = false;
+            const Scalar SomeScalarConstant = 3.14;
+            const Scalar TWO_SomeScalarConstant = SomeScalarConstant * 2.0;
+            const Float32 SomeNegativeFloat32Constant = -10e6;
+            '''
+        self.klEnv.parseSourceCode(sourceCode)
+        self.assertEqual(self.klEnv.getGlobalNamespace().getConstantCount(), 4)
+        self.assertEqual(str(self.klEnv.getGlobalNamespace().getConstantNames()), "[u'SomeNegativeFloat32Constant', u'SomeScalarConstant', u'DebugSomething', u'TWO_SomeScalarConstant']")
+        self.assertEqual(self.klEnv.getGlobalNamespace().getConstant('DebugSomething').getName(), 'DebugSomething')
+        self.assertEqual(self.klEnv.getGlobalNamespace().getConstant('DebugSomething').getType(), 'ConstBoolean')
+        self.assertEqual(self.klEnv.getGlobalNamespace().getConstant('DebugSomething').getValue(), False)
+        self.assertEqual(self.klEnv.getGlobalNamespace().getConstant('SomeScalarConstant').getName(), 'SomeScalarConstant')
+        self.assertEqual(self.klEnv.getGlobalNamespace().getConstant('SomeScalarConstant').getType(), 'ASTConstFloat')
+        self.assertEqual(self.klEnv.getGlobalNamespace().getConstant('SomeScalarConstant').getValue(), '3.14')
+        self.assertEqual(self.klEnv.getGlobalNamespace().getConstant('TWO_SomeScalarConstant').getName(), 'TWO_SomeScalarConstant')
+        self.assertEqual(self.klEnv.getGlobalNamespace().getConstant('TWO_SomeScalarConstant').getType(), 'mul')
+        self.assertEqual(self.klEnv.getGlobalNamespace().getConstant('TWO_SomeScalarConstant').getValue(), 'mul(SomeScalarConstant,2.0)')
+        self.assertEqual(self.klEnv.getGlobalNamespace().getConstant('SomeNegativeFloat32Constant').getName(), 'SomeNegativeFloat32Constant')
+        self.assertEqual(self.klEnv.getGlobalNamespace().getConstant('SomeNegativeFloat32Constant').getType(), 'NEG')
+        self.assertEqual(self.klEnv.getGlobalNamespace().getConstant('SomeNegativeFloat32Constant').getValue(), 'NEG(10e6)')
+
+    #=========================================================================
+    def test_KLAliasConstants(self):
+        sourceCode = '''
+            alias Scalar SomeScalarAlias;
+            const SomeScalarAlias SomeScalarConstant = 3.14;
+            '''
+        self.klEnv.parseSourceCode(sourceCode)
+        self.assertEqual(self.klEnv.getGlobalNamespace().getConstantCount(), 1)
+        self.assertEqual(self.klEnv.getGlobalNamespace().getConstant('SomeScalarConstant').getName(), 'SomeScalarConstant')
+        self.assertEqual(self.klEnv.getGlobalNamespace().getConstant('SomeScalarConstant').getType(), 'ASTConstFloat')
+        self.assertEqual(self.klEnv.getGlobalNamespace().getConstant('SomeScalarConstant').getValue(), '3.14')
+
+    #=========================================================================
+    def test_KLAliases(self):
         sourceCode = '''
             alias UInt32 SomeIntAlias;
+            alias Scalar SomeScalarAlias;
             '''
-        klEnv = KLEnv(sourceCode)
-        self.assertEqual(klEnv.getGlobalNamespace().getAliasCount(), 1)
-        self.assertEqual(klEnv.getGlobalNamespace().getAlias('SomeIntAlias').getName(), 'SomeIntAlias')
-        self.assertEqual(klEnv.getGlobalNamespace().getAlias('SomeIntAlias').getSourceName(), 'UInt32')
+        self.klEnv.parseSourceCode(sourceCode)
+        self.assertEqual(self.klEnv.getGlobalNamespace().getAliasCount(), 2)
+        self.assertEqual(self.klEnv.getGlobalNamespace().getAlias('SomeIntAlias').getName(), 'SomeIntAlias')
+        self.assertEqual(self.klEnv.getGlobalNamespace().getAlias('SomeIntAlias').getSourceName(), 'UInt32')
+        self.assertEqual(self.klEnv.getGlobalNamespace().getAlias('SomeScalarAlias').getName(), 'SomeScalarAlias')
+        self.assertEqual(self.klEnv.getGlobalNamespace().getAlias('SomeScalarAlias').getSourceName(), 'Scalar')
 
     #=========================================================================
     def test_KLAliasOperators(self):
@@ -47,9 +97,9 @@ class KLWrapper(unittest.TestCase):
               this = this * k;
             }
             '''
-        klEnv = KLEnv(sourceCode)
-        self.assertEqual(klEnv.getGlobalNamespace().getAliasCount(), 1)
-        klAlias = klEnv.getGlobalNamespace().getAlias('SomeIntAlias')
+        self.klEnv.parseSourceCode(sourceCode)
+        self.assertEqual(self.klEnv.getGlobalNamespace().getAliasCount(), 1)
+        klAlias = self.klEnv.getGlobalNamespace().getAlias('SomeIntAlias')
         self.assertEqual(klAlias.getOperatorCount(), 3)
         klOp = klAlias.getOperator(0)
         self.assertEqual(klOp.getName(), 'mul')
@@ -75,21 +125,21 @@ class KLWrapper(unittest.TestCase):
                 return (this < min ? min : (this > max ? max : this));
             }
             '''
-        klEnv = KLEnv(sourceCode)
-        self.assertEqual(klEnv.getGlobalNamespace().getAliasCount(), 1)
-        self.assertEqual(klEnv.getGlobalNamespace().getAlias('SomeIntAlias').getName(), 'SomeIntAlias')
-        self.assertEqual(klEnv.getGlobalNamespace().getAlias('SomeIntAlias').getSourceName(), 'UInt32')
-        self.assertEqual(klEnv.getGlobalNamespace().getAlias('SomeIntAlias').getMethodCount(), 1)
-        self.assertEqual(klEnv.getGlobalNamespace().getAlias('SomeIntAlias').getMethod(0).getParamCount(), 2)
-        self.assertEqual(klEnv.getGlobalNamespace().getAlias('SomeIntAlias').getMethod(0).getReturnType(), 'SomeIntAlias')
+        self.klEnv.parseSourceCode(sourceCode)
+        self.assertEqual(self.klEnv.getGlobalNamespace().getAliasCount(), 1)
+        self.assertEqual(self.klEnv.getGlobalNamespace().getAlias('SomeIntAlias').getName(), 'SomeIntAlias')
+        self.assertEqual(self.klEnv.getGlobalNamespace().getAlias('SomeIntAlias').getSourceName(), 'UInt32')
+        self.assertEqual(self.klEnv.getGlobalNamespace().getAlias('SomeIntAlias').getMethodCount(), 1)
+        self.assertEqual(self.klEnv.getGlobalNamespace().getAlias('SomeIntAlias').getMethod(0).getParamCount(), 2)
+        self.assertEqual(self.klEnv.getGlobalNamespace().getAlias('SomeIntAlias').getMethod(0).getReturnType(), 'SomeIntAlias')
 
     #=========================================================================
     def test_KLAliasWithinNamespace(self):
         sourceCode = '''
             namespace NS { alias UInt32 SomeIntAlias; }
             '''
-        klEnv = KLEnv(sourceCode)
-        klNamespace = klEnv.getNamespace('NS')
+        self.klEnv.parseSourceCode(sourceCode)
+        klNamespace = self.klEnv.getNamespace('NS')
         self.assertEqual(klNamespace.getAliasCount(), 1)
         self.assertEqual(klNamespace.getAlias('SomeIntAlias').getName(), 'SomeIntAlias')
         self.assertEqual(klNamespace.getAlias('SomeIntAlias').getSourceName(), 'UInt32')
@@ -104,8 +154,8 @@ class KLWrapper(unittest.TestCase):
                 }
             }
             '''
-        klEnv = KLEnv(sourceCode)
-        klNamespace = klEnv.getNamespace('NS')
+        self.klEnv.parseSourceCode(sourceCode)
+        klNamespace = self.klEnv.getNamespace('NS')
         self.assertEqual(klNamespace.getAliasCount(), 1)
         self.assertEqual(klNamespace.getAlias('SomeIntAlias').getName(), 'SomeIntAlias')
         self.assertEqual(klNamespace.getAlias('SomeIntAlias').getSourceName(), 'UInt32')
@@ -118,10 +168,10 @@ class KLWrapper(unittest.TestCase):
         sourceCode = '''
             object Foo {};
             '''
-        klEnv = KLEnv(sourceCode)
-        self.assertEqual(klEnv.getGlobalNamespace().getObjectCount(), 1)
-        self.assertEqual(str(klEnv.getGlobalNamespace().getObjectNames()), "[u'Foo']")
-        klObject = klEnv.getGlobalNamespace().getObject('Foo')
+        self.klEnv.parseSourceCode(sourceCode)
+        self.assertEqual(self.klEnv.getGlobalNamespace().getObjectCount(), 1)
+        self.assertEqual(str(self.klEnv.getGlobalNamespace().getObjectNames()), "[u'Foo']")
+        klObject = self.klEnv.getGlobalNamespace().getObject('Foo')
         self.assertEqual(klObject.getName(), 'Foo')
 
     #=========================================================================
@@ -129,10 +179,10 @@ class KLWrapper(unittest.TestCase):
         sourceCode = '''
             struct Foo {};
             '''
-        klEnv = KLEnv(sourceCode)
-        self.assertEqual(klEnv.getGlobalNamespace().getStructCount(), 1)
-        self.assertEqual(str(klEnv.getGlobalNamespace().getStructNames()), "[u'Foo']")
-        klStruct = klEnv.getGlobalNamespace().getStruct('Foo')
+        self.klEnv.parseSourceCode(sourceCode)
+        self.assertEqual(self.klEnv.getGlobalNamespace().getStructCount(), 1)
+        self.assertEqual(str(self.klEnv.getGlobalNamespace().getStructNames()), "[u'Foo']")
+        klStruct = self.klEnv.getGlobalNamespace().getStruct('Foo')
         self.assertEqual(klStruct.getName(), 'Foo')
 
     #=========================================================================
@@ -140,10 +190,10 @@ class KLWrapper(unittest.TestCase):
         sourceCode = '''
             namespace NS { object Foo {}; }
             '''
-        klEnv = KLEnv(sourceCode)
-        self.assertEqual(klEnv.getGlobalNamespace().getObjectCount(), 0)
-        self.assertEqual(klEnv.getNamespaceCount(), 1)
-        klNamespace = klEnv.getNamespace('NS')
+        self.klEnv.parseSourceCode(sourceCode)
+        self.assertEqual(self.klEnv.getGlobalNamespace().getObjectCount(), 0)
+        self.assertEqual(self.klEnv.getNamespaceCount(), 1)
+        klNamespace = self.klEnv.getNamespace('NS')
         self.assertEqual(klNamespace.getName(), 'NS')
         self.assertEqual(klNamespace.getObjectCount(), 1)
         self.assertEqual(str(klNamespace.getObjectNames()), "[u'Foo']")
@@ -154,10 +204,10 @@ class KLWrapper(unittest.TestCase):
         sourceCode = '''
             namespace NS { struct Foo {}; }
             '''
-        klEnv = KLEnv(sourceCode)
-        self.assertEqual(klEnv.getGlobalNamespace().getStructCount(), 0)
-        self.assertEqual(klEnv.getNamespaceCount(), 1)
-        klNamespace = klEnv.getNamespace('NS')
+        self.klEnv.parseSourceCode(sourceCode)
+        self.assertEqual(self.klEnv.getGlobalNamespace().getStructCount(), 0)
+        self.assertEqual(self.klEnv.getNamespaceCount(), 1)
+        klNamespace = self.klEnv.getNamespace('NS')
         self.assertEqual(klNamespace.getName(), 'NS')
         self.assertEqual(klNamespace.getStructCount(), 1)
         self.assertEqual(str(klNamespace.getStructNames()), "[u'Foo']")
@@ -169,20 +219,20 @@ class KLWrapper(unittest.TestCase):
             function Hello(String s) {}
             function Boolean You() {}
             '''
-        klEnv = KLEnv(sourceCode)
-        self.assertEqual(klEnv.getGlobalNamespace().getObjectCount(), 0)
-        self.assertEqual(str(klEnv.getGlobalNamespace().getObjectNames()), "[]")
-        self.assertEqual(klEnv.getGlobalNamespace().getFunctionCount(), 2)
-        self.assertEqual(klEnv.getGlobalNamespace().hasFunction('Hello'), True)
-        self.assertEqual(klEnv.getGlobalNamespace().getFunction('Hello').getName(), 'Hello')
-        self.assertEqual(klEnv.getGlobalNamespace().getFunction('Hello').getReturnType(), None)
-        self.assertEqual(klEnv.getGlobalNamespace().getFunction('Hello').getParamCount(), 1)
-        self.assertEqual(klEnv.getGlobalNamespace().getFunction('Hello').getParam(0).getName(), 's')
-        self.assertEqual(klEnv.getGlobalNamespace().getFunction('Hello').getParam(0).getType(), 'String')
-        self.assertEqual(klEnv.getGlobalNamespace().hasFunction('You'), True)
-        self.assertEqual(klEnv.getGlobalNamespace().getFunction('You').getName(), 'You')
-        self.assertEqual(klEnv.getGlobalNamespace().getFunction('You').getReturnType(), 'Boolean')
-        self.assertEqual(klEnv.getGlobalNamespace().getFunction('You').getParamCount(), 0)
+        self.klEnv.parseSourceCode(sourceCode)
+        self.assertEqual(self.klEnv.getGlobalNamespace().getObjectCount(), 0)
+        self.assertEqual(str(self.klEnv.getGlobalNamespace().getObjectNames()), "[]")
+        self.assertEqual(self.klEnv.getGlobalNamespace().getFunctionCount(), 2)
+        self.assertEqual(self.klEnv.getGlobalNamespace().hasFunction('Hello'), True)
+        self.assertEqual(self.klEnv.getGlobalNamespace().getFunction('Hello').getName(), 'Hello')
+        self.assertEqual(self.klEnv.getGlobalNamespace().getFunction('Hello').getReturnType(), None)
+        self.assertEqual(self.klEnv.getGlobalNamespace().getFunction('Hello').getParamCount(), 1)
+        self.assertEqual(self.klEnv.getGlobalNamespace().getFunction('Hello').getParam(0).getName(), 's')
+        self.assertEqual(self.klEnv.getGlobalNamespace().getFunction('Hello').getParam(0).getType(), 'String')
+        self.assertEqual(self.klEnv.getGlobalNamespace().hasFunction('You'), True)
+        self.assertEqual(self.klEnv.getGlobalNamespace().getFunction('You').getName(), 'You')
+        self.assertEqual(self.klEnv.getGlobalNamespace().getFunction('You').getReturnType(), 'Boolean')
+        self.assertEqual(self.klEnv.getGlobalNamespace().getFunction('You').getParamCount(), 0)
 
     #=========================================================================
     def test_KLGlobalFunctionsWithinNamespace(self):
@@ -192,11 +242,11 @@ class KLWrapper(unittest.TestCase):
                 function Boolean You() {}
             }
             '''
-        klEnv = KLEnv(sourceCode)
-        self.assertEqual(klEnv.getGlobalNamespace().getObjectCount(), 0)
-        self.assertEqual(klEnv.getGlobalNamespace().getFunctionCount(), 0)
-        self.assertEqual(klEnv.getNamespaceCount(), 1)
-        klNamespace = klEnv.getNamespace('NS')
+        self.klEnv.parseSourceCode(sourceCode)
+        self.assertEqual(self.klEnv.getGlobalNamespace().getObjectCount(), 0)
+        self.assertEqual(self.klEnv.getGlobalNamespace().getFunctionCount(), 0)
+        self.assertEqual(self.klEnv.getNamespaceCount(), 1)
+        klNamespace = self.klEnv.getNamespace('NS')
         self.assertEqual(klNamespace.getName(), 'NS')
         self.assertEqual(klNamespace.getObjectCount(), 0)
         self.assertEqual(str(klNamespace.getObjectNames()), "[]")
@@ -219,15 +269,15 @@ class KLWrapper(unittest.TestCase):
             namespace NS2 { object Bar {}; }
             object Outside {};
             '''
-        klEnv = KLEnv(sourceCode)
-        self.assertEqual(klEnv.getGlobalNamespace().getObjectCount(), 1)
-        self.assertEqual(klEnv.getNamespaceCount(), 2)
-        self.assertEqual(str(klEnv.getNamespaceNames()), "[u'NS2', u'NS']")
-        klNamespace = klEnv.getNamespace('NS')
+        self.klEnv.parseSourceCode(sourceCode)
+        self.assertEqual(self.klEnv.getGlobalNamespace().getObjectCount(), 1)
+        self.assertEqual(self.klEnv.getNamespaceCount(), 2)
+        self.assertEqual(str(self.klEnv.getNamespaceNames()), "[u'NS2', u'NS']")
+        klNamespace = self.klEnv.getNamespace('NS')
         self.assertEqual(klNamespace.getName(), 'NS')
         self.assertEqual(klNamespace.getObjectCount(), 1)
         self.assertEqual(klNamespace.hasObject('Foo'), True)
-        klNamespace = klEnv.getNamespace('NS2')
+        klNamespace = self.klEnv.getNamespace('NS2')
         self.assertEqual(klNamespace.getName(), 'NS2')
         self.assertEqual(klNamespace.getObjectCount(), 1)
         self.assertEqual(klNamespace.hasObject('Bar'), True)
@@ -239,15 +289,15 @@ class KLWrapper(unittest.TestCase):
             namespace NS2 { struct Bar {}; }
             struct Outside {};
             '''
-        klEnv = KLEnv(sourceCode)
-        self.assertEqual(klEnv.getGlobalNamespace().getStructCount(), 1)
-        self.assertEqual(klEnv.getNamespaceCount(), 2)
-        self.assertEqual(str(klEnv.getNamespaceNames()), "[u'NS2', u'NS']")
-        klNamespace = klEnv.getNamespace('NS')
+        self.klEnv.parseSourceCode(sourceCode)
+        self.assertEqual(self.klEnv.getGlobalNamespace().getStructCount(), 1)
+        self.assertEqual(self.klEnv.getNamespaceCount(), 2)
+        self.assertEqual(str(self.klEnv.getNamespaceNames()), "[u'NS2', u'NS']")
+        klNamespace = self.klEnv.getNamespace('NS')
         self.assertEqual(klNamespace.getName(), 'NS')
         self.assertEqual(klNamespace.getStructCount(), 1)
         self.assertEqual(klNamespace.hasStruct('Foo'), True)
-        klNamespace = klEnv.getNamespace('NS2')
+        klNamespace = self.klEnv.getNamespace('NS2')
         self.assertEqual(klNamespace.getName(), 'NS2')
         self.assertEqual(klNamespace.getStructCount(), 1)
         self.assertEqual(klNamespace.hasStruct('Bar'), True)
@@ -263,9 +313,9 @@ class KLWrapper(unittest.TestCase):
                 Scalar offset;
             };
             '''
-        klEnv = KLEnv(sourceCode)
-        self.assertEqual(klEnv.getGlobalNamespace().getObjectCount(), 1)
-        klObject = klEnv.getGlobalNamespace().getObject('Foo')
+        self.klEnv.parseSourceCode(sourceCode)
+        self.assertEqual(self.klEnv.getGlobalNamespace().getObjectCount(), 1)
+        klObject = self.klEnv.getGlobalNamespace().getObject('Foo')
         self.assertEqual(klObject.getName(), 'Foo')
         self.assertEqual(klObject.getMemberCount(), 4)
         self.assertEqual(klObject.getMember(0).getAccess(), 'public')
@@ -292,9 +342,9 @@ class KLWrapper(unittest.TestCase):
                 Scalar offset;
             };
             '''
-        klEnv = KLEnv(sourceCode)
-        self.assertEqual(klEnv.getGlobalNamespace().getStructCount(), 1)
-        klStruct = klEnv.getGlobalNamespace().getStruct('Foo')
+        self.klEnv.parseSourceCode(sourceCode)
+        self.assertEqual(self.klEnv.getGlobalNamespace().getStructCount(), 1)
+        klStruct = self.klEnv.getGlobalNamespace().getStruct('Foo')
         self.assertEqual(klStruct.getName(), 'Foo')
         self.assertEqual(klStruct.getMemberCount(), 4)
         self.assertEqual(klStruct.getMember(0).getAccess(), 'public')
@@ -321,9 +371,9 @@ class KLWrapper(unittest.TestCase):
             Foo(String name) { this.name = name; }
             Foo(String name, Boolean state) { this.name = name; this.state = state; }
             '''
-        klEnv = KLEnv(sourceCode)
-        self.assertEqual(klEnv.getGlobalNamespace().getObjectCount(), 1)
-        klObject = klEnv.getGlobalNamespace().getObject('Foo')
+        self.klEnv.parseSourceCode(sourceCode)
+        self.assertEqual(self.klEnv.getGlobalNamespace().getObjectCount(), 1)
+        klObject = self.klEnv.getGlobalNamespace().getObject('Foo')
         self.assertEqual(klObject.getName(), 'Foo')
         self.assertEqual(klObject.getConstructorCount(), 2)
         klConstructor = klObject.getConstructor(0)
@@ -348,9 +398,9 @@ class KLWrapper(unittest.TestCase):
             Foo(String name) { this.name = name; }
             ~Foo() {}
             '''
-        klEnv = KLEnv(sourceCode)
-        self.assertEqual(klEnv.getGlobalNamespace().getObjectCount(), 1)
-        klObject = klEnv.getGlobalNamespace().getObject('Foo')
+        self.klEnv.parseSourceCode(sourceCode)
+        self.assertEqual(self.klEnv.getGlobalNamespace().getObjectCount(), 1)
+        klObject = self.klEnv.getGlobalNamespace().getObject('Foo')
         self.assertEqual(klObject.getName(), 'Foo')
         self.assertEqual(klObject.getConstructorCount(), 1)
         self.assertEqual(klObject.getHasDestructor(), True)
@@ -366,9 +416,9 @@ class KLWrapper(unittest.TestCase):
                 private Boolean state;
             };
             '''
-        klEnv = KLEnv(sourceCode)
-        self.assertEqual(klEnv.getGlobalNamespace().getObjectCount(), 1)
-        klObject = klEnv.getGlobalNamespace().getObject('Foo')
+        self.klEnv.parseSourceCode(sourceCode)
+        self.assertEqual(self.klEnv.getGlobalNamespace().getObjectCount(), 1)
+        klObject = self.klEnv.getGlobalNamespace().getObject('Foo')
         self.assertEqual(klObject.getName(), 'Foo')
         self.assertEqual(klObject.getConstructorCount(), 2)
         klConstructor = klObject.getConstructor(0)
@@ -393,9 +443,9 @@ class KLWrapper(unittest.TestCase):
             Foo(String name) { this.name = name; }
             Foo(String name, Boolean state) { this.name = name; this.state = state; }
             '''
-        klEnv = KLEnv(sourceCode)
-        self.assertEqual(klEnv.getGlobalNamespace().getStructCount(), 1)
-        klStruct = klEnv.getGlobalNamespace().getStruct('Foo')
+        self.klEnv.parseSourceCode(sourceCode)
+        self.assertEqual(self.klEnv.getGlobalNamespace().getStructCount(), 1)
+        klStruct = self.klEnv.getGlobalNamespace().getStruct('Foo')
         self.assertEqual(klStruct.getName(), 'Foo')
         self.assertEqual(klStruct.getConstructorCount(), 2)
         klConstructor = klStruct.getConstructor(0)
@@ -420,9 +470,9 @@ class KLWrapper(unittest.TestCase):
                 private Boolean state;
             };
             '''
-        klEnv = KLEnv(sourceCode)
-        self.assertEqual(klEnv.getGlobalNamespace().getStructCount(), 1)
-        klStruct = klEnv.getGlobalNamespace().getStruct('Foo')
+        self.klEnv.parseSourceCode(sourceCode)
+        self.assertEqual(self.klEnv.getGlobalNamespace().getStructCount(), 1)
+        klStruct = self.klEnv.getGlobalNamespace().getStruct('Foo')
         self.assertEqual(klStruct.getName(), 'Foo')
         self.assertEqual(klStruct.getConstructorCount(), 2)
         klConstructor = klStruct.getConstructor(0)
@@ -447,9 +497,9 @@ class KLWrapper(unittest.TestCase):
             Foo(String name) { this.name = name; }
             ~Foo() {}
             '''
-        klEnv = KLEnv(sourceCode)
-        self.assertEqual(klEnv.getGlobalNamespace().getStructCount(), 1)
-        klStruct = klEnv.getGlobalNamespace().getStruct('Foo')
+        self.klEnv.parseSourceCode(sourceCode)
+        self.assertEqual(self.klEnv.getGlobalNamespace().getStructCount(), 1)
+        klStruct = self.klEnv.getGlobalNamespace().getStruct('Foo')
         self.assertEqual(klStruct.getName(), 'Foo')
         self.assertEqual(klStruct.getConstructorCount(), 1)
         self.assertEqual(klStruct.getHasDestructor(), True)
@@ -466,9 +516,9 @@ class KLWrapper(unittest.TestCase):
             };
             Foo(String name, Boolean state) { this.name = name; this.state = state; }
             '''
-        klEnv = KLEnv(sourceCode)
-        self.assertEqual(klEnv.getGlobalNamespace().getObjectCount(), 1)
-        klObject = klEnv.getGlobalNamespace().getObject('Foo')
+        self.klEnv.parseSourceCode(sourceCode)
+        self.assertEqual(self.klEnv.getGlobalNamespace().getObjectCount(), 1)
+        klObject = self.klEnv.getGlobalNamespace().getObject('Foo')
         self.assertEqual(klObject.getName(), 'Foo')
         self.assertEqual(klObject.getConstructorCount(), 2)
 
@@ -484,9 +534,9 @@ class KLWrapper(unittest.TestCase):
             };
             Foo(String name, Boolean state) { this.name = name; this.state = state; }
             '''
-        klEnv = KLEnv(sourceCode)
-        self.assertEqual(klEnv.getGlobalNamespace().getStructCount(), 1)
-        klStruct = klEnv.getGlobalNamespace().getStruct('Foo')
+        self.klEnv.parseSourceCode(sourceCode)
+        self.assertEqual(self.klEnv.getGlobalNamespace().getStructCount(), 1)
+        klStruct = self.klEnv.getGlobalNamespace().getStruct('Foo')
         self.assertEqual(klStruct.getName(), 'Foo')
         self.assertEqual(klStruct.getConstructorCount(), 2)
 
@@ -506,9 +556,9 @@ class KLWrapper(unittest.TestCase):
             Foo.setup() {}
             Foo.doSomething() {}
             '''
-        klEnv = KLEnv(sourceCode)
-        self.assertEqual(klEnv.getGlobalNamespace().getObjectCount(), 1)
-        klObject = klEnv.getGlobalNamespace().getObject('Foo')
+        self.klEnv.parseSourceCode(sourceCode)
+        self.assertEqual(self.klEnv.getGlobalNamespace().getObjectCount(), 1)
+        klObject = self.klEnv.getGlobalNamespace().getObject('Foo')
         self.assertEqual(klObject.getName(), 'Foo')
         self.assertEqual(klObject.getGetterCount(), 2)
         self.assertEqual(klObject.getGetter(0).getName(), 'getName')
@@ -545,9 +595,9 @@ class KLWrapper(unittest.TestCase):
             Foo.setup() {}
             Foo.doSomething() {}
             '''
-        klEnv = KLEnv(sourceCode)
-        self.assertEqual(klEnv.getGlobalNamespace().getStructCount(), 1)
-        klStruct = klEnv.getGlobalNamespace().getStruct('Foo')
+        self.klEnv.parseSourceCode(sourceCode)
+        self.assertEqual(self.klEnv.getGlobalNamespace().getStructCount(), 1)
+        klStruct = self.klEnv.getGlobalNamespace().getStruct('Foo')
         self.assertEqual(klStruct.getName(), 'Foo')
         self.assertEqual(klStruct.getGetterCount(), 2)
         self.assertEqual(klStruct.getGetter(0).getName(), 'getName')
@@ -584,9 +634,9 @@ class KLWrapper(unittest.TestCase):
             Foo.setup(Boolean b) {}
             String Foo.doSomething() {}
             '''
-        klEnv = KLEnv(sourceCode)
-        self.assertEqual(klEnv.getGlobalNamespace().getObjectCount(), 1)
-        klObject = klEnv.getGlobalNamespace().getObject('Foo')
+        self.klEnv.parseSourceCode(sourceCode)
+        self.assertEqual(self.klEnv.getGlobalNamespace().getObjectCount(), 1)
+        klObject = self.klEnv.getGlobalNamespace().getObject('Foo')
         self.assertEqual(klObject.getName(), 'Foo')
         self.assertEqual(klObject.getMethodCount(), 2)
         self.assertEqual(klObject.getMethod(0).getName(), 'setup')
@@ -616,9 +666,9 @@ class KLWrapper(unittest.TestCase):
               this.value = this.value * k;
             }
             '''
-        klEnv = KLEnv(sourceCode)
-        self.assertEqual(klEnv.getGlobalNamespace().getObjectCount(), 1)
-        klObject = klEnv.getGlobalNamespace().getObject('Foo')
+        self.klEnv.parseSourceCode(sourceCode)
+        self.assertEqual(self.klEnv.getGlobalNamespace().getObjectCount(), 1)
+        klObject = self.klEnv.getGlobalNamespace().getObject('Foo')
         self.assertEqual(klObject.getOperatorCount(), 3)
         klOp = klObject.getOperator(0)
         self.assertEqual(klOp.getName(), 'mul')
@@ -652,9 +702,9 @@ class KLWrapper(unittest.TestCase):
             Foo.setup(Boolean b) {}
             String Foo.doSomething() {}
             '''
-        klEnv = KLEnv(sourceCode)
-        self.assertEqual(klEnv.getGlobalNamespace().getStructCount(), 1)
-        klStruct = klEnv.getGlobalNamespace().getStruct('Foo')
+        self.klEnv.parseSourceCode(sourceCode)
+        self.assertEqual(self.klEnv.getGlobalNamespace().getStructCount(), 1)
+        klStruct = self.klEnv.getGlobalNamespace().getStruct('Foo')
         self.assertEqual(klStruct.getName(), 'Foo')
         self.assertEqual(klStruct.getMethodCount(), 2)
         self.assertEqual(klStruct.getMethod(0).getName(), 'setup')
@@ -684,9 +734,9 @@ class KLWrapper(unittest.TestCase):
               this.value = this.value * k;
             }
             '''
-        klEnv = KLEnv(sourceCode)
-        self.assertEqual(klEnv.getGlobalNamespace().getStructCount(), 1)
-        klStruct = klEnv.getGlobalNamespace().getStruct('Foo')
+        self.klEnv.parseSourceCode(sourceCode)
+        self.assertEqual(self.klEnv.getGlobalNamespace().getStructCount(), 1)
+        klStruct = self.klEnv.getGlobalNamespace().getStruct('Foo')
         self.assertEqual(klStruct.getOperatorCount(), 3)
         klOp = klStruct.getOperator(0)
         self.assertEqual(klOp.getName(), 'mul')
@@ -712,14 +762,21 @@ class KLWrapper(unittest.TestCase):
              {
                  public Integer value;
              };
+             Foo(Integer value) { this.value = value; }
              Foo + (Foo a, Foo b) {
                return Foo(a.value + b.value);
              }
+             inline Boolean != (Foo lhs, Foo rhs) {
+               return !lhs.equal(rhs);
+             }
+             inline Foo -Foo() {
+               return Foo(-this.value);
+             }
              '''
-        klEnv = KLEnv(sourceCode)
-        self.assertEqual(klEnv.getGlobalNamespace().getStructCount(), 1)
-        self.assertEqual(klEnv.getGlobalNamespace().getOperatorCount(), 1)
-        klOp = klEnv.getGlobalNamespace().getOperator(0)
+        self.klEnv.parseSourceCode(sourceCode)
+        self.assertEqual(self.klEnv.getGlobalNamespace().getStructCount(), 1)
+        self.assertEqual(self.klEnv.getGlobalNamespace().getOperatorCount(), 3)
+        klOp = self.klEnv.getGlobalNamespace().getOperator(0)
         self.assertEqual(klOp.getName(), 'add')
         self.assertEqual(klOp.getReturnType(), 'Foo')
         self.assertEqual(klOp.getAccess(), 'unspecified')
@@ -728,26 +785,49 @@ class KLWrapper(unittest.TestCase):
         self.assertEqual(klOp.getParam(0).getType(), 'Foo')
         self.assertEqual(klOp.getParam(1).getName(), 'b')
         self.assertEqual(klOp.getParam(1).getType(), 'Foo')
+        klOp = self.klEnv.getGlobalNamespace().getOperator(1)
+        self.assertEqual(klOp.getName(), 'ne')
+        self.assertEqual(klOp.getReturnType(), 'Boolean')
+        self.assertEqual(klOp.getAccess(), 'unspecified')
+        self.assertEqual(klOp.getParamCount(), 2)
+        self.assertEqual(klOp.getParam(0).getName(), 'lhs')
+        self.assertEqual(klOp.getParam(0).getType(), 'Foo')
+        self.assertEqual(klOp.getParam(1).getName(), 'rhs')
+        self.assertEqual(klOp.getParam(1).getType(), 'Foo')
+        klOp = self.klEnv.getGlobalNamespace().getOperator(2)
+        self.assertEqual(klOp.getName(), 'NEG')
+        self.assertEqual(klOp.getReturnType(), 'Foo')
+        self.assertEqual(klOp.getAccess(), 'unspecified')
+        self.assertEqual(klOp.getParamCount(), 0)
 
     #=========================================================================
     def test_RequireGorGonCore(self):
         sourceCode = '''
             require GorGon_Core;
             '''
-        klEnv = KLEnv(sourceCode)
-        self.assertEqual(klEnv.getGlobalNamespace().getObjectCount(), 9)
-        self.assertEqual(klEnv.getGlobalNamespace().getStructCount(), 26)
-        self.assertEqual(klEnv.getGlobalNamespace().getFunctionCount(), 42)
+        self.klEnv.parseSourceCode(sourceCode)
+        self.assertEqual(self.klEnv.getGlobalNamespace().getObjectCount(), 9)
+        self.assertEqual(self.klEnv.getGlobalNamespace().getStructCount(), 26)
+        self.assertEqual(self.klEnv.getGlobalNamespace().getFunctionCount(), 42)
+        self.assertEqual(self.klEnv.getGlobalNamespace().getOperatorCount(), 0)
+        self.assertEqual(self.klEnv.getGlobalNamespace().getConstantCount(), 26)
+        self.assertEqual(self.klEnv.getNamespace('GorGon::Core').getObjectCount(), 5)
+        self.assertEqual(self.klEnv.getNamespace('GorGon::Core').getStructCount(), 0)
+        self.assertEqual(self.klEnv.getNamespace('GorGon::Core').getFunctionCount(), 19)
+        self.assertEqual(self.klEnv.getNamespace('GorGon::Core').getOperatorCount(), 0)
+        self.assertEqual(self.klEnv.getNamespace('GorGon::Core').getConstantCount(), 0)
 
     #=========================================================================
     def test_RequireFabricMaths(self):
         sourceCode = '''
             require Math;
             '''
-        klEnv = KLEnv(sourceCode)
-        self.assertEqual(klEnv.getGlobalNamespace().getObjectCount(), 0)
-        self.assertEqual(klEnv.getGlobalNamespace().getStructCount(), 57)
-        self.assertEqual(klEnv.getGlobalNamespace().getFunctionCount(), 80)
+        self.klEnv.parseSourceCode(sourceCode)
+        self.assertEqual(self.klEnv.getGlobalNamespace().getObjectCount(), 0)
+        self.assertEqual(self.klEnv.getGlobalNamespace().getStructCount(), 57)
+        self.assertEqual(self.klEnv.getGlobalNamespace().getFunctionCount(), 80)
+        self.assertEqual(self.klEnv.getGlobalNamespace().getOperatorCount(), 534)
+        self.assertEqual(self.klEnv.getGlobalNamespace().getConstantCount(), 19)
 
 
 if __name__ == '__main__':

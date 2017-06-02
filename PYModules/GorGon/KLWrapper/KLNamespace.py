@@ -8,6 +8,7 @@ class KLNamespace:
         self.__functions = {}
         self.__operators = []
         self.__aliases = {}
+        self.__constants = {}
 
     def getName(self):
         return self.__name
@@ -85,4 +86,22 @@ class KLNamespace:
         return aliasName in self.__aliases
 
     def getAliasNames(self):
-        return self.__aliases.keys()
+        return self.__constants.keys()
+
+    def getConstantCount(self):
+        return len(self.__constants)
+
+    def getConstantNames(self):
+        return self.__constants.keys()
+
+    def addConstant(self, obj):
+        self.__constants[obj.getName()] = obj
+
+    def getConstant(self, constantName):
+        return self.__constants[constantName]
+
+    def hasConstant(self, constantName):
+        return constantName in self.__constants
+
+    def getConstantNames(self):
+        return self.__constants.keys()
