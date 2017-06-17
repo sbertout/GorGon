@@ -111,15 +111,3 @@ class KLNamespace:
 
     def hasConstant(self, constantName):
         return constantName in self.__constants
-
-    def getExtensionNames(self):
-        return self.__extensions.keys()
-
-    def addExtension(self, ext):
-        self.__extensions[ext.getName()] = ext
-
-    def getExtension(self, extensionName):
-        return self.__extensions[extensionName]
-
-    def hasExtension(self, extensionName):
-        return extensionName in self.__extensions

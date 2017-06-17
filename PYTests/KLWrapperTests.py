@@ -76,7 +76,7 @@ class KLWrapperTests(unittest.TestCase):
             self.klEnv.parseSourceCode('require {};'.format(testFuncName))
         else:
             self.klEnv.parseSourceCode(sourceCode)
-        klExtension = self.klEnv.getExtension('[MEM]') if not useExtension else self.klEnv.getExtension(testFuncName)
+        klExtension = self.klEnv.getRTExtension() if not useExtension else self.klEnv.getExtension(testFuncName)
         klNamespace = klExtension.getGlobalNamespace() if not useNamespace else klExtension.getNamespace('FooNamespace')
         return klExtension, klNamespace
 
@@ -118,12 +118,12 @@ class KLWrapperTests(unittest.TestCase):
 
     def test_KLConstants_E0_N1_(self):
         klExtension, klNamespace = self.__setup(self.sourceCode_KLConstants, sys._getframe().f_code.co_name)
-        self.assertEqual(str(self.klEnv.getExtensionNames()), "['[MEM]']")
+        self.assertEqual(str(self.klEnv.getExtensionNames()), "['[RT]']")
         self.__test_KLConstants_Content(klNamespace)
 
     def test_KLConstants_E0_N0_(self):
         klExtension, klNamespace = self.__setup(self.sourceCode_KLConstants, sys._getframe().f_code.co_name)
-        self.assertEqual(str(self.klEnv.getExtensionNames()), "['[MEM]']")
+        self.assertEqual(str(self.klEnv.getExtensionNames()), "['[RT]']")
         self.__test_KLConstants_Content(klNamespace)
 
     #===================================================================================================================

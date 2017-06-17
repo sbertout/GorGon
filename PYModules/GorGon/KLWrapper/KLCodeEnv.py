@@ -11,6 +11,8 @@ from KLExtension import KLExtension
 
 class KLCodeEnv:
 
+    RT_EXTENSION_NAME = '[RT]'
+
     def __init__(self):
         self.__fabricClient = FECore.createClient()
         self.reset()
@@ -19,31 +21,30 @@ class KLCodeEnv:
         return self.__fabricClient
 
     def reset(self):
-        self.__globalNamespace = KLNamespace('global') # to remove
-        self.__namespaces = {} # to remove
+        self.__namespaces = {}
         self.__extensions = {}
 
-    def parseSourceCode(self, sourceCode):
-        ast = self.__fabricClient.getKLJSONAST('AST.kl', sourceCode, True)
+    def parseSourceCode(self, sourceCode, includeRequires = True):
+        ast = self.__fabricClient.getKLJSONAST('AST.kl', sourceCode, includeRequires)
         data = json.loads(ast.getStringCString())['ast']
         for ext in data:
             for d in ext:
-                self.__preParse(d, self.__globalNamespace)
+                self.__preParse(d, 'global')
         for ext in data:
             for d in ext:
-                self.__parse(d, self.__globalNamespace)
+                self.__parse(d, 'global')
         for ext in data:
             for d in ext:
-                self.__postParse(d, self.__globalNamespace)
-
-    def getGlobalNamespace(self):
-        return self.__globalNamespace
+                self.__postParse(d, 'global')
 
     def getNamespaceCount(self):
         return len(self.__namespaces)
 
+    def hasNamespace(self, name):
+        return name in self.__namespaces
+
     def getNamespace(self, name):
-        if name not in self.__namespaces:
+        if self.hasNamespace(name) is False:
             return None
         return self.__namespaces[name]
 
@@ -68,7 +69,7 @@ class KLCodeEnv:
         return self.__extensions[extensionName]
 
     def getRTExtension(self):
-        return self.getExtension('[MEM]') # todo: rename this to [RT]
+        return self.getExtension(KLCodeEnv.RT_EXTENSION_NAME)
 
     def hasExtension(self, extensionName):
         return extensionName in self.__extensions
@@ -87,10 +88,10 @@ class KLCodeEnv:
         if funcName[3].islower(): return False
         return True
 
-    def __preParse(self, data, currentKLNamespace):
+    def __preParse(self, data, currentKLNamespaceName):
         if isinstance(data, dict):
             if 'globalList' in data:
-                self.__preParse(data['globalList'], currentKLNamespace)
+                self.__preParse(data['globalList'], currentKLNamespaceName)
         elif isinstance(data, list):
             for elementList in data:
                 elementType = elementList['type']
@@ -107,17 +108,16 @@ class KLCodeEnv:
                             extensionName = d['name']
                             if self.hasExtension(extensionName) is False:
                                 self.addExtension(KLExtension(extensionName))
-
         else:
             for d in data:
-                self.__preParse(d, currentKLNamespace)
+                self.__preParse(d, currentKLNamespaceName)
 
-    def __parse(self, data, currentKLNamespace):
+    def __parse(self, data, currentKLNamespaceName):
         elementTypeToSkip = ['RequireGlobal', 'Function', 'MethodOpImpl', 'Destructor', 'AssignOpImpl', 'BinOpImpl', 'ComparisonOpImpl', 'ASTUniOpDecl', 'GlobalConstDecl'] # supported in __parse
         elementTypeToSkip.append('Operator') # for now
         if isinstance(data, dict):
             if 'globalList' in data:
-                self.__parse(data['globalList'], currentKLNamespace)
+                self.__parse(data['globalList'], currentKLNamespaceName)
         elif isinstance(data, list):
             for elementList in data:
                 elementType = elementList['type']
@@ -126,14 +126,14 @@ class KLCodeEnv:
                     klNamespaceName = elementList['namespacePath']
                     klNamespace = self.getNamespace(klNamespaceName)
                     if klNamespace is None:
-                        klNamespace = self.addNamespace(klNamespaceName)
-                    self.__parse(elementList['globalList'], klNamespace)
+                        self.addNamespace(klNamespaceName)
+                    self.__parse(elementList['globalList'], klNamespaceName)
 
                 elif elementType == 'ASTInterfaceDecl':
                     interfaceName = elementList['name']
                     interfaceMembers = elementList['members'] if 'members' in elementList else []
 
-                    currentKLN = self.__getCurrentNamespace(elementList, currentKLNamespace)
+                    currentKLN = self.__getCurrentNamespace(elementList, currentKLNamespaceName)
 
                     if not currentKLN.hasInterface(interfaceName):
                         currentKLN.addInterface(KLInterface(interfaceName))
@@ -143,7 +143,7 @@ class KLCodeEnv:
                     objectName = elementList['name']
                     objectMembers = elementList['members'] if 'members' in elementList else []
 
-                    currentKLN = self.__getCurrentNamespace(elementList, currentKLNamespace)
+                    currentKLN = self.__getCurrentNamespace(elementList, currentKLNamespaceName)
 
                     if not currentKLN.hasObject(objectName):
                         currentKLN.addObject(KLObject(objectName, objectMembers))
@@ -154,7 +154,7 @@ class KLCodeEnv:
                     structName = elementList['name']
                     structMembers = elementList['members'] if 'members' in elementList else []
 
-                    currentKLN = self.__getCurrentNamespace(elementList, currentKLNamespace)
+                    currentKLN = self.__getCurrentNamespace(elementList, currentKLNamespaceName)
 
                     if not currentKLN.hasStruct(structName):
                         currentKLN.addStruct(KLStruct(structName, structMembers))
@@ -165,7 +165,7 @@ class KLCodeEnv:
                     aliasName = elementList['newUserName']
                     aliasSourceName = elementList['oldUserName']
 
-                    currentKLN = self.__getCurrentNamespace(elementList, currentKLNamespace)
+                    currentKLN = self.__getCurrentNamespace(elementList, currentKLNamespaceName)
 
                     if not currentKLN.hasAlias(aliasName):
                         currentKLN.addAlias(KLAlias(aliasName, aliasSourceName))
@@ -174,36 +174,29 @@ class KLCodeEnv:
                         print 'Alias defined again? WTF?'
 
                 elif elementType == 'ASTUsingGlobal':
-                    extensionName = elementList['owningExtName']
-
-                    currentKLN = self.__getCurrentNamespace(elementList, currentKLNamespace)
-
-                    if currentKLN.hasExtension(extensionName) is False:
-                        currentKLN.addExtension(KLExtension(extensionName))
-                    currentKLN.getExtension(extensionName).addExtensionDependency(elementList['namespacePath'])
+                    currentExt = self.__getCurrentExtension(elementList)
+                    currentExt.addExtensionDependency(elementList['namespacePath'])
 
                 elif elementType not in elementTypeToSkip:
                     print '================ Unsupported AST element type:', elementType
                     print elementList.keys()
                     print elementList.values()
-
         else:
             for d in data:
-                self.__parse(d, currentKLNamespace)
+                self.__parse(d, currentKLNamespaceName)
 
-    def __postParse(self, data, currentKLNamespace):
+    def __postParse(self, data, currentKLNamespaceName):
         if isinstance(data, dict):
             if 'globalList' in data:
-                self.__postParse(data['globalList'], currentKLNamespace)
+                self.__postParse(data['globalList'], currentKLNamespaceName)
         elif isinstance(data, list):
             for elementList in data:
                 elementType = elementList['type']
 
                 if elementType == 'ASTNamespaceGlobal':
                     klNamespaceName = elementList['namespacePath']
-                    klNamespace = self.getNamespace(klNamespaceName)
                     # no namespace to create but we still need to parse it!
-                    self.__postParse(elementList['globalList'], klNamespace)
+                    self.__postParse(elementList['globalList'], klNamespaceName)
 
                 elif elementType == 'ASTObjectDecl':
                     pass # already processed in __preparse
@@ -220,7 +213,7 @@ class KLCodeEnv:
                     if params:
                         klFunction.addParams(params)
 
-                    currentKLN = self.__getCurrentNamespace(elementList, currentKLNamespace)  # todo use currentKLNamespaceName and refactor the code! we only need the namespace name not the object
+                    currentKLN = self.__getCurrentNamespace(elementList, currentKLNamespaceName)  # todo use currentKLNamespaceName and refactor the code! we only need the namespace name not the object
                     if currentKLN.hasObject(functionName):
                         klObject = currentKLN.getObject(functionName)
                         klObject.addConstructor(klFunction)
@@ -235,7 +228,7 @@ class KLCodeEnv:
                 elif elementType == "Destructor":
                     objectName = elementList['thisType']
 
-                    currentKLN = self.__getCurrentNamespace(elementList, currentKLNamespace)
+                    currentKLN = self.__getCurrentNamespace(elementList, currentKLNamespaceName)
                     if currentKLN.hasObject(objectName):
                         klObject = currentKLN.getObject(objectName)
                         klObject.setHasDestructor(True)
@@ -248,7 +241,7 @@ class KLCodeEnv:
                 elif elementType == 'MethodOpImpl':
                     methodName = elementList['name']
                     objectName = elementList['thisType']
-                    currentKLN = self.__getCurrentNamespace(elementList, currentKLNamespace)  # todo use currentKLNamespaceName and refactor the code! we only need the namespace name not the object
+                    currentKLN = self.__getCurrentNamespace(elementList, currentKLNamespaceName)  # todo use currentKLNamespaceName and refactor the code! we only need the namespace name not the object
 
                     if currentKLN.hasObject(objectName):
                         klObject = currentKLN.getObject(objectName)
@@ -293,7 +286,7 @@ class KLCodeEnv:
                     opName = elementList['assignOpType']
                     objectName = elementList['thisType']
 
-                    currentKLN = self.__getCurrentNamespace(elementList, currentKLNamespace) # todo use currentKLNamespaceName and refactor the code! we only need the namespace name not the object
+                    currentKLN = self.__getCurrentNamespace(elementList, currentKLNamespaceName) # todo use currentKLNamespaceName and refactor the code! we only need the namespace name not the object
                     if currentKLN.hasObject(objectName):
                         klObject = currentKLN.getObject(objectName)
                         access = elementList['access']
@@ -325,7 +318,7 @@ class KLCodeEnv:
                     klOp.addParams(elementList['lhs'])
                     klOp.addParams(elementList['rhs'])
 
-                    currentKLN = self.__getCurrentNamespace(elementList, currentKLNamespace)
+                    currentKLN = self.__getCurrentNamespace(elementList, currentKLNamespaceName)
                     currentKLN.addOperator(klOp)
 
                 elif elementType == 'ASTUniOpDecl':
@@ -336,7 +329,7 @@ class KLCodeEnv:
 
                     klOp = KLFunction(opName, returnType=returnType, access=access)
 
-                    currentKLN = self.__getCurrentNamespace(elementList, currentKLNamespace)
+                    currentKLN = self.__getCurrentNamespace(elementList, currentKLNamespaceName)
                     currentKLN.addOperator(klOp)
 
                 elif elementType == 'GlobalConstDecl':
@@ -373,19 +366,21 @@ class KLCodeEnv:
                     else:
                         constValue = val['valueBool'] if 'valueBool' in val else val['valueString']
 
-                    currentKLN = self.__getCurrentNamespace(elementList, currentKLNamespace)
+                    currentKLN = self.__getCurrentNamespace(elementList, currentKLNamespaceName)
                     currentKLN.addConstant(KLConstant(constType, constName, constValue))
 
                 else:
                     pass # parse should let us know if/when something is not supported!
-
         else:
             for d in data:
-                self.__postParse(d, currentKLNamespace)
+                self.__postParse(d, currentKLNamespaceName)
 
     @staticmethod
     def __getExtensionName(elementList):
-        return elementList['owningExtName'] if 'owningExtName' in elementList else '[MEM]' # todo: store that somewhere
+        return elementList['owningExtName'] if 'owningExtName' in elementList else KLCodeEnv.RT_EXTENSION_NAME
 
-    def __getCurrentNamespace(self, elementList, currentKLNamespace):
-        return self.getExtension(self.__getExtensionName(elementList), True).getNamespace(currentKLNamespace.getName(), True)
+    def __getCurrentNamespace(self, elementList, currentKLNamespaceName):
+        return self.getExtension(self.__getExtensionName(elementList), True).getNamespace(currentKLNamespaceName, True)
+
+    def __getCurrentExtension(self, elementList):
+        return self.getExtension(self.__getExtensionName(elementList), True)
