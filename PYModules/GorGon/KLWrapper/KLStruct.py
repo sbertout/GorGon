@@ -18,7 +18,7 @@ class KLStruct:
     def getName(self):
         return self.__name
 
-    def setHasDestructor(self, b):
+    def _setHasDestructor(self, b):
         self.__hasDestructor = b
 
     def getHasDestructor(self):
@@ -27,13 +27,13 @@ class KLStruct:
     def getConstructorCount(self):
         return len(self.__constructors)
 
-    def addConstructor(self, constructor):
+    def _addConstructor(self, constructor):
         self.__constructors.append(constructor)
 
     def getConstructor(self, idx):
         return self.__constructors[idx]
 
-    def setMembers(self, members):
+    def _setMembers(self, members):
         for m in members:
             self.__members.append(KLMember(m['access'], m['baseType'], m['memberDecls'][0]['name']))
 
@@ -49,15 +49,15 @@ class KLStruct:
     def getSetterCount(self):
         return len(self.__setters)
 
-    def addGetter(self, methodName, returnType, access):
+    def _addGetter(self, methodName, returnType, access):
         self.__getters.append(KLFunction(methodName, returnType=returnType, access=access))
 
     def getGetter(self, idx):
         return self.__getters[idx]
 
-    def addSetter(self, methodName, params, access):
+    def _addSetter(self, methodName, params, access):
         setterFunc = KLFunction(methodName, access=access)
-        setterFunc.addParams(params)
+        setterFunc._addParams(params)
         self.__setters.append(setterFunc)
 
     def getSetter(self, idx):
@@ -66,9 +66,9 @@ class KLStruct:
     def getMethodCount(self):
         return len(self.__methods)
 
-    def addMethod(self, methodName, returnType, params, access):
+    def _addMethod(self, methodName, returnType, params, access):
         methodFunc = KLFunction(methodName, returnType=returnType, access=access)
-        methodFunc.addParams(params)
+        methodFunc._addParams(params)
         self.__methods.append(methodFunc)
 
     def getMethod(self, idx):
@@ -77,9 +77,9 @@ class KLStruct:
     def getOperatorCount(self):
         return len(self.__operators)
 
-    def addOperator(self, operatorName, params, access):
+    def _addOperator(self, operatorName, params, access):
         operatorFunc = KLFunction(operatorName, access=access)
-        operatorFunc.addParams(params)
+        operatorFunc._addParams(params)
         self.__operators.append(operatorFunc)
 
     def getOperator(self, idx):

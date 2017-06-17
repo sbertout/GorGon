@@ -9,7 +9,7 @@ class KLInterface:
     def getName(self):
         return self.__name
 
-    def setMembers(self, members):
+    def _setMembers(self, members):
         for m in members:
             functionName = m['name']
             access = m['cgAccess']
@@ -17,7 +17,7 @@ class KLInterface:
             params = m['params'] if 'params' in m else None
             klFunction = KLFunction(functionName, returnType=returnType, access=access)
             if params:
-                klFunction.addParams(params)
+                klFunction._addParams(params)
             self.__members.append(klFunction)
 
     def getMemberCount(self):

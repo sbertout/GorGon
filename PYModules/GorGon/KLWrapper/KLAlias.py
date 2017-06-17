@@ -17,9 +17,9 @@ class KLAlias:
     def getMethodCount(self):
         return len(self.__methods)
 
-    def addMethod(self, methodName, returnType, params, access):
+    def _addMethod(self, methodName, returnType, params, access):
         methodFunc = KLFunction(methodName, returnType=returnType, access=access)
-        methodFunc.addParams(params)
+        methodFunc._addParams(params)
         self.__methods.append(methodFunc)
 
     def getMethod(self, idx):
@@ -28,9 +28,9 @@ class KLAlias:
     def getOperatorCount(self):
         return len(self.__operators)
 
-    def addOperator(self, operatorName, params, access):
+    def _addOperator(self, operatorName, params, access):
         operatorFunc = KLFunction(operatorName, access=access)
-        operatorFunc.addParams(params)
+        operatorFunc._addParams(params)
         self.__operators.append(operatorFunc)
 
     def getOperator(self, idx):

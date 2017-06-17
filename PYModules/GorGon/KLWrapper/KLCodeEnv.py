@@ -11,7 +11,7 @@ from KLExtension import KLExtension
 
 class KLCodeEnv:
 
-    RT_EXTENSION_NAME = '[RT]'
+    __RT_EXTENSION_NAME = '[RT]'
 
     def __init__(self):
         self.__fabricClient = FECore.createClient()
@@ -21,7 +21,6 @@ class KLCodeEnv:
         return self.__fabricClient
 
     def reset(self):
-        self.__namespaces = {}
         self.__extensions = {}
 
     def parseSourceCode(self, sourceCode, includeRequires = True):
@@ -37,39 +36,26 @@ class KLCodeEnv:
             for d in ext:
                 self.__postParse(d, 'global')
 
-    def getNamespaceCount(self):
-        return len(self.__namespaces)
-
-    def hasNamespace(self, name):
-        return name in self.__namespaces
-
-    def getNamespace(self, name):
-        if self.hasNamespace(name) is False:
-            return None
-        return self.__namespaces[name]
-
-    def addNamespace(self, namespaceName):
-        namespace = KLNamespace(namespaceName)
-        self.__namespaces[namespaceName] = namespace
-        return namespace
-
     def getNamespaceNames(self):
-        return self.__namespaces.keys()
+        namespaceNames = []
+        for ext_name in self.getExtensionNames():
+            namespaceNames.extend(self.getExtension(ext_name).getNamespaceNames())
+        return list(set(namespaceNames))
 
     def getExtensionNames(self):
         return self.__extensions.keys()
 
-    def addExtension(self, ext):
+    def __addExtension(self, ext):
         self.__extensions[ext.getName()] = ext
 
     def getExtension(self, extensionName, addExtensionIfMissing=False):
         if addExtensionIfMissing:
             if self.hasExtension(extensionName) is False:
-                self.addExtension(KLExtension(extensionName))
+                self.__addExtension(KLExtension(extensionName))
         return self.__extensions[extensionName]
 
     def getRTExtension(self):
-        return self.getExtension(KLCodeEnv.RT_EXTENSION_NAME)
+        return self.getExtension(KLCodeEnv.__RT_EXTENSION_NAME)
 
     def hasExtension(self, extensionName):
         return extensionName in self.__extensions
@@ -100,78 +86,42 @@ class KLCodeEnv:
                     if 'owningExtName' in elementList:
                         extensionName = elementList['owningExtName']
                         if self.hasExtension(extensionName) is False:
-                            self.addExtension(KLExtension(extensionName))
+                            self.__addExtension(KLExtension(extensionName))
                         for d in elementList['requires']:
                             self.getExtension(extensionName).addExtensionDependency(d['name'])
                     else:
                         for d in elementList['requires']:
                             extensionName = d['name']
                             if self.hasExtension(extensionName) is False:
-                                self.addExtension(KLExtension(extensionName))
+                                self.__addExtension(KLExtension(extensionName))
         else:
             for d in data:
                 self.__preParse(d, currentKLNamespaceName)
 
     def __parse(self, data, currentKLNamespaceName):
-        elementTypeToSkip = ['RequireGlobal', 'Function', 'MethodOpImpl', 'Destructor', 'AssignOpImpl', 'BinOpImpl', 'ComparisonOpImpl', 'ASTUniOpDecl', 'GlobalConstDecl'] # supported in __parse
-        elementTypeToSkip.append('Operator') # for now
         if isinstance(data, dict):
             if 'globalList' in data:
                 self.__parse(data['globalList'], currentKLNamespaceName)
         elif isinstance(data, list):
+            elementTypeToSkip = ['RequireGlobal', 'Function', 'MethodOpImpl', 'Destructor', 'AssignOpImpl', 'BinOpImpl', 'ComparisonOpImpl', 'ASTUniOpDecl', 'GlobalConstDecl'] # supported in __parse
+            elementTypeToSkip.append('Operator') # for now
             for elementList in data:
                 elementType = elementList['type']
 
-                if elementType == 'ASTNamespaceGlobal':
+                functors = {
+                    'ASTInterfaceDecl'  : self.__processInterface,
+                    'ASTObjectDecl'     : self.__processObject,
+                    'ASTStructDecl'     : self.__processStruct,
+                    'Alias'             : self.__processAlias
+                }
+
+                if elementType in functors:
+                    currentKLN = self.__getCurrentNamespace(elementList, currentKLNamespaceName)
+                    functors[elementType](elementList, currentKLN)
+
+                elif elementType == 'ASTNamespaceGlobal':
                     klNamespaceName = elementList['namespacePath']
-                    klNamespace = self.getNamespace(klNamespaceName)
-                    if klNamespace is None:
-                        self.addNamespace(klNamespaceName)
                     self.__parse(elementList['globalList'], klNamespaceName)
-
-                elif elementType == 'ASTInterfaceDecl':
-                    interfaceName = elementList['name']
-                    interfaceMembers = elementList['members'] if 'members' in elementList else []
-
-                    currentKLN = self.__getCurrentNamespace(elementList, currentKLNamespaceName)
-
-                    if not currentKLN.hasInterface(interfaceName):
-                        currentKLN.addInterface(KLInterface(interfaceName))
-                    currentKLN.getInterface(interfaceName).setMembers(interfaceMembers)
-
-                elif elementType == 'ASTObjectDecl':
-                    objectName = elementList['name']
-                    objectMembers = elementList['members'] if 'members' in elementList else []
-
-                    currentKLN = self.__getCurrentNamespace(elementList, currentKLNamespaceName)
-
-                    if not currentKLN.hasObject(objectName):
-                        currentKLN.addObject(KLObject(objectName, objectMembers))
-                    else:
-                        currentKLN.getObject(objectName).setMembers(objectMembers)
-
-                elif elementType == 'ASTStructDecl':
-                    structName = elementList['name']
-                    structMembers = elementList['members'] if 'members' in elementList else []
-
-                    currentKLN = self.__getCurrentNamespace(elementList, currentKLNamespaceName)
-
-                    if not currentKLN.hasStruct(structName):
-                        currentKLN.addStruct(KLStruct(structName, structMembers))
-                    else:
-                        currentKLN.getStruct(structName).setMembers(structMembers)
-
-                elif elementType == 'Alias':
-                    aliasName = elementList['newUserName']
-                    aliasSourceName = elementList['oldUserName']
-
-                    currentKLN = self.__getCurrentNamespace(elementList, currentKLNamespaceName)
-
-                    if not currentKLN.hasAlias(aliasName):
-                        currentKLN.addAlias(KLAlias(aliasName, aliasSourceName))
-
-                    else:
-                        print 'Alias defined again? WTF?'
 
                 elif elementType == 'ASTUsingGlobal':
                     currentExt = self.__getCurrentExtension(elementList)
@@ -193,194 +143,211 @@ class KLCodeEnv:
             for elementList in data:
                 elementType = elementList['type']
 
-                if elementType == 'ASTNamespaceGlobal':
-                    klNamespaceName = elementList['namespacePath']
+                functors = {
+                    'ASTObjectDecl'  : self.__processNothing,
+                    'ASTStructDecl'  : self.__processNothing,
+                    'Function'  : self.__processFunction,
+                    "Destructor"  : self.__processDestructor,
+                    'MethodOpImpl'  : self.__processMethod,
+                    'AssignOpImpl'  : self.__processAssignOp,
+                    'BinOpImpl'  : self.__processBinOrComparisonOp,
+                    'ComparisonOpImpl'  : self.__processBinOrComparisonOp,
+                    'ASTUniOpDecl'  : self.__processUniOp,
+                    'GlobalConstDecl'  : self.__processConstDecl,
+                }
+
+                if elementType in functors:
+                    currentKLN = self.__getCurrentNamespace(elementList, currentKLNamespaceName)
+                    functors[elementType](elementList, currentKLN)
+                elif elementType == 'ASTNamespaceGlobal':
                     # no namespace to create but we still need to parse it!
-                    self.__postParse(elementList['globalList'], klNamespaceName)
-
-                elif elementType == 'ASTObjectDecl':
-                    pass # already processed in __preparse
-
-                elif elementType == 'ASTStructDecl':
-                    pass # already processed in __preparse
-
-                elif elementType == 'Function':
-                    functionName = elementList['name']
-                    access = elementList['access']
-                    returnType = elementList['returnType'] if 'returnType' in elementList else None
-                    params = elementList['params'] if 'params' in elementList else None
-                    klFunction = KLFunction(functionName, returnType=returnType, access=access)
-                    if params:
-                        klFunction.addParams(params)
-
-                    currentKLN = self.__getCurrentNamespace(elementList, currentKLNamespaceName)  # todo use currentKLNamespaceName and refactor the code! we only need the namespace name not the object
-                    if currentKLN.hasObject(functionName):
-                        klObject = currentKLN.getObject(functionName)
-                        klObject.addConstructor(klFunction)
-                    else:
-                        if currentKLN.hasStruct(functionName):
-                            klStruct = currentKLN.getStruct(functionName)
-                            klStruct.addConstructor(klFunction)
-                        else:
-                            # not an object or a struct so it's a global function
-                            currentKLN.addFunction(klFunction)
-
-                elif elementType == "Destructor":
-                    objectName = elementList['thisType']
-
-                    currentKLN = self.__getCurrentNamespace(elementList, currentKLNamespaceName)
-                    if currentKLN.hasObject(objectName):
-                        klObject = currentKLN.getObject(objectName)
-                        klObject.setHasDestructor(True)
-                    elif currentKLN.hasStruct(objectName):
-                        klStruct = currentKLN.getStruct(objectName)
-                        klStruct.setHasDestructor(True)
-                    else:
-                        print '******** WTF (destructor on unknown type??) ??', objectName
-
-                elif elementType == 'MethodOpImpl':
-                    methodName = elementList['name']
-                    objectName = elementList['thisType']
-                    currentKLN = self.__getCurrentNamespace(elementList, currentKLNamespaceName)  # todo use currentKLNamespaceName and refactor the code! we only need the namespace name not the object
-
-                    if currentKLN.hasObject(objectName):
-                        klObject = currentKLN.getObject(objectName)
-
-                        access = elementList['access']
-                        returnType = elementList['returnType'] if 'returnType' in elementList else None
-                        params = elementList['params'] if 'params' in elementList else None
-
-                        if KLCodeEnv.isGetter(methodName):
-                            klObject.addGetter(methodName, returnType, access)
-                        elif KLCodeEnv.isSetter(methodName):
-                            klObject.addSetter(methodName, params, access)
-                        else:
-                            klObject.addMethod(methodName, returnType, params, access)
-
-                    elif currentKLN.hasStruct(objectName):
-                        klStruct = currentKLN.getStruct(objectName)
-
-                        access = elementList['access']
-                        returnType = elementList['returnType'] if 'returnType' in elementList else None
-                        params = elementList['params'] if 'params' in elementList else None
-
-                        if KLCodeEnv.isGetter(methodName):
-                            klStruct.addGetter(methodName, returnType, access)
-                        elif KLCodeEnv.isSetter(methodName):
-                            klStruct.addSetter(methodName, params, access)
-                        else:
-                            klStruct.addMethod(methodName, returnType, params, access)
-
-                    elif currentKLN.hasAlias(objectName):
-                        klAlias = currentKLN.getAlias(objectName)
-
-                        access = elementList['access']
-                        returnType = elementList['returnType'] if 'returnType' in elementList else None
-                        params = elementList['params'] if 'params' in elementList else None
-
-                        klAlias.addMethod(methodName, returnType, params, access)
-                    else:
-                        print '******** WTF.MethodOpImpl (alias or builtin type?) ?? cant find', objectName, methodName
-
-                elif elementType == 'AssignOpImpl':
-                    opName = elementList['assignOpType']
-                    objectName = elementList['thisType']
-
-                    currentKLN = self.__getCurrentNamespace(elementList, currentKLNamespaceName) # todo use currentKLNamespaceName and refactor the code! we only need the namespace name not the object
-                    if currentKLN.hasObject(objectName):
-                        klObject = currentKLN.getObject(objectName)
-                        access = elementList['access']
-                        params = elementList['rhs']
-                        klObject.addOperator(opName, params, access)
-
-                    elif currentKLN.hasStruct(objectName):
-                        klStruct = currentKLN.getStruct(objectName)
-                        access = elementList['access']
-                        params = elementList['rhs']
-                        klStruct.addOperator(opName, params, access)
-
-                    elif currentKLN.hasAlias(objectName):
-                        klAlias = currentKLN.getAlias(objectName)
-                        access = elementList['access']
-                        params = elementList['rhs']
-                        klAlias.addOperator(opName, params, access)
-
-                    else:
-                        print '******** WTF.AssignOpImpl (alias or builtin type TODO?) ?? cant find', objectName
-
-                elif elementType == 'BinOpImpl' or elementType == 'ComparisonOpImpl':
-
-                    opName = elementList['binOpType']
-                    returnType = elementList['returnType']
-                    access = elementList['access']
-
-                    klOp = KLFunction(opName, returnType=returnType, access=access)
-                    klOp.addParams(elementList['lhs'])
-                    klOp.addParams(elementList['rhs'])
-
-                    currentKLN = self.__getCurrentNamespace(elementList, currentKLNamespaceName)
-                    currentKLN.addOperator(klOp)
-
-                elif elementType == 'ASTUniOpDecl':
-
-                    opName = elementList['uniOpType']
-                    returnType = elementList['returnType']
-                    access = elementList['access']
-
-                    klOp = KLFunction(opName, returnType=returnType, access=access)
-
-                    currentKLN = self.__getCurrentNamespace(elementList, currentKLNamespaceName)
-                    currentKLN.addOperator(klOp)
-
-                elif elementType == 'GlobalConstDecl':
-
-                    val = elementList['constDecl']['value']
-                    constType = val['type']
-                    constName = elementList['constDecl']['name']
-
-                    if 'valueBool' not in val and 'valueString' not in val:
-
-                        if 'binOpType' in val:
-
-                            constType = val['binOpType']
-                            lhs_val = val['lhs']
-                            rhs_val = val['rhs']
-
-                            if 'valueBool' not in lhs_val and 'valueString' not in lhs_val:
-                                lhs_value = lhs_val['name']
-                            else:
-                                lhs_value = lhs_val['valueBool'] if 'valueBool' in lhs_val else lhs_val['valueString']
-
-                            if 'valueBool' not in val and 'valueString' not in rhs_val:
-                                rhs_value = rhs_val['name']
-                            else:
-                                rhs_value = rhs_val['valueBool'] if 'valueBool' in rhs_val else rhs_val['valueString']
-
-                            constValue  = '{}({},{})'.format(val['binOpType'], lhs_value, rhs_value)
-
-                        elif 'uniOpType' in val:
-
-                            constType = val['uniOpType']
-                            constValue = '{}({})'.format(val['uniOpType'], val['child']['valueString'])
-
-                    else:
-                        constValue = val['valueBool'] if 'valueBool' in val else val['valueString']
-
-                    currentKLN = self.__getCurrentNamespace(elementList, currentKLNamespaceName)
-                    currentKLN.addConstant(KLConstant(constType, constName, constValue))
-
-                else:
-                    pass # parse should let us know if/when something is not supported!
+                    self.__postParse(elementList['globalList'], elementList['namespacePath'])
         else:
             for d in data:
                 self.__postParse(d, currentKLNamespaceName)
 
     @staticmethod
     def __getExtensionName(elementList):
-        return elementList['owningExtName'] if 'owningExtName' in elementList else KLCodeEnv.RT_EXTENSION_NAME
+        return elementList['owningExtName'] if 'owningExtName' in elementList else KLCodeEnv.__RT_EXTENSION_NAME
 
     def __getCurrentNamespace(self, elementList, currentKLNamespaceName):
         return self.getExtension(self.__getExtensionName(elementList), True).getNamespace(currentKLNamespaceName, True)
 
     def __getCurrentExtension(self, elementList):
         return self.getExtension(self.__getExtensionName(elementList), True)
+
+    @staticmethod
+    def __processNothing(elementList, currentKLN):
+        pass
+
+    @staticmethod
+    def __processInterface(elementList, currentKLN):
+        interfaceName = elementList['name']
+        interfaceMembers = elementList['members'] if 'members' in elementList else []
+        if not currentKLN.hasInterface(interfaceName):
+            currentKLN._addInterface(KLInterface(interfaceName))
+        currentKLN.getInterface(interfaceName)._setMembers(interfaceMembers)
+
+    @staticmethod
+    def __processObject(elementList, currentKLN):
+        objectName = elementList['name']
+        objectMembers = elementList['members'] if 'members' in elementList else []
+        if not currentKLN.hasObject(objectName):
+            currentKLN._addObject(KLObject(objectName))
+        currentKLN.getObject(objectName)._setMembers(objectMembers)
+
+    @staticmethod
+    def __processStruct(elementList, currentKLN):
+        structName = elementList['name']
+        structMembers = elementList['members'] if 'members' in elementList else []
+        if not currentKLN.hasStruct(structName):
+            currentKLN._addStruct(KLStruct(structName))
+        currentKLN.getStruct(structName)._setMembers(structMembers)
+
+    @staticmethod
+    def __processAlias(elementList, currentKLN):
+        aliasName = elementList['newUserName']
+        aliasSourceName = elementList['oldUserName']
+        if not currentKLN.hasAlias(aliasName):
+            currentKLN._addAlias(KLAlias(aliasName, aliasSourceName))
+        else:
+            print 'Alias defined again? WTF?'
+
+    @staticmethod
+    def __processFunction(elementList, currentKLN):
+        functionName = elementList['name']
+        access = elementList['access']
+        returnType = elementList['returnType'] if 'returnType' in elementList else None
+        params = elementList['params'] if 'params' in elementList else None
+        klFunction = KLFunction(functionName, returnType=returnType, access=access)
+        if params:
+            klFunction._addParams(params)
+        if currentKLN.hasObject(functionName):
+            klObject = currentKLN.getObject(functionName)
+            klObject._addConstructor(klFunction)
+        else:
+            if currentKLN.hasStruct(functionName):
+                klStruct = currentKLN.getStruct(functionName)
+                klStruct._addConstructor(klFunction)
+            else:
+                # not an object or a struct so it's a global function
+                currentKLN._addFunction(klFunction)
+
+    @staticmethod
+    def __processDestructor(elementList, currentKLN):
+        objectName = elementList['thisType']
+        if currentKLN.hasObject(objectName):
+            klObject = currentKLN.getObject(objectName)
+            klObject._setHasDestructor(True)
+        elif currentKLN.hasStruct(objectName):
+            klStruct = currentKLN.getStruct(objectName)
+            klStruct._setHasDestructor(True)
+        else:
+            print '******** WTF (destructor on unknown type??) ??', objectName
+
+    @staticmethod
+    def __processMethod(elementList, currentKLN):
+        methodName = elementList['name']
+        objectName = elementList['thisType']
+        if currentKLN.hasObject(objectName):
+            klObject = currentKLN.getObject(objectName)
+
+            access = elementList['access']
+            returnType = elementList['returnType'] if 'returnType' in elementList else None
+            params = elementList['params'] if 'params' in elementList else None
+
+            if KLCodeEnv.isGetter(methodName):
+                klObject._addGetter(methodName, returnType, access)
+            elif KLCodeEnv.isSetter(methodName):
+                klObject._addSetter(methodName, params, access)
+            else:
+                klObject._addMethod(methodName, returnType, params, access)
+        elif currentKLN.hasStruct(objectName):
+            klStruct = currentKLN.getStruct(objectName)
+
+            access = elementList['access']
+            returnType = elementList['returnType'] if 'returnType' in elementList else None
+            params = elementList['params'] if 'params' in elementList else None
+
+            if KLCodeEnv.isGetter(methodName):
+                klStruct._addGetter(methodName, returnType, access)
+            elif KLCodeEnv.isSetter(methodName):
+                klStruct._addSetter(methodName, params, access)
+            else:
+                klStruct._addMethod(methodName, returnType, params, access)
+        elif currentKLN.hasAlias(objectName):
+            klAlias = currentKLN.getAlias(objectName)
+
+            access = elementList['access']
+            returnType = elementList['returnType'] if 'returnType' in elementList else None
+            params = elementList['params'] if 'params' in elementList else None
+
+            klAlias._addMethod(methodName, returnType, params, access)
+        else:
+            print '******** WTF.MethodOpImpl (alias or builtin type?) ?? cant find', objectName, methodName
+
+    @staticmethod
+    def __processAssignOp(elementList, currentKLN):
+        opName = elementList['assignOpType']
+        objectName = elementList['thisType']
+        if currentKLN.hasObject(objectName):
+            klObject = currentKLN.getObject(objectName)
+            klObject._addOperator(opName, elementList['rhs'], elementList['access'])
+        elif currentKLN.hasStruct(objectName):
+            klStruct = currentKLN.getStruct(objectName)
+            klStruct._addOperator(opName, elementList['rhs'], elementList['access'])
+        elif currentKLN.hasAlias(objectName):
+            klAlias = currentKLN.getAlias(objectName)
+            klAlias._addOperator(opName, elementList['rhs'], elementList['access'])
+        else:
+            print '******** WTF.AssignOpImpl (alias or builtin type TODO?) ?? cant find', objectName
+
+    @staticmethod
+    def __processBinOrComparisonOp(elementList, currentKLN):
+        opName = elementList['binOpType']
+        klOp = KLFunction(opName, returnType=elementList['returnType'], access=elementList['access'])
+        klOp._addParams(elementList['lhs'])
+        klOp._addParams(elementList['rhs'])
+        currentKLN._addOperator(klOp)
+
+    @staticmethod
+    def __processUniOp(elementList, currentKLN):
+        opName = elementList['uniOpType']
+        klOp = KLFunction(opName, returnType=elementList['returnType'], access=elementList['access'])
+        currentKLN._addOperator(klOp)
+
+    @staticmethod
+    def __processConstDecl(elementList, currentKLN):
+        val = elementList['constDecl']['value']
+        constType = val['type']
+        constName = elementList['constDecl']['name']
+
+        if 'valueBool' not in val and 'valueString' not in val:
+
+            if 'binOpType' in val:
+
+                constType = val['binOpType']
+                lhs_val = val['lhs']
+                rhs_val = val['rhs']
+
+                if 'valueBool' not in lhs_val and 'valueString' not in lhs_val:
+                    lhs_value = lhs_val['name']
+                else:
+                    lhs_value = lhs_val['valueBool'] if 'valueBool' in lhs_val else lhs_val['valueString']
+
+                if 'valueBool' not in val and 'valueString' not in rhs_val:
+                    rhs_value = rhs_val['name']
+                else:
+                    rhs_value = rhs_val['valueBool'] if 'valueBool' in rhs_val else rhs_val['valueString']
+
+                constValue  = '{}({},{})'.format(val['binOpType'], lhs_value, rhs_value)
+
+            elif 'uniOpType' in val:
+
+                constType = val['uniOpType']
+                constValue = '{}({})'.format(val['uniOpType'], val['child']['valueString'])
+
+        else:
+            constValue = val['valueBool'] if 'valueBool' in val else val['valueString']
+
+        currentKLN.addConstant(KLConstant(constType, constName, constValue))

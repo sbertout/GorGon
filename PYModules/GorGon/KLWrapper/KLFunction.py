@@ -7,7 +7,7 @@ class KLFunction:
         self.__access = access
         self.__params = []
 
-    def addParams(self, params):
+    def _addParams(self, params):
         if isinstance(params, list):
             for p in params:
                 self.__params.append(KLParam(p['typeUserName'], p['name']))

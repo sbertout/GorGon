@@ -29,13 +29,13 @@ class KLExtension:
             return self.__globalNamespace
         if addNamespaceIfMissing:
             if name not in self.getNamespaceNames():
-                self.addNamespace(name)
+                self._addNamespace(name)
         else:
             if name not in self.__namespaces:
                 return None
         return self.__namespaces[name]
 
-    def addNamespace(self, namespaceName):
+    def _addNamespace(self, namespaceName):
         namespace = KLNamespace(namespaceName)
         self.__namespaces[namespaceName] = namespace
         return namespace

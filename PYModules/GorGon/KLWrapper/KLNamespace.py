@@ -19,7 +19,7 @@ class KLNamespace:
     def getInterfaceNames(self):
         return self.__interfaces.keys()
 
-    def addInterface(self, interface):
+    def _addInterface(self, interface):
         self.__interfaces[interface.getName()] = interface
 
     def getInterface(self, interfaceName):
@@ -34,7 +34,7 @@ class KLNamespace:
     def getObjectNames(self):
         return self.__objects.keys()
 
-    def addObject(self, obj):
+    def _addObject(self, obj):
         self.__objects[obj.getName()] = obj
 
     def getObject(self, objectName):
@@ -49,7 +49,7 @@ class KLNamespace:
     def getStructNames(self):
         return self.__structs.keys()
 
-    def addStruct(self, obj):
+    def _addStruct(self, obj):
         self.__structs[obj.getName()] = obj
 
     def getStruct(self, structName):
@@ -64,7 +64,7 @@ class KLNamespace:
     def getFunctionNames(self):
         return  self.__functions.keys()
 
-    def addFunction(self, func):
+    def _addFunction(self, func):
         self.__functions[func.getName()] = func
 
     def getFunction(self, functionName):
@@ -76,7 +76,7 @@ class KLNamespace:
     def getOperatorCount(self):
         return len(self.__operators)
 
-    def addOperator(self, op):
+    def _addOperator(self, op):
         self.__operators.append(op)
 
     def getOperator(self, idx):
@@ -88,7 +88,7 @@ class KLNamespace:
     def getAliasNames(self):
         return self.__aliases.keys()
 
-    def addAlias(self, obj):
+    def _addAlias(self, obj):
         self.__aliases[obj.getName()] = obj
 
     def getAlias(self, aliasName):
