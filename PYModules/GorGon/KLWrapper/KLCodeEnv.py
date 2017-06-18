@@ -35,6 +35,42 @@ class KLCodeEnv:
         for ext in data:
             for d in ext:
                 self.__postParse(d, 'global')
+        self.__linkContent()
+
+    def __linkContent(self):
+        for extensionName in self.__extensions:
+            klExtension = self.getExtension(extensionName)
+            namespaceNames = klExtension.getNamespaceNames(True)
+            for namespaceName in namespaceNames:
+                klNamespace = klExtension.getNamespace(namespaceName)
+                for objectName in klNamespace.getObjectNames():
+                    print objectName
+                    klObject = klNamespace.getObject(objectName)
+                    print klObject._getParents()
+                    newParentsAndInterfaces = []
+                    for poiName in klObject._getParents():
+                        poi = self.__findParent(poiName)
+                        if poi:
+                            newParentsAndInterfaces.append(poi)
+                        else:
+                            print 'WTF? cant find', poiName
+                    klObject._setParents(newParentsAndInterfaces) # we override it
+
+    def __findParent(self, poiName):
+        for extensionName in self.__extensions:
+            klExtension = self.getExtension(extensionName)
+            for namespaceName in self.getExtension(extensionName).getNamespaceNames(True):
+                klNamespace = klExtension.getNamespace(namespaceName)
+                if klNamespace.hasInterface(poiName):
+                    print 'found interface in',klExtension.getName(), klNamespace.getName()
+                    return klNamespace.getInterface(poiName)
+                elif klNamespace.hasObject(poiName):
+                    print 'found object in',klExtension.getName(), klNamespace.getName()
+                    return klNamespace.getObject(poiName)
+                elif klNamespace.hasStruct(poiName):
+                    print 'found struct in',klExtension.getName(), klNamespace.getName()
+                    return klNamespace.getStruct(poiName)
+        return None
 
     def getNamespaceNames(self):
         namespaceNames = []
@@ -192,9 +228,11 @@ class KLCodeEnv:
     def __processObject(elementList, currentKLN):
         objectName = elementList['name']
         objectMembers = elementList['members'] if 'members' in elementList else []
+        objectParentsAndInterfaces = elementList['parentsAndInterfaces'] if 'parentsAndInterfaces' in elementList else []
         if not currentKLN.hasObject(objectName):
             currentKLN._addObject(KLObject(objectName))
         currentKLN.getObject(objectName)._setMembers(objectMembers)
+        currentKLN.getObject(objectName)._setParents(objectParentsAndInterfaces)
 
     @staticmethod
     def __processStruct(elementList, currentKLN):

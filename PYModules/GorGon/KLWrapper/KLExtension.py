@@ -40,5 +40,9 @@ class KLExtension:
         self.__namespaces[namespaceName] = namespace
         return namespace
 
-    def getNamespaceNames(self):
-        return self.__namespaces.keys()
+    def getNamespaceNames(self, includeGlobal=False):
+        namespaceNames = []
+        if includeGlobal:
+            namespaceNames.append('global')
+        namespaceNames.extend(self.__namespaces.keys())
+        return namespaceNames

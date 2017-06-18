@@ -10,6 +10,7 @@ class KLStruct:
             self.setMembers(members)
         self.__constructors = []
         self.__hasDestructor = False
+        self.__parents = []
         self.__getters = []
         self.__setters = []
         self.__methods = []
@@ -84,3 +85,15 @@ class KLStruct:
 
     def getOperator(self, idx):
         return self.__operators[idx]
+
+    def _setParents(self, parentsAndInterfaces):
+        self.__parents = parentsAndInterfaces
+
+    def _getParents(self):
+        return self.__parents
+
+    def getParentsCount(self):
+        return len(self.__parents)
+
+    def getParent(self, idx):
+        return self.__parents[idx]

@@ -1219,6 +1219,38 @@ class KLWrapperTests(unittest.TestCase):
         self.__test_KLNamespaceOperators_Content(klNamespace)
 
     #===================================================================================================================
+    source_ObjectInheritance = '''
+        interface ObjectInheritanceInterface {
+            DoSomething();
+        };
+        object ObjectInheritanceFoo : ObjectInheritanceInterface {
+        };
+        ObjectInheritanceFoo.DoSomething() {}
+        '''
+
+    def __test_ObjectInheritance_Content(self, klNamespace):
+        self.assertEqual(klNamespace.getObjectNames(), ['ObjectInheritanceFoo'])
+        klObject = klNamespace.getObject('ObjectInheritanceFoo')
+        self.assertEqual(klObject.getParentsCount(), 1)
+        self.assertEqual(klObject.getParent(0).getName(), 'ObjectInheritanceInterface')
+
+    def test_ObjectInheritance_E1_N1_(self):
+        klExtension, klNamespace = self.__setup(self.source_ObjectInheritance, sys._getframe().f_code.co_name)
+        self.__test_ObjectInheritance_Content(klNamespace)
+
+    def test_ObjectInheritance_E1_N0_(self):
+        klExtension, klNamespace = self.__setup(self.source_ObjectInheritance, sys._getframe().f_code.co_name)
+        self.__test_ObjectInheritance_Content(klNamespace)
+
+    def test_ObjectInheritance_E0_N1_(self):
+        klExtension, klNamespace = self.__setup(self.source_ObjectInheritance, sys._getframe().f_code.co_name)
+        self.__test_ObjectInheritance_Content(klNamespace)
+
+    def test_ObjectInheritance_E0_N0_(self):
+        klExtension, klNamespace = self.__setup(self.source_ObjectInheritance, sys._getframe().f_code.co_name)
+        self.__test_ObjectInheritance_Content(klNamespace)
+
+    #===================================================================================================================
     def test_RequireGorGonCore(self):
         sourceCode = '''
             require GorGon_Core;
