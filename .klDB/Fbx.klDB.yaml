@@ -1,0 +1,481 @@
+!!python/object:GorGon.KLWrapper.KLExtension.KLExtension
+_KLExtension__extensionDependencies: [!!python/unicode 'Math', !!python/unicode 'FileIO',
+  !!python/unicode 'Util']
+_KLExtension__globalNamespace: !!python/object:GorGon.KLWrapper.KLNamespace.KLNamespace
+  _KLNamespace__aliases: {}
+  _KLNamespace__constants: {}
+  _KLNamespace__extensions: {}
+  _KLNamespace__functions:
+    !!python/unicode 'FindIdentifierByPath': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+      _KLFunction__access: !!python/unicode 'unspecified'
+      _KLFunction__name: !!python/unicode 'FindIdentifierByPath'
+      _KLFunction__params:
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'path',
+        _KLParam__type: !!python/unicode 'String'}
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'identifiers',
+        _KLParam__type: !!python/unicode 'ImporterIdentifier[]'}
+      _KLFunction__returnType: !!python/unicode 'Integer'
+    !!python/unicode 'GetXfoFromFBXIdentifier': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+      _KLFunction__access: !!python/unicode 'unspecified'
+      _KLFunction__name: !!python/unicode 'GetXfoFromFBXIdentifier'
+      _KLFunction__params:
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'identifier',
+        _KLParam__type: !!python/unicode 'ImporterIdentifier'}
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'key',
+        _KLParam__type: !!python/unicode 'String'}
+      _KLFunction__returnType: !!python/unicode 'Xfo'
+  _KLNamespace__interfaces: {}
+  _KLNamespace__name: global
+  _KLNamespace__objects:
+    !!python/unicode 'FbxHandle': !!python/object:GorGon.KLWrapper.KLObject.KLObject
+      _KLStruct__constructors: []
+      _KLStruct__getters:
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getOpenedFilePath'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'String'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getIdentifiers'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getAnimationLayerNames'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getOpenedFilePath'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'String'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getIdentifiers'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getAnimationLayerNames'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getOpenedFilePath'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'String'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getIdentifiers'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getAnimationLayerNames'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      _KLStruct__hasDestructor: true
+      _KLStruct__members:
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'pointer', _KLMember__type: !!python/unicode 'Data'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'pointer', _KLMember__type: !!python/unicode 'Data'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'pointer', _KLMember__type: !!python/unicode 'Data'}
+      _KLStruct__methods:
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'cloneMembersTo'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'that',
+          _KLParam__type: !!python/unicode 'FbxHandle'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'openFileHandle'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'filePath',
+          _KLParam__type: !!python/unicode 'String'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'textureFolder',
+          _KLParam__type: !!python/unicode 'String'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'close'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'parsePolygonMeshBbox'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'identifier',
+          _KLParam__type: !!python/unicode 'ImporterIdentifier'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'bboxMin',
+          _KLParam__type: !!python/unicode 'Vec3'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'bboxMax',
+          _KLParam__type: !!python/unicode 'Vec3'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'parsePolygonMeshAndAttributes'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'identifier',
+          _KLParam__type: !!python/unicode 'ImporterIdentifier'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'polygonSizes',
+          _KLParam__type: !!python/unicode 'UInt32[]'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'packedPolyPointIndices',
+          _KLParam__type: !!python/unicode 'UInt32[]'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'positions',
+          _KLParam__type: !!python/unicode 'Vec3[]'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'polyPointNormals',
+          _KLParam__type: !!python/unicode 'Vec3[]'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'polyPointUVs',
+          _KLParam__type: !!python/unicode 'Vec2[][]'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'polyPointColors',
+          _KLParam__type: !!python/unicode 'Color[][]'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'parsePolygonMeshAndAttributes'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'identifier',
+          _KLParam__type: !!python/unicode 'ImporterIdentifier'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'polygonSizes',
+          _KLParam__type: !!python/unicode 'UInt32[]'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'packedPolyPointIndices',
+          _KLParam__type: !!python/unicode 'UInt32[]'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'positions',
+          _KLParam__type: !!python/unicode 'Vec3[]'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'polyPointNormals',
+          _KLParam__type: !!python/unicode 'Vec3[]'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'polyPointUVs',
+          _KLParam__type: !!python/unicode 'Vec2[][]'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'parseFCurve'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'identifier',
+          _KLParam__type: !!python/unicode 'ImporterIdentifier'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'values',
+          _KLParam__type: !!python/unicode 'Scalar[]'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'collectParentHierarchyChain'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'identifier',
+          _KLParam__type: !!python/unicode 'ImporterIdentifier'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'chain',
+          _KLParam__type: !!python/unicode 'ImporterIdentifier[]'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'parseSkeleton'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'identifier',
+          _KLParam__type: !!python/unicode 'ImporterIdentifier'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'bones',
+          _KLParam__type: !!python/unicode 'ImporterIdentifier[]'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'parseSkinWeights'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'identifier',
+          _KLParam__type: !!python/unicode 'ImporterIdentifier'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'nb',
+          _KLParam__type: !!python/unicode 'UInt32[]'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'packedOrderedIds',
+          _KLParam__type: !!python/unicode 'UInt32[]'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'packedOrderedWeights',
+          _KLParam__type: !!python/unicode 'Scalar[]'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'parseMaterial'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'identifier',
+          _KLParam__type: !!python/unicode 'ImporterIdentifier'}
+        _KLFunction__returnType: !!python/unicode 'Float32[String]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'parseTexture'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'identifier',
+          _KLParam__type: !!python/unicode 'ImporterIdentifier'}
+        _KLFunction__returnType: !!python/unicode 'FilePath[String]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'private'
+        _KLFunction__name: !!python/unicode 'collectChidren'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'nodeIdentifier',
+          _KLParam__type: !!python/unicode 'ImporterIdentifier'}
+        _KLFunction__returnType: !!python/unicode 'ImporterIdentifier[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'cloneMembersTo'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'that',
+          _KLParam__type: !!python/unicode 'FbxHandle'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'openFileHandle'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'filePath',
+          _KLParam__type: !!python/unicode 'String'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'textureFolder',
+          _KLParam__type: !!python/unicode 'String'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'close'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'parsePolygonMeshBbox'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'identifier',
+          _KLParam__type: !!python/unicode 'ImporterIdentifier'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'bboxMin',
+          _KLParam__type: !!python/unicode 'Vec3'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'bboxMax',
+          _KLParam__type: !!python/unicode 'Vec3'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'parsePolygonMeshAndAttributes'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'identifier',
+          _KLParam__type: !!python/unicode 'ImporterIdentifier'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'polygonSizes',
+          _KLParam__type: !!python/unicode 'UInt32[]'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'packedPolyPointIndices',
+          _KLParam__type: !!python/unicode 'UInt32[]'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'positions',
+          _KLParam__type: !!python/unicode 'Vec3[]'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'polyPointNormals',
+          _KLParam__type: !!python/unicode 'Vec3[]'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'polyPointUVs',
+          _KLParam__type: !!python/unicode 'Vec2[][]'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'polyPointColors',
+          _KLParam__type: !!python/unicode 'Color[][]'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'parsePolygonMeshAndAttributes'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'identifier',
+          _KLParam__type: !!python/unicode 'ImporterIdentifier'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'polygonSizes',
+          _KLParam__type: !!python/unicode 'UInt32[]'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'packedPolyPointIndices',
+          _KLParam__type: !!python/unicode 'UInt32[]'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'positions',
+          _KLParam__type: !!python/unicode 'Vec3[]'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'polyPointNormals',
+          _KLParam__type: !!python/unicode 'Vec3[]'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'polyPointUVs',
+          _KLParam__type: !!python/unicode 'Vec2[][]'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'parseFCurve'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'identifier',
+          _KLParam__type: !!python/unicode 'ImporterIdentifier'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'values',
+          _KLParam__type: !!python/unicode 'Scalar[]'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'collectParentHierarchyChain'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'identifier',
+          _KLParam__type: !!python/unicode 'ImporterIdentifier'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'chain',
+          _KLParam__type: !!python/unicode 'ImporterIdentifier[]'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'parseSkeleton'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'identifier',
+          _KLParam__type: !!python/unicode 'ImporterIdentifier'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'bones',
+          _KLParam__type: !!python/unicode 'ImporterIdentifier[]'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'parseSkinWeights'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'identifier',
+          _KLParam__type: !!python/unicode 'ImporterIdentifier'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'nb',
+          _KLParam__type: !!python/unicode 'UInt32[]'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'packedOrderedIds',
+          _KLParam__type: !!python/unicode 'UInt32[]'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'packedOrderedWeights',
+          _KLParam__type: !!python/unicode 'Scalar[]'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'parseMaterial'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'identifier',
+          _KLParam__type: !!python/unicode 'ImporterIdentifier'}
+        _KLFunction__returnType: !!python/unicode 'Float32[String]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'parseTexture'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'identifier',
+          _KLParam__type: !!python/unicode 'ImporterIdentifier'}
+        _KLFunction__returnType: !!python/unicode 'FilePath[String]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'private'
+        _KLFunction__name: !!python/unicode 'collectChidren'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'nodeIdentifier',
+          _KLParam__type: !!python/unicode 'ImporterIdentifier'}
+        _KLFunction__returnType: !!python/unicode 'ImporterIdentifier[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'cloneMembersTo'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'that',
+          _KLParam__type: !!python/unicode 'FbxHandle'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'openFileHandle'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'filePath',
+          _KLParam__type: !!python/unicode 'String'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'textureFolder',
+          _KLParam__type: !!python/unicode 'String'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'close'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'parsePolygonMeshBbox'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'identifier',
+          _KLParam__type: !!python/unicode 'ImporterIdentifier'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'bboxMin',
+          _KLParam__type: !!python/unicode 'Vec3'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'bboxMax',
+          _KLParam__type: !!python/unicode 'Vec3'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'parsePolygonMeshAndAttributes'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'identifier',
+          _KLParam__type: !!python/unicode 'ImporterIdentifier'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'polygonSizes',
+          _KLParam__type: !!python/unicode 'UInt32[]'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'packedPolyPointIndices',
+          _KLParam__type: !!python/unicode 'UInt32[]'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'positions',
+          _KLParam__type: !!python/unicode 'Vec3[]'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'polyPointNormals',
+          _KLParam__type: !!python/unicode 'Vec3[]'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'polyPointUVs',
+          _KLParam__type: !!python/unicode 'Vec2[][]'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'polyPointColors',
+          _KLParam__type: !!python/unicode 'Color[][]'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'parsePolygonMeshAndAttributes'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'identifier',
+          _KLParam__type: !!python/unicode 'ImporterIdentifier'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'polygonSizes',
+          _KLParam__type: !!python/unicode 'UInt32[]'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'packedPolyPointIndices',
+          _KLParam__type: !!python/unicode 'UInt32[]'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'positions',
+          _KLParam__type: !!python/unicode 'Vec3[]'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'polyPointNormals',
+          _KLParam__type: !!python/unicode 'Vec3[]'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'polyPointUVs',
+          _KLParam__type: !!python/unicode 'Vec2[][]'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'parseFCurve'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'identifier',
+          _KLParam__type: !!python/unicode 'ImporterIdentifier'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'values',
+          _KLParam__type: !!python/unicode 'Scalar[]'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'collectParentHierarchyChain'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'identifier',
+          _KLParam__type: !!python/unicode 'ImporterIdentifier'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'chain',
+          _KLParam__type: !!python/unicode 'ImporterIdentifier[]'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'parseSkeleton'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'identifier',
+          _KLParam__type: !!python/unicode 'ImporterIdentifier'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'bones',
+          _KLParam__type: !!python/unicode 'ImporterIdentifier[]'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'parseSkinWeights'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'identifier',
+          _KLParam__type: !!python/unicode 'ImporterIdentifier'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'nb',
+          _KLParam__type: !!python/unicode 'UInt32[]'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'packedOrderedIds',
+          _KLParam__type: !!python/unicode 'UInt32[]'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'packedOrderedWeights',
+          _KLParam__type: !!python/unicode 'Scalar[]'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'parseMaterial'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'identifier',
+          _KLParam__type: !!python/unicode 'ImporterIdentifier'}
+        _KLFunction__returnType: !!python/unicode 'Float32[String]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'parseTexture'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'identifier',
+          _KLParam__type: !!python/unicode 'ImporterIdentifier'}
+        _KLFunction__returnType: !!python/unicode 'FilePath[String]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'private'
+        _KLFunction__name: !!python/unicode 'collectChidren'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'nodeIdentifier',
+          _KLParam__type: !!python/unicode 'ImporterIdentifier'}
+        _KLFunction__returnType: !!python/unicode 'ImporterIdentifier[]'
+      _KLStruct__name: !!python/unicode 'FbxHandle'
+      _KLStruct__operators: []
+      _KLStruct__parents: []
+      _KLStruct__setters: []
+  _KLNamespace__operators: []
+  _KLNamespace__structs: {}
+_KLExtension__name: !!python/unicode 'Fbx'
+_KLExtension__namespaces: {}

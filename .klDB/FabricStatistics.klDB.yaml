@@ -1,0 +1,2883 @@
+!!python/object:GorGon.KLWrapper.KLExtension.KLExtension
+_KLExtension__extensionDependencies: [!!python/unicode 'FabricSynchronization']
+_KLExtension__globalNamespace: !!python/object:GorGon.KLWrapper.KLNamespace.KLNamespace
+  _KLNamespace__aliases: {}
+  _KLNamespace__constants:
+    !!python/unicode 'Statistic_Category': !!python/object:GorGon.KLWrapper.KLConstant.KLConstant {
+      _KLConstant__name: !!python/unicode 'Statistic_Category', _KLConstant__type: !!python/unicode 'ConstString',
+      _KLConstant__value: !!python/unicode 'Category'}
+    !!python/unicode 'Statistic_Comments': !!python/object:GorGon.KLWrapper.KLConstant.KLConstant {
+      _KLConstant__name: !!python/unicode 'Statistic_Comments', _KLConstant__type: !!python/unicode 'ConstString',
+      _KLConstant__value: !!python/unicode 'Comments'}
+    !!python/unicode 'Statistic_GPUMemoryUsage': !!python/object:GorGon.KLWrapper.KLConstant.KLConstant {
+      _KLConstant__name: !!python/unicode 'Statistic_GPUMemoryUsage', _KLConstant__type: !!python/unicode 'ConstString',
+      _KLConstant__value: !!python/unicode 'GPUMemory'}
+    !!python/unicode 'Statistic_MemoryUsage': !!python/object:GorGon.KLWrapper.KLConstant.KLConstant {
+      _KLConstant__name: !!python/unicode 'Statistic_MemoryUsage', _KLConstant__type: !!python/unicode 'ConstString',
+      _KLConstant__value: !!python/unicode 'Memory'}
+    !!python/unicode 'Statistic_Name': !!python/object:GorGon.KLWrapper.KLConstant.KLConstant {
+      _KLConstant__name: !!python/unicode 'Statistic_Name', _KLConstant__type: !!python/unicode 'ConstString',
+      _KLConstant__value: !!python/unicode 'Name'}
+    !!python/unicode 'Statistic_SubCategory': !!python/object:GorGon.KLWrapper.KLConstant.KLConstant {
+      _KLConstant__name: !!python/unicode 'Statistic_SubCategory', _KLConstant__type: !!python/unicode 'ConstString',
+      _KLConstant__value: !!python/unicode 'SubCategory'}
+    !!python/unicode 'Statistic_Type': !!python/object:GorGon.KLWrapper.KLConstant.KLConstant {
+      _KLConstant__name: !!python/unicode 'Statistic_Type', _KLConstant__type: !!python/unicode 'ConstString',
+      _KLConstant__value: !!python/unicode 'Type'}
+    !!python/unicode '_StatisticRecordType_Float64': !!python/object:GorGon.KLWrapper.KLConstant.KLConstant {
+      _KLConstant__name: !!python/unicode '_StatisticRecordType_Float64', _KLConstant__type: !!python/unicode 'ASTConstInteger',
+      _KLConstant__value: !!python/unicode '2'}
+    !!python/unicode '_StatisticRecordType_None': !!python/object:GorGon.KLWrapper.KLConstant.KLConstant {
+      _KLConstant__name: !!python/unicode '_StatisticRecordType_None', _KLConstant__type: !!python/unicode 'ASTConstInteger',
+      _KLConstant__value: !!python/unicode '0'}
+    !!python/unicode '_StatisticRecordType_SInt64': !!python/object:GorGon.KLWrapper.KLConstant.KLConstant {
+      _KLConstant__name: !!python/unicode '_StatisticRecordType_SInt64', _KLConstant__type: !!python/unicode 'ASTConstInteger',
+      _KLConstant__value: !!python/unicode '1'}
+    !!python/unicode '_StatisticRecordType_String': !!python/object:GorGon.KLWrapper.KLConstant.KLConstant {
+      _KLConstant__name: !!python/unicode '_StatisticRecordType_String', _KLConstant__type: !!python/unicode 'ASTConstInteger',
+      _KLConstant__value: !!python/unicode '3'}
+  _KLNamespace__extensions: {}
+  _KLNamespace__functions:
+    !!python/unicode 'AddStatisticsChild': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+      _KLFunction__access: !!python/unicode 'unspecified'
+      _KLFunction__name: !!python/unicode 'AddStatisticsChild'
+      _KLFunction__params:
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'parent',
+        _KLParam__type: !!python/unicode 'Ref<StatisticSource>'}
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'child',
+        _KLParam__type: !!python/unicode 'Ref<StatisticSource>'}
+      _KLFunction__returnType: null
+    !!python/unicode 'BeginProfilingEvent': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+      _KLFunction__access: !!python/unicode 'unspecified'
+      _KLFunction__name: !!python/unicode 'BeginProfilingEvent'
+      _KLFunction__params:
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'label',
+        _KLParam__type: !!python/unicode 'String'}
+      _KLFunction__returnType: !!python/unicode 'Size'
+    !!python/unicode 'DisableFabricStatistics': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+      _KLFunction__access: !!python/unicode 'unspecified'
+      _KLFunction__name: !!python/unicode 'DisableFabricStatistics'
+      _KLFunction__params: []
+      _KLFunction__returnType: null
+    !!python/unicode 'EnableFabricStatistics': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+      _KLFunction__access: !!python/unicode 'unspecified'
+      _KLFunction__name: !!python/unicode 'EnableFabricStatistics'
+      _KLFunction__params: []
+      _KLFunction__returnType: null
+    !!python/unicode 'EndProfilingEvent': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+      _KLFunction__access: !!python/unicode 'unspecified'
+      _KLFunction__name: !!python/unicode 'EndProfilingEvent'
+      _KLFunction__params:
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'key',
+        _KLParam__type: !!python/unicode 'Size'}
+      _KLFunction__returnType: null
+    !!python/unicode 'FabricProfilingBeginFrame': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+      _KLFunction__access: !!python/unicode 'unspecified'
+      _KLFunction__name: !!python/unicode 'FabricProfilingBeginFrame'
+      _KLFunction__params:
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'frameID',
+        _KLParam__type: !!python/unicode 'Integer'}
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'time',
+        _KLParam__type: !!python/unicode 'Scalar'}
+      _KLFunction__returnType: null
+    !!python/unicode 'FabricProfilingEnabled': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+      _KLFunction__access: !!python/unicode 'unspecified'
+      _KLFunction__name: !!python/unicode 'FabricProfilingEnabled'
+      _KLFunction__params: []
+      _KLFunction__returnType: !!python/unicode 'Boolean'
+    !!python/unicode 'FabricStatisticsEnabled': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+      _KLFunction__access: !!python/unicode 'unspecified'
+      _KLFunction__name: !!python/unicode 'FabricStatisticsEnabled'
+      _KLFunction__params: []
+      _KLFunction__returnType: !!python/unicode 'Boolean'
+    !!python/unicode 'GetProfilingEvents': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+      _KLFunction__access: !!python/unicode 'unspecified'
+      _KLFunction__name: !!python/unicode 'GetProfilingEvents'
+      _KLFunction__params: []
+      _KLFunction__returnType: !!python/unicode 'ProfilingEvent[]'
+    !!python/unicode 'GetProfilingReport': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+      _KLFunction__access: !!python/unicode 'unspecified'
+      _KLFunction__name: !!python/unicode 'GetProfilingReport'
+      _KLFunction__params: []
+      _KLFunction__returnType: !!python/unicode 'String'
+    !!python/unicode 'GetSourceName': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+      _KLFunction__access: !!python/unicode 'unspecified'
+      _KLFunction__name: !!python/unicode 'GetSourceName'
+      _KLFunction__params:
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'source',
+        _KLParam__type: !!python/unicode 'Ref<StatisticSource>'}
+      _KLFunction__returnType: !!python/unicode 'String'
+    !!python/unicode 'GetStatisticStrings': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+      _KLFunction__access: !!python/unicode 'unspecified'
+      _KLFunction__name: !!python/unicode 'GetStatisticStrings'
+      _KLFunction__params:
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'lines',
+        _KLParam__type: !!python/unicode 'String[]'}
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'levels',
+        _KLParam__type: !!python/unicode 'Size[]'}
+      _KLFunction__returnType: null
+    !!python/unicode 'GetStatisticsCSV': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+      _KLFunction__access: !!python/unicode 'unspecified'
+      _KLFunction__name: !!python/unicode 'GetStatisticsCSV'
+      _KLFunction__params: []
+      _KLFunction__returnType: !!python/unicode 'String[]'
+    !!python/unicode 'GetStatisticsReport': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+      _KLFunction__access: !!python/unicode 'unspecified'
+      _KLFunction__name: !!python/unicode 'GetStatisticsReport'
+      _KLFunction__params: []
+      _KLFunction__returnType: !!python/unicode 'String'
+    !!python/unicode 'RegisterToFabricStatistics': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+      _KLFunction__access: !!python/unicode 'unspecified'
+      _KLFunction__name: !!python/unicode 'RegisterToFabricStatistics'
+      _KLFunction__params:
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'source',
+        _KLParam__type: !!python/unicode 'Ref<StatisticSource>'}
+      _KLFunction__returnType: null
+    !!python/unicode 'StartFabricProfiling': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+      _KLFunction__access: !!python/unicode 'unspecified'
+      _KLFunction__name: !!python/unicode 'StartFabricProfiling'
+      _KLFunction__params:
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'seconds',
+        _KLParam__type: !!python/unicode 'Scalar'}
+      _KLFunction__returnType: null
+    !!python/unicode 'StartFabricProfilingFrames': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+      _KLFunction__access: !!python/unicode 'unspecified'
+      _KLFunction__name: !!python/unicode 'StartFabricProfilingFrames'
+      _KLFunction__params:
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'frameCount',
+        _KLParam__type: !!python/unicode 'Size'}
+      _KLFunction__returnType: null
+    !!python/unicode 'StopFabricProfiling': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+      _KLFunction__access: !!python/unicode 'unspecified'
+      _KLFunction__name: !!python/unicode 'StopFabricProfiling'
+      _KLFunction__params: []
+      _KLFunction__returnType: null
+    !!python/unicode 'UnregisterFromFabricStatistics': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+      _KLFunction__access: !!python/unicode 'unspecified'
+      _KLFunction__name: !!python/unicode 'UnregisterFromFabricStatistics'
+      _KLFunction__params:
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'source',
+        _KLParam__type: !!python/unicode 'Ref<StatisticSource>'}
+      _KLFunction__returnType: null
+    !!python/unicode '_BuildStatisticsHierarchy': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+      _KLFunction__access: !!python/unicode 'unspecified'
+      _KLFunction__name: !!python/unicode '_BuildStatisticsHierarchy'
+      _KLFunction__params:
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'level',
+        _KLParam__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'key',
+        _KLParam__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'childrenPerKey',
+        _KLParam__type: !!python/unicode 'UInt32[][]'}
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'hierarchy',
+        _KLParam__type: !!python/unicode '_StatisticsHierarchyElement[]'}
+      _KLFunction__returnType: null
+    !!python/unicode '_ComputeStatisticsSum': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+      _KLFunction__access: !!python/unicode 'unspecified'
+      _KLFunction__name: !!python/unicode '_ComputeStatisticsSum'
+      _KLFunction__params:
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'startIndex',
+        _KLParam__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'reportElements',
+        _KLParam__type: !!python/unicode 'StatisticsReportElement[]'}
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'columnName',
+        _KLParam__type: !!python/unicode 'String'}
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'sumName',
+        _KLParam__type: !!python/unicode 'String'}
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'alwaysInsert',
+        _KLParam__type: !!python/unicode 'Boolean'}
+      _KLFunction__returnType: !!python/unicode 'StatisticRecord'
+    !!python/unicode '_DisableFabricProfiling': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+      _KLFunction__access: !!python/unicode 'unspecified'
+      _KLFunction__name: !!python/unicode '_DisableFabricProfiling'
+      _KLFunction__params: []
+      _KLFunction__returnType: null
+    !!python/unicode '_DisableFabricStatistics': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+      _KLFunction__access: !!python/unicode 'unspecified'
+      _KLFunction__name: !!python/unicode '_DisableFabricStatistics'
+      _KLFunction__params: []
+      _KLFunction__returnType: null
+    !!python/unicode '_EnableFabricProfiling': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+      _KLFunction__access: !!python/unicode 'unspecified'
+      _KLFunction__name: !!python/unicode '_EnableFabricProfiling'
+      _KLFunction__params: []
+      _KLFunction__returnType: null
+    !!python/unicode '_EnableFabricStatistics': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+      _KLFunction__access: !!python/unicode 'unspecified'
+      _KLFunction__name: !!python/unicode '_EnableFabricStatistics'
+      _KLFunction__params: []
+      _KLFunction__returnType: null
+    !!python/unicode '_FabricStatisticsInitSingleton': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+      _KLFunction__access: !!python/unicode 'unspecified'
+      _KLFunction__name: !!python/unicode '_FabricStatisticsInitSingleton'
+      _KLFunction__params:
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'singleton',
+        _KLParam__type: !!python/unicode '_FabricStatistics'}
+      _KLFunction__returnType: null
+    !!python/unicode '_GetFabricStatisticsSingleton': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+      _KLFunction__access: !!python/unicode 'unspecified'
+      _KLFunction__name: !!python/unicode '_GetFabricStatisticsSingleton'
+      _KLFunction__params: []
+      _KLFunction__returnType: !!python/unicode 'Ref<_FabricStatistics>'
+    !!python/unicode '_GetOrCreateFabricStatisticsSingleton': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+      _KLFunction__access: !!python/unicode 'unspecified'
+      _KLFunction__name: !!python/unicode '_GetOrCreateFabricStatisticsSingleton'
+      _KLFunction__params: []
+      _KLFunction__returnType: !!python/unicode 'Ref<_FabricStatistics>'
+    !!python/unicode '_filterStatistics': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+      _KLFunction__access: !!python/unicode 'unspecified'
+      _KLFunction__name: !!python/unicode '_filterStatistics'
+      _KLFunction__params:
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'reportElements',
+        _KLParam__type: !!python/unicode 'StatisticsReportElement[]'}
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'columnsToSelect',
+        _KLParam__type: !!python/unicode 'String[]'}
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'columnsToSum',
+        _KLParam__type: !!python/unicode 'String[]'}
+      _KLFunction__returnType: null
+    !!python/unicode '_reorderStatisticElements': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+      _KLFunction__access: !!python/unicode 'unspecified'
+      _KLFunction__name: !!python/unicode '_reorderStatisticElements'
+      _KLFunction__params:
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'data',
+        _KLParam__type: !!python/unicode 'StatisticRecord[]'}
+      _KLFunction__returnType: null
+  _KLNamespace__interfaces:
+    !!python/unicode 'StatisticSource': &id001 !!python/object:GorGon.KLWrapper.KLInterface.KLInterface
+      _KLInterface__members:
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatistics'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'StatisticRecord[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'setStatisticsKey'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'key',
+          _KLParam__type: !!python/unicode 'Size'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatisticsKey'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Size'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatistics'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'StatisticRecord[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'setStatisticsKey'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'key',
+          _KLParam__type: !!python/unicode 'Size'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatisticsKey'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Size'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatistics'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'StatisticRecord[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'setStatisticsKey'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'key',
+          _KLParam__type: !!python/unicode 'Size'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatisticsKey'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Size'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatistics'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'StatisticRecord[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'setStatisticsKey'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'key',
+          _KLParam__type: !!python/unicode 'Size'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatisticsKey'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Size'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatistics'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'StatisticRecord[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'setStatisticsKey'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'key',
+          _KLParam__type: !!python/unicode 'Size'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatisticsKey'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Size'
+      _KLInterface__name: !!python/unicode 'StatisticSource'
+    !!python/unicode 'StatisticSourceWithAutoRegisterMember': !!python/object:GorGon.KLWrapper.KLInterface.KLInterface
+      _KLInterface__members:
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatistics'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'StatisticRecord[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatistics'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'StatisticRecord[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatistics'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'StatisticRecord[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatistics'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'StatisticRecord[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatistics'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'StatisticRecord[]'
+      _KLInterface__name: !!python/unicode 'StatisticSourceWithAutoRegisterMember'
+  _KLNamespace__name: global
+  _KLNamespace__objects:
+    !!python/unicode 'StatisticsAutoRegisterMember': !!python/object:GorGon.KLWrapper.KLObject.KLObject
+      _KLStruct__constructors:
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'StatisticsAutoRegisterMember'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'source',
+          _KLParam__type: !!python/unicode 'Ref<StatisticSourceWithAutoRegisterMember>'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'StatisticsAutoRegisterMember'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'source',
+          _KLParam__type: !!python/unicode 'Ref<StatisticSourceWithAutoRegisterMember>'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'StatisticsAutoRegisterMember'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'source',
+          _KLParam__type: !!python/unicode 'Ref<StatisticSourceWithAutoRegisterMember>'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'StatisticsAutoRegisterMember'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'source',
+          _KLParam__type: !!python/unicode 'Ref<StatisticSourceWithAutoRegisterMember>'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'StatisticsAutoRegisterMember'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'source',
+          _KLParam__type: !!python/unicode 'Ref<StatisticSourceWithAutoRegisterMember>'}
+        _KLFunction__returnType: null
+      _KLStruct__getters:
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatistics'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'StatisticRecord[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatisticsKey'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Size'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatistics'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'StatisticRecord[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatisticsKey'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Size'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatistics'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'StatisticRecord[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatisticsKey'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Size'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatistics'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'StatisticRecord[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatisticsKey'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Size'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatistics'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'StatisticRecord[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatisticsKey'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Size'
+      _KLStruct__hasDestructor: true
+      _KLStruct__members:
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'source', _KLMember__type: !!python/unicode 'Ref<StatisticSourceWithAutoRegisterMember>'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'key', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'source', _KLMember__type: !!python/unicode 'Ref<StatisticSourceWithAutoRegisterMember>'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'key', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'source', _KLMember__type: !!python/unicode 'Ref<StatisticSourceWithAutoRegisterMember>'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'key', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'source', _KLMember__type: !!python/unicode 'Ref<StatisticSourceWithAutoRegisterMember>'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'key', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'source', _KLMember__type: !!python/unicode 'Ref<StatisticSourceWithAutoRegisterMember>'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'key', _KLMember__type: !!python/unicode 'Size'}
+      _KLStruct__methods:
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'unregister'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'cloneMembersTo'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'that',
+          _KLParam__type: !!python/unicode 'StatisticsAutoRegisterMember'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode '_init'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'source',
+          _KLParam__type: !!python/unicode 'Ref<StatisticSourceWithAutoRegisterMember>'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'postCloneRefresh'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'source',
+          _KLParam__type: !!python/unicode 'Ref<StatisticSourceWithAutoRegisterMember>'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'unregister'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'cloneMembersTo'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'that',
+          _KLParam__type: !!python/unicode 'StatisticsAutoRegisterMember'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode '_init'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'source',
+          _KLParam__type: !!python/unicode 'Ref<StatisticSourceWithAutoRegisterMember>'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'postCloneRefresh'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'source',
+          _KLParam__type: !!python/unicode 'Ref<StatisticSourceWithAutoRegisterMember>'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'unregister'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'cloneMembersTo'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'that',
+          _KLParam__type: !!python/unicode 'StatisticsAutoRegisterMember'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode '_init'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'source',
+          _KLParam__type: !!python/unicode 'Ref<StatisticSourceWithAutoRegisterMember>'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'postCloneRefresh'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'source',
+          _KLParam__type: !!python/unicode 'Ref<StatisticSourceWithAutoRegisterMember>'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'unregister'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'cloneMembersTo'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'that',
+          _KLParam__type: !!python/unicode 'StatisticsAutoRegisterMember'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode '_init'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'source',
+          _KLParam__type: !!python/unicode 'Ref<StatisticSourceWithAutoRegisterMember>'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'postCloneRefresh'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'source',
+          _KLParam__type: !!python/unicode 'Ref<StatisticSourceWithAutoRegisterMember>'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'unregister'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'cloneMembersTo'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'that',
+          _KLParam__type: !!python/unicode 'StatisticsAutoRegisterMember'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode '_init'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'source',
+          _KLParam__type: !!python/unicode 'Ref<StatisticSourceWithAutoRegisterMember>'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'postCloneRefresh'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'source',
+          _KLParam__type: !!python/unicode 'Ref<StatisticSourceWithAutoRegisterMember>'}
+        _KLFunction__returnType: null
+      _KLStruct__name: !!python/unicode 'StatisticsAutoRegisterMember'
+      _KLStruct__operators: []
+      _KLStruct__parents:
+      - *id001
+      _KLStruct__setters:
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'setStatisticsKey'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'key',
+          _KLParam__type: !!python/unicode 'Size'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'setStatisticsKey'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'key',
+          _KLParam__type: !!python/unicode 'Size'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'setStatisticsKey'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'key',
+          _KLParam__type: !!python/unicode 'Size'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'setStatisticsKey'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'key',
+          _KLParam__type: !!python/unicode 'Size'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'setStatisticsKey'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'key',
+          _KLParam__type: !!python/unicode 'Size'}
+        _KLFunction__returnType: null
+    !!python/unicode '_FabricStatistics': !!python/object:GorGon.KLWrapper.KLObject.KLObject
+      _KLStruct__constructors:
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode '_FabricStatistics'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode '_FabricStatistics'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode '_FabricStatistics'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode '_FabricStatistics'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode '_FabricStatistics'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      _KLStruct__getters:
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatistics'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'StatisticsReportElement[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatistics'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'StatisticsReportElement[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatistics'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'StatisticsReportElement[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatisticsCSV'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'String[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatisticsCSV'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'String[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatisticStrings'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatisticStrings'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getProfilingEvents'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'ProfilingEvent[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatistics'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'StatisticsReportElement[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatistics'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'StatisticsReportElement[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatistics'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'StatisticsReportElement[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatisticsCSV'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'String[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatisticsCSV'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'String[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatisticStrings'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatisticStrings'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getProfilingEvents'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'ProfilingEvent[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatistics'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'StatisticsReportElement[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatistics'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'StatisticsReportElement[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatistics'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'StatisticsReportElement[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatisticsCSV'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'String[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatisticsCSV'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'String[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatisticStrings'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatisticStrings'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getProfilingEvents'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'ProfilingEvent[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatistics'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'StatisticsReportElement[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatistics'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'StatisticsReportElement[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatistics'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'StatisticsReportElement[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatisticsCSV'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'String[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatisticsCSV'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'String[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatisticStrings'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatisticStrings'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getProfilingEvents'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'ProfilingEvent[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatistics'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'StatisticsReportElement[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatistics'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'StatisticsReportElement[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatistics'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'StatisticsReportElement[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatisticsCSV'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'String[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatisticsCSV'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'String[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatisticStrings'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatisticStrings'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getProfilingEvents'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'ProfilingEvent[]'
+      _KLStruct__hasDestructor: false
+      _KLStruct__members:
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'simpleLock', _KLMember__type: !!python/unicode 'SimpleLock'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'registeredSources', _KLMember__type: !!python/unicode '_FabricStatisticsSourceInfo'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'freeIndices', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'profilingFinished', _KLMember__type: !!python/unicode 'Boolean'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'profilingInfo', _KLMember__type: !!python/unicode '_ProfilingInfo'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'perThreadParentProfilingKeys', _KLMember__type: !!python/unicode '_PerThreadParentProfilingKey'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'profilingStartTick', _KLMember__type: !!python/unicode 'UInt64'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'profilingTime', _KLMember__type: !!python/unicode 'Scalar'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'remainingFramesToProfile', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'profilingFrames', _KLMember__type: !!python/unicode '_ProfilingFrame'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'simpleLock', _KLMember__type: !!python/unicode 'SimpleLock'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'registeredSources', _KLMember__type: !!python/unicode '_FabricStatisticsSourceInfo'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'freeIndices', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'profilingFinished', _KLMember__type: !!python/unicode 'Boolean'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'profilingInfo', _KLMember__type: !!python/unicode '_ProfilingInfo'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'perThreadParentProfilingKeys', _KLMember__type: !!python/unicode '_PerThreadParentProfilingKey'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'profilingStartTick', _KLMember__type: !!python/unicode 'UInt64'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'profilingTime', _KLMember__type: !!python/unicode 'Scalar'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'remainingFramesToProfile', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'profilingFrames', _KLMember__type: !!python/unicode '_ProfilingFrame'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'simpleLock', _KLMember__type: !!python/unicode 'SimpleLock'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'registeredSources', _KLMember__type: !!python/unicode '_FabricStatisticsSourceInfo'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'freeIndices', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'profilingFinished', _KLMember__type: !!python/unicode 'Boolean'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'profilingInfo', _KLMember__type: !!python/unicode '_ProfilingInfo'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'perThreadParentProfilingKeys', _KLMember__type: !!python/unicode '_PerThreadParentProfilingKey'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'profilingStartTick', _KLMember__type: !!python/unicode 'UInt64'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'profilingTime', _KLMember__type: !!python/unicode 'Scalar'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'remainingFramesToProfile', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'profilingFrames', _KLMember__type: !!python/unicode '_ProfilingFrame'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'simpleLock', _KLMember__type: !!python/unicode 'SimpleLock'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'registeredSources', _KLMember__type: !!python/unicode '_FabricStatisticsSourceInfo'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'freeIndices', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'profilingFinished', _KLMember__type: !!python/unicode 'Boolean'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'profilingInfo', _KLMember__type: !!python/unicode '_ProfilingInfo'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'perThreadParentProfilingKeys', _KLMember__type: !!python/unicode '_PerThreadParentProfilingKey'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'profilingStartTick', _KLMember__type: !!python/unicode 'UInt64'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'profilingTime', _KLMember__type: !!python/unicode 'Scalar'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'remainingFramesToProfile', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'profilingFrames', _KLMember__type: !!python/unicode '_ProfilingFrame'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'simpleLock', _KLMember__type: !!python/unicode 'SimpleLock'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'registeredSources', _KLMember__type: !!python/unicode '_FabricStatisticsSourceInfo'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'freeIndices', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'profilingFinished', _KLMember__type: !!python/unicode 'Boolean'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'profilingInfo', _KLMember__type: !!python/unicode '_ProfilingInfo'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'perThreadParentProfilingKeys', _KLMember__type: !!python/unicode '_PerThreadParentProfilingKey'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'profilingStartTick', _KLMember__type: !!python/unicode 'UInt64'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'profilingTime', _KLMember__type: !!python/unicode 'Scalar'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'remainingFramesToProfile', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'profilingFrames', _KLMember__type: !!python/unicode '_ProfilingFrame'}
+      _KLStruct__methods:
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'registerSource'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'source',
+          _KLParam__type: !!python/unicode 'Ref<StatisticSource>'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'isValid'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'source',
+          _KLParam__type: !!python/unicode 'Ref<StatisticSource>'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'isParentValid'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'source',
+          _KLParam__type: !!python/unicode 'Ref<StatisticSource>'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'validate'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'source',
+          _KLParam__type: !!python/unicode 'Ref<StatisticSource>'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'addChild'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'parent',
+          _KLParam__type: !!python/unicode 'Ref<StatisticSource>'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'child',
+          _KLParam__type: !!python/unicode 'Ref<StatisticSource>'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'beginFrame'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'frameID',
+          _KLParam__type: !!python/unicode 'Integer'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'time',
+          _KLParam__type: !!python/unicode 'Scalar'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'checkIfProfilingTimeElapsed'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode '_resetProfilingInfo'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'startProfiling'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'stopProfiling'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'startProfiling'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'time',
+          _KLParam__type: !!python/unicode 'Scalar'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'startProfilingFrames'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'frameCount',
+          _KLParam__type: !!python/unicode 'Size'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'beginProfilingEvent'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'label',
+          _KLParam__type: !!python/unicode 'String'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'source',
+          _KLParam__type: !!python/unicode 'Ref<StatisticSource>'}
+        _KLFunction__returnType: !!python/unicode 'Size'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'endProfilingEvent'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'key',
+          _KLParam__type: !!python/unicode 'Size'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'unregisterSource'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'source',
+          _KLParam__type: !!python/unicode 'Ref<StatisticSource>'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode '_buildStatisticsHierarchy'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode '_StatisticsHierarchyElement[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode '_buildProfilingHierarchy'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'hierarchy',
+          _KLParam__type: !!python/unicode '_StatisticsHierarchyElement[]'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'frameStarts',
+          _KLParam__type: !!python/unicode 'Size[]'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'registerSource'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'source',
+          _KLParam__type: !!python/unicode 'Ref<StatisticSource>'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'isValid'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'source',
+          _KLParam__type: !!python/unicode 'Ref<StatisticSource>'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'isParentValid'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'source',
+          _KLParam__type: !!python/unicode 'Ref<StatisticSource>'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'validate'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'source',
+          _KLParam__type: !!python/unicode 'Ref<StatisticSource>'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'addChild'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'parent',
+          _KLParam__type: !!python/unicode 'Ref<StatisticSource>'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'child',
+          _KLParam__type: !!python/unicode 'Ref<StatisticSource>'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'beginFrame'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'frameID',
+          _KLParam__type: !!python/unicode 'Integer'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'time',
+          _KLParam__type: !!python/unicode 'Scalar'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'checkIfProfilingTimeElapsed'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode '_resetProfilingInfo'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'startProfiling'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'stopProfiling'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'startProfiling'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'time',
+          _KLParam__type: !!python/unicode 'Scalar'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'startProfilingFrames'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'frameCount',
+          _KLParam__type: !!python/unicode 'Size'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'beginProfilingEvent'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'label',
+          _KLParam__type: !!python/unicode 'String'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'source',
+          _KLParam__type: !!python/unicode 'Ref<StatisticSource>'}
+        _KLFunction__returnType: !!python/unicode 'Size'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'endProfilingEvent'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'key',
+          _KLParam__type: !!python/unicode 'Size'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'unregisterSource'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'source',
+          _KLParam__type: !!python/unicode 'Ref<StatisticSource>'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode '_buildStatisticsHierarchy'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode '_StatisticsHierarchyElement[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode '_buildProfilingHierarchy'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'hierarchy',
+          _KLParam__type: !!python/unicode '_StatisticsHierarchyElement[]'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'frameStarts',
+          _KLParam__type: !!python/unicode 'Size[]'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'registerSource'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'source',
+          _KLParam__type: !!python/unicode 'Ref<StatisticSource>'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'isValid'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'source',
+          _KLParam__type: !!python/unicode 'Ref<StatisticSource>'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'isParentValid'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'source',
+          _KLParam__type: !!python/unicode 'Ref<StatisticSource>'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'validate'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'source',
+          _KLParam__type: !!python/unicode 'Ref<StatisticSource>'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'addChild'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'parent',
+          _KLParam__type: !!python/unicode 'Ref<StatisticSource>'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'child',
+          _KLParam__type: !!python/unicode 'Ref<StatisticSource>'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'beginFrame'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'frameID',
+          _KLParam__type: !!python/unicode 'Integer'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'time',
+          _KLParam__type: !!python/unicode 'Scalar'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'checkIfProfilingTimeElapsed'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode '_resetProfilingInfo'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'startProfiling'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'stopProfiling'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'startProfiling'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'time',
+          _KLParam__type: !!python/unicode 'Scalar'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'startProfilingFrames'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'frameCount',
+          _KLParam__type: !!python/unicode 'Size'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'beginProfilingEvent'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'label',
+          _KLParam__type: !!python/unicode 'String'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'source',
+          _KLParam__type: !!python/unicode 'Ref<StatisticSource>'}
+        _KLFunction__returnType: !!python/unicode 'Size'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'endProfilingEvent'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'key',
+          _KLParam__type: !!python/unicode 'Size'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'unregisterSource'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'source',
+          _KLParam__type: !!python/unicode 'Ref<StatisticSource>'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode '_buildStatisticsHierarchy'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode '_StatisticsHierarchyElement[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode '_buildProfilingHierarchy'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'hierarchy',
+          _KLParam__type: !!python/unicode '_StatisticsHierarchyElement[]'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'frameStarts',
+          _KLParam__type: !!python/unicode 'Size[]'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'registerSource'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'source',
+          _KLParam__type: !!python/unicode 'Ref<StatisticSource>'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'isValid'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'source',
+          _KLParam__type: !!python/unicode 'Ref<StatisticSource>'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'isParentValid'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'source',
+          _KLParam__type: !!python/unicode 'Ref<StatisticSource>'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'validate'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'source',
+          _KLParam__type: !!python/unicode 'Ref<StatisticSource>'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'addChild'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'parent',
+          _KLParam__type: !!python/unicode 'Ref<StatisticSource>'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'child',
+          _KLParam__type: !!python/unicode 'Ref<StatisticSource>'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'beginFrame'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'frameID',
+          _KLParam__type: !!python/unicode 'Integer'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'time',
+          _KLParam__type: !!python/unicode 'Scalar'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'checkIfProfilingTimeElapsed'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode '_resetProfilingInfo'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'startProfiling'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'stopProfiling'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'startProfiling'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'time',
+          _KLParam__type: !!python/unicode 'Scalar'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'startProfilingFrames'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'frameCount',
+          _KLParam__type: !!python/unicode 'Size'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'beginProfilingEvent'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'label',
+          _KLParam__type: !!python/unicode 'String'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'source',
+          _KLParam__type: !!python/unicode 'Ref<StatisticSource>'}
+        _KLFunction__returnType: !!python/unicode 'Size'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'endProfilingEvent'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'key',
+          _KLParam__type: !!python/unicode 'Size'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'unregisterSource'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'source',
+          _KLParam__type: !!python/unicode 'Ref<StatisticSource>'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode '_buildStatisticsHierarchy'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode '_StatisticsHierarchyElement[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode '_buildProfilingHierarchy'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'hierarchy',
+          _KLParam__type: !!python/unicode '_StatisticsHierarchyElement[]'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'frameStarts',
+          _KLParam__type: !!python/unicode 'Size[]'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'registerSource'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'source',
+          _KLParam__type: !!python/unicode 'Ref<StatisticSource>'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'isValid'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'source',
+          _KLParam__type: !!python/unicode 'Ref<StatisticSource>'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'isParentValid'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'source',
+          _KLParam__type: !!python/unicode 'Ref<StatisticSource>'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'validate'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'source',
+          _KLParam__type: !!python/unicode 'Ref<StatisticSource>'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'addChild'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'parent',
+          _KLParam__type: !!python/unicode 'Ref<StatisticSource>'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'child',
+          _KLParam__type: !!python/unicode 'Ref<StatisticSource>'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'beginFrame'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'frameID',
+          _KLParam__type: !!python/unicode 'Integer'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'time',
+          _KLParam__type: !!python/unicode 'Scalar'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'checkIfProfilingTimeElapsed'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode '_resetProfilingInfo'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'startProfiling'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'stopProfiling'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'startProfiling'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'time',
+          _KLParam__type: !!python/unicode 'Scalar'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'startProfilingFrames'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'frameCount',
+          _KLParam__type: !!python/unicode 'Size'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'beginProfilingEvent'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'label',
+          _KLParam__type: !!python/unicode 'String'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'source',
+          _KLParam__type: !!python/unicode 'Ref<StatisticSource>'}
+        _KLFunction__returnType: !!python/unicode 'Size'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'endProfilingEvent'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'key',
+          _KLParam__type: !!python/unicode 'Size'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'unregisterSource'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'source',
+          _KLParam__type: !!python/unicode 'Ref<StatisticSource>'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode '_buildStatisticsHierarchy'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode '_StatisticsHierarchyElement[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode '_buildProfilingHierarchy'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'hierarchy',
+          _KLParam__type: !!python/unicode '_StatisticsHierarchyElement[]'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'frameStarts',
+          _KLParam__type: !!python/unicode 'Size[]'}
+        _KLFunction__returnType: null
+      _KLStruct__name: !!python/unicode '_FabricStatistics'
+      _KLStruct__operators: []
+      _KLStruct__parents: []
+      _KLStruct__setters: []
+  _KLNamespace__operators: []
+  _KLNamespace__structs:
+    !!python/unicode 'AutoProfilingEvent': !!python/object:GorGon.KLWrapper.KLStruct.KLStruct
+      _KLStruct__constructors:
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'AutoProfilingEvent'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'label',
+          _KLParam__type: !!python/unicode 'String'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'source',
+          _KLParam__type: !!python/unicode 'Ref<StatisticSource>'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'AutoProfilingEvent'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'label',
+          _KLParam__type: !!python/unicode 'String'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'AutoProfilingEvent'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'label',
+          _KLParam__type: !!python/unicode 'String'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'source',
+          _KLParam__type: !!python/unicode 'Ref<StatisticSource>'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'AutoProfilingEvent'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'label',
+          _KLParam__type: !!python/unicode 'String'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'AutoProfilingEvent'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'label',
+          _KLParam__type: !!python/unicode 'String'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'source',
+          _KLParam__type: !!python/unicode 'Ref<StatisticSource>'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'AutoProfilingEvent'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'label',
+          _KLParam__type: !!python/unicode 'String'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'AutoProfilingEvent'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'label',
+          _KLParam__type: !!python/unicode 'String'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'source',
+          _KLParam__type: !!python/unicode 'Ref<StatisticSource>'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'AutoProfilingEvent'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'label',
+          _KLParam__type: !!python/unicode 'String'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'AutoProfilingEvent'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'label',
+          _KLParam__type: !!python/unicode 'String'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'source',
+          _KLParam__type: !!python/unicode 'Ref<StatisticSource>'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'AutoProfilingEvent'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'label',
+          _KLParam__type: !!python/unicode 'String'}
+        _KLFunction__returnType: null
+      _KLStruct__getters: []
+      _KLStruct__hasDestructor: true
+      _KLStruct__members:
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'key', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'key', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'key', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'key', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'key', _KLMember__type: !!python/unicode 'Size'}
+      _KLStruct__methods: []
+      _KLStruct__name: !!python/unicode 'AutoProfilingEvent'
+      _KLStruct__operators: []
+      _KLStruct__parents: []
+      _KLStruct__setters: []
+    !!python/unicode 'FabricStatistics_RTValWrapper': !!python/object:GorGon.KLWrapper.KLStruct.KLStruct
+      _KLStruct__constructors: []
+      _KLStruct__getters:
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatisticsCSV'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'String[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatisticsCSV'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'String[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatisticsCSV'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'String[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatisticStrings'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatisticStrings'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatisticStrings'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatisticsReport'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'String'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatisticsReport'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'String'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatisticsReport'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'String'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getProfilingEvents'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'ProfilingEvent[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getProfilingReport'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'String'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatisticsCSV'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'String[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatisticsCSV'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'String[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatisticsCSV'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'String[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatisticStrings'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatisticStrings'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatisticStrings'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatisticsReport'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'String'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatisticsReport'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'String'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatisticsReport'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'String'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getProfilingEvents'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'ProfilingEvent[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getProfilingReport'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'String'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatisticsCSV'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'String[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatisticsCSV'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'String[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatisticsCSV'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'String[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatisticStrings'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatisticStrings'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatisticStrings'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatisticsReport'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'String'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatisticsReport'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'String'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatisticsReport'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'String'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getProfilingEvents'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'ProfilingEvent[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getProfilingReport'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'String'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatisticsCSV'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'String[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatisticsCSV'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'String[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatisticsCSV'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'String[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatisticStrings'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatisticStrings'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatisticStrings'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatisticsReport'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'String'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatisticsReport'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'String'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatisticsReport'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'String'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getProfilingEvents'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'ProfilingEvent[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getProfilingReport'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'String'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatisticsCSV'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'String[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatisticsCSV'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'String[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatisticsCSV'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'String[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatisticStrings'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatisticStrings'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatisticStrings'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatisticsReport'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'String'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatisticsReport'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'String'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStatisticsReport'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'String'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getProfilingEvents'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'ProfilingEvent[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getProfilingReport'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'String'
+      _KLStruct__hasDestructor: false
+      _KLStruct__members: []
+      _KLStruct__methods:
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'statisticsEnabled'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'enableStatistics'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'disableStatistics'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'profilingEnabled'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'startProfiling'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'startProfiling'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'time',
+          _KLParam__type: !!python/unicode 'Scalar'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'startProfilingFrames'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'frameCount',
+          _KLParam__type: !!python/unicode 'Size'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'stopProfiling'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'statisticsEnabled'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'enableStatistics'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'disableStatistics'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'profilingEnabled'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'startProfiling'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'startProfiling'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'time',
+          _KLParam__type: !!python/unicode 'Scalar'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'startProfilingFrames'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'frameCount',
+          _KLParam__type: !!python/unicode 'Size'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'stopProfiling'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'statisticsEnabled'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'enableStatistics'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'disableStatistics'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'profilingEnabled'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'startProfiling'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'startProfiling'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'time',
+          _KLParam__type: !!python/unicode 'Scalar'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'startProfilingFrames'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'frameCount',
+          _KLParam__type: !!python/unicode 'Size'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'stopProfiling'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'statisticsEnabled'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'enableStatistics'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'disableStatistics'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'profilingEnabled'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'startProfiling'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'startProfiling'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'time',
+          _KLParam__type: !!python/unicode 'Scalar'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'startProfilingFrames'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'frameCount',
+          _KLParam__type: !!python/unicode 'Size'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'stopProfiling'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'statisticsEnabled'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'enableStatistics'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'disableStatistics'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'profilingEnabled'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'startProfiling'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'startProfiling'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'time',
+          _KLParam__type: !!python/unicode 'Scalar'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'startProfilingFrames'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'frameCount',
+          _KLParam__type: !!python/unicode 'Size'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'stopProfiling'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      _KLStruct__name: !!python/unicode 'FabricStatistics_RTValWrapper'
+      _KLStruct__operators: []
+      _KLStruct__parents: []
+      _KLStruct__setters: []
+    !!python/unicode 'ProfilingEvent': !!python/object:GorGon.KLWrapper.KLStruct.KLStruct
+      _KLStruct__constructors: []
+      _KLStruct__getters: []
+      _KLStruct__hasDestructor: false
+      _KLStruct__members:
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'level', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'frame', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'label', _KLMember__type: !!python/unicode 'String'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'startTime', _KLMember__type: !!python/unicode 'Float64'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'duration', _KLMember__type: !!python/unicode 'Float64'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'sourceName', _KLMember__type: !!python/unicode 'String'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'threadIndex', _KLMember__type: !!python/unicode 'UInt32'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'level', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'frame', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'label', _KLMember__type: !!python/unicode 'String'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'startTime', _KLMember__type: !!python/unicode 'Float64'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'duration', _KLMember__type: !!python/unicode 'Float64'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'sourceName', _KLMember__type: !!python/unicode 'String'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'threadIndex', _KLMember__type: !!python/unicode 'UInt32'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'level', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'frame', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'label', _KLMember__type: !!python/unicode 'String'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'startTime', _KLMember__type: !!python/unicode 'Float64'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'duration', _KLMember__type: !!python/unicode 'Float64'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'sourceName', _KLMember__type: !!python/unicode 'String'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'threadIndex', _KLMember__type: !!python/unicode 'UInt32'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'level', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'frame', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'label', _KLMember__type: !!python/unicode 'String'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'startTime', _KLMember__type: !!python/unicode 'Float64'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'duration', _KLMember__type: !!python/unicode 'Float64'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'sourceName', _KLMember__type: !!python/unicode 'String'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'threadIndex', _KLMember__type: !!python/unicode 'UInt32'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'level', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'frame', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'label', _KLMember__type: !!python/unicode 'String'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'startTime', _KLMember__type: !!python/unicode 'Float64'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'duration', _KLMember__type: !!python/unicode 'Float64'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'sourceName', _KLMember__type: !!python/unicode 'String'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'threadIndex', _KLMember__type: !!python/unicode 'UInt32'}
+      _KLStruct__methods: []
+      _KLStruct__name: !!python/unicode 'ProfilingEvent'
+      _KLStruct__operators: []
+      _KLStruct__parents: []
+      _KLStruct__setters: []
+    !!python/unicode 'StatisticRecord': !!python/object:GorGon.KLWrapper.KLStruct.KLStruct
+      _KLStruct__constructors:
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'StatisticRecord'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'name',
+          _KLParam__type: !!python/unicode 'String'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'value',
+          _KLParam__type: !!python/unicode 'SInt64'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'StatisticRecord'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'name',
+          _KLParam__type: !!python/unicode 'String'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'value',
+          _KLParam__type: !!python/unicode 'Float64'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'StatisticRecord'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'name',
+          _KLParam__type: !!python/unicode 'String'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'value',
+          _KLParam__type: !!python/unicode 'String'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'StatisticRecord'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'name',
+          _KLParam__type: !!python/unicode 'String'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'value',
+          _KLParam__type: !!python/unicode 'SInt64'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'StatisticRecord'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'name',
+          _KLParam__type: !!python/unicode 'String'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'value',
+          _KLParam__type: !!python/unicode 'Float64'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'StatisticRecord'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'name',
+          _KLParam__type: !!python/unicode 'String'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'value',
+          _KLParam__type: !!python/unicode 'String'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'StatisticRecord'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'name',
+          _KLParam__type: !!python/unicode 'String'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'value',
+          _KLParam__type: !!python/unicode 'SInt64'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'StatisticRecord'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'name',
+          _KLParam__type: !!python/unicode 'String'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'value',
+          _KLParam__type: !!python/unicode 'Float64'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'StatisticRecord'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'name',
+          _KLParam__type: !!python/unicode 'String'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'value',
+          _KLParam__type: !!python/unicode 'String'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'StatisticRecord'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'name',
+          _KLParam__type: !!python/unicode 'String'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'value',
+          _KLParam__type: !!python/unicode 'SInt64'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'StatisticRecord'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'name',
+          _KLParam__type: !!python/unicode 'String'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'value',
+          _KLParam__type: !!python/unicode 'Float64'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'StatisticRecord'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'name',
+          _KLParam__type: !!python/unicode 'String'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'value',
+          _KLParam__type: !!python/unicode 'String'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'StatisticRecord'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'name',
+          _KLParam__type: !!python/unicode 'String'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'value',
+          _KLParam__type: !!python/unicode 'SInt64'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'StatisticRecord'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'name',
+          _KLParam__type: !!python/unicode 'String'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'value',
+          _KLParam__type: !!python/unicode 'Float64'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'StatisticRecord'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'name',
+          _KLParam__type: !!python/unicode 'String'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'value',
+          _KLParam__type: !!python/unicode 'String'}
+        _KLFunction__returnType: null
+      _KLStruct__getters: []
+      _KLStruct__hasDestructor: false
+      _KLStruct__members:
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'valueType', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'name', _KLMember__type: !!python/unicode 'String'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'intValue', _KLMember__type: !!python/unicode 'SInt64'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'floatValue', _KLMember__type: !!python/unicode 'Float64'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'stringValue', _KLMember__type: !!python/unicode 'String'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'valueType', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'name', _KLMember__type: !!python/unicode 'String'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'intValue', _KLMember__type: !!python/unicode 'SInt64'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'floatValue', _KLMember__type: !!python/unicode 'Float64'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'stringValue', _KLMember__type: !!python/unicode 'String'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'valueType', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'name', _KLMember__type: !!python/unicode 'String'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'intValue', _KLMember__type: !!python/unicode 'SInt64'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'floatValue', _KLMember__type: !!python/unicode 'Float64'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'stringValue', _KLMember__type: !!python/unicode 'String'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'valueType', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'name', _KLMember__type: !!python/unicode 'String'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'intValue', _KLMember__type: !!python/unicode 'SInt64'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'floatValue', _KLMember__type: !!python/unicode 'Float64'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'stringValue', _KLMember__type: !!python/unicode 'String'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'valueType', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'name', _KLMember__type: !!python/unicode 'String'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'intValue', _KLMember__type: !!python/unicode 'SInt64'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'floatValue', _KLMember__type: !!python/unicode 'Float64'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'stringValue', _KLMember__type: !!python/unicode 'String'}
+      _KLStruct__methods:
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'toString'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'includeName',
+          _KLParam__type: !!python/unicode 'Boolean'}
+        _KLFunction__returnType: !!python/unicode 'String'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'add'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'other',
+          _KLParam__type: !!python/unicode 'StatisticRecord'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'toString'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'includeName',
+          _KLParam__type: !!python/unicode 'Boolean'}
+        _KLFunction__returnType: !!python/unicode 'String'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'add'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'other',
+          _KLParam__type: !!python/unicode 'StatisticRecord'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'toString'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'includeName',
+          _KLParam__type: !!python/unicode 'Boolean'}
+        _KLFunction__returnType: !!python/unicode 'String'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'add'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'other',
+          _KLParam__type: !!python/unicode 'StatisticRecord'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'toString'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'includeName',
+          _KLParam__type: !!python/unicode 'Boolean'}
+        _KLFunction__returnType: !!python/unicode 'String'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'add'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'other',
+          _KLParam__type: !!python/unicode 'StatisticRecord'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'toString'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'includeName',
+          _KLParam__type: !!python/unicode 'Boolean'}
+        _KLFunction__returnType: !!python/unicode 'String'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'add'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'other',
+          _KLParam__type: !!python/unicode 'StatisticRecord'}
+        _KLFunction__returnType: null
+      _KLStruct__name: !!python/unicode 'StatisticRecord'
+      _KLStruct__operators: []
+      _KLStruct__parents: []
+      _KLStruct__setters: []
+    !!python/unicode 'StatisticsReportElement': !!python/object:GorGon.KLWrapper.KLStruct.KLStruct
+      _KLStruct__constructors: []
+      _KLStruct__getters: []
+      _KLStruct__hasDestructor: false
+      _KLStruct__members:
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'level', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'data', _KLMember__type: !!python/unicode 'StatisticRecord'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'level', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'data', _KLMember__type: !!python/unicode 'StatisticRecord'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'level', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'data', _KLMember__type: !!python/unicode 'StatisticRecord'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'level', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'data', _KLMember__type: !!python/unicode 'StatisticRecord'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'level', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'data', _KLMember__type: !!python/unicode 'StatisticRecord'}
+      _KLStruct__methods:
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'toString'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'String'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'toCSVString'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'String'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'toString'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'String'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'toCSVString'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'String'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'toString'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'String'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'toCSVString'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'String'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'toString'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'String'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'toCSVString'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'String'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'toString'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'String'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'toCSVString'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'String'
+      _KLStruct__name: !!python/unicode 'StatisticsReportElement'
+      _KLStruct__operators: []
+      _KLStruct__parents: []
+      _KLStruct__setters: []
+    !!python/unicode '_FabricStatisticsReference': !!python/object:GorGon.KLWrapper.KLStruct.KLStruct
+      _KLStruct__constructors:
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode '_FabricStatisticsReference'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'source',
+          _KLParam__type: !!python/unicode 'Ref<StatisticSource>'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode '_FabricStatisticsReference'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'source',
+          _KLParam__type: !!python/unicode 'Ref<StatisticSource>'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode '_FabricStatisticsReference'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'source',
+          _KLParam__type: !!python/unicode 'Ref<StatisticSource>'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode '_FabricStatisticsReference'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'source',
+          _KLParam__type: !!python/unicode 'Ref<StatisticSource>'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode '_FabricStatisticsReference'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'source',
+          _KLParam__type: !!python/unicode 'Ref<StatisticSource>'}
+        _KLFunction__returnType: null
+      _KLStruct__getters: []
+      _KLStruct__hasDestructor: false
+      _KLStruct__members:
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'source', _KLMember__type: !!python/unicode 'Ref<StatisticSource>'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'key', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'source', _KLMember__type: !!python/unicode 'Ref<StatisticSource>'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'key', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'source', _KLMember__type: !!python/unicode 'Ref<StatisticSource>'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'key', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'source', _KLMember__type: !!python/unicode 'Ref<StatisticSource>'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'key', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'source', _KLMember__type: !!python/unicode 'Ref<StatisticSource>'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'key', _KLMember__type: !!python/unicode 'Size'}
+      _KLStruct__methods: []
+      _KLStruct__name: !!python/unicode '_FabricStatisticsReference'
+      _KLStruct__operators: []
+      _KLStruct__parents: []
+      _KLStruct__setters: []
+    !!python/unicode '_FabricStatisticsSourceInfo': !!python/object:GorGon.KLWrapper.KLStruct.KLStruct
+      _KLStruct__constructors: []
+      _KLStruct__getters: []
+      _KLStruct__hasDestructor: false
+      _KLStruct__members:
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'ref', _KLMember__type: !!python/unicode '_FabricStatisticsReference'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'generationCount', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'parentKey', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'parentGenerationCount', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'ref', _KLMember__type: !!python/unicode '_FabricStatisticsReference'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'generationCount', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'parentKey', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'parentGenerationCount', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'ref', _KLMember__type: !!python/unicode '_FabricStatisticsReference'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'generationCount', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'parentKey', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'parentGenerationCount', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'ref', _KLMember__type: !!python/unicode '_FabricStatisticsReference'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'generationCount', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'parentKey', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'parentGenerationCount', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'ref', _KLMember__type: !!python/unicode '_FabricStatisticsReference'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'generationCount', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'parentKey', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'parentGenerationCount', _KLMember__type: !!python/unicode 'Size'}
+      _KLStruct__methods: []
+      _KLStruct__name: !!python/unicode '_FabricStatisticsSourceInfo'
+      _KLStruct__operators: []
+      _KLStruct__parents: []
+      _KLStruct__setters: []
+    !!python/unicode '_PerThreadParentProfilingKey': !!python/object:GorGon.KLWrapper.KLStruct.KLStruct
+      _KLStruct__constructors: []
+      _KLStruct__getters: []
+      _KLStruct__hasDestructor: false
+      _KLStruct__members:
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'parentKeyStack', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'stackEnd', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'parentKeyStack', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'stackEnd', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'parentKeyStack', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'stackEnd', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'parentKeyStack', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'stackEnd', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'parentKeyStack', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'stackEnd', _KLMember__type: !!python/unicode 'Size'}
+      _KLStruct__methods: []
+      _KLStruct__name: !!python/unicode '_PerThreadParentProfilingKey'
+      _KLStruct__operators: []
+      _KLStruct__parents: []
+      _KLStruct__setters: []
+    !!python/unicode '_ProfilingFrame': !!python/object:GorGon.KLWrapper.KLStruct.KLStruct
+      _KLStruct__constructors: []
+      _KLStruct__getters: []
+      _KLStruct__hasDestructor: false
+      _KLStruct__members:
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'firstEntry', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'frameID', _KLMember__type: !!python/unicode 'Integer'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'time', _KLMember__type: !!python/unicode 'Scalar'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'firstEntry', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'frameID', _KLMember__type: !!python/unicode 'Integer'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'time', _KLMember__type: !!python/unicode 'Scalar'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'firstEntry', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'frameID', _KLMember__type: !!python/unicode 'Integer'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'time', _KLMember__type: !!python/unicode 'Scalar'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'firstEntry', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'frameID', _KLMember__type: !!python/unicode 'Integer'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'time', _KLMember__type: !!python/unicode 'Scalar'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'firstEntry', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'frameID', _KLMember__type: !!python/unicode 'Integer'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'time', _KLMember__type: !!python/unicode 'Scalar'}
+      _KLStruct__methods: []
+      _KLStruct__name: !!python/unicode '_ProfilingFrame'
+      _KLStruct__operators: []
+      _KLStruct__parents: []
+      _KLStruct__setters: []
+    !!python/unicode '_ProfilingInfo': !!python/object:GorGon.KLWrapper.KLStruct.KLStruct
+      _KLStruct__constructors: []
+      _KLStruct__getters: []
+      _KLStruct__hasDestructor: false
+      _KLStruct__members:
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'beginTick', _KLMember__type: !!python/unicode 'UInt64'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'endTick', _KLMember__type: !!python/unicode 'UInt64'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'label', _KLMember__type: !!python/unicode 'String'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'threadIndex', _KLMember__type: !!python/unicode 'UInt32'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'ref', _KLMember__type: !!python/unicode '_FabricStatisticsReference'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'parentEvent', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'beginTick', _KLMember__type: !!python/unicode 'UInt64'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'endTick', _KLMember__type: !!python/unicode 'UInt64'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'label', _KLMember__type: !!python/unicode 'String'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'threadIndex', _KLMember__type: !!python/unicode 'UInt32'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'ref', _KLMember__type: !!python/unicode '_FabricStatisticsReference'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'parentEvent', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'beginTick', _KLMember__type: !!python/unicode 'UInt64'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'endTick', _KLMember__type: !!python/unicode 'UInt64'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'label', _KLMember__type: !!python/unicode 'String'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'threadIndex', _KLMember__type: !!python/unicode 'UInt32'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'ref', _KLMember__type: !!python/unicode '_FabricStatisticsReference'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'parentEvent', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'beginTick', _KLMember__type: !!python/unicode 'UInt64'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'endTick', _KLMember__type: !!python/unicode 'UInt64'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'label', _KLMember__type: !!python/unicode 'String'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'threadIndex', _KLMember__type: !!python/unicode 'UInt32'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'ref', _KLMember__type: !!python/unicode '_FabricStatisticsReference'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'parentEvent', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'beginTick', _KLMember__type: !!python/unicode 'UInt64'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'endTick', _KLMember__type: !!python/unicode 'UInt64'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'label', _KLMember__type: !!python/unicode 'String'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'threadIndex', _KLMember__type: !!python/unicode 'UInt32'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'ref', _KLMember__type: !!python/unicode '_FabricStatisticsReference'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'parentEvent', _KLMember__type: !!python/unicode 'Size'}
+      _KLStruct__methods: []
+      _KLStruct__name: !!python/unicode '_ProfilingInfo'
+      _KLStruct__operators: []
+      _KLStruct__parents: []
+      _KLStruct__setters: []
+    !!python/unicode '_StatisticsHierarchyElement': !!python/object:GorGon.KLWrapper.KLStruct.KLStruct
+      _KLStruct__constructors: []
+      _KLStruct__getters: []
+      _KLStruct__hasDestructor: false
+      _KLStruct__members:
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'level', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'key', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'level', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'key', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'level', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'key', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'level', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'key', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'level', _KLMember__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'key', _KLMember__type: !!python/unicode 'Size'}
+      _KLStruct__methods: []
+      _KLStruct__name: !!python/unicode '_StatisticsHierarchyElement'
+      _KLStruct__operators: []
+      _KLStruct__parents: []
+      _KLStruct__setters: []
+_KLExtension__name: !!python/unicode 'FabricStatistics'
+_KLExtension__namespaces: {}

@@ -1,0 +1,2326 @@
+!!python/object:GorGon.KLWrapper.KLExtension.KLExtension
+_KLExtension__extensionDependencies: [!!python/unicode 'Math', !!python/unicode 'FabricSynchronization',
+  !!python/unicode 'Singletons']
+_KLExtension__globalNamespace: !!python/object:GorGon.KLWrapper.KLNamespace.KLNamespace
+  _KLNamespace__aliases: {}
+  _KLNamespace__constants:
+    !!python/unicode 'InvalidIndex': !!python/object:GorGon.KLWrapper.KLConstant.KLConstant {
+      _KLConstant__name: !!python/unicode 'InvalidIndex', _KLConstant__type: !!python/unicode 'ASTConstInteger',
+      _KLConstant__value: !!python/unicode '4294967295'}
+    !!python/unicode 'UInt32HighBit': !!python/object:GorGon.KLWrapper.KLConstant.KLConstant {
+      _KLConstant__name: !!python/unicode 'UInt32HighBit', _KLConstant__type: !!python/unicode 'shl',
+      _KLConstant__value: 'shl(1,31)'}
+  _KLNamespace__extensions: {}
+  _KLNamespace__functions:
+    !!python/unicode 'BytesEqual': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+      _KLFunction__access: !!python/unicode 'unspecified'
+      _KLFunction__name: !!python/unicode 'BytesEqual'
+      _KLFunction__params:
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'values1',
+        _KLParam__type: !!python/unicode 'Data'}
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'values2',
+        _KLParam__type: !!python/unicode 'Data'}
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'dataSize',
+        _KLParam__type: !!python/unicode 'UInt64'}
+      _KLFunction__returnType: !!python/unicode 'Boolean'
+    !!python/unicode 'CastDataToFloat32Array': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+      _KLFunction__access: !!python/unicode 'unspecified'
+      _KLFunction__name: !!python/unicode 'CastDataToFloat32Array'
+      _KLFunction__params:
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'source',
+        _KLParam__type: !!python/unicode 'Data'}
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'float32count',
+        _KLParam__type: !!python/unicode 'Size'}
+      _KLFunction__returnType: !!python/unicode 'Float32<>'
+    !!python/unicode 'CastDataToSInt32Array': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+      _KLFunction__access: !!python/unicode 'unspecified'
+      _KLFunction__name: !!python/unicode 'CastDataToSInt32Array'
+      _KLFunction__params:
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'source',
+        _KLParam__type: !!python/unicode 'Data'}
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'sint32count',
+        _KLParam__type: !!python/unicode 'Size'}
+      _KLFunction__returnType: !!python/unicode 'SInt32<>'
+    !!python/unicode 'CastDataToUInt32Array': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+      _KLFunction__access: !!python/unicode 'unspecified'
+      _KLFunction__name: !!python/unicode 'CastDataToUInt32Array'
+      _KLFunction__params:
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'source',
+        _KLParam__type: !!python/unicode 'Data'}
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'uint32count',
+        _KLParam__type: !!python/unicode 'Size'}
+      _KLFunction__returnType: !!python/unicode 'UInt32<>'
+    !!python/unicode 'CastDataToUInt64': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+      _KLFunction__access: !!python/unicode 'unspecified'
+      _KLFunction__name: !!python/unicode 'CastDataToUInt64'
+      _KLFunction__params:
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'data',
+        _KLParam__type: !!python/unicode 'Data'}
+      _KLFunction__returnType: !!python/unicode 'UInt64'
+    !!python/unicode 'CastDataToUInt8Array': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+      _KLFunction__access: !!python/unicode 'unspecified'
+      _KLFunction__name: !!python/unicode 'CastDataToUInt8Array'
+      _KLFunction__params:
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'source',
+        _KLParam__type: !!python/unicode 'Data'}
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'uint32count',
+        _KLParam__type: !!python/unicode 'Size'}
+      _KLFunction__returnType: !!python/unicode 'UInt8<>'
+    !!python/unicode 'CastUInt64ToData': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+      _KLFunction__access: !!python/unicode 'unspecified'
+      _KLFunction__name: !!python/unicode 'CastUInt64ToData'
+      _KLFunction__params:
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'uint64',
+        _KLParam__type: !!python/unicode 'UInt64'}
+      _KLFunction__returnType: !!python/unicode 'Data'
+    !!python/unicode 'CompareAndUpdateBytes': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+      _KLFunction__access: !!python/unicode 'unspecified'
+      _KLFunction__name: !!python/unicode 'CompareAndUpdateBytes'
+      _KLFunction__params:
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'toUpdate',
+        _KLParam__type: !!python/unicode 'Data'}
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'newValues',
+        _KLParam__type: !!python/unicode 'Data'}
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'dataSize',
+        _KLParam__type: !!python/unicode 'UInt64'}
+      _KLFunction__returnType: !!python/unicode 'Boolean'
+    !!python/unicode 'CopyBytes': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+      _KLFunction__access: !!python/unicode 'unspecified'
+      _KLFunction__name: !!python/unicode 'CopyBytes'
+      _KLFunction__params:
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'target',
+        _KLParam__type: !!python/unicode 'Data'}
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'source',
+        _KLParam__type: !!python/unicode 'Data'}
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'dataSize',
+        _KLParam__type: !!python/unicode 'UInt64'}
+      _KLFunction__returnType: null
+    !!python/unicode 'EvalContext_GetInstance': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+      _KLFunction__access: !!python/unicode 'unspecified'
+      _KLFunction__name: !!python/unicode 'EvalContext_GetInstance'
+      _KLFunction__params: []
+      _KLFunction__returnType: !!python/unicode 'EvalContext'
+    !!python/unicode 'GetBatchSizeAndCountForParallel': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+      _KLFunction__access: !!python/unicode 'unspecified'
+      _KLFunction__name: !!python/unicode 'GetBatchSizeAndCountForParallel'
+      _KLFunction__params:
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'numIndices',
+        _KLParam__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'workloadMultiplier',
+        _KLParam__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'minBatchSize',
+        _KLParam__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'numBatches',
+        _KLParam__type: !!python/unicode 'Size'}
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'batchSize',
+        _KLParam__type: !!python/unicode 'Size'}
+      _KLFunction__returnType: null
+    !!python/unicode 'Log2RoundUp': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+      _KLFunction__access: !!python/unicode 'unspecified'
+      _KLFunction__name: !!python/unicode 'Log2RoundUp'
+      _KLFunction__params:
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'value',
+        _KLParam__type: !!python/unicode 'UInt32'}
+      _KLFunction__returnType: !!python/unicode 'UInt8'
+    !!python/unicode 'OffsetByteData': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+      _KLFunction__access: !!python/unicode 'unspecified'
+      _KLFunction__name: !!python/unicode 'OffsetByteData'
+      _KLFunction__params:
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'base',
+        _KLParam__type: !!python/unicode 'Data'}
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'byteOffset',
+        _KLParam__type: !!python/unicode 'SInt64'}
+      _KLFunction__returnType: !!python/unicode 'Data'
+    !!python/unicode 'atomicClearBit': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+      _KLFunction__access: !!python/unicode 'unspecified'
+      _KLFunction__name: !!python/unicode 'atomicClearBit'
+      _KLFunction__params:
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'val',
+        _KLParam__type: !!python/unicode 'UInt32'}
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'bit',
+        _KLParam__type: !!python/unicode 'UInt32'}
+      _KLFunction__returnType: null
+    !!python/unicode 'atomicGetThenClearFlag': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+      _KLFunction__access: !!python/unicode 'unspecified'
+      _KLFunction__name: !!python/unicode 'atomicGetThenClearFlag'
+      _KLFunction__params:
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'val',
+        _KLParam__type: !!python/unicode 'UInt32'}
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'flag',
+        _KLParam__type: !!python/unicode 'UInt32'}
+      _KLFunction__returnType: !!python/unicode 'Boolean'
+    !!python/unicode 'atomicGetThenSetFlag': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+      _KLFunction__access: !!python/unicode 'unspecified'
+      _KLFunction__name: !!python/unicode 'atomicGetThenSetFlag'
+      _KLFunction__params:
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'val',
+        _KLParam__type: !!python/unicode 'UInt32'}
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'flag',
+        _KLParam__type: !!python/unicode 'UInt32'}
+      _KLFunction__returnType: !!python/unicode 'Boolean'
+    !!python/unicode 'atomicSetBit': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+      _KLFunction__access: !!python/unicode 'unspecified'
+      _KLFunction__name: !!python/unicode 'atomicSetBit'
+      _KLFunction__params:
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'val',
+        _KLParam__type: !!python/unicode 'UInt32'}
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'bit',
+        _KLParam__type: !!python/unicode 'UInt32'}
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'value',
+        _KLParam__type: !!python/unicode 'Boolean'}
+      _KLFunction__returnType: null
+    !!python/unicode 'clearBit': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+      _KLFunction__access: !!python/unicode 'unspecified'
+      _KLFunction__name: !!python/unicode 'clearBit'
+      _KLFunction__params:
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'val',
+        _KLParam__type: !!python/unicode 'UInt64'}
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'bit',
+        _KLParam__type: !!python/unicode 'UInt64'}
+      _KLFunction__returnType: null
+    !!python/unicode 'clearFlag': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+      _KLFunction__access: !!python/unicode 'unspecified'
+      _KLFunction__name: !!python/unicode 'clearFlag'
+      _KLFunction__params:
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'val',
+        _KLParam__type: !!python/unicode 'UInt32'}
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'flag',
+        _KLParam__type: !!python/unicode 'UInt32'}
+      _KLFunction__returnType: null
+    !!python/unicode 'frexp': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+      _KLFunction__access: !!python/unicode 'unspecified'
+      _KLFunction__name: !!python/unicode 'frexp'
+      _KLFunction__params:
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'value',
+        _KLParam__type: !!python/unicode 'Float64'}
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'e',
+        _KLParam__type: !!python/unicode 'Integer'}
+      _KLFunction__returnType: !!python/unicode 'Float64'
+    !!python/unicode 'getBit': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+      _KLFunction__access: !!python/unicode 'unspecified'
+      _KLFunction__name: !!python/unicode 'getBit'
+      _KLFunction__params:
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'val',
+        _KLParam__type: !!python/unicode 'UInt64'}
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'bit',
+        _KLParam__type: !!python/unicode 'UInt64'}
+      _KLFunction__returnType: !!python/unicode 'Boolean'
+    !!python/unicode 'getFlag': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+      _KLFunction__access: !!python/unicode 'unspecified'
+      _KLFunction__name: !!python/unicode 'getFlag'
+      _KLFunction__params:
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'val',
+        _KLParam__type: !!python/unicode 'UInt32'}
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'flag',
+        _KLParam__type: !!python/unicode 'UInt32'}
+      _KLFunction__returnType: !!python/unicode 'Boolean'
+    !!python/unicode 'getSetBitsString': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+      _KLFunction__access: !!python/unicode 'unspecified'
+      _KLFunction__name: !!python/unicode 'getSetBitsString'
+      _KLFunction__params:
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'val',
+        _KLParam__type: !!python/unicode 'UInt64'}
+      _KLFunction__returnType: !!python/unicode 'String'
+    !!python/unicode 'getThenClearBit': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+      _KLFunction__access: !!python/unicode 'unspecified'
+      _KLFunction__name: !!python/unicode 'getThenClearBit'
+      _KLFunction__params:
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'val',
+        _KLParam__type: !!python/unicode 'UInt32'}
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'bit',
+        _KLParam__type: !!python/unicode 'UInt32'}
+      _KLFunction__returnType: !!python/unicode 'Boolean'
+    !!python/unicode 'getThenClearFlag': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+      _KLFunction__access: !!python/unicode 'unspecified'
+      _KLFunction__name: !!python/unicode 'getThenClearFlag'
+      _KLFunction__params:
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'val',
+        _KLParam__type: !!python/unicode 'UInt32'}
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'flag',
+        _KLParam__type: !!python/unicode 'UInt32'}
+      _KLFunction__returnType: !!python/unicode 'Boolean'
+    !!python/unicode 'getThenSetBit': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+      _KLFunction__access: !!python/unicode 'unspecified'
+      _KLFunction__name: !!python/unicode 'getThenSetBit'
+      _KLFunction__params:
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'val',
+        _KLParam__type: !!python/unicode 'UInt64'}
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'bit',
+        _KLParam__type: !!python/unicode 'UInt64'}
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'value',
+        _KLParam__type: !!python/unicode 'Boolean'}
+      _KLFunction__returnType: !!python/unicode 'Boolean'
+    !!python/unicode 'getThenSetFlag': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+      _KLFunction__access: !!python/unicode 'unspecified'
+      _KLFunction__name: !!python/unicode 'getThenSetFlag'
+      _KLFunction__params:
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'val',
+        _KLParam__type: !!python/unicode 'UInt32'}
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'flag',
+        _KLParam__type: !!python/unicode 'UInt32'}
+      _KLFunction__returnType: !!python/unicode 'Boolean'
+    !!python/unicode 'ldexp': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+      _KLFunction__access: !!python/unicode 'unspecified'
+      _KLFunction__name: !!python/unicode 'ldexp'
+      _KLFunction__params:
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'value',
+        _KLParam__type: !!python/unicode 'Float64'}
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'e',
+        _KLParam__type: !!python/unicode 'Integer'}
+      _KLFunction__returnType: !!python/unicode 'Float64'
+    !!python/unicode 'setBit': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+      _KLFunction__access: !!python/unicode 'unspecified'
+      _KLFunction__name: !!python/unicode 'setBit'
+      _KLFunction__params:
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'val',
+        _KLParam__type: !!python/unicode 'UInt64'}
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'bit',
+        _KLParam__type: !!python/unicode 'UInt64'}
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'value',
+        _KLParam__type: !!python/unicode 'Boolean'}
+      _KLFunction__returnType: null
+    !!python/unicode 'setFlag': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+      _KLFunction__access: !!python/unicode 'unspecified'
+      _KLFunction__name: !!python/unicode 'setFlag'
+      _KLFunction__params:
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'val',
+        _KLParam__type: !!python/unicode 'UInt32'}
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'flag',
+        _KLParam__type: !!python/unicode 'UInt32'}
+      _KLFunction__returnType: null
+    !!python/unicode 'swap': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+      _KLFunction__access: !!python/unicode 'unspecified'
+      _KLFunction__name: !!python/unicode 'swap'
+      _KLFunction__params:
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'first',
+        _KLParam__type: !!python/unicode 'UInt32'}
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'second',
+        _KLParam__type: !!python/unicode 'UInt32'}
+      _KLFunction__returnType: null
+    !!python/unicode 'synchronizeVersion': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+      _KLFunction__access: !!python/unicode 'unspecified'
+      _KLFunction__name: !!python/unicode 'synchronizeVersion'
+      _KLFunction__params:
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'source',
+        _KLParam__type: !!python/unicode 'UInt64'}
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'observer',
+        _KLParam__type: !!python/unicode 'UInt64'}
+      _KLFunction__returnType: !!python/unicode 'Boolean'
+    !!python/unicode 'truncateDecimals': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+      _KLFunction__access: !!python/unicode 'unspecified'
+      _KLFunction__name: !!python/unicode 'truncateDecimals'
+      _KLFunction__params:
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'array',
+        _KLParam__type: !!python/unicode 'Float64[]'}
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'n',
+        _KLParam__type: !!python/unicode 'Integer'}
+      _KLFunction__returnType: !!python/unicode 'Float64[]'
+    !!python/unicode 'truncateDecimalsPrint': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+      _KLFunction__access: !!python/unicode 'unspecified'
+      _KLFunction__name: !!python/unicode 'truncateDecimalsPrint'
+      _KLFunction__params:
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'mat',
+        _KLParam__type: !!python/unicode 'Mat_cd'}
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'n',
+        _KLParam__type: !!python/unicode 'UInt32'}
+      _KLFunction__returnType: !!python/unicode 'String'
+    !!python/unicode 'unitTestPrint': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+      _KLFunction__access: !!python/unicode 'unspecified'
+      _KLFunction__name: !!python/unicode 'unitTestPrint'
+      _KLFunction__params:
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'mat',
+        _KLParam__type: !!python/unicode 'Mat_cd'}
+      _KLFunction__returnType: !!python/unicode 'String'
+    !!python/unicode 'unitTestTruncate': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+      _KLFunction__access: !!python/unicode 'unspecified'
+      _KLFunction__name: !!python/unicode 'unitTestTruncate'
+      _KLFunction__params:
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'array',
+        _KLParam__type: !!python/unicode 'Float64[]'}
+      _KLFunction__returnType: !!python/unicode 'Float64[]'
+    !!python/unicode 'updateValue': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+      _KLFunction__access: !!python/unicode 'unspecified'
+      _KLFunction__name: !!python/unicode 'updateValue'
+      _KLFunction__params:
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'source',
+        _KLParam__type: !!python/unicode 'Object'}
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'target',
+        _KLParam__type: !!python/unicode 'Object'}
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'version',
+        _KLParam__type: !!python/unicode 'UInt32'}
+      _KLFunction__returnType: null
+  _KLNamespace__interfaces:
+    !!python/unicode 'Versioned': &id001 !!python/object:GorGon.KLWrapper.KLInterface.KLInterface
+      _KLInterface__members:
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getVersion'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'UInt32'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'initVersion'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'version',
+          _KLParam__type: !!python/unicode 'UInt32'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'incrementVersion'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getValueVersion'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'UInt32'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'initValueVersion'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'version',
+          _KLParam__type: !!python/unicode 'UInt32'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'incrementValueVersion'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStructureVersion'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'UInt32'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'initStructureVersion'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'version',
+          _KLParam__type: !!python/unicode 'UInt32'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'incrementStructureVersion'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getVersion'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'UInt32'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'initVersion'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'version',
+          _KLParam__type: !!python/unicode 'UInt32'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'incrementVersion'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getValueVersion'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'UInt32'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'initValueVersion'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'version',
+          _KLParam__type: !!python/unicode 'UInt32'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'incrementValueVersion'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStructureVersion'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'UInt32'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'initStructureVersion'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'version',
+          _KLParam__type: !!python/unicode 'UInt32'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'incrementStructureVersion'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getVersion'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'UInt32'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'initVersion'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'version',
+          _KLParam__type: !!python/unicode 'UInt32'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'incrementVersion'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getValueVersion'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'UInt32'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'initValueVersion'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'version',
+          _KLParam__type: !!python/unicode 'UInt32'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'incrementValueVersion'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStructureVersion'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'UInt32'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'initStructureVersion'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'version',
+          _KLParam__type: !!python/unicode 'UInt32'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'incrementStructureVersion'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      _KLInterface__name: !!python/unicode 'Versioned'
+  _KLNamespace__name: global
+  _KLNamespace__objects:
+    !!python/unicode 'BaseVersioned': !!python/object:GorGon.KLWrapper.KLObject.KLObject
+      _KLStruct__constructors: []
+      _KLStruct__getters:
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getVersion'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'UInt32'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getVersion_'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'UInt32'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getValueVersion'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'UInt32'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getValueVersion_'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'UInt32'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStructureVersion'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'UInt32'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStructureVersion_'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'UInt32'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getVersion'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'UInt32'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getVersion_'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'UInt32'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getValueVersion'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'UInt32'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getValueVersion_'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'UInt32'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStructureVersion'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'UInt32'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStructureVersion_'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'UInt32'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getVersion'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'UInt32'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getVersion_'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'UInt32'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getValueVersion'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'UInt32'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getValueVersion_'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'UInt32'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStructureVersion'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'UInt32'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStructureVersion_'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'UInt32'
+      _KLStruct__hasDestructor: false
+      _KLStruct__members:
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'version', _KLMember__type: !!python/unicode 'Versions'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'version', _KLMember__type: !!python/unicode 'Versions'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'version', _KLMember__type: !!python/unicode 'Versions'}
+      _KLStruct__methods:
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'initVersion'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'version',
+          _KLParam__type: !!python/unicode 'UInt32'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'incrementVersion'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'incrementVersion_'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'initValueVersion'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'version',
+          _KLParam__type: !!python/unicode 'UInt32'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'incrementValueVersion'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'incrementValueVersion_'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'initStructureVersion'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'version',
+          _KLParam__type: !!python/unicode 'UInt32'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'incrementStructureVersion'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'incrementStructureVersion_'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'incrementVersionIf'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'condition',
+          _KLParam__type: !!python/unicode 'Boolean'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'incrementStructureVersionIf'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'condition',
+          _KLParam__type: !!python/unicode 'Boolean'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'initVersion'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'version',
+          _KLParam__type: !!python/unicode 'UInt32'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'incrementVersion'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'incrementVersion_'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'initValueVersion'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'version',
+          _KLParam__type: !!python/unicode 'UInt32'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'incrementValueVersion'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'incrementValueVersion_'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'initStructureVersion'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'version',
+          _KLParam__type: !!python/unicode 'UInt32'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'incrementStructureVersion'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'incrementStructureVersion_'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'incrementVersionIf'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'condition',
+          _KLParam__type: !!python/unicode 'Boolean'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'incrementStructureVersionIf'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'condition',
+          _KLParam__type: !!python/unicode 'Boolean'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'initVersion'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'version',
+          _KLParam__type: !!python/unicode 'UInt32'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'incrementVersion'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'incrementVersion_'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'initValueVersion'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'version',
+          _KLParam__type: !!python/unicode 'UInt32'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'incrementValueVersion'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'incrementValueVersion_'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'initStructureVersion'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'version',
+          _KLParam__type: !!python/unicode 'UInt32'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'incrementStructureVersion'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'incrementStructureVersion_'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'incrementVersionIf'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'condition',
+          _KLParam__type: !!python/unicode 'Boolean'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'incrementStructureVersionIf'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'condition',
+          _KLParam__type: !!python/unicode 'Boolean'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      _KLStruct__name: !!python/unicode 'BaseVersioned'
+      _KLStruct__operators: []
+      _KLStruct__parents:
+      - *id001
+      _KLStruct__setters: []
+    !!python/unicode 'EvalContext': !!python/object:GorGon.KLWrapper.KLObject.KLObject
+      _KLStruct__constructors:
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'EvalContext'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'EvalContext'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'EvalContext'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      _KLStruct__getters:
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getInstance'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'EvalContext'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getHost'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'String'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getTime'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Scalar'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getInstance'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'EvalContext'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getHost'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'String'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getTime'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Scalar'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getInstance'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'EvalContext'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getHost'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'String'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getTime'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Scalar'
+      _KLStruct__hasDestructor: false
+      _KLStruct__members:
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'host', _KLMember__type: !!python/unicode 'String'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'time', _KLMember__type: !!python/unicode 'Scalar'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'host', _KLMember__type: !!python/unicode 'String'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'time', _KLMember__type: !!python/unicode 'Scalar'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'host', _KLMember__type: !!python/unicode 'String'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'time', _KLMember__type: !!python/unicode 'Scalar'}
+      _KLStruct__methods: []
+      _KLStruct__name: !!python/unicode 'EvalContext'
+      _KLStruct__operators: []
+      _KLStruct__parents: []
+      _KLStruct__setters: []
+    !!python/unicode 'Regex': !!python/object:GorGon.KLWrapper.KLObject.KLObject
+      _KLStruct__constructors:
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'Regex'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'format',
+          _KLParam__type: !!python/unicode 'String'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'Regex'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'format',
+          _KLParam__type: !!python/unicode 'String'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'Regex'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'format',
+          _KLParam__type: !!python/unicode 'String'}
+        _KLFunction__returnType: null
+      _KLStruct__getters: []
+      _KLStruct__hasDestructor: true
+      _KLStruct__members:
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'handle', _KLMember__type: !!python/unicode 'Data'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'handle', _KLMember__type: !!python/unicode 'Data'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'handle', _KLMember__type: !!python/unicode 'Data'}
+      _KLStruct__methods:
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'set'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'e',
+          _KLParam__type: !!python/unicode 'String'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'search'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's',
+          _KLParam__type: !!python/unicode 'String'}
+        _KLFunction__returnType: !!python/unicode 'String[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'match'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's',
+          _KLParam__type: !!python/unicode 'String'}
+        _KLFunction__returnType: !!python/unicode 'String[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'replace'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's',
+          _KLParam__type: !!python/unicode 'String'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'r',
+          _KLParam__type: !!python/unicode 'String'}
+        _KLFunction__returnType: !!python/unicode 'String'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'set'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'e',
+          _KLParam__type: !!python/unicode 'String'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'search'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's',
+          _KLParam__type: !!python/unicode 'String'}
+        _KLFunction__returnType: !!python/unicode 'String[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'match'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's',
+          _KLParam__type: !!python/unicode 'String'}
+        _KLFunction__returnType: !!python/unicode 'String[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'replace'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's',
+          _KLParam__type: !!python/unicode 'String'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'r',
+          _KLParam__type: !!python/unicode 'String'}
+        _KLFunction__returnType: !!python/unicode 'String'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'set'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'e',
+          _KLParam__type: !!python/unicode 'String'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'search'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's',
+          _KLParam__type: !!python/unicode 'String'}
+        _KLFunction__returnType: !!python/unicode 'String[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'match'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's',
+          _KLParam__type: !!python/unicode 'String'}
+        _KLFunction__returnType: !!python/unicode 'String[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'replace'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's',
+          _KLParam__type: !!python/unicode 'String'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'r',
+          _KLParam__type: !!python/unicode 'String'}
+        _KLFunction__returnType: !!python/unicode 'String'
+      _KLStruct__name: !!python/unicode 'Regex'
+      _KLStruct__operators: []
+      _KLStruct__parents: []
+      _KLStruct__setters: []
+  _KLNamespace__operators:
+  - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+    _KLFunction__access: !!python/unicode 'unspecified'
+    _KLFunction__name: !!python/unicode 'eq'
+    _KLFunction__params:
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+      _KLParam__type: !!python/unicode 'FlagAndIndex'}
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+      _KLParam__type: !!python/unicode 'FlagAndIndex'}
+    _KLFunction__returnType: !!python/unicode 'Boolean'
+  - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+    _KLFunction__access: !!python/unicode 'unspecified'
+    _KLFunction__name: !!python/unicode 'ne'
+    _KLFunction__params:
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+      _KLParam__type: !!python/unicode 'FlagAndIndex'}
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+      _KLParam__type: !!python/unicode 'FlagAndIndex'}
+    _KLFunction__returnType: !!python/unicode 'Boolean'
+  - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+    _KLFunction__access: !!python/unicode 'unspecified'
+    _KLFunction__name: !!python/unicode 'eq'
+    _KLFunction__params:
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+      _KLParam__type: !!python/unicode 'FlagAndIndex'}
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+      _KLParam__type: !!python/unicode 'FlagAndIndex'}
+    _KLFunction__returnType: !!python/unicode 'Boolean'
+  - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+    _KLFunction__access: !!python/unicode 'unspecified'
+    _KLFunction__name: !!python/unicode 'ne'
+    _KLFunction__params:
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+      _KLParam__type: !!python/unicode 'FlagAndIndex'}
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+      _KLParam__type: !!python/unicode 'FlagAndIndex'}
+    _KLFunction__returnType: !!python/unicode 'Boolean'
+  - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+    _KLFunction__access: !!python/unicode 'unspecified'
+    _KLFunction__name: !!python/unicode 'eq'
+    _KLFunction__params:
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+      _KLParam__type: !!python/unicode 'FlagAndIndex'}
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+      _KLParam__type: !!python/unicode 'FlagAndIndex'}
+    _KLFunction__returnType: !!python/unicode 'Boolean'
+  - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+    _KLFunction__access: !!python/unicode 'unspecified'
+    _KLFunction__name: !!python/unicode 'ne'
+    _KLFunction__params:
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+      _KLParam__type: !!python/unicode 'FlagAndIndex'}
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+      _KLParam__type: !!python/unicode 'FlagAndIndex'}
+    _KLFunction__returnType: !!python/unicode 'Boolean'
+  _KLNamespace__structs:
+    !!python/unicode 'FlagAndIndex': !!python/object:GorGon.KLWrapper.KLStruct.KLStruct
+      _KLStruct__constructors: []
+      _KLStruct__getters:
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getFlag'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getThenSetFlag'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getThenClearFlag'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getIndex'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'UInt32'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getMaybeInvalidIndex'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'UInt32'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getMaybeInvalidIndex'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getFlag'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getThenSetFlag'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getThenClearFlag'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getIndex'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'UInt32'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getMaybeInvalidIndex'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'UInt32'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getMaybeInvalidIndex'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getFlag'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getThenSetFlag'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getThenClearFlag'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getIndex'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'UInt32'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getMaybeInvalidIndex'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'UInt32'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getMaybeInvalidIndex'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      _KLStruct__hasDestructor: false
+      _KLStruct__members:
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'value', _KLMember__type: !!python/unicode 'UInt32'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'value', _KLMember__type: !!python/unicode 'UInt32'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'value', _KLMember__type: !!python/unicode 'UInt32'}
+      _KLStruct__methods:
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'clearFlag'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'get'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'flag',
+          _KLParam__type: !!python/unicode 'Boolean'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'index',
+          _KLParam__type: !!python/unicode 'UInt32'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'isInvalidIndex'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'set'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'flag',
+          _KLParam__type: !!python/unicode 'Boolean'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'index',
+          _KLParam__type: !!python/unicode 'UInt32'}
+        _KLFunction__returnType: !!python/unicode 'UInt32'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'clearFlag'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'get'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'flag',
+          _KLParam__type: !!python/unicode 'Boolean'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'index',
+          _KLParam__type: !!python/unicode 'UInt32'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'isInvalidIndex'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'set'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'flag',
+          _KLParam__type: !!python/unicode 'Boolean'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'index',
+          _KLParam__type: !!python/unicode 'UInt32'}
+        _KLFunction__returnType: !!python/unicode 'UInt32'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'clearFlag'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'get'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'flag',
+          _KLParam__type: !!python/unicode 'Boolean'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'index',
+          _KLParam__type: !!python/unicode 'UInt32'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'isInvalidIndex'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'set'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'flag',
+          _KLParam__type: !!python/unicode 'Boolean'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'index',
+          _KLParam__type: !!python/unicode 'UInt32'}
+        _KLFunction__returnType: !!python/unicode 'UInt32'
+      _KLStruct__name: !!python/unicode 'FlagAndIndex'
+      _KLStruct__operators: []
+      _KLStruct__parents: []
+      _KLStruct__setters:
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'setFlag'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'setIndex'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'index',
+          _KLParam__type: !!python/unicode 'UInt32'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'setFlag'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'setIndex'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'index',
+          _KLParam__type: !!python/unicode 'UInt32'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'setFlag'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'setIndex'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'index',
+          _KLParam__type: !!python/unicode 'UInt32'}
+        _KLFunction__returnType: null
+    !!python/unicode 'ImporterIdentifier': !!python/object:GorGon.KLWrapper.KLStruct.KLStruct
+      _KLStruct__constructors:
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'ImporterIdentifier'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'name',
+          _KLParam__type: !!python/unicode 'String'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'path',
+          _KLParam__type: !!python/unicode 'String'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'type',
+          _KLParam__type: !!python/unicode 'String'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'ImporterIdentifier'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'name',
+          _KLParam__type: !!python/unicode 'String'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'path',
+          _KLParam__type: !!python/unicode 'String'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'type',
+          _KLParam__type: !!python/unicode 'String'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'ImporterIdentifier'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'name',
+          _KLParam__type: !!python/unicode 'String'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'path',
+          _KLParam__type: !!python/unicode 'String'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'type',
+          _KLParam__type: !!python/unicode 'String'}
+        _KLFunction__returnType: null
+      _KLStruct__getters:
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getBoolData'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getBoolData'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getScalarData'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Scalar'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getScalarData'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Scalar'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getIntData'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Integer'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getIntData'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Integer'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStringData'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'String'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStringData'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'String'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getBoolData'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getBoolData'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getScalarData'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Scalar'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getScalarData'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Scalar'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getIntData'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Integer'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getIntData'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Integer'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStringData'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'String'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStringData'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'String'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getBoolData'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getBoolData'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getScalarData'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Scalar'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getScalarData'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Scalar'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getIntData'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Integer'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getIntData'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Integer'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStringData'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'String'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStringData'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'String'
+      _KLStruct__hasDestructor: false
+      _KLStruct__members:
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'name', _KLMember__type: !!python/unicode 'String'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'index', _KLMember__type: !!python/unicode 'Integer'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'version', _KLMember__type: !!python/unicode 'Integer'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'path', _KLMember__type: !!python/unicode 'String'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'type', _KLMember__type: !!python/unicode 'String'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'filePath', _KLMember__type: !!python/unicode 'String'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'fileIndex', _KLMember__type: !!python/unicode 'Integer'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'data', _KLMember__type: !!python/unicode 'ImporterOptions'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'name', _KLMember__type: !!python/unicode 'String'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'index', _KLMember__type: !!python/unicode 'Integer'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'version', _KLMember__type: !!python/unicode 'Integer'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'path', _KLMember__type: !!python/unicode 'String'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'type', _KLMember__type: !!python/unicode 'String'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'filePath', _KLMember__type: !!python/unicode 'String'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'fileIndex', _KLMember__type: !!python/unicode 'Integer'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'data', _KLMember__type: !!python/unicode 'ImporterOptions'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'name', _KLMember__type: !!python/unicode 'String'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'index', _KLMember__type: !!python/unicode 'Integer'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'version', _KLMember__type: !!python/unicode 'Integer'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'path', _KLMember__type: !!python/unicode 'String'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'type', _KLMember__type: !!python/unicode 'String'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'filePath', _KLMember__type: !!python/unicode 'String'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'fileIndex', _KLMember__type: !!python/unicode 'Integer'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'data', _KLMember__type: !!python/unicode 'ImporterOptions'}
+      _KLStruct__methods:
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'hasBoolData'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'key',
+          _KLParam__type: !!python/unicode 'String'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'hasScalarData'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'key',
+          _KLParam__type: !!python/unicode 'String'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'hasIntData'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'key',
+          _KLParam__type: !!python/unicode 'String'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'hasStringData'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'key',
+          _KLParam__type: !!python/unicode 'String'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'equals'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'other',
+          _KLParam__type: !!python/unicode 'ImporterIdentifier'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'clone'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'ImporterIdentifier'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'hasBoolData'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'key',
+          _KLParam__type: !!python/unicode 'String'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'hasScalarData'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'key',
+          _KLParam__type: !!python/unicode 'String'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'hasIntData'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'key',
+          _KLParam__type: !!python/unicode 'String'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'hasStringData'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'key',
+          _KLParam__type: !!python/unicode 'String'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'equals'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'other',
+          _KLParam__type: !!python/unicode 'ImporterIdentifier'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'clone'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'ImporterIdentifier'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'hasBoolData'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'key',
+          _KLParam__type: !!python/unicode 'String'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'hasScalarData'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'key',
+          _KLParam__type: !!python/unicode 'String'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'hasIntData'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'key',
+          _KLParam__type: !!python/unicode 'String'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'hasStringData'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'key',
+          _KLParam__type: !!python/unicode 'String'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'equals'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'other',
+          _KLParam__type: !!python/unicode 'ImporterIdentifier'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'clone'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'ImporterIdentifier'
+      _KLStruct__name: !!python/unicode 'ImporterIdentifier'
+      _KLStruct__operators: []
+      _KLStruct__parents: []
+      _KLStruct__setters:
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'setBoolData'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'key',
+          _KLParam__type: !!python/unicode 'String'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'value',
+          _KLParam__type: !!python/unicode 'Boolean'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'setScalarData'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'key',
+          _KLParam__type: !!python/unicode 'String'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'value',
+          _KLParam__type: !!python/unicode 'Scalar'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'setIntData'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'key',
+          _KLParam__type: !!python/unicode 'String'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'value',
+          _KLParam__type: !!python/unicode 'Integer'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'setStringData'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'key',
+          _KLParam__type: !!python/unicode 'String'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'value',
+          _KLParam__type: !!python/unicode 'String'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'setBoolData'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'key',
+          _KLParam__type: !!python/unicode 'String'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'value',
+          _KLParam__type: !!python/unicode 'Boolean'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'setScalarData'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'key',
+          _KLParam__type: !!python/unicode 'String'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'value',
+          _KLParam__type: !!python/unicode 'Scalar'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'setIntData'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'key',
+          _KLParam__type: !!python/unicode 'String'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'value',
+          _KLParam__type: !!python/unicode 'Integer'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'setStringData'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'key',
+          _KLParam__type: !!python/unicode 'String'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'value',
+          _KLParam__type: !!python/unicode 'String'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'setBoolData'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'key',
+          _KLParam__type: !!python/unicode 'String'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'value',
+          _KLParam__type: !!python/unicode 'Boolean'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'setScalarData'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'key',
+          _KLParam__type: !!python/unicode 'String'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'value',
+          _KLParam__type: !!python/unicode 'Scalar'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'setIntData'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'key',
+          _KLParam__type: !!python/unicode 'String'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'value',
+          _KLParam__type: !!python/unicode 'Integer'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'setStringData'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'key',
+          _KLParam__type: !!python/unicode 'String'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'value',
+          _KLParam__type: !!python/unicode 'String'}
+        _KLFunction__returnType: null
+    !!python/unicode 'ImporterOptions': !!python/object:GorGon.KLWrapper.KLStruct.KLStruct
+      _KLStruct__constructors: []
+      _KLStruct__getters:
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getBoolOption'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getBoolOption'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getScalarOption'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Scalar'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getScalarOption'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Scalar'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getIntOption'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Integer'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getIntOption'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Integer'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStringOption'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'String'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStringOption'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'String'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getBoolOption'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getBoolOption'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getScalarOption'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Scalar'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getScalarOption'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Scalar'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getIntOption'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Integer'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getIntOption'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Integer'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStringOption'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'String'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStringOption'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'String'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getBoolOption'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getBoolOption'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getScalarOption'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Scalar'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getScalarOption'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Scalar'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getIntOption'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Integer'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getIntOption'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Integer'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStringOption'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'String'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getStringOption'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'String'
+      _KLStruct__hasDestructor: false
+      _KLStruct__members:
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'boolKey', _KLMember__type: !!python/unicode 'String'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'boolValue', _KLMember__type: !!python/unicode 'Boolean'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'scalarKey', _KLMember__type: !!python/unicode 'String'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'scalarValue', _KLMember__type: !!python/unicode 'Scalar'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'intKey', _KLMember__type: !!python/unicode 'String'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'intValue', _KLMember__type: !!python/unicode 'Integer'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'stringKey', _KLMember__type: !!python/unicode 'String'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'stringValue', _KLMember__type: !!python/unicode 'String'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'boolKey', _KLMember__type: !!python/unicode 'String'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'boolValue', _KLMember__type: !!python/unicode 'Boolean'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'scalarKey', _KLMember__type: !!python/unicode 'String'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'scalarValue', _KLMember__type: !!python/unicode 'Scalar'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'intKey', _KLMember__type: !!python/unicode 'String'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'intValue', _KLMember__type: !!python/unicode 'Integer'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'stringKey', _KLMember__type: !!python/unicode 'String'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'stringValue', _KLMember__type: !!python/unicode 'String'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'boolKey', _KLMember__type: !!python/unicode 'String'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'boolValue', _KLMember__type: !!python/unicode 'Boolean'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'scalarKey', _KLMember__type: !!python/unicode 'String'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'scalarValue', _KLMember__type: !!python/unicode 'Scalar'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'intKey', _KLMember__type: !!python/unicode 'String'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'intValue', _KLMember__type: !!python/unicode 'Integer'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'stringKey', _KLMember__type: !!python/unicode 'String'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'stringValue', _KLMember__type: !!python/unicode 'String'}
+      _KLStruct__methods:
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'hasBoolOption'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'key',
+          _KLParam__type: !!python/unicode 'String'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'hasScalarOption'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'key',
+          _KLParam__type: !!python/unicode 'String'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'hasIntOption'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'key',
+          _KLParam__type: !!python/unicode 'String'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'hasStringOption'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'key',
+          _KLParam__type: !!python/unicode 'String'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'hasStringOption'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'key',
+          _KLParam__type: !!python/unicode 'String'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'value',
+          _KLParam__type: !!python/unicode 'String'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'matchesFilter'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'key',
+          _KLParam__type: !!python/unicode 'String'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'value',
+          _KLParam__type: !!python/unicode 'String'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'clone'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'ImporterOptions'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'hasBoolOption'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'key',
+          _KLParam__type: !!python/unicode 'String'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'hasScalarOption'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'key',
+          _KLParam__type: !!python/unicode 'String'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'hasIntOption'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'key',
+          _KLParam__type: !!python/unicode 'String'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'hasStringOption'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'key',
+          _KLParam__type: !!python/unicode 'String'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'hasStringOption'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'key',
+          _KLParam__type: !!python/unicode 'String'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'value',
+          _KLParam__type: !!python/unicode 'String'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'matchesFilter'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'key',
+          _KLParam__type: !!python/unicode 'String'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'value',
+          _KLParam__type: !!python/unicode 'String'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'clone'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'ImporterOptions'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'hasBoolOption'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'key',
+          _KLParam__type: !!python/unicode 'String'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'hasScalarOption'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'key',
+          _KLParam__type: !!python/unicode 'String'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'hasIntOption'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'key',
+          _KLParam__type: !!python/unicode 'String'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'hasStringOption'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'key',
+          _KLParam__type: !!python/unicode 'String'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'hasStringOption'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'key',
+          _KLParam__type: !!python/unicode 'String'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'value',
+          _KLParam__type: !!python/unicode 'String'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'matchesFilter'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'key',
+          _KLParam__type: !!python/unicode 'String'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'value',
+          _KLParam__type: !!python/unicode 'String'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'clone'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'ImporterOptions'
+      _KLStruct__name: !!python/unicode 'ImporterOptions'
+      _KLStruct__operators: []
+      _KLStruct__parents: []
+      _KLStruct__setters:
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'setBoolOption'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'key',
+          _KLParam__type: !!python/unicode 'String'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'value',
+          _KLParam__type: !!python/unicode 'Boolean'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'setScalarOption'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'key',
+          _KLParam__type: !!python/unicode 'String'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'value',
+          _KLParam__type: !!python/unicode 'Scalar'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'setIntOption'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'key',
+          _KLParam__type: !!python/unicode 'String'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'value',
+          _KLParam__type: !!python/unicode 'Integer'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'setStringOption'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'key',
+          _KLParam__type: !!python/unicode 'String'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'value',
+          _KLParam__type: !!python/unicode 'String'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'setBoolOption'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'key',
+          _KLParam__type: !!python/unicode 'String'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'value',
+          _KLParam__type: !!python/unicode 'Boolean'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'setScalarOption'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'key',
+          _KLParam__type: !!python/unicode 'String'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'value',
+          _KLParam__type: !!python/unicode 'Scalar'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'setIntOption'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'key',
+          _KLParam__type: !!python/unicode 'String'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'value',
+          _KLParam__type: !!python/unicode 'Integer'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'setStringOption'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'key',
+          _KLParam__type: !!python/unicode 'String'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'value',
+          _KLParam__type: !!python/unicode 'String'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'setBoolOption'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'key',
+          _KLParam__type: !!python/unicode 'String'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'value',
+          _KLParam__type: !!python/unicode 'Boolean'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'setScalarOption'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'key',
+          _KLParam__type: !!python/unicode 'String'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'value',
+          _KLParam__type: !!python/unicode 'Scalar'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'setIntOption'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'key',
+          _KLParam__type: !!python/unicode 'String'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'value',
+          _KLParam__type: !!python/unicode 'Integer'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'setStringOption'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'key',
+          _KLParam__type: !!python/unicode 'String'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'value',
+          _KLParam__type: !!python/unicode 'String'}
+        _KLFunction__returnType: null
+    !!python/unicode 'VersionedSynch': !!python/object:GorGon.KLWrapper.KLStruct.KLStruct
+      _KLStruct__constructors: []
+      _KLStruct__getters: []
+      _KLStruct__hasDestructor: false
+      _KLStruct__members:
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'lastVersion', _KLMember__type: !!python/unicode 'UInt32'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'lastVersionedUID', _KLMember__type: !!python/unicode 'UInt64'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'lastVersion', _KLMember__type: !!python/unicode 'UInt32'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'lastVersionedUID', _KLMember__type: !!python/unicode 'UInt64'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'lastVersion', _KLMember__type: !!python/unicode 'UInt32'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'lastVersionedUID', _KLMember__type: !!python/unicode 'UInt64'}
+      _KLStruct__methods:
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'synchronize'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'versioned',
+          _KLParam__type: !!python/unicode 'Ref<Versioned>'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'synchronize'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'versioned',
+          _KLParam__type: !!python/unicode 'Ref<Versioned>'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'synchronize'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'versioned',
+          _KLParam__type: !!python/unicode 'Ref<Versioned>'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      _KLStruct__name: !!python/unicode 'VersionedSynch'
+      _KLStruct__operators: []
+      _KLStruct__parents: []
+      _KLStruct__setters: []
+    !!python/unicode 'Versions': !!python/object:GorGon.KLWrapper.KLStruct.KLStruct
+      _KLStruct__constructors: []
+      _KLStruct__getters: []
+      _KLStruct__hasDestructor: false
+      _KLStruct__members:
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'value', _KLMember__type: !!python/unicode 'UInt32'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'topo', _KLMember__type: !!python/unicode 'UInt32'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'value', _KLMember__type: !!python/unicode 'UInt32'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'topo', _KLMember__type: !!python/unicode 'UInt32'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'value', _KLMember__type: !!python/unicode 'UInt32'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'topo', _KLMember__type: !!python/unicode 'UInt32'}
+      _KLStruct__methods:
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'incTopo'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'incValue'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'synchronize'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'source',
+          _KLParam__type: !!python/unicode 'Versions'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'synchronize'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'source',
+          _KLParam__type: !!python/unicode 'Versions'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'parent',
+          _KLParam__type: !!python/unicode 'Versions'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'incTopo'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'incValue'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'synchronize'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'source',
+          _KLParam__type: !!python/unicode 'Versions'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'synchronize'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'source',
+          _KLParam__type: !!python/unicode 'Versions'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'parent',
+          _KLParam__type: !!python/unicode 'Versions'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'incTopo'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'incValue'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'synchronize'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'source',
+          _KLParam__type: !!python/unicode 'Versions'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'synchronize'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'source',
+          _KLParam__type: !!python/unicode 'Versions'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'parent',
+          _KLParam__type: !!python/unicode 'Versions'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      _KLStruct__name: !!python/unicode 'Versions'
+      _KLStruct__operators: []
+      _KLStruct__parents: []
+      _KLStruct__setters: []
+_KLExtension__name: !!python/unicode 'Util'
+_KLExtension__namespaces: {}

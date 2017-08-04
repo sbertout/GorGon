@@ -2,3 +2,5 @@
 gorgon.sublime-*
 .kltest
 KLTests/_out
+*.pyc
+PYTests/_out

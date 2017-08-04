@@ -1,3 +1,10 @@
+import json
+from yaml import load, dump
+try:
+    from yaml import CLoader as Loader, CDumper as Dumper
+except ImportError:
+    from yaml import Loader, Dumper
+
 from KLNamespace import KLNamespace
 
 class KLExtension:
@@ -7,6 +14,17 @@ class KLExtension:
         self.__globalNamespace = KLNamespace('global')
         self.__namespaces = {}
         self.__extensionDependencies = []
+
+    def toYamlFile(self, filepath):
+        with open(filepath, 'w') as outfile:
+            o = dump(self, Dumper=Dumper)
+            outfile.write(o)
+
+    @staticmethod
+    def fromYamlFile(filepath):
+        with open(filepath, 'r') as infile:
+            stream = infile.read()
+            return load(stream, Loader=Loader)
 
     def addExtensionDependency(self, otherExtension):
         if otherExtension not in self.__extensionDependencies:

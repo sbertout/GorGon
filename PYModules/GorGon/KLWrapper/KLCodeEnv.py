@@ -17,6 +17,9 @@ class KLCodeEnv:
         self.__fabricClient = FECore.createClient()
         self.reset()
 
+    def isRTExtension(self, extensionName):
+        return extensionName == self.__RT_EXTENSION_NAME
+
     def getFabricClient(self):
         return self.__fabricClient
 
@@ -26,6 +29,7 @@ class KLCodeEnv:
     def parseSourceCode(self, sourceCode, includeRequires = True):
         ast = self.__fabricClient.getKLJSONAST('AST.kl', sourceCode, includeRequires)
         data = json.loads(ast.getStringCString())['ast']
+        # todo: something when there's a compiler error!!
         for ext in data:
             for d in ext:
                 self.__preParse(d, 'global')
@@ -44,9 +48,7 @@ class KLCodeEnv:
             for namespaceName in namespaceNames:
                 klNamespace = klExtension.getNamespace(namespaceName)
                 for objectName in klNamespace.getObjectNames():
-                    print objectName
                     klObject = klNamespace.getObject(objectName)
-                    print klObject._getParents()
                     newParentsAndInterfaces = []
                     for poiName in klObject._getParents():
                         poi = self.__findParent(poiName)
@@ -62,13 +64,10 @@ class KLCodeEnv:
             for namespaceName in self.getExtension(extensionName).getNamespaceNames(True):
                 klNamespace = klExtension.getNamespace(namespaceName)
                 if klNamespace.hasInterface(poiName):
-                    print 'found interface in',klExtension.getName(), klNamespace.getName()
                     return klNamespace.getInterface(poiName)
                 elif klNamespace.hasObject(poiName):
-                    print 'found object in',klExtension.getName(), klNamespace.getName()
                     return klNamespace.getObject(poiName)
                 elif klNamespace.hasStruct(poiName):
-                    print 'found struct in',klExtension.getName(), klNamespace.getName()
                     return klNamespace.getStruct(poiName)
         return None
 
@@ -356,36 +355,41 @@ class KLCodeEnv:
 
     @staticmethod
     def __processConstDecl(elementList, currentKLN):
-        val = elementList['constDecl']['value']
-        constType = val['type']
-        constName = elementList['constDecl']['name']
+        constDeclDict = elementList['constDecl']
+        val = constDeclDict['value'] if 'value' in constDeclDict else ''
+        constName = constDeclDict['name']
 
-        if 'valueBool' not in val and 'valueString' not in val:
-
-            if 'binOpType' in val:
-
-                constType = val['binOpType']
-                lhs_val = val['lhs']
-                rhs_val = val['rhs']
-
-                if 'valueBool' not in lhs_val and 'valueString' not in lhs_val:
-                    lhs_value = lhs_val['name']
-                else:
-                    lhs_value = lhs_val['valueBool'] if 'valueBool' in lhs_val else lhs_val['valueString']
-
-                if 'valueBool' not in val and 'valueString' not in rhs_val:
-                    rhs_value = rhs_val['name']
-                else:
-                    rhs_value = rhs_val['valueBool'] if 'valueBool' in rhs_val else rhs_val['valueString']
-
-                constValue  = '{}({},{})'.format(val['binOpType'], lhs_value, rhs_value)
-
-            elif 'uniOpType' in val:
-
-                constType = val['uniOpType']
-                constValue = '{}({})'.format(val['uniOpType'], val['child']['valueString'])
-
+        if val == '':
+            constValue = ''
+            constType = constDeclDict['type']
         else:
-            constValue = val['valueBool'] if 'valueBool' in val else val['valueString']
+            constType = val['type']
+            if 'valueBool' not in val and 'valueString' not in val:
+
+                if 'binOpType' in val:
+
+                    constType = val['binOpType']
+                    lhs_val = val['lhs']
+                    rhs_val = val['rhs']
+
+                    if 'valueBool' not in lhs_val and 'valueString' not in lhs_val:
+                        lhs_value = lhs_val['name']
+                    else:
+                        lhs_value = lhs_val['valueBool'] if 'valueBool' in lhs_val else lhs_val['valueString']
+
+                    if 'valueBool' not in val and 'valueString' not in rhs_val:
+                        rhs_value = rhs_val['name']
+                    else:
+                        rhs_value = rhs_val['valueBool'] if 'valueBool' in rhs_val else rhs_val['valueString']
+
+                    constValue  = '{}({},{})'.format(val['binOpType'], lhs_value, rhs_value)
+
+                elif 'uniOpType' in val:
+
+                    constType = val['uniOpType']
+                    constValue = '{}({})'.format(val['uniOpType'], val['child']['valueString'])
+
+            else:
+                constValue = val['valueBool'] if 'valueBool' in val else val['valueString']
 
         currentKLN.addConstant(KLConstant(constType, constName, constValue))

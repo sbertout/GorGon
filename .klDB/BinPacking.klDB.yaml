@@ -1,0 +1,1980 @@
+!!python/object:GorGon.KLWrapper.KLExtension.KLExtension
+_KLExtension__extensionDependencies: []
+_KLExtension__globalNamespace: !!python/object:GorGon.KLWrapper.KLNamespace.KLNamespace
+  _KLNamespace__aliases: {}
+  _KLNamespace__constants: {}
+  _KLNamespace__extensions: {}
+  _KLNamespace__functions:
+    !!python/unicode 'BinPack2DCoord_QuickSort': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+      _KLFunction__access: !!python/unicode 'unspecified'
+      _KLFunction__name: !!python/unicode 'BinPack2DCoord_QuickSort'
+      _KLFunction__params:
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'data',
+        _KLParam__type: !!python/unicode 'BinPack2DCoord[]'}
+      _KLFunction__returnType: !!python/unicode 'BinPack2DCoord[]'
+    !!python/unicode 'BinPack2DPackage_QuickSortBySize': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+      _KLFunction__access: !!python/unicode 'unspecified'
+      _KLFunction__name: !!python/unicode 'BinPack2DPackage_QuickSortBySize'
+      _KLFunction__params:
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'data',
+        _KLParam__type: !!python/unicode 'BinPack2DPackage[]'}
+      _KLFunction__returnType: !!python/unicode 'BinPack2DPackage[]'
+  _KLNamespace__interfaces: {}
+  _KLNamespace__name: global
+  _KLNamespace__objects: {}
+  _KLNamespace__operators:
+  - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+    _KLFunction__access: !!python/unicode 'unspecified'
+    _KLFunction__name: !!python/unicode 'eq'
+    _KLFunction__params:
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+      _KLParam__type: !!python/unicode 'BinPack2DSize'}
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+      _KLParam__type: !!python/unicode 'BinPack2DSize'}
+    _KLFunction__returnType: !!python/unicode 'Boolean'
+  - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+    _KLFunction__access: !!python/unicode 'unspecified'
+    _KLFunction__name: !!python/unicode 'lt'
+    _KLFunction__params:
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+      _KLParam__type: !!python/unicode 'BinPack2DSize'}
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+      _KLParam__type: !!python/unicode 'BinPack2DSize'}
+    _KLFunction__returnType: !!python/unicode 'Boolean'
+  - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+    _KLFunction__access: !!python/unicode 'unspecified'
+    _KLFunction__name: !!python/unicode 'gt'
+    _KLFunction__params:
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+      _KLParam__type: !!python/unicode 'BinPack2DSize'}
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+      _KLParam__type: !!python/unicode 'BinPack2DSize'}
+    _KLFunction__returnType: !!python/unicode 'Boolean'
+  - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+    _KLFunction__access: !!python/unicode 'unspecified'
+    _KLFunction__name: !!python/unicode 'add'
+    _KLFunction__params:
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+      _KLParam__type: !!python/unicode 'BinPack2DSize'}
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+      _KLParam__type: !!python/unicode 'BinPack2DSize'}
+    _KLFunction__returnType: !!python/unicode 'BinPack2DSize'
+  - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+    _KLFunction__access: !!python/unicode 'unspecified'
+    _KLFunction__name: !!python/unicode 'div'
+    _KLFunction__params:
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+      _KLParam__type: !!python/unicode 'BinPack2DSize'}
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+      _KLParam__type: !!python/unicode 'SInt32'}
+    _KLFunction__returnType: !!python/unicode 'BinPack2DSize'
+  - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+    _KLFunction__access: !!python/unicode 'unspecified'
+    _KLFunction__name: !!python/unicode 'eq'
+    _KLFunction__params:
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+      _KLParam__type: !!python/unicode 'BinPack2DCoord'}
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+      _KLParam__type: !!python/unicode 'BinPack2DCoord'}
+    _KLFunction__returnType: !!python/unicode 'Boolean'
+  - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+    _KLFunction__access: !!python/unicode 'unspecified'
+    _KLFunction__name: !!python/unicode 'lt'
+    _KLFunction__params:
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+      _KLParam__type: !!python/unicode 'BinPack2DCoord'}
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+      _KLParam__type: !!python/unicode 'BinPack2DCoord'}
+    _KLFunction__returnType: !!python/unicode 'Boolean'
+  - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+    _KLFunction__access: !!python/unicode 'unspecified'
+    _KLFunction__name: !!python/unicode 'add'
+    _KLFunction__params:
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+      _KLParam__type: !!python/unicode 'BinPack2DCoord'}
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+      _KLParam__type: !!python/unicode 'BinPack2DCoord'}
+    _KLFunction__returnType: !!python/unicode 'BinPack2DCoord'
+  - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+    _KLFunction__access: !!python/unicode 'unspecified'
+    _KLFunction__name: !!python/unicode 'add'
+    _KLFunction__params:
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+      _KLParam__type: !!python/unicode 'BinPack2DCoord'}
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+      _KLParam__type: !!python/unicode 'BinPack2DSize'}
+    _KLFunction__returnType: !!python/unicode 'BinPack2DCoord'
+  - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+    _KLFunction__access: !!python/unicode 'unspecified'
+    _KLFunction__name: !!python/unicode 'div'
+    _KLFunction__params:
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+      _KLParam__type: !!python/unicode 'BinPack2DCoord'}
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+      _KLParam__type: !!python/unicode 'SInt32'}
+    _KLFunction__returnType: !!python/unicode 'BinPack2DCoord'
+  - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+    _KLFunction__access: !!python/unicode 'unspecified'
+    _KLFunction__name: !!python/unicode 'lt'
+    _KLFunction__params:
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+      _KLParam__type: !!python/unicode 'BinPack2DRegion'}
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+      _KLParam__type: !!python/unicode 'BinPack2DRegion'}
+    _KLFunction__returnType: !!python/unicode 'Boolean'
+  - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+    _KLFunction__access: !!python/unicode 'unspecified'
+    _KLFunction__name: !!python/unicode 'gt'
+    _KLFunction__params:
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+      _KLParam__type: !!python/unicode 'BinPack2DRegion'}
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+      _KLParam__type: !!python/unicode 'BinPack2DRegion'}
+    _KLFunction__returnType: !!python/unicode 'Boolean'
+  - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+    _KLFunction__access: !!python/unicode 'unspecified'
+    _KLFunction__name: !!python/unicode 'eq'
+    _KLFunction__params:
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+      _KLParam__type: !!python/unicode 'BinPack2DSize'}
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+      _KLParam__type: !!python/unicode 'BinPack2DSize'}
+    _KLFunction__returnType: !!python/unicode 'Boolean'
+  - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+    _KLFunction__access: !!python/unicode 'unspecified'
+    _KLFunction__name: !!python/unicode 'lt'
+    _KLFunction__params:
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+      _KLParam__type: !!python/unicode 'BinPack2DSize'}
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+      _KLParam__type: !!python/unicode 'BinPack2DSize'}
+    _KLFunction__returnType: !!python/unicode 'Boolean'
+  - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+    _KLFunction__access: !!python/unicode 'unspecified'
+    _KLFunction__name: !!python/unicode 'gt'
+    _KLFunction__params:
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+      _KLParam__type: !!python/unicode 'BinPack2DSize'}
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+      _KLParam__type: !!python/unicode 'BinPack2DSize'}
+    _KLFunction__returnType: !!python/unicode 'Boolean'
+  - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+    _KLFunction__access: !!python/unicode 'unspecified'
+    _KLFunction__name: !!python/unicode 'add'
+    _KLFunction__params:
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+      _KLParam__type: !!python/unicode 'BinPack2DSize'}
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+      _KLParam__type: !!python/unicode 'BinPack2DSize'}
+    _KLFunction__returnType: !!python/unicode 'BinPack2DSize'
+  - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+    _KLFunction__access: !!python/unicode 'unspecified'
+    _KLFunction__name: !!python/unicode 'div'
+    _KLFunction__params:
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+      _KLParam__type: !!python/unicode 'BinPack2DSize'}
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+      _KLParam__type: !!python/unicode 'SInt32'}
+    _KLFunction__returnType: !!python/unicode 'BinPack2DSize'
+  - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+    _KLFunction__access: !!python/unicode 'unspecified'
+    _KLFunction__name: !!python/unicode 'eq'
+    _KLFunction__params:
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+      _KLParam__type: !!python/unicode 'BinPack2DCoord'}
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+      _KLParam__type: !!python/unicode 'BinPack2DCoord'}
+    _KLFunction__returnType: !!python/unicode 'Boolean'
+  - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+    _KLFunction__access: !!python/unicode 'unspecified'
+    _KLFunction__name: !!python/unicode 'lt'
+    _KLFunction__params:
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+      _KLParam__type: !!python/unicode 'BinPack2DCoord'}
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+      _KLParam__type: !!python/unicode 'BinPack2DCoord'}
+    _KLFunction__returnType: !!python/unicode 'Boolean'
+  - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+    _KLFunction__access: !!python/unicode 'unspecified'
+    _KLFunction__name: !!python/unicode 'add'
+    _KLFunction__params:
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+      _KLParam__type: !!python/unicode 'BinPack2DCoord'}
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+      _KLParam__type: !!python/unicode 'BinPack2DCoord'}
+    _KLFunction__returnType: !!python/unicode 'BinPack2DCoord'
+  - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+    _KLFunction__access: !!python/unicode 'unspecified'
+    _KLFunction__name: !!python/unicode 'add'
+    _KLFunction__params:
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+      _KLParam__type: !!python/unicode 'BinPack2DCoord'}
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+      _KLParam__type: !!python/unicode 'BinPack2DSize'}
+    _KLFunction__returnType: !!python/unicode 'BinPack2DCoord'
+  - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+    _KLFunction__access: !!python/unicode 'unspecified'
+    _KLFunction__name: !!python/unicode 'div'
+    _KLFunction__params:
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+      _KLParam__type: !!python/unicode 'BinPack2DCoord'}
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+      _KLParam__type: !!python/unicode 'SInt32'}
+    _KLFunction__returnType: !!python/unicode 'BinPack2DCoord'
+  - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+    _KLFunction__access: !!python/unicode 'unspecified'
+    _KLFunction__name: !!python/unicode 'lt'
+    _KLFunction__params:
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+      _KLParam__type: !!python/unicode 'BinPack2DRegion'}
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+      _KLParam__type: !!python/unicode 'BinPack2DRegion'}
+    _KLFunction__returnType: !!python/unicode 'Boolean'
+  - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+    _KLFunction__access: !!python/unicode 'unspecified'
+    _KLFunction__name: !!python/unicode 'gt'
+    _KLFunction__params:
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+      _KLParam__type: !!python/unicode 'BinPack2DRegion'}
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+      _KLParam__type: !!python/unicode 'BinPack2DRegion'}
+    _KLFunction__returnType: !!python/unicode 'Boolean'
+  - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+    _KLFunction__access: !!python/unicode 'unspecified'
+    _KLFunction__name: !!python/unicode 'eq'
+    _KLFunction__params:
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+      _KLParam__type: !!python/unicode 'BinPack2DSize'}
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+      _KLParam__type: !!python/unicode 'BinPack2DSize'}
+    _KLFunction__returnType: !!python/unicode 'Boolean'
+  - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+    _KLFunction__access: !!python/unicode 'unspecified'
+    _KLFunction__name: !!python/unicode 'lt'
+    _KLFunction__params:
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+      _KLParam__type: !!python/unicode 'BinPack2DSize'}
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+      _KLParam__type: !!python/unicode 'BinPack2DSize'}
+    _KLFunction__returnType: !!python/unicode 'Boolean'
+  - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+    _KLFunction__access: !!python/unicode 'unspecified'
+    _KLFunction__name: !!python/unicode 'gt'
+    _KLFunction__params:
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+      _KLParam__type: !!python/unicode 'BinPack2DSize'}
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+      _KLParam__type: !!python/unicode 'BinPack2DSize'}
+    _KLFunction__returnType: !!python/unicode 'Boolean'
+  - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+    _KLFunction__access: !!python/unicode 'unspecified'
+    _KLFunction__name: !!python/unicode 'add'
+    _KLFunction__params:
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+      _KLParam__type: !!python/unicode 'BinPack2DSize'}
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+      _KLParam__type: !!python/unicode 'BinPack2DSize'}
+    _KLFunction__returnType: !!python/unicode 'BinPack2DSize'
+  - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+    _KLFunction__access: !!python/unicode 'unspecified'
+    _KLFunction__name: !!python/unicode 'div'
+    _KLFunction__params:
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+      _KLParam__type: !!python/unicode 'BinPack2DSize'}
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+      _KLParam__type: !!python/unicode 'SInt32'}
+    _KLFunction__returnType: !!python/unicode 'BinPack2DSize'
+  - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+    _KLFunction__access: !!python/unicode 'unspecified'
+    _KLFunction__name: !!python/unicode 'eq'
+    _KLFunction__params:
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+      _KLParam__type: !!python/unicode 'BinPack2DCoord'}
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+      _KLParam__type: !!python/unicode 'BinPack2DCoord'}
+    _KLFunction__returnType: !!python/unicode 'Boolean'
+  - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+    _KLFunction__access: !!python/unicode 'unspecified'
+    _KLFunction__name: !!python/unicode 'lt'
+    _KLFunction__params:
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+      _KLParam__type: !!python/unicode 'BinPack2DCoord'}
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+      _KLParam__type: !!python/unicode 'BinPack2DCoord'}
+    _KLFunction__returnType: !!python/unicode 'Boolean'
+  - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+    _KLFunction__access: !!python/unicode 'unspecified'
+    _KLFunction__name: !!python/unicode 'add'
+    _KLFunction__params:
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+      _KLParam__type: !!python/unicode 'BinPack2DCoord'}
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+      _KLParam__type: !!python/unicode 'BinPack2DCoord'}
+    _KLFunction__returnType: !!python/unicode 'BinPack2DCoord'
+  - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+    _KLFunction__access: !!python/unicode 'unspecified'
+    _KLFunction__name: !!python/unicode 'add'
+    _KLFunction__params:
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+      _KLParam__type: !!python/unicode 'BinPack2DCoord'}
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+      _KLParam__type: !!python/unicode 'BinPack2DSize'}
+    _KLFunction__returnType: !!python/unicode 'BinPack2DCoord'
+  - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+    _KLFunction__access: !!python/unicode 'unspecified'
+    _KLFunction__name: !!python/unicode 'div'
+    _KLFunction__params:
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+      _KLParam__type: !!python/unicode 'BinPack2DCoord'}
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+      _KLParam__type: !!python/unicode 'SInt32'}
+    _KLFunction__returnType: !!python/unicode 'BinPack2DCoord'
+  - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+    _KLFunction__access: !!python/unicode 'unspecified'
+    _KLFunction__name: !!python/unicode 'lt'
+    _KLFunction__params:
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+      _KLParam__type: !!python/unicode 'BinPack2DRegion'}
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+      _KLParam__type: !!python/unicode 'BinPack2DRegion'}
+    _KLFunction__returnType: !!python/unicode 'Boolean'
+  - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+    _KLFunction__access: !!python/unicode 'unspecified'
+    _KLFunction__name: !!python/unicode 'gt'
+    _KLFunction__params:
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+      _KLParam__type: !!python/unicode 'BinPack2DRegion'}
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+      _KLParam__type: !!python/unicode 'BinPack2DRegion'}
+    _KLFunction__returnType: !!python/unicode 'Boolean'
+  - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+    _KLFunction__access: !!python/unicode 'unspecified'
+    _KLFunction__name: !!python/unicode 'eq'
+    _KLFunction__params:
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+      _KLParam__type: !!python/unicode 'BinPack2DSize'}
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+      _KLParam__type: !!python/unicode 'BinPack2DSize'}
+    _KLFunction__returnType: !!python/unicode 'Boolean'
+  - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+    _KLFunction__access: !!python/unicode 'unspecified'
+    _KLFunction__name: !!python/unicode 'lt'
+    _KLFunction__params:
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+      _KLParam__type: !!python/unicode 'BinPack2DSize'}
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+      _KLParam__type: !!python/unicode 'BinPack2DSize'}
+    _KLFunction__returnType: !!python/unicode 'Boolean'
+  - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+    _KLFunction__access: !!python/unicode 'unspecified'
+    _KLFunction__name: !!python/unicode 'gt'
+    _KLFunction__params:
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+      _KLParam__type: !!python/unicode 'BinPack2DSize'}
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+      _KLParam__type: !!python/unicode 'BinPack2DSize'}
+    _KLFunction__returnType: !!python/unicode 'Boolean'
+  - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+    _KLFunction__access: !!python/unicode 'unspecified'
+    _KLFunction__name: !!python/unicode 'add'
+    _KLFunction__params:
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+      _KLParam__type: !!python/unicode 'BinPack2DSize'}
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+      _KLParam__type: !!python/unicode 'BinPack2DSize'}
+    _KLFunction__returnType: !!python/unicode 'BinPack2DSize'
+  - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+    _KLFunction__access: !!python/unicode 'unspecified'
+    _KLFunction__name: !!python/unicode 'div'
+    _KLFunction__params:
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+      _KLParam__type: !!python/unicode 'BinPack2DSize'}
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+      _KLParam__type: !!python/unicode 'SInt32'}
+    _KLFunction__returnType: !!python/unicode 'BinPack2DSize'
+  - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+    _KLFunction__access: !!python/unicode 'unspecified'
+    _KLFunction__name: !!python/unicode 'eq'
+    _KLFunction__params:
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+      _KLParam__type: !!python/unicode 'BinPack2DCoord'}
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+      _KLParam__type: !!python/unicode 'BinPack2DCoord'}
+    _KLFunction__returnType: !!python/unicode 'Boolean'
+  - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+    _KLFunction__access: !!python/unicode 'unspecified'
+    _KLFunction__name: !!python/unicode 'lt'
+    _KLFunction__params:
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+      _KLParam__type: !!python/unicode 'BinPack2DCoord'}
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+      _KLParam__type: !!python/unicode 'BinPack2DCoord'}
+    _KLFunction__returnType: !!python/unicode 'Boolean'
+  - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+    _KLFunction__access: !!python/unicode 'unspecified'
+    _KLFunction__name: !!python/unicode 'add'
+    _KLFunction__params:
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+      _KLParam__type: !!python/unicode 'BinPack2DCoord'}
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+      _KLParam__type: !!python/unicode 'BinPack2DCoord'}
+    _KLFunction__returnType: !!python/unicode 'BinPack2DCoord'
+  - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+    _KLFunction__access: !!python/unicode 'unspecified'
+    _KLFunction__name: !!python/unicode 'add'
+    _KLFunction__params:
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+      _KLParam__type: !!python/unicode 'BinPack2DCoord'}
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+      _KLParam__type: !!python/unicode 'BinPack2DSize'}
+    _KLFunction__returnType: !!python/unicode 'BinPack2DCoord'
+  - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+    _KLFunction__access: !!python/unicode 'unspecified'
+    _KLFunction__name: !!python/unicode 'div'
+    _KLFunction__params:
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+      _KLParam__type: !!python/unicode 'BinPack2DCoord'}
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+      _KLParam__type: !!python/unicode 'SInt32'}
+    _KLFunction__returnType: !!python/unicode 'BinPack2DCoord'
+  - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+    _KLFunction__access: !!python/unicode 'unspecified'
+    _KLFunction__name: !!python/unicode 'lt'
+    _KLFunction__params:
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+      _KLParam__type: !!python/unicode 'BinPack2DRegion'}
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+      _KLParam__type: !!python/unicode 'BinPack2DRegion'}
+    _KLFunction__returnType: !!python/unicode 'Boolean'
+  - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+    _KLFunction__access: !!python/unicode 'unspecified'
+    _KLFunction__name: !!python/unicode 'gt'
+    _KLFunction__params:
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+      _KLParam__type: !!python/unicode 'BinPack2DRegion'}
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+      _KLParam__type: !!python/unicode 'BinPack2DRegion'}
+    _KLFunction__returnType: !!python/unicode 'Boolean'
+  - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+    _KLFunction__access: !!python/unicode 'unspecified'
+    _KLFunction__name: !!python/unicode 'eq'
+    _KLFunction__params:
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+      _KLParam__type: !!python/unicode 'BinPack2DSize'}
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+      _KLParam__type: !!python/unicode 'BinPack2DSize'}
+    _KLFunction__returnType: !!python/unicode 'Boolean'
+  - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+    _KLFunction__access: !!python/unicode 'unspecified'
+    _KLFunction__name: !!python/unicode 'lt'
+    _KLFunction__params:
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+      _KLParam__type: !!python/unicode 'BinPack2DSize'}
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+      _KLParam__type: !!python/unicode 'BinPack2DSize'}
+    _KLFunction__returnType: !!python/unicode 'Boolean'
+  - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+    _KLFunction__access: !!python/unicode 'unspecified'
+    _KLFunction__name: !!python/unicode 'gt'
+    _KLFunction__params:
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+      _KLParam__type: !!python/unicode 'BinPack2DSize'}
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+      _KLParam__type: !!python/unicode 'BinPack2DSize'}
+    _KLFunction__returnType: !!python/unicode 'Boolean'
+  - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+    _KLFunction__access: !!python/unicode 'unspecified'
+    _KLFunction__name: !!python/unicode 'add'
+    _KLFunction__params:
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+      _KLParam__type: !!python/unicode 'BinPack2DSize'}
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+      _KLParam__type: !!python/unicode 'BinPack2DSize'}
+    _KLFunction__returnType: !!python/unicode 'BinPack2DSize'
+  - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+    _KLFunction__access: !!python/unicode 'unspecified'
+    _KLFunction__name: !!python/unicode 'div'
+    _KLFunction__params:
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+      _KLParam__type: !!python/unicode 'BinPack2DSize'}
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+      _KLParam__type: !!python/unicode 'SInt32'}
+    _KLFunction__returnType: !!python/unicode 'BinPack2DSize'
+  - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+    _KLFunction__access: !!python/unicode 'unspecified'
+    _KLFunction__name: !!python/unicode 'eq'
+    _KLFunction__params:
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+      _KLParam__type: !!python/unicode 'BinPack2DCoord'}
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+      _KLParam__type: !!python/unicode 'BinPack2DCoord'}
+    _KLFunction__returnType: !!python/unicode 'Boolean'
+  - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+    _KLFunction__access: !!python/unicode 'unspecified'
+    _KLFunction__name: !!python/unicode 'lt'
+    _KLFunction__params:
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+      _KLParam__type: !!python/unicode 'BinPack2DCoord'}
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+      _KLParam__type: !!python/unicode 'BinPack2DCoord'}
+    _KLFunction__returnType: !!python/unicode 'Boolean'
+  - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+    _KLFunction__access: !!python/unicode 'unspecified'
+    _KLFunction__name: !!python/unicode 'add'
+    _KLFunction__params:
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+      _KLParam__type: !!python/unicode 'BinPack2DCoord'}
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+      _KLParam__type: !!python/unicode 'BinPack2DCoord'}
+    _KLFunction__returnType: !!python/unicode 'BinPack2DCoord'
+  - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+    _KLFunction__access: !!python/unicode 'unspecified'
+    _KLFunction__name: !!python/unicode 'add'
+    _KLFunction__params:
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+      _KLParam__type: !!python/unicode 'BinPack2DCoord'}
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+      _KLParam__type: !!python/unicode 'BinPack2DSize'}
+    _KLFunction__returnType: !!python/unicode 'BinPack2DCoord'
+  - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+    _KLFunction__access: !!python/unicode 'unspecified'
+    _KLFunction__name: !!python/unicode 'div'
+    _KLFunction__params:
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+      _KLParam__type: !!python/unicode 'BinPack2DCoord'}
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+      _KLParam__type: !!python/unicode 'SInt32'}
+    _KLFunction__returnType: !!python/unicode 'BinPack2DCoord'
+  - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+    _KLFunction__access: !!python/unicode 'unspecified'
+    _KLFunction__name: !!python/unicode 'lt'
+    _KLFunction__params:
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+      _KLParam__type: !!python/unicode 'BinPack2DRegion'}
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+      _KLParam__type: !!python/unicode 'BinPack2DRegion'}
+    _KLFunction__returnType: !!python/unicode 'Boolean'
+  - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+    _KLFunction__access: !!python/unicode 'unspecified'
+    _KLFunction__name: !!python/unicode 'gt'
+    _KLFunction__params:
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+      _KLParam__type: !!python/unicode 'BinPack2DRegion'}
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+      _KLParam__type: !!python/unicode 'BinPack2DRegion'}
+    _KLFunction__returnType: !!python/unicode 'Boolean'
+  - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+    _KLFunction__access: !!python/unicode 'unspecified'
+    _KLFunction__name: !!python/unicode 'eq'
+    _KLFunction__params:
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+      _KLParam__type: !!python/unicode 'BinPack2DSize'}
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+      _KLParam__type: !!python/unicode 'BinPack2DSize'}
+    _KLFunction__returnType: !!python/unicode 'Boolean'
+  - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+    _KLFunction__access: !!python/unicode 'unspecified'
+    _KLFunction__name: !!python/unicode 'lt'
+    _KLFunction__params:
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+      _KLParam__type: !!python/unicode 'BinPack2DSize'}
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+      _KLParam__type: !!python/unicode 'BinPack2DSize'}
+    _KLFunction__returnType: !!python/unicode 'Boolean'
+  - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+    _KLFunction__access: !!python/unicode 'unspecified'
+    _KLFunction__name: !!python/unicode 'gt'
+    _KLFunction__params:
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+      _KLParam__type: !!python/unicode 'BinPack2DSize'}
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+      _KLParam__type: !!python/unicode 'BinPack2DSize'}
+    _KLFunction__returnType: !!python/unicode 'Boolean'
+  - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+    _KLFunction__access: !!python/unicode 'unspecified'
+    _KLFunction__name: !!python/unicode 'add'
+    _KLFunction__params:
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+      _KLParam__type: !!python/unicode 'BinPack2DSize'}
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+      _KLParam__type: !!python/unicode 'BinPack2DSize'}
+    _KLFunction__returnType: !!python/unicode 'BinPack2DSize'
+  - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+    _KLFunction__access: !!python/unicode 'unspecified'
+    _KLFunction__name: !!python/unicode 'div'
+    _KLFunction__params:
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+      _KLParam__type: !!python/unicode 'BinPack2DSize'}
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+      _KLParam__type: !!python/unicode 'SInt32'}
+    _KLFunction__returnType: !!python/unicode 'BinPack2DSize'
+  - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+    _KLFunction__access: !!python/unicode 'unspecified'
+    _KLFunction__name: !!python/unicode 'eq'
+    _KLFunction__params:
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+      _KLParam__type: !!python/unicode 'BinPack2DCoord'}
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+      _KLParam__type: !!python/unicode 'BinPack2DCoord'}
+    _KLFunction__returnType: !!python/unicode 'Boolean'
+  - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+    _KLFunction__access: !!python/unicode 'unspecified'
+    _KLFunction__name: !!python/unicode 'lt'
+    _KLFunction__params:
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+      _KLParam__type: !!python/unicode 'BinPack2DCoord'}
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+      _KLParam__type: !!python/unicode 'BinPack2DCoord'}
+    _KLFunction__returnType: !!python/unicode 'Boolean'
+  - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+    _KLFunction__access: !!python/unicode 'unspecified'
+    _KLFunction__name: !!python/unicode 'add'
+    _KLFunction__params:
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+      _KLParam__type: !!python/unicode 'BinPack2DCoord'}
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+      _KLParam__type: !!python/unicode 'BinPack2DCoord'}
+    _KLFunction__returnType: !!python/unicode 'BinPack2DCoord'
+  - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+    _KLFunction__access: !!python/unicode 'unspecified'
+    _KLFunction__name: !!python/unicode 'add'
+    _KLFunction__params:
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+      _KLParam__type: !!python/unicode 'BinPack2DCoord'}
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+      _KLParam__type: !!python/unicode 'BinPack2DSize'}
+    _KLFunction__returnType: !!python/unicode 'BinPack2DCoord'
+  - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+    _KLFunction__access: !!python/unicode 'unspecified'
+    _KLFunction__name: !!python/unicode 'div'
+    _KLFunction__params:
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+      _KLParam__type: !!python/unicode 'BinPack2DCoord'}
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+      _KLParam__type: !!python/unicode 'SInt32'}
+    _KLFunction__returnType: !!python/unicode 'BinPack2DCoord'
+  - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+    _KLFunction__access: !!python/unicode 'unspecified'
+    _KLFunction__name: !!python/unicode 'lt'
+    _KLFunction__params:
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+      _KLParam__type: !!python/unicode 'BinPack2DRegion'}
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+      _KLParam__type: !!python/unicode 'BinPack2DRegion'}
+    _KLFunction__returnType: !!python/unicode 'Boolean'
+  - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+    _KLFunction__access: !!python/unicode 'unspecified'
+    _KLFunction__name: !!python/unicode 'gt'
+    _KLFunction__params:
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+      _KLParam__type: !!python/unicode 'BinPack2DRegion'}
+    - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+      _KLParam__type: !!python/unicode 'BinPack2DRegion'}
+    _KLFunction__returnType: !!python/unicode 'Boolean'
+  _KLNamespace__structs:
+    !!python/unicode 'BinPack2DContainer': !!python/object:GorGon.KLWrapper.KLStruct.KLStruct
+      _KLStruct__constructors:
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'BinPack2DContainer'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'w',
+          _KLParam__type: !!python/unicode 'SInt32'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'h',
+          _KLParam__type: !!python/unicode 'SInt32'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'BinPack2DContainer'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'w',
+          _KLParam__type: !!python/unicode 'SInt32'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'h',
+          _KLParam__type: !!python/unicode 'SInt32'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'BinPack2DContainer'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'w',
+          _KLParam__type: !!python/unicode 'SInt32'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'h',
+          _KLParam__type: !!python/unicode 'SInt32'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'BinPack2DContainer'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'w',
+          _KLParam__type: !!python/unicode 'SInt32'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'h',
+          _KLParam__type: !!python/unicode 'SInt32'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'BinPack2DContainer'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'w',
+          _KLParam__type: !!python/unicode 'SInt32'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'h',
+          _KLParam__type: !!python/unicode 'SInt32'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'BinPack2DContainer'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'w',
+          _KLParam__type: !!python/unicode 'SInt32'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'h',
+          _KLParam__type: !!python/unicode 'SInt32'}
+        _KLFunction__returnType: null
+      _KLStruct__getters: []
+      _KLStruct__hasDestructor: false
+      _KLStruct__members:
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'region', _KLMember__type: !!python/unicode 'BinPack2DRegion'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'regions', _KLMember__type: !!python/unicode 'BinPack2DRegion'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'numRegions', _KLMember__type: !!python/unicode 'UInt32'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'packages', _KLMember__type: !!python/unicode 'BinPack2DPackage'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'region', _KLMember__type: !!python/unicode 'BinPack2DRegion'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'regions', _KLMember__type: !!python/unicode 'BinPack2DRegion'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'numRegions', _KLMember__type: !!python/unicode 'UInt32'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'packages', _KLMember__type: !!python/unicode 'BinPack2DPackage'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'region', _KLMember__type: !!python/unicode 'BinPack2DRegion'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'regions', _KLMember__type: !!python/unicode 'BinPack2DRegion'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'numRegions', _KLMember__type: !!python/unicode 'UInt32'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'packages', _KLMember__type: !!python/unicode 'BinPack2DPackage'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'region', _KLMember__type: !!python/unicode 'BinPack2DRegion'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'regions', _KLMember__type: !!python/unicode 'BinPack2DRegion'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'numRegions', _KLMember__type: !!python/unicode 'UInt32'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'packages', _KLMember__type: !!python/unicode 'BinPack2DPackage'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'region', _KLMember__type: !!python/unicode 'BinPack2DRegion'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'regions', _KLMember__type: !!python/unicode 'BinPack2DRegion'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'numRegions', _KLMember__type: !!python/unicode 'UInt32'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'packages', _KLMember__type: !!python/unicode 'BinPack2DPackage'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'region', _KLMember__type: !!python/unicode 'BinPack2DRegion'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'regions', _KLMember__type: !!python/unicode 'BinPack2DRegion'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'numRegions', _KLMember__type: !!python/unicode 'UInt32'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'packages', _KLMember__type: !!python/unicode 'BinPack2DPackage'}
+      _KLStruct__methods:
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'GetPackages'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'BinPack2DPackage[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'Place'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'packages',
+          _KLParam__type: !!python/unicode 'BinPack2DPackage[]'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'remainder',
+          _KLParam__type: !!python/unicode 'BinPack2DPackage[]'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'Place'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'packages',
+          _KLParam__type: !!python/unicode 'BinPack2DPackage[]'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'private'
+        _KLFunction__name: !!python/unicode 'Place'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'inPackage',
+          _KLParam__type: !!python/unicode 'BinPack2DPackage'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'private'
+        _KLFunction__name: !!python/unicode 'Use'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'inPackage',
+          _KLParam__type: !!python/unicode 'BinPack2DPackage'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'indexToConsume',
+          _KLParam__type: !!python/unicode 'UInt32'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'GetPackages'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'BinPack2DPackage[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'Place'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'packages',
+          _KLParam__type: !!python/unicode 'BinPack2DPackage[]'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'remainder',
+          _KLParam__type: !!python/unicode 'BinPack2DPackage[]'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'Place'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'packages',
+          _KLParam__type: !!python/unicode 'BinPack2DPackage[]'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'private'
+        _KLFunction__name: !!python/unicode 'Place'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'inPackage',
+          _KLParam__type: !!python/unicode 'BinPack2DPackage'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'private'
+        _KLFunction__name: !!python/unicode 'Use'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'inPackage',
+          _KLParam__type: !!python/unicode 'BinPack2DPackage'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'indexToConsume',
+          _KLParam__type: !!python/unicode 'UInt32'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'GetPackages'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'BinPack2DPackage[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'Place'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'packages',
+          _KLParam__type: !!python/unicode 'BinPack2DPackage[]'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'remainder',
+          _KLParam__type: !!python/unicode 'BinPack2DPackage[]'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'Place'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'packages',
+          _KLParam__type: !!python/unicode 'BinPack2DPackage[]'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'private'
+        _KLFunction__name: !!python/unicode 'Place'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'inPackage',
+          _KLParam__type: !!python/unicode 'BinPack2DPackage'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'private'
+        _KLFunction__name: !!python/unicode 'Use'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'inPackage',
+          _KLParam__type: !!python/unicode 'BinPack2DPackage'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'indexToConsume',
+          _KLParam__type: !!python/unicode 'UInt32'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'GetPackages'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'BinPack2DPackage[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'Place'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'packages',
+          _KLParam__type: !!python/unicode 'BinPack2DPackage[]'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'remainder',
+          _KLParam__type: !!python/unicode 'BinPack2DPackage[]'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'Place'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'packages',
+          _KLParam__type: !!python/unicode 'BinPack2DPackage[]'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'private'
+        _KLFunction__name: !!python/unicode 'Place'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'inPackage',
+          _KLParam__type: !!python/unicode 'BinPack2DPackage'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'private'
+        _KLFunction__name: !!python/unicode 'Use'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'inPackage',
+          _KLParam__type: !!python/unicode 'BinPack2DPackage'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'indexToConsume',
+          _KLParam__type: !!python/unicode 'UInt32'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'GetPackages'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'BinPack2DPackage[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'Place'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'packages',
+          _KLParam__type: !!python/unicode 'BinPack2DPackage[]'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'remainder',
+          _KLParam__type: !!python/unicode 'BinPack2DPackage[]'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'Place'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'packages',
+          _KLParam__type: !!python/unicode 'BinPack2DPackage[]'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'private'
+        _KLFunction__name: !!python/unicode 'Place'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'inPackage',
+          _KLParam__type: !!python/unicode 'BinPack2DPackage'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'private'
+        _KLFunction__name: !!python/unicode 'Use'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'inPackage',
+          _KLParam__type: !!python/unicode 'BinPack2DPackage'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'indexToConsume',
+          _KLParam__type: !!python/unicode 'UInt32'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'GetPackages'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'BinPack2DPackage[]'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'Place'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'packages',
+          _KLParam__type: !!python/unicode 'BinPack2DPackage[]'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'remainder',
+          _KLParam__type: !!python/unicode 'BinPack2DPackage[]'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'Place'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'packages',
+          _KLParam__type: !!python/unicode 'BinPack2DPackage[]'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'private'
+        _KLFunction__name: !!python/unicode 'Place'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'inPackage',
+          _KLParam__type: !!python/unicode 'BinPack2DPackage'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'private'
+        _KLFunction__name: !!python/unicode 'Use'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'inPackage',
+          _KLParam__type: !!python/unicode 'BinPack2DPackage'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'indexToConsume',
+          _KLParam__type: !!python/unicode 'UInt32'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      _KLStruct__name: !!python/unicode 'BinPack2DContainer'
+      _KLStruct__operators: []
+      _KLStruct__parents: []
+      _KLStruct__setters: []
+    !!python/unicode 'BinPack2DCoord': !!python/object:GorGon.KLWrapper.KLStruct.KLStruct
+      _KLStruct__constructors:
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'BinPack2DCoord'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'x',
+          _KLParam__type: !!python/unicode 'SInt32'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'y',
+          _KLParam__type: !!python/unicode 'SInt32'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'BinPack2DCoord'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'x',
+          _KLParam__type: !!python/unicode 'SInt32'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'y',
+          _KLParam__type: !!python/unicode 'SInt32'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'BinPack2DCoord'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'x',
+          _KLParam__type: !!python/unicode 'SInt32'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'y',
+          _KLParam__type: !!python/unicode 'SInt32'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'BinPack2DCoord'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'x',
+          _KLParam__type: !!python/unicode 'SInt32'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'y',
+          _KLParam__type: !!python/unicode 'SInt32'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'BinPack2DCoord'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'x',
+          _KLParam__type: !!python/unicode 'SInt32'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'y',
+          _KLParam__type: !!python/unicode 'SInt32'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'BinPack2DCoord'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'x',
+          _KLParam__type: !!python/unicode 'SInt32'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'y',
+          _KLParam__type: !!python/unicode 'SInt32'}
+        _KLFunction__returnType: null
+      _KLStruct__getters: []
+      _KLStruct__hasDestructor: false
+      _KLStruct__members:
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'x', _KLMember__type: !!python/unicode 'SInt32'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'y', _KLMember__type: !!python/unicode 'SInt32'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'x', _KLMember__type: !!python/unicode 'SInt32'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'y', _KLMember__type: !!python/unicode 'SInt32'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'x', _KLMember__type: !!python/unicode 'SInt32'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'y', _KLMember__type: !!python/unicode 'SInt32'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'x', _KLMember__type: !!python/unicode 'SInt32'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'y', _KLMember__type: !!python/unicode 'SInt32'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'x', _KLMember__type: !!python/unicode 'SInt32'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'y', _KLMember__type: !!python/unicode 'SInt32'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'x', _KLMember__type: !!python/unicode 'SInt32'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'y', _KLMember__type: !!python/unicode 'SInt32'}
+      _KLStruct__methods:
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'qs_less'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'that',
+          _KLParam__type: !!python/unicode 'BinPack2DCoord'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'qs_less'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'that',
+          _KLParam__type: !!python/unicode 'BinPack2DCoord'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'qs_less'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'that',
+          _KLParam__type: !!python/unicode 'BinPack2DCoord'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'qs_less'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'that',
+          _KLParam__type: !!python/unicode 'BinPack2DCoord'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'qs_less'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'that',
+          _KLParam__type: !!python/unicode 'BinPack2DCoord'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'qs_less'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'that',
+          _KLParam__type: !!python/unicode 'BinPack2DCoord'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      _KLStruct__name: !!python/unicode 'BinPack2DCoord'
+      _KLStruct__operators: []
+      _KLStruct__parents: []
+      _KLStruct__setters: []
+    !!python/unicode 'BinPack2DPackage': !!python/object:GorGon.KLWrapper.KLStruct.KLStruct
+      _KLStruct__constructors:
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'BinPack2DPackage'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'index',
+          _KLParam__type: !!python/unicode 'UInt32'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'region',
+          _KLParam__type: !!python/unicode 'BinPack2DRegion'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'rotated',
+          _KLParam__type: !!python/unicode 'Boolean'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'BinPack2DPackage'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'index',
+          _KLParam__type: !!python/unicode 'UInt32'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'width',
+          _KLParam__type: !!python/unicode 'SInt32'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'height',
+          _KLParam__type: !!python/unicode 'SInt32'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'BinPack2DPackage'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'index',
+          _KLParam__type: !!python/unicode 'UInt32'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'region',
+          _KLParam__type: !!python/unicode 'BinPack2DRegion'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'rotated',
+          _KLParam__type: !!python/unicode 'Boolean'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'BinPack2DPackage'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'index',
+          _KLParam__type: !!python/unicode 'UInt32'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'width',
+          _KLParam__type: !!python/unicode 'SInt32'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'height',
+          _KLParam__type: !!python/unicode 'SInt32'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'BinPack2DPackage'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'index',
+          _KLParam__type: !!python/unicode 'UInt32'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'region',
+          _KLParam__type: !!python/unicode 'BinPack2DRegion'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'rotated',
+          _KLParam__type: !!python/unicode 'Boolean'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'BinPack2DPackage'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'index',
+          _KLParam__type: !!python/unicode 'UInt32'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'width',
+          _KLParam__type: !!python/unicode 'SInt32'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'height',
+          _KLParam__type: !!python/unicode 'SInt32'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'BinPack2DPackage'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'index',
+          _KLParam__type: !!python/unicode 'UInt32'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'region',
+          _KLParam__type: !!python/unicode 'BinPack2DRegion'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'rotated',
+          _KLParam__type: !!python/unicode 'Boolean'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'BinPack2DPackage'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'index',
+          _KLParam__type: !!python/unicode 'UInt32'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'width',
+          _KLParam__type: !!python/unicode 'SInt32'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'height',
+          _KLParam__type: !!python/unicode 'SInt32'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'BinPack2DPackage'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'index',
+          _KLParam__type: !!python/unicode 'UInt32'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'region',
+          _KLParam__type: !!python/unicode 'BinPack2DRegion'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'rotated',
+          _KLParam__type: !!python/unicode 'Boolean'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'BinPack2DPackage'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'index',
+          _KLParam__type: !!python/unicode 'UInt32'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'width',
+          _KLParam__type: !!python/unicode 'SInt32'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'height',
+          _KLParam__type: !!python/unicode 'SInt32'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'BinPack2DPackage'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'index',
+          _KLParam__type: !!python/unicode 'UInt32'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'region',
+          _KLParam__type: !!python/unicode 'BinPack2DRegion'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'rotated',
+          _KLParam__type: !!python/unicode 'Boolean'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'BinPack2DPackage'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'index',
+          _KLParam__type: !!python/unicode 'UInt32'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'width',
+          _KLParam__type: !!python/unicode 'SInt32'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'height',
+          _KLParam__type: !!python/unicode 'SInt32'}
+        _KLFunction__returnType: null
+      _KLStruct__getters: []
+      _KLStruct__hasDestructor: false
+      _KLStruct__members:
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'index', _KLMember__type: !!python/unicode 'UInt32'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'rotated', _KLMember__type: !!python/unicode 'Boolean'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'region', _KLMember__type: !!python/unicode 'BinPack2DRegion'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'index', _KLMember__type: !!python/unicode 'UInt32'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'rotated', _KLMember__type: !!python/unicode 'Boolean'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'region', _KLMember__type: !!python/unicode 'BinPack2DRegion'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'index', _KLMember__type: !!python/unicode 'UInt32'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'rotated', _KLMember__type: !!python/unicode 'Boolean'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'region', _KLMember__type: !!python/unicode 'BinPack2DRegion'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'index', _KLMember__type: !!python/unicode 'UInt32'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'rotated', _KLMember__type: !!python/unicode 'Boolean'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'region', _KLMember__type: !!python/unicode 'BinPack2DRegion'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'index', _KLMember__type: !!python/unicode 'UInt32'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'rotated', _KLMember__type: !!python/unicode 'Boolean'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'region', _KLMember__type: !!python/unicode 'BinPack2DRegion'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'index', _KLMember__type: !!python/unicode 'UInt32'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'rotated', _KLMember__type: !!python/unicode 'Boolean'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'region', _KLMember__type: !!python/unicode 'BinPack2DRegion'}
+      _KLStruct__methods:
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'Rotate'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'Rotate'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'Rotate'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'Rotate'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'Rotate'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'Rotate'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      _KLStruct__name: !!python/unicode 'BinPack2DPackage'
+      _KLStruct__operators: []
+      _KLStruct__parents: []
+      _KLStruct__setters: []
+    !!python/unicode 'BinPack2DRegion': !!python/object:GorGon.KLWrapper.KLStruct.KLStruct
+      _KLStruct__constructors:
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'BinPack2DRegion'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'BinPack2DRegion'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'coord',
+          _KLParam__type: !!python/unicode 'BinPack2DCoord'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'size',
+          _KLParam__type: !!python/unicode 'BinPack2DSize'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'BinPack2DRegion'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'BinPack2DRegion'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'coord',
+          _KLParam__type: !!python/unicode 'BinPack2DCoord'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'size',
+          _KLParam__type: !!python/unicode 'BinPack2DSize'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'BinPack2DRegion'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'BinPack2DRegion'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'coord',
+          _KLParam__type: !!python/unicode 'BinPack2DCoord'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'size',
+          _KLParam__type: !!python/unicode 'BinPack2DSize'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'BinPack2DRegion'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'BinPack2DRegion'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'coord',
+          _KLParam__type: !!python/unicode 'BinPack2DCoord'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'size',
+          _KLParam__type: !!python/unicode 'BinPack2DSize'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'BinPack2DRegion'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'BinPack2DRegion'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'coord',
+          _KLParam__type: !!python/unicode 'BinPack2DCoord'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'size',
+          _KLParam__type: !!python/unicode 'BinPack2DSize'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'BinPack2DRegion'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'BinPack2DRegion'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'coord',
+          _KLParam__type: !!python/unicode 'BinPack2DCoord'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'size',
+          _KLParam__type: !!python/unicode 'BinPack2DSize'}
+        _KLFunction__returnType: null
+      _KLStruct__getters: []
+      _KLStruct__hasDestructor: false
+      _KLStruct__members:
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'coord', _KLMember__type: !!python/unicode 'BinPack2DCoord'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'size', _KLMember__type: !!python/unicode 'BinPack2DSize'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'coord', _KLMember__type: !!python/unicode 'BinPack2DCoord'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'size', _KLMember__type: !!python/unicode 'BinPack2DSize'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'coord', _KLMember__type: !!python/unicode 'BinPack2DCoord'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'size', _KLMember__type: !!python/unicode 'BinPack2DSize'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'coord', _KLMember__type: !!python/unicode 'BinPack2DCoord'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'size', _KLMember__type: !!python/unicode 'BinPack2DSize'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'coord', _KLMember__type: !!python/unicode 'BinPack2DCoord'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'size', _KLMember__type: !!python/unicode 'BinPack2DSize'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'coord', _KLMember__type: !!python/unicode 'BinPack2DCoord'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'size', _KLMember__type: !!python/unicode 'BinPack2DSize'}
+      _KLStruct__methods:
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'IsEmpty'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'qs_less'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'that',
+          _KLParam__type: !!python/unicode 'BinPack2DRegion'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'Contains'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'that',
+          _KLParam__type: !!python/unicode 'BinPack2DRegion'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'rotated',
+          _KLParam__type: !!python/unicode 'Boolean'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'Contains'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'that',
+          _KLParam__type: !!python/unicode 'BinPack2DRegion'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'Contains'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'coord',
+          _KLParam__type: !!python/unicode 'BinPack2DCoord'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'Consume'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'that',
+          _KLParam__type: !!python/unicode 'BinPack2DRegion'}
+        _KLFunction__returnType: !!python/unicode 'BinPack2DRegion'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'IsEmpty'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'qs_less'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'that',
+          _KLParam__type: !!python/unicode 'BinPack2DRegion'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'Contains'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'that',
+          _KLParam__type: !!python/unicode 'BinPack2DRegion'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'rotated',
+          _KLParam__type: !!python/unicode 'Boolean'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'Contains'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'that',
+          _KLParam__type: !!python/unicode 'BinPack2DRegion'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'Contains'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'coord',
+          _KLParam__type: !!python/unicode 'BinPack2DCoord'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'Consume'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'that',
+          _KLParam__type: !!python/unicode 'BinPack2DRegion'}
+        _KLFunction__returnType: !!python/unicode 'BinPack2DRegion'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'IsEmpty'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'qs_less'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'that',
+          _KLParam__type: !!python/unicode 'BinPack2DRegion'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'Contains'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'that',
+          _KLParam__type: !!python/unicode 'BinPack2DRegion'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'rotated',
+          _KLParam__type: !!python/unicode 'Boolean'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'Contains'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'that',
+          _KLParam__type: !!python/unicode 'BinPack2DRegion'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'Contains'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'coord',
+          _KLParam__type: !!python/unicode 'BinPack2DCoord'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'Consume'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'that',
+          _KLParam__type: !!python/unicode 'BinPack2DRegion'}
+        _KLFunction__returnType: !!python/unicode 'BinPack2DRegion'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'IsEmpty'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'qs_less'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'that',
+          _KLParam__type: !!python/unicode 'BinPack2DRegion'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'Contains'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'that',
+          _KLParam__type: !!python/unicode 'BinPack2DRegion'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'rotated',
+          _KLParam__type: !!python/unicode 'Boolean'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'Contains'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'that',
+          _KLParam__type: !!python/unicode 'BinPack2DRegion'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'Contains'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'coord',
+          _KLParam__type: !!python/unicode 'BinPack2DCoord'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'Consume'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'that',
+          _KLParam__type: !!python/unicode 'BinPack2DRegion'}
+        _KLFunction__returnType: !!python/unicode 'BinPack2DRegion'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'IsEmpty'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'qs_less'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'that',
+          _KLParam__type: !!python/unicode 'BinPack2DRegion'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'Contains'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'that',
+          _KLParam__type: !!python/unicode 'BinPack2DRegion'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'rotated',
+          _KLParam__type: !!python/unicode 'Boolean'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'Contains'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'that',
+          _KLParam__type: !!python/unicode 'BinPack2DRegion'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'Contains'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'coord',
+          _KLParam__type: !!python/unicode 'BinPack2DCoord'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'Consume'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'that',
+          _KLParam__type: !!python/unicode 'BinPack2DRegion'}
+        _KLFunction__returnType: !!python/unicode 'BinPack2DRegion'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'IsEmpty'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'qs_less'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'that',
+          _KLParam__type: !!python/unicode 'BinPack2DRegion'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'Contains'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'that',
+          _KLParam__type: !!python/unicode 'BinPack2DRegion'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'rotated',
+          _KLParam__type: !!python/unicode 'Boolean'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'Contains'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'that',
+          _KLParam__type: !!python/unicode 'BinPack2DRegion'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'Contains'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'coord',
+          _KLParam__type: !!python/unicode 'BinPack2DCoord'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'Consume'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'that',
+          _KLParam__type: !!python/unicode 'BinPack2DRegion'}
+        _KLFunction__returnType: !!python/unicode 'BinPack2DRegion'
+      _KLStruct__name: !!python/unicode 'BinPack2DRegion'
+      _KLStruct__operators: []
+      _KLStruct__parents: []
+      _KLStruct__setters: []
+    !!python/unicode 'BinPack2DSize': !!python/object:GorGon.KLWrapper.KLStruct.KLStruct
+      _KLStruct__constructors:
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'BinPack2DSize'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'w',
+          _KLParam__type: !!python/unicode 'SInt32'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'h',
+          _KLParam__type: !!python/unicode 'SInt32'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'BinPack2DSize'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'w',
+          _KLParam__type: !!python/unicode 'SInt32'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'h',
+          _KLParam__type: !!python/unicode 'SInt32'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'BinPack2DSize'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'w',
+          _KLParam__type: !!python/unicode 'SInt32'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'h',
+          _KLParam__type: !!python/unicode 'SInt32'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'BinPack2DSize'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'w',
+          _KLParam__type: !!python/unicode 'SInt32'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'h',
+          _KLParam__type: !!python/unicode 'SInt32'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'BinPack2DSize'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'w',
+          _KLParam__type: !!python/unicode 'SInt32'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'h',
+          _KLParam__type: !!python/unicode 'SInt32'}
+        _KLFunction__returnType: null
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'BinPack2DSize'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'w',
+          _KLParam__type: !!python/unicode 'SInt32'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'h',
+          _KLParam__type: !!python/unicode 'SInt32'}
+        _KLFunction__returnType: null
+      _KLStruct__getters: []
+      _KLStruct__hasDestructor: false
+      _KLStruct__members:
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'w', _KLMember__type: !!python/unicode 'SInt32'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'h', _KLMember__type: !!python/unicode 'SInt32'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'w', _KLMember__type: !!python/unicode 'SInt32'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'h', _KLMember__type: !!python/unicode 'SInt32'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'w', _KLMember__type: !!python/unicode 'SInt32'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'h', _KLMember__type: !!python/unicode 'SInt32'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'w', _KLMember__type: !!python/unicode 'SInt32'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'h', _KLMember__type: !!python/unicode 'SInt32'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'w', _KLMember__type: !!python/unicode 'SInt32'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'h', _KLMember__type: !!python/unicode 'SInt32'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'w', _KLMember__type: !!python/unicode 'SInt32'}
+      - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+        _KLMember__name: !!python/unicode 'h', _KLMember__type: !!python/unicode 'SInt32'}
+      _KLStruct__methods:
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'qs_less'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'that',
+          _KLParam__type: !!python/unicode 'BinPack2DSize'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'IsEmpty'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'Contains'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'that',
+          _KLParam__type: !!python/unicode 'BinPack2DSize'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'Rotated'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'BinPack2DSize'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'Area'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'SInt32'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'qs_less'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'that',
+          _KLParam__type: !!python/unicode 'BinPack2DSize'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'IsEmpty'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'Contains'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'that',
+          _KLParam__type: !!python/unicode 'BinPack2DSize'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'Rotated'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'BinPack2DSize'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'Area'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'SInt32'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'qs_less'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'that',
+          _KLParam__type: !!python/unicode 'BinPack2DSize'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'IsEmpty'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'Contains'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'that',
+          _KLParam__type: !!python/unicode 'BinPack2DSize'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'Rotated'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'BinPack2DSize'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'Area'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'SInt32'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'qs_less'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'that',
+          _KLParam__type: !!python/unicode 'BinPack2DSize'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'IsEmpty'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'Contains'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'that',
+          _KLParam__type: !!python/unicode 'BinPack2DSize'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'Rotated'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'BinPack2DSize'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'Area'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'SInt32'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'qs_less'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'that',
+          _KLParam__type: !!python/unicode 'BinPack2DSize'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'IsEmpty'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'Contains'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'that',
+          _KLParam__type: !!python/unicode 'BinPack2DSize'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'Rotated'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'BinPack2DSize'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'Area'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'SInt32'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'qs_less'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'that',
+          _KLParam__type: !!python/unicode 'BinPack2DSize'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'IsEmpty'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'Contains'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'that',
+          _KLParam__type: !!python/unicode 'BinPack2DSize'}
+        _KLFunction__returnType: !!python/unicode 'Boolean'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'Rotated'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'BinPack2DSize'
+      - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'Area'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'SInt32'
+      _KLStruct__name: !!python/unicode 'BinPack2DSize'
+      _KLStruct__operators: []
+      _KLStruct__parents: []
+      _KLStruct__setters: []
+_KLExtension__name: !!python/unicode 'BinPacking'
+_KLExtension__namespaces: {}

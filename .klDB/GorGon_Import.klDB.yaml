@@ -1,0 +1,114 @@
+!!python/object:GorGon.KLWrapper.KLExtension.KLExtension
+_KLExtension__extensionDependencies: [!!python/unicode 'Alembic', !!python/unicode 'AlembicWrapper',
+  !!python/unicode 'Fbx', !!python/unicode 'FileIO', !!python/unicode 'Geometry',
+  !!python/unicode 'GorGon_Core', !!python/unicode 'GorGon_ECS', !!python/unicode 'GorGon_Scene',
+  !!python/unicode 'GorGon::Core', !!python/unicode 'GorGon::ECS', !!python/unicode 'GorGon::Scene',
+  !!python/unicode 'GorGon::Rendering']
+_KLExtension__globalNamespace: !!python/object:GorGon.KLWrapper.KLNamespace.KLNamespace
+  _KLNamespace__aliases: {}
+  _KLNamespace__constants: {}
+  _KLNamespace__extensions: {}
+  _KLNamespace__functions: {}
+  _KLNamespace__interfaces: {}
+  _KLNamespace__name: global
+  _KLNamespace__objects: {}
+  _KLNamespace__operators: []
+  _KLNamespace__structs: {}
+_KLExtension__name: !!python/unicode 'GorGon_Import'
+_KLExtension__namespaces:
+  !!python/unicode 'GorGon::Import': !!python/object:GorGon.KLWrapper.KLNamespace.KLNamespace
+    _KLNamespace__aliases: {}
+    _KLNamespace__constants: {}
+    _KLNamespace__extensions: {}
+    _KLNamespace__functions:
+      !!python/unicode 'CCextractFilenameFromPath': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'CCextractFilenameFromPath'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'path',
+          _KLParam__type: !!python/unicode 'String'}
+        _KLFunction__returnType: !!python/unicode 'String'
+      !!python/unicode 'CCimportAsset': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'CCimportAsset'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'path',
+          _KLParam__type: !!python/unicode 'String'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'secondaryPath',
+          _KLParam__type: !!python/unicode 'String'}
+        _KLFunction__returnType: !!python/unicode 'Entity'
+      !!python/unicode 'CCimportFBX': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'CCimportFBX'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'fbxFilepath',
+          _KLParam__type: !!python/unicode 'String'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'fbxTexFolder',
+          _KLParam__type: !!python/unicode 'String'}
+        _KLFunction__returnType: !!python/unicode 'Entity'
+      !!python/unicode 'CCinjectImporterOptions': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'CCinjectImporterOptions'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'p',
+          _KLParam__type: !!python/unicode 'Properties'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'impO',
+          _KLParam__type: !!python/unicode 'ImporterOptions'}
+        _KLFunction__returnType: null
+    _KLNamespace__interfaces: {}
+    _KLNamespace__name: !!python/unicode 'GorGon::Import'
+    _KLNamespace__objects:
+      !!python/unicode 'AlembicReader': !!python/object:GorGon.KLWrapper.KLObject.KLObject
+        _KLStruct__constructors:
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AlembicReader'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'filePath',
+            _KLParam__type: !!python/unicode 'FilePath'}
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AlembicReader'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'filePath',
+            _KLParam__type: !!python/unicode 'FilePath'}
+          _KLFunction__returnType: null
+        _KLStruct__getters:
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getFilePathAsString'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'String'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getPoints'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3[]'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getFilePathAsString'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'String'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getPoints'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3[]'
+        _KLStruct__hasDestructor: false
+        _KLStruct__members:
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+          _KLMember__name: !!python/unicode 'filePath', _KLMember__type: !!python/unicode 'FilePath'}
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+          _KLMember__name: !!python/unicode 'reader', _KLMember__type: !!python/unicode 'AlembicArchiveReader'}
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+          _KLMember__name: !!python/unicode 'filePath', _KLMember__type: !!python/unicode 'FilePath'}
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+          _KLMember__name: !!python/unicode 'reader', _KLMember__type: !!python/unicode 'AlembicArchiveReader'}
+        _KLStruct__methods: []
+        _KLStruct__name: !!python/unicode 'AlembicReader'
+        _KLStruct__operators: []
+        _KLStruct__parents: []
+        _KLStruct__setters: []
+    _KLNamespace__operators: []
+    _KLNamespace__structs: {}

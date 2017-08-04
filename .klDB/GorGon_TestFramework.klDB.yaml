@@ -1,0 +1,1274 @@
+!!python/object:GorGon.KLWrapper.KLExtension.KLExtension
+_KLExtension__extensionDependencies: [!!python/unicode 'FileIO']
+_KLExtension__globalNamespace: !!python/object:GorGon.KLWrapper.KLNamespace.KLNamespace
+  _KLNamespace__aliases: {}
+  _KLNamespace__constants: {}
+  _KLNamespace__extensions: {}
+  _KLNamespace__functions: {}
+  _KLNamespace__interfaces: {}
+  _KLNamespace__name: global
+  _KLNamespace__objects: {}
+  _KLNamespace__operators: []
+  _KLNamespace__structs: {}
+_KLExtension__name: !!python/unicode 'GorGon_TestFramework'
+_KLExtension__namespaces:
+  !!python/unicode 'GorGon::TestFramework': !!python/object:GorGon.KLWrapper.KLNamespace.KLNamespace
+    _KLNamespace__aliases: {}
+    _KLNamespace__constants: {}
+    _KLNamespace__extensions: {}
+    _KLNamespace__functions: {}
+    _KLNamespace__interfaces:
+      !!python/unicode 'CCTestCaseInterface': &id001 !!python/object:GorGon.KLWrapper.KLInterface.KLInterface
+        _KLInterface__members:
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'setUp'
+          _KLFunction__params: []
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'tearDown'
+          _KLFunction__params: []
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'setUp'
+          _KLFunction__params: []
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'tearDown'
+          _KLFunction__params: []
+          _KLFunction__returnType: null
+        _KLInterface__name: !!python/unicode 'CCTestCaseInterface'
+    _KLNamespace__name: !!python/unicode 'GorGon::TestFramework'
+    _KLNamespace__objects:
+      !!python/unicode 'CCTestCase': !!python/object:GorGon.KLWrapper.KLObject.KLObject
+        _KLStruct__constructors:
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'CCTestCase'
+          _KLFunction__params: []
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'CCTestCase'
+          _KLFunction__params: []
+          _KLFunction__returnType: null
+        _KLStruct__getters:
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getTestFuncName'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'String'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getName'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'String'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getTestFuncName'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'String'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getName'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'String'
+        _KLStruct__hasDestructor: false
+        _KLStruct__members:
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'private',
+          _KLMember__name: !!python/unicode 'valid', _KLMember__type: !!python/unicode 'Boolean'}
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'private',
+          _KLMember__name: !!python/unicode 'reader', _KLMember__type: !!python/unicode 'TextReader'}
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'private',
+          _KLMember__name: !!python/unicode 'testFuncName', _KLMember__type: !!python/unicode 'String'}
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'private',
+          _KLMember__name: !!python/unicode 'valid', _KLMember__type: !!python/unicode 'Boolean'}
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'private',
+          _KLMember__name: !!python/unicode 'reader', _KLMember__type: !!python/unicode 'TextReader'}
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'private',
+          _KLMember__name: !!python/unicode 'testFuncName', _KLMember__type: !!python/unicode 'String'}
+        _KLStruct__methods:
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'isValid'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'tearDown'
+          _KLFunction__params: []
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'private'
+          _KLFunction__name: !!python/unicode 'invalid'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'msg',
+            _KLParam__type: !!python/unicode 'String'}
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'report'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's',
+            _KLParam__type: !!python/unicode 'String'}
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'Assert'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+            _KLParam__type: !!python/unicode 'Boolean'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertTrue'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+            _KLParam__type: !!python/unicode 'Boolean'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertTrue'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'msg',
+            _KLParam__type: !!python/unicode 'String'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+            _KLParam__type: !!python/unicode 'Boolean'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertFalse'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+            _KLParam__type: !!python/unicode 'Boolean'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertFalse'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'msg',
+            _KLParam__type: !!python/unicode 'String'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+            _KLParam__type: !!python/unicode 'Boolean'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+            _KLParam__type: !!python/unicode 'String'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+            _KLParam__type: !!python/unicode 'String'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'msg',
+            _KLParam__type: !!python/unicode 'String'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+            _KLParam__type: !!python/unicode 'String'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+            _KLParam__type: !!python/unicode 'String'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertNotEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+            _KLParam__type: !!python/unicode 'String'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+            _KLParam__type: !!python/unicode 'String'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertNotEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'msg',
+            _KLParam__type: !!python/unicode 'String'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+            _KLParam__type: !!python/unicode 'String'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+            _KLParam__type: !!python/unicode 'String'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's1',
+            _KLParam__type: !!python/unicode 'Size'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's2',
+            _KLParam__type: !!python/unicode 'Size'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's1',
+            _KLParam__type: !!python/unicode 'Integer'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's2',
+            _KLParam__type: !!python/unicode 'Integer'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's1',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's2',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertAlmostEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertAlmostEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'msg',
+            _KLParam__type: !!python/unicode 'String'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertAlmostEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'epsilon',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertAlmostEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'msg',
+            _KLParam__type: !!python/unicode 'String'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'epsilon',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's1',
+            _KLParam__type: !!python/unicode 'Vec2'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's2',
+            _KLParam__type: !!python/unicode 'Vec2'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertAlmostEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's1',
+            _KLParam__type: !!python/unicode 'Vec2'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's2',
+            _KLParam__type: !!python/unicode 'Vec2'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertAlmostEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's1',
+            _KLParam__type: !!python/unicode 'Vec2'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's2',
+            _KLParam__type: !!python/unicode 'Vec2'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'eps',
+            _KLParam__type: !!python/unicode 'Float32'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's1',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's2',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertAlmostEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's1',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's2',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertAlmostEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's1',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's2',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'eps',
+            _KLParam__type: !!python/unicode 'Float32'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's1',
+            _KLParam__type: !!python/unicode 'Vec4'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's2',
+            _KLParam__type: !!python/unicode 'Vec4'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertAlmostEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's1',
+            _KLParam__type: !!python/unicode 'Vec4'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's2',
+            _KLParam__type: !!python/unicode 'Vec4'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertAlmostEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's1',
+            _KLParam__type: !!python/unicode 'Vec4'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's2',
+            _KLParam__type: !!python/unicode 'Vec4'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'eps',
+            _KLParam__type: !!python/unicode 'Float32'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's1',
+            _KLParam__type: !!python/unicode 'Color'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's2',
+            _KLParam__type: !!python/unicode 'Color'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertAlmostEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's1',
+            _KLParam__type: !!python/unicode 'Color'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's2',
+            _KLParam__type: !!python/unicode 'Color'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertAlmostEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's1',
+            _KLParam__type: !!python/unicode 'Color'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's2',
+            _KLParam__type: !!python/unicode 'Color'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'eps',
+            _KLParam__type: !!python/unicode 'Float32'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's1',
+            _KLParam__type: !!python/unicode 'Quat'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's2',
+            _KLParam__type: !!python/unicode 'Quat'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertAlmostEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's1',
+            _KLParam__type: !!python/unicode 'Quat'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's2',
+            _KLParam__type: !!python/unicode 'Quat'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertAlmostEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's1',
+            _KLParam__type: !!python/unicode 'Quat'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's2',
+            _KLParam__type: !!python/unicode 'Quat'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'eps',
+            _KLParam__type: !!python/unicode 'Float32'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's1',
+            _KLParam__type: !!python/unicode 'Xfo'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's2',
+            _KLParam__type: !!python/unicode 'Xfo'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'isValid'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'tearDown'
+          _KLFunction__params: []
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'private'
+          _KLFunction__name: !!python/unicode 'invalid'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'msg',
+            _KLParam__type: !!python/unicode 'String'}
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'report'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's',
+            _KLParam__type: !!python/unicode 'String'}
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'Assert'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+            _KLParam__type: !!python/unicode 'Boolean'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertTrue'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+            _KLParam__type: !!python/unicode 'Boolean'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertTrue'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'msg',
+            _KLParam__type: !!python/unicode 'String'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+            _KLParam__type: !!python/unicode 'Boolean'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertFalse'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+            _KLParam__type: !!python/unicode 'Boolean'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertFalse'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'msg',
+            _KLParam__type: !!python/unicode 'String'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+            _KLParam__type: !!python/unicode 'Boolean'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+            _KLParam__type: !!python/unicode 'String'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+            _KLParam__type: !!python/unicode 'String'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'msg',
+            _KLParam__type: !!python/unicode 'String'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+            _KLParam__type: !!python/unicode 'String'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+            _KLParam__type: !!python/unicode 'String'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertNotEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+            _KLParam__type: !!python/unicode 'String'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+            _KLParam__type: !!python/unicode 'String'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertNotEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'msg',
+            _KLParam__type: !!python/unicode 'String'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+            _KLParam__type: !!python/unicode 'String'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+            _KLParam__type: !!python/unicode 'String'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's1',
+            _KLParam__type: !!python/unicode 'Size'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's2',
+            _KLParam__type: !!python/unicode 'Size'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's1',
+            _KLParam__type: !!python/unicode 'Integer'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's2',
+            _KLParam__type: !!python/unicode 'Integer'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's1',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's2',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertAlmostEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertAlmostEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'msg',
+            _KLParam__type: !!python/unicode 'String'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertAlmostEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'epsilon',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertAlmostEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'msg',
+            _KLParam__type: !!python/unicode 'String'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'a',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'b',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'epsilon',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's1',
+            _KLParam__type: !!python/unicode 'Vec2'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's2',
+            _KLParam__type: !!python/unicode 'Vec2'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertAlmostEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's1',
+            _KLParam__type: !!python/unicode 'Vec2'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's2',
+            _KLParam__type: !!python/unicode 'Vec2'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertAlmostEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's1',
+            _KLParam__type: !!python/unicode 'Vec2'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's2',
+            _KLParam__type: !!python/unicode 'Vec2'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'eps',
+            _KLParam__type: !!python/unicode 'Float32'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's1',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's2',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertAlmostEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's1',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's2',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertAlmostEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's1',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's2',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'eps',
+            _KLParam__type: !!python/unicode 'Float32'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's1',
+            _KLParam__type: !!python/unicode 'Vec4'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's2',
+            _KLParam__type: !!python/unicode 'Vec4'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertAlmostEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's1',
+            _KLParam__type: !!python/unicode 'Vec4'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's2',
+            _KLParam__type: !!python/unicode 'Vec4'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertAlmostEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's1',
+            _KLParam__type: !!python/unicode 'Vec4'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's2',
+            _KLParam__type: !!python/unicode 'Vec4'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'eps',
+            _KLParam__type: !!python/unicode 'Float32'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's1',
+            _KLParam__type: !!python/unicode 'Color'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's2',
+            _KLParam__type: !!python/unicode 'Color'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertAlmostEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's1',
+            _KLParam__type: !!python/unicode 'Color'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's2',
+            _KLParam__type: !!python/unicode 'Color'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertAlmostEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's1',
+            _KLParam__type: !!python/unicode 'Color'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's2',
+            _KLParam__type: !!python/unicode 'Color'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'eps',
+            _KLParam__type: !!python/unicode 'Float32'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's1',
+            _KLParam__type: !!python/unicode 'Quat'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's2',
+            _KLParam__type: !!python/unicode 'Quat'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertAlmostEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's1',
+            _KLParam__type: !!python/unicode 'Quat'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's2',
+            _KLParam__type: !!python/unicode 'Quat'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertAlmostEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's1',
+            _KLParam__type: !!python/unicode 'Quat'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's2',
+            _KLParam__type: !!python/unicode 'Quat'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'eps',
+            _KLParam__type: !!python/unicode 'Float32'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's1',
+            _KLParam__type: !!python/unicode 'Xfo'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's2',
+            _KLParam__type: !!python/unicode 'Xfo'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        _KLStruct__name: !!python/unicode 'CCTestCase'
+        _KLStruct__operators: []
+        _KLStruct__parents:
+        - *id001
+        _KLStruct__setters:
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'setTestFuncName'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'str',
+            _KLParam__type: !!python/unicode 'String'}
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'setUp'
+          _KLFunction__params: []
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'setOutFile'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'fp',
+            _KLParam__type: !!python/unicode 'String'}
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'setTestFuncName'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'str',
+            _KLParam__type: !!python/unicode 'String'}
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'setUp'
+          _KLFunction__params: []
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'setOutFile'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'fp',
+            _KLParam__type: !!python/unicode 'String'}
+          _KLFunction__returnType: null
+      !!python/unicode 'CCTestSuite': !!python/object:GorGon.KLWrapper.KLObject.KLObject
+        _KLStruct__constructors:
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'CCTestSuite'
+          _KLFunction__params: []
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'CCTestSuite'
+          _KLFunction__params: []
+          _KLFunction__returnType: null
+        _KLStruct__getters: []
+        _KLStruct__hasDestructor: true
+        _KLStruct__members:
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+          _KLMember__name: !!python/unicode 'testFailed', _KLMember__type: !!python/unicode 'Boolean'}
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'private',
+          _KLMember__name: !!python/unicode 'testDesc', _KLMember__type: !!python/unicode 'String'}
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+          _KLMember__name: !!python/unicode 'testFailed', _KLMember__type: !!python/unicode 'Boolean'}
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'private',
+          _KLMember__name: !!python/unicode 'testDesc', _KLMember__type: !!python/unicode 'String'}
+        _KLStruct__methods:
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'isValid'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'Assert'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'test',
+            _KLParam__type: !!python/unicode 'Boolean'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertTrue'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'test',
+            _KLParam__type: !!python/unicode 'Boolean'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertFalse'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'test',
+            _KLParam__type: !!python/unicode 'Boolean'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's1',
+            _KLParam__type: !!python/unicode 'Size'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's2',
+            _KLParam__type: !!python/unicode 'Size'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's1',
+            _KLParam__type: !!python/unicode 'Integer'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's2',
+            _KLParam__type: !!python/unicode 'Integer'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's1',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's2',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertAlmostEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's1',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's2',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertAlmostEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's1',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's2',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'eps',
+            _KLParam__type: !!python/unicode 'Float32'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's1',
+            _KLParam__type: !!python/unicode 'String'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's2',
+            _KLParam__type: !!python/unicode 'String'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's1',
+            _KLParam__type: !!python/unicode 'Vec2'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's2',
+            _KLParam__type: !!python/unicode 'Vec2'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertAlmostEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's1',
+            _KLParam__type: !!python/unicode 'Vec2'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's2',
+            _KLParam__type: !!python/unicode 'Vec2'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertAlmostEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's1',
+            _KLParam__type: !!python/unicode 'Vec2'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's2',
+            _KLParam__type: !!python/unicode 'Vec2'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'eps',
+            _KLParam__type: !!python/unicode 'Float32'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's1',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's2',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertAlmostEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's1',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's2',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertAlmostEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's1',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's2',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'eps',
+            _KLParam__type: !!python/unicode 'Float32'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's1',
+            _KLParam__type: !!python/unicode 'Vec4'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's2',
+            _KLParam__type: !!python/unicode 'Vec4'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertAlmostEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's1',
+            _KLParam__type: !!python/unicode 'Vec4'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's2',
+            _KLParam__type: !!python/unicode 'Vec4'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertAlmostEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's1',
+            _KLParam__type: !!python/unicode 'Vec4'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's2',
+            _KLParam__type: !!python/unicode 'Vec4'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'eps',
+            _KLParam__type: !!python/unicode 'Float32'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's1',
+            _KLParam__type: !!python/unicode 'Quat'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's2',
+            _KLParam__type: !!python/unicode 'Quat'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertAlmostEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's1',
+            _KLParam__type: !!python/unicode 'Quat'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's2',
+            _KLParam__type: !!python/unicode 'Quat'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertAlmostEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's1',
+            _KLParam__type: !!python/unicode 'Quat'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's2',
+            _KLParam__type: !!python/unicode 'Quat'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'eps',
+            _KLParam__type: !!python/unicode 'Float32'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's1',
+            _KLParam__type: !!python/unicode 'Xfo'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's2',
+            _KLParam__type: !!python/unicode 'Xfo'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'report'
+          _KLFunction__params: []
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'isValid'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'Assert'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'test',
+            _KLParam__type: !!python/unicode 'Boolean'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertTrue'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'test',
+            _KLParam__type: !!python/unicode 'Boolean'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertFalse'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'test',
+            _KLParam__type: !!python/unicode 'Boolean'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's1',
+            _KLParam__type: !!python/unicode 'Size'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's2',
+            _KLParam__type: !!python/unicode 'Size'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's1',
+            _KLParam__type: !!python/unicode 'Integer'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's2',
+            _KLParam__type: !!python/unicode 'Integer'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's1',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's2',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertAlmostEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's1',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's2',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertAlmostEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's1',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's2',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'eps',
+            _KLParam__type: !!python/unicode 'Float32'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's1',
+            _KLParam__type: !!python/unicode 'String'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's2',
+            _KLParam__type: !!python/unicode 'String'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's1',
+            _KLParam__type: !!python/unicode 'Vec2'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's2',
+            _KLParam__type: !!python/unicode 'Vec2'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertAlmostEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's1',
+            _KLParam__type: !!python/unicode 'Vec2'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's2',
+            _KLParam__type: !!python/unicode 'Vec2'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertAlmostEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's1',
+            _KLParam__type: !!python/unicode 'Vec2'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's2',
+            _KLParam__type: !!python/unicode 'Vec2'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'eps',
+            _KLParam__type: !!python/unicode 'Float32'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's1',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's2',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertAlmostEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's1',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's2',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertAlmostEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's1',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's2',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'eps',
+            _KLParam__type: !!python/unicode 'Float32'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's1',
+            _KLParam__type: !!python/unicode 'Vec4'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's2',
+            _KLParam__type: !!python/unicode 'Vec4'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertAlmostEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's1',
+            _KLParam__type: !!python/unicode 'Vec4'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's2',
+            _KLParam__type: !!python/unicode 'Vec4'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertAlmostEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's1',
+            _KLParam__type: !!python/unicode 'Vec4'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's2',
+            _KLParam__type: !!python/unicode 'Vec4'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'eps',
+            _KLParam__type: !!python/unicode 'Float32'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's1',
+            _KLParam__type: !!python/unicode 'Quat'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's2',
+            _KLParam__type: !!python/unicode 'Quat'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertAlmostEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's1',
+            _KLParam__type: !!python/unicode 'Quat'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's2',
+            _KLParam__type: !!python/unicode 'Quat'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertAlmostEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's1',
+            _KLParam__type: !!python/unicode 'Quat'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's2',
+            _KLParam__type: !!python/unicode 'Quat'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'eps',
+            _KLParam__type: !!python/unicode 'Float32'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'AssertEquals'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's1',
+            _KLParam__type: !!python/unicode 'Xfo'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's2',
+            _KLParam__type: !!python/unicode 'Xfo'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'report'
+          _KLFunction__params: []
+          _KLFunction__returnType: null
+        _KLStruct__name: !!python/unicode 'CCTestSuite'
+        _KLStruct__operators: []
+        _KLStruct__parents: []
+        _KLStruct__setters:
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'setTestDesc'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's',
+            _KLParam__type: !!python/unicode 'String'}
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'setError'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's',
+            _KLParam__type: !!python/unicode 'String'}
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'setTestDesc'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's',
+            _KLParam__type: !!python/unicode 'String'}
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'setError'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's',
+            _KLParam__type: !!python/unicode 'String'}
+          _KLFunction__returnType: null
+    _KLNamespace__operators: []
+    _KLNamespace__structs: {}

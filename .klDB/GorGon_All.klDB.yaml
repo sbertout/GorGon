@@ -1,0 +1,31 @@
+!!python/object:GorGon.KLWrapper.KLExtension.KLExtension
+_KLExtension__extensionDependencies: [!!python/unicode 'GorGon_Core', !!python/unicode 'GorGon_ECS',
+  !!python/unicode 'GorGon_Image', !!python/unicode 'GorGon_Import', !!python/unicode 'GorGon_Maths',
+  !!python/unicode 'GorGon_Rendering', !!python/unicode 'GorGon_Scene', !!python/unicode 'GorGon_TestFramework']
+_KLExtension__globalNamespace: !!python/object:GorGon.KLWrapper.KLNamespace.KLNamespace
+  _KLNamespace__aliases: {}
+  _KLNamespace__constants: {}
+  _KLNamespace__extensions: {}
+  _KLNamespace__functions: {}
+  _KLNamespace__interfaces: {}
+  _KLNamespace__name: global
+  _KLNamespace__objects: {}
+  _KLNamespace__operators: []
+  _KLNamespace__structs: {}
+_KLExtension__name: !!python/unicode 'GorGon_All'
+_KLExtension__namespaces:
+  !!python/unicode 'GorGon': !!python/object:GorGon.KLWrapper.KLNamespace.KLNamespace
+    _KLNamespace__aliases: {}
+    _KLNamespace__constants: {}
+    _KLNamespace__extensions: {}
+    _KLNamespace__functions:
+      !!python/unicode 'initExtensions': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'initExtensions'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+    _KLNamespace__interfaces: {}
+    _KLNamespace__name: !!python/unicode 'GorGon'
+    _KLNamespace__objects: {}
+    _KLNamespace__operators: []
+    _KLNamespace__structs: {}

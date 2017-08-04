@@ -1,0 +1,103 @@
+!!python/object:GorGon.KLWrapper.KLExtension.KLExtension
+_KLExtension__extensionDependencies: [!!python/unicode 'GorGon_Core']
+_KLExtension__globalNamespace: !!python/object:GorGon.KLWrapper.KLNamespace.KLNamespace
+  _KLNamespace__aliases: {}
+  _KLNamespace__constants: {}
+  _KLNamespace__extensions: {}
+  _KLNamespace__functions: {}
+  _KLNamespace__interfaces: {}
+  _KLNamespace__name: global
+  _KLNamespace__objects: {}
+  _KLNamespace__operators: []
+  _KLNamespace__structs: {}
+_KLExtension__name: !!python/unicode 'GorGon_Rendering'
+_KLExtension__namespaces:
+  !!python/unicode 'GorGon::Rendering': !!python/object:GorGon.KLWrapper.KLNamespace.KLNamespace
+    _KLNamespace__aliases: {}
+    _KLNamespace__constants: {}
+    _KLNamespace__extensions: {}
+    _KLNamespace__functions: {}
+    _KLNamespace__interfaces: {}
+    _KLNamespace__name: !!python/unicode 'GorGon::Rendering'
+    _KLNamespace__objects:
+      !!python/unicode 'BaseMaterial': !!python/object:GorGon.KLWrapper.KLObject.KLObject
+        _KLStruct__constructors:
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'BaseMaterial'
+          _KLFunction__params: []
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'BaseMaterial'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'p',
+            _KLParam__type: !!python/unicode 'GorGon::Core::Properties'}
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'BaseMaterial'
+          _KLFunction__params: []
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'BaseMaterial'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'p',
+            _KLParam__type: !!python/unicode 'GorGon::Core::Properties'}
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'BaseMaterial'
+          _KLFunction__params: []
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'BaseMaterial'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'p',
+            _KLParam__type: !!python/unicode 'GorGon::Core::Properties'}
+          _KLFunction__returnType: null
+        _KLStruct__getters: []
+        _KLStruct__hasDestructor: false
+        _KLStruct__members:
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+          _KLMember__name: !!python/unicode 'name', _KLMember__type: !!python/unicode 'String'}
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+          _KLMember__name: !!python/unicode '_properties', _KLMember__type: !!python/unicode 'GorGon::Core::Properties'}
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+          _KLMember__name: !!python/unicode 'name', _KLMember__type: !!python/unicode 'String'}
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+          _KLMember__name: !!python/unicode '_properties', _KLMember__type: !!python/unicode 'GorGon::Core::Properties'}
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+          _KLMember__name: !!python/unicode 'name', _KLMember__type: !!python/unicode 'String'}
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+          _KLMember__name: !!python/unicode '_properties', _KLMember__type: !!python/unicode 'GorGon::Core::Properties'}
+        _KLStruct__methods:
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'protected'
+          _KLFunction__name: !!python/unicode 'init'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'p',
+            _KLParam__type: !!python/unicode 'GorGon::Core::Properties'}
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'protected'
+          _KLFunction__name: !!python/unicode 'init'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'p',
+            _KLParam__type: !!python/unicode 'GorGon::Core::Properties'}
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'protected'
+          _KLFunction__name: !!python/unicode 'init'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'p',
+            _KLParam__type: !!python/unicode 'GorGon::Core::Properties'}
+          _KLFunction__returnType: null
+        _KLStruct__name: !!python/unicode 'BaseMaterial'
+        _KLStruct__operators: []
+        _KLStruct__parents: []
+        _KLStruct__setters: []
+    _KLNamespace__operators: []
+    _KLNamespace__structs: {}

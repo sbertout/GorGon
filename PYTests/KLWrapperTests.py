@@ -1,10 +1,12 @@
-import sys, unittest
+import os, sys, unittest
 from GorGon.KLWrapper.KLCodeEnv import KLCodeEnv
+from GorGon.KLWrapper.KLExtension import KLExtension
 
 class KLWrapperTests(unittest.TestCase):
 
     def __init__(self, *args, **kwargs):
         super(KLWrapperTests, self).__init__(*args, **kwargs)
+        self.gorgonPyTestsPath = os.path.expandvars('$GORGON_PYTESTS_PATH')
 
     @classmethod
     def setUpClass(cls):
@@ -61,6 +63,7 @@ class KLWrapperTests(unittest.TestCase):
     def __setup(self, sourceCode, testFuncName):
         useExtension = '_E1_' in testFuncName
         useNamespace = '_N1_' in testFuncName
+        serialize = '_S1_' in testFuncName
         if useNamespace:
             sourceCode = 'namespace FooNamespace {' + sourceCode + '}'
         if useExtension:
@@ -77,6 +80,11 @@ class KLWrapperTests(unittest.TestCase):
         else:
             self.klEnv.parseSourceCode(sourceCode)
         klExtension = self.klEnv.getRTExtension() if not useExtension else self.klEnv.getExtension(testFuncName)
+        if serialize:
+            yamlFilePath = self.gorgonPyTestsPath + '/_out/' + testFuncName + '.yaml'
+            if os.path.exists(yamlFilePath): os.remove(yamlFilePath)
+            klExtension.toYamlFile(yamlFilePath)
+            klExtension = KLExtension.fromYamlFile(yamlFilePath)
         klNamespace = klExtension.getGlobalNamespace() if not useNamespace else klExtension.getNamespace('FooNamespace')
         return klExtension, klNamespace
 
@@ -87,11 +95,13 @@ class KLWrapperTests(unittest.TestCase):
             const Scalar SomeScalarConstant = 3.14;
             const Scalar TWO_SomeScalarConstant = SomeScalarConstant * 2.0;
             const Float32 SomeNegativeFloat32Constant = -10e6;
+            const UInt8 SomeUInt8Array[] = [
+                0,0,1,1,2,2,2,2,3,3,3,3,3,3,3,3];
             '''
 
     def __test_KLConstants_Content(self, klNamespace):
-        self.assertEqual(klNamespace.getConstantCount(), 4)
-        self.assertEqual(klNamespace.getConstantNames(), [u'SomeNegativeFloat32Constant', u'SomeScalarConstant', u'DebugSomething', u'TWO_SomeScalarConstant'])
+        self.assertEqual(klNamespace.getConstantCount(), 5)
+        self.assertEqual(klNamespace.getConstantNames(), [u'SomeUInt8Array', u'SomeNegativeFloat32Constant', u'SomeScalarConstant', u'DebugSomething', u'TWO_SomeScalarConstant'])
         self.assertEqual(klNamespace.getConstant('DebugSomething').getName(), 'DebugSomething')
         self.assertEqual(klNamespace.getConstant('DebugSomething').getType(), 'ConstBoolean')
         self.assertEqual(klNamespace.getConstant('DebugSomething').getValue(), False)
@@ -104,6 +114,9 @@ class KLWrapperTests(unittest.TestCase):
         self.assertEqual(klNamespace.getConstant('SomeNegativeFloat32Constant').getName(), 'SomeNegativeFloat32Constant')
         self.assertEqual(klNamespace.getConstant('SomeNegativeFloat32Constant').getType(), 'NEG')
         self.assertEqual(klNamespace.getConstant('SomeNegativeFloat32Constant').getValue(), 'NEG(10e6)')
+        self.assertEqual(klNamespace.getConstant('SomeUInt8Array').getName(), 'SomeUInt8Array')
+        self.assertEqual(klNamespace.getConstant('SomeUInt8Array').getType(), 'ConstArrayDecl')
+        self.assertEqual(klNamespace.getConstant('SomeUInt8Array').getValue(), '')
 
     def test_KLConstants_E1_N1_(self):
         klExtension, klNamespace = self.__setup(self.sourceCode_KLConstants, sys._getframe().f_code.co_name)
@@ -114,6 +127,17 @@ class KLWrapperTests(unittest.TestCase):
     def test_KLConstants_E1_N0_(self):
         klExtension, klNamespace = self.__setup(self.sourceCode_KLConstants, sys._getframe().f_code.co_name)
         self.assertEqual(self.klEnv.getExtensionNames(), ['test_KLConstants_E1_N0_'])
+        self.__test_KLConstants_Content(klNamespace)
+
+    def test_KLConstants_E1_N1_S1_(self):
+        klExtension, klNamespace = self.__setup(self.sourceCode_KLConstants, sys._getframe().f_code.co_name)
+        self.assertEqual(self.klEnv.getExtensionNames(), ['test_KLConstants_E1_N1_S1_'])
+        self.assertEqual(klExtension.getNamespaceNames(), ['FooNamespace'])
+        self.__test_KLConstants_Content(klNamespace)
+
+    def test_KLConstants_E1_N0_S1_(self):
+        klExtension, klNamespace = self.__setup(self.sourceCode_KLConstants, sys._getframe().f_code.co_name)
+        self.assertEqual(self.klEnv.getExtensionNames(), ['test_KLConstants_E1_N0_S1_'])
         self.__test_KLConstants_Content(klNamespace)
 
     def test_KLConstants_E0_N1_(self):
@@ -147,6 +171,14 @@ class KLWrapperTests(unittest.TestCase):
         klExtension, klNamespace = self.__setup(self.sourceCode_KLAliasConstants, sys._getframe().f_code.co_name)
         self.__test_KLAliasConstants_Content(klNamespace)
 
+    def test_KLAliasConstants_E1_N1_S1_(self):
+        klExtension, klNamespace = self.__setup(self.sourceCode_KLAliasConstants, sys._getframe().f_code.co_name)
+        self.__test_KLAliasConstants_Content(klNamespace)
+
+    def test_KLAliasConstants_E1_N0_S1_(self):
+        klExtension, klNamespace = self.__setup(self.sourceCode_KLAliasConstants, sys._getframe().f_code.co_name)
+        self.__test_KLAliasConstants_Content(klNamespace)
+
     def test_KLAliasConstants_E0_N1_(self):
         klExtension, klNamespace = self.__setup(self.sourceCode_KLAliasConstants, sys._getframe().f_code.co_name)
         self.__test_KLAliasConstants_Content(klNamespace)
@@ -174,6 +206,14 @@ class KLWrapperTests(unittest.TestCase):
         self.__test_KLAliases_Content(klNamespace)
 
     def test_KLAliases_E1_N0_(self):
+        klExtension, klNamespace = self.__setup(self.sourceCode_KLAliases, sys._getframe().f_code.co_name)
+        self.__test_KLAliases_Content(klNamespace)
+
+    def test_KLAliases_E1_N1_S1_(self):
+        klExtension, klNamespace = self.__setup(self.sourceCode_KLAliases, sys._getframe().f_code.co_name)
+        self.__test_KLAliases_Content(klNamespace)
+
+    def test_KLAliases_E1_N0_S1_(self):
         klExtension, klNamespace = self.__setup(self.sourceCode_KLAliases, sys._getframe().f_code.co_name)
         self.__test_KLAliases_Content(klNamespace)
 
@@ -228,6 +268,14 @@ class KLWrapperTests(unittest.TestCase):
         klExtension, klNamespace = self.__setup(self.sourceCode_KLAliasOperators, sys._getframe().f_code.co_name)
         self.__test_KLAliasOperators_Content(klNamespace)
 
+    def test_KLAliasOperators_E1_N1_S1_(self):
+        klExtension, klNamespace = self.__setup(self.sourceCode_KLAliasOperators, sys._getframe().f_code.co_name)
+        self.__test_KLAliasOperators_Content(klNamespace)
+
+    def test_KLAliasOperators_E1_N0_S1_(self):
+        klExtension, klNamespace = self.__setup(self.sourceCode_KLAliasOperators, sys._getframe().f_code.co_name)
+        self.__test_KLAliasOperators_Content(klNamespace)
+
     def test_KLAliasOperators_E0_N1_(self):
         klExtension, klNamespace = self.__setup(self.sourceCode_KLAliasOperators, sys._getframe().f_code.co_name)
         self.__test_KLAliasOperators_Content(klNamespace)
@@ -258,6 +306,14 @@ class KLWrapperTests(unittest.TestCase):
         self.__test_KLAliasFunc_Content(klNamespace)
 
     def test_KLAliasFunc_E1_N0_(self):
+        klExtension, klNamespace = self.__setup(self.sourceCode_KLAliasFunc, sys._getframe().f_code.co_name)
+        self.__test_KLAliasFunc_Content(klNamespace)
+
+    def test_KLAliasFunc_E1_N1_S1_(self):
+        klExtension, klNamespace = self.__setup(self.sourceCode_KLAliasFunc, sys._getframe().f_code.co_name)
+        self.__test_KLAliasFunc_Content(klNamespace)
+
+    def test_KLAliasFunc_E1_N0_S1_(self):
         klExtension, klNamespace = self.__setup(self.sourceCode_KLAliasFunc, sys._getframe().f_code.co_name)
         self.__test_KLAliasFunc_Content(klNamespace)
 
@@ -307,6 +363,14 @@ class KLWrapperTests(unittest.TestCase):
         klExtension, klNamespace = self.__setup(self.sourceCode_KLInterface, sys._getframe().f_code.co_name)
         self.__test_KLInterface_Content(klNamespace)
 
+    def test_KLInterface_E1_N1_S1_(self):
+        klExtension, klNamespace = self.__setup(self.sourceCode_KLInterface, sys._getframe().f_code.co_name)
+        self.__test_KLInterface_Content(klNamespace)
+
+    def test_KLInterface_E1_N0_S1_(self):
+        klExtension, klNamespace = self.__setup(self.sourceCode_KLInterface, sys._getframe().f_code.co_name)
+        self.__test_KLInterface_Content(klNamespace)
+
     def test_KLInterface_E0_N1_(self):
         klExtension, klNamespace = self.__setup(self.sourceCode_KLInterface, sys._getframe().f_code.co_name)
         self.__test_KLInterface_Content(klNamespace)
@@ -331,6 +395,14 @@ class KLWrapperTests(unittest.TestCase):
         self.__test_KLObject_Content(klNamespace)
 
     def test_KLObject_E1_N0_(self):
+        klExtension, klNamespace = self.__setup(self.source_KLObject, sys._getframe().f_code.co_name)
+        self.__test_KLObject_Content(klNamespace)
+
+    def test_KLObject_E1_N1_S1_(self):
+        klExtension, klNamespace = self.__setup(self.source_KLObject, sys._getframe().f_code.co_name)
+        self.__test_KLObject_Content(klNamespace)
+
+    def test_KLObject_E1_N0_S1_(self):
         klExtension, klNamespace = self.__setup(self.source_KLObject, sys._getframe().f_code.co_name)
         self.__test_KLObject_Content(klNamespace)
 
@@ -359,6 +431,14 @@ class KLWrapperTests(unittest.TestCase):
         self.__test_KLStruct_Content(klNamespace)
 
     def test_KLStruct_E1_N0_(self):
+        klExtension, klNamespace = self.__setup(self.source_KLStruct, sys._getframe().f_code.co_name)
+        self.__test_KLStruct_Content(klNamespace)
+
+    def test_KLStruct_E1_N1_S1_(self):
+        klExtension, klNamespace = self.__setup(self.source_KLStruct, sys._getframe().f_code.co_name)
+        self.__test_KLStruct_Content(klNamespace)
+
+    def test_KLStruct_E1_N0_S1_(self):
         klExtension, klNamespace = self.__setup(self.source_KLStruct, sys._getframe().f_code.co_name)
         self.__test_KLStruct_Content(klNamespace)
 
@@ -396,6 +476,14 @@ class KLWrapperTests(unittest.TestCase):
         self.__test_KLGlobalFunctions_Content(klNamespace)
 
     def test_KLGlobalFunctions_E1_N0_(self):
+        klExtension, klNamespace = self.__setup(self.source_KLGlobalFunctions, sys._getframe().f_code.co_name)
+        self.__test_KLGlobalFunctions_Content(klNamespace)
+
+    def test_KLGlobalFunctions_E1_N1_S1_(self):
+        klExtension, klNamespace = self.__setup(self.source_KLGlobalFunctions, sys._getframe().f_code.co_name)
+        self.__test_KLGlobalFunctions_Content(klNamespace)
+
+    def test_KLGlobalFunctions_E1_N0_S1_(self):
         klExtension, klNamespace = self.__setup(self.source_KLGlobalFunctions, sys._getframe().f_code.co_name)
         self.__test_KLGlobalFunctions_Content(klNamespace)
 
@@ -484,6 +572,14 @@ class KLWrapperTests(unittest.TestCase):
         klExtension, klNamespace = self.__setup(self.source_KLObjectMembers, sys._getframe().f_code.co_name)
         self.__test_KLObjectMembers_Content(klNamespace)
 
+    def test_KLObjectMembers_E1_N1_S1_(self):
+        klExtension, klNamespace = self.__setup(self.source_KLObjectMembers, sys._getframe().f_code.co_name)
+        self.__test_KLObjectMembers_Content(klNamespace)
+
+    def test_KLObjectMembers_E1_N0_S1_(self):
+        klExtension, klNamespace = self.__setup(self.source_KLObjectMembers, sys._getframe().f_code.co_name)
+        self.__test_KLObjectMembers_Content(klNamespace)
+
     def test_KLObjectMembers_E0_N1_(self):
         klExtension, klNamespace = self.__setup(self.source_KLObjectMembers, sys._getframe().f_code.co_name)
         self.__test_KLObjectMembers_Content(klNamespace)
@@ -530,6 +626,14 @@ class KLWrapperTests(unittest.TestCase):
         klExtension, klNamespace = self.__setup(self.source_KLStructMembers, sys._getframe().f_code.co_name)
         self.__test_KLStructMembers_Content(klNamespace)
 
+    def test_KLStructMembers_E1_N1_S1_(self):
+        klExtension, klNamespace = self.__setup(self.source_KLStructMembers, sys._getframe().f_code.co_name)
+        self.__test_KLStructMembers_Content(klNamespace)
+
+    def test_KLStructMembers_E1_N0_S1_(self):
+        klExtension, klNamespace = self.__setup(self.source_KLStructMembers, sys._getframe().f_code.co_name)
+        self.__test_KLStructMembers_Content(klNamespace)
+
     def test_KLStructMembers_E0_N1_(self):
         klExtension, klNamespace = self.__setup(self.source_KLStructMembers, sys._getframe().f_code.co_name)
         self.__test_KLStructMembers_Content(klNamespace)
@@ -573,6 +677,14 @@ class KLWrapperTests(unittest.TestCase):
         klExtension, klNamespace = self.__setup(self.source_KLObjectConstructors, sys._getframe().f_code.co_name)
         self.__test_KLObjectConstructors_Setup(klNamespace)
 
+    def test_KLObjectConstructors_E1_N1_S1_(self):
+        klExtension, klNamespace = self.__setup(self.source_KLObjectConstructors, sys._getframe().f_code.co_name)
+        self.__test_KLObjectConstructors_Setup(klNamespace)
+
+    def test_KLObjectConstructors_E1_N0_S1_(self):
+        klExtension, klNamespace = self.__setup(self.source_KLObjectConstructors, sys._getframe().f_code.co_name)
+        self.__test_KLObjectConstructors_Setup(klNamespace)
+
     def test_KLObjectConstructors_E0_N1_(self):
         klExtension, klNamespace = self.__setup(self.source_KLObjectConstructors, sys._getframe().f_code.co_name)
         self.__test_KLObjectConstructors_Setup(klNamespace)
@@ -604,6 +716,14 @@ class KLWrapperTests(unittest.TestCase):
         self.__test_KLObjectDestructor_Content(klNamespace)
 
     def test_KLObjectDestructor_E1_N0_(self):
+        klExtension, klNamespace = self.__setup(self.source_KLObjectDestructor, sys._getframe().f_code.co_name)
+        self.__test_KLObjectDestructor_Content(klNamespace)
+
+    def test_KLObjectDestructor_E1_N1_S1_(self):
+        klExtension, klNamespace = self.__setup(self.source_KLObjectDestructor, sys._getframe().f_code.co_name)
+        self.__test_KLObjectDestructor_Content(klNamespace)
+
+    def test_KLObjectDestructor_E1_N0_S1_(self):
         klExtension, klNamespace = self.__setup(self.source_KLObjectDestructor, sys._getframe().f_code.co_name)
         self.__test_KLObjectDestructor_Content(klNamespace)
 
@@ -650,6 +770,14 @@ class KLWrapperTests(unittest.TestCase):
         klExtension, klNamespace = self.__setup(self.source_KLObjectForwardDeclaredConstructors, sys._getframe().f_code.co_name)
         self.__test_KLObjectForwardDeclaredConstructors_Content(klNamespace)
 
+    def test_KLObjectForwardDeclaredConstructors_E1_N1_S1_(self):
+        klExtension, klNamespace = self.__setup(self.source_KLObjectForwardDeclaredConstructors, sys._getframe().f_code.co_name)
+        self.__test_KLObjectForwardDeclaredConstructors_Content(klNamespace)
+
+    def test_KLObjectForwardDeclaredConstructors_E1_N0_S1_(self):
+        klExtension, klNamespace = self.__setup(self.source_KLObjectForwardDeclaredConstructors, sys._getframe().f_code.co_name)
+        self.__test_KLObjectForwardDeclaredConstructors_Content(klNamespace)
+
     def test_KLObjectForwardDeclaredConstructors_E0_N1_(self):
         klExtension, klNamespace = self.__setup(self.source_KLObjectForwardDeclaredConstructors, sys._getframe().f_code.co_name)
         self.__test_KLObjectForwardDeclaredConstructors_Content(klNamespace)
@@ -690,6 +818,14 @@ class KLWrapperTests(unittest.TestCase):
         self.__test_KLStructConstructors_Content(klNamespace)
 
     def test_KLStructConstructors_E1_N0_(self):
+        klExtension, klNamespace = self.__setup(self.source_KLStructConstructors, sys._getframe().f_code.co_name)
+        self.__test_KLStructConstructors_Content(klNamespace)
+
+    def test_KLStructConstructors_E1_N1_S1_(self):
+        klExtension, klNamespace = self.__setup(self.source_KLStructConstructors, sys._getframe().f_code.co_name)
+        self.__test_KLStructConstructors_Content(klNamespace)
+
+    def test_KLStructConstructors_E1_N0_S1_(self):
         klExtension, klNamespace = self.__setup(self.source_KLStructConstructors, sys._getframe().f_code.co_name)
         self.__test_KLStructConstructors_Content(klNamespace)
 
@@ -804,6 +940,14 @@ class KLWrapperTests(unittest.TestCase):
         klExtension, klNamespace = self.__setup(self.source_KLObjectConstructors_ObjectForwardDeclared, sys._getframe().f_code.co_name)
         self.__test_KLObjectConstructors_ObjectForwardDeclared_Content(klNamespace)
 
+    def test_KLObjectConstructors_ObjectForwardDeclared_E1_N1_S1_(self):
+        klExtension, klNamespace = self.__setup(self.source_KLObjectConstructors_ObjectForwardDeclared, sys._getframe().f_code.co_name)
+        self.__test_KLObjectConstructors_ObjectForwardDeclared_Content(klNamespace)
+
+    def test_KLObjectConstructors_ObjectForwardDeclared_E1_N0_S1_(self):
+        klExtension, klNamespace = self.__setup(self.source_KLObjectConstructors_ObjectForwardDeclared, sys._getframe().f_code.co_name)
+        self.__test_KLObjectConstructors_ObjectForwardDeclared_Content(klNamespace)
+
     def test_KLObjectConstructors_ObjectForwardDeclared_E0_N1_(self):
         klExtension, klNamespace = self.__setup(self.source_KLObjectConstructors_ObjectForwardDeclared, sys._getframe().f_code.co_name)
         self.__test_KLObjectConstructors_ObjectForwardDeclared_Content(klNamespace)
@@ -835,6 +979,14 @@ class KLWrapperTests(unittest.TestCase):
         self.__test_KLStructConstructors_StructForwardDeclared_Content(klNamespace)
 
     def test_KLStructConstructors_StructForwardDeclared_E1_N0_(self):
+        klExtension, klNamespace = self.__setup(self.source_KLStructConstructors_StructForwardDeclared, sys._getframe().f_code.co_name)
+        self.__test_KLStructConstructors_StructForwardDeclared_Content(klNamespace)
+
+    def test_KLStructConstructors_StructForwardDeclared_E1_N1_S1_(self):
+        klExtension, klNamespace = self.__setup(self.source_KLStructConstructors_StructForwardDeclared, sys._getframe().f_code.co_name)
+        self.__test_KLStructConstructors_StructForwardDeclared_Content(klNamespace)
+
+    def test_KLStructConstructors_StructForwardDeclared_E1_N0_S1_(self):
         klExtension, klNamespace = self.__setup(self.source_KLStructConstructors_StructForwardDeclared, sys._getframe().f_code.co_name)
         self.__test_KLStructConstructors_StructForwardDeclared_Content(klNamespace)
 
@@ -893,6 +1045,14 @@ class KLWrapperTests(unittest.TestCase):
         klExtension, klNamespace = self.__setup(self.source_KLObjectGettersAndSetters, sys._getframe().f_code.co_name)
         self.__test_KLObjectGettersAndSetters_Content(klNamespace)
 
+    def test_KLObjectGettersAndSetters_E1_N1_S1_(self):
+        klExtension, klNamespace = self.__setup(self.source_KLObjectGettersAndSetters, sys._getframe().f_code.co_name)
+        self.__test_KLObjectGettersAndSetters_Content(klNamespace)
+
+    def test_KLObjectGettersAndSetters_E1_N0_S1_(self):
+        klExtension, klNamespace = self.__setup(self.source_KLObjectGettersAndSetters, sys._getframe().f_code.co_name)
+        self.__test_KLObjectGettersAndSetters_Content(klNamespace)
+
     def test_KLObjectGettersAndSetters_E0_N1_(self):
         klExtension, klNamespace = self.__setup(self.source_KLObjectGettersAndSetters, sys._getframe().f_code.co_name)
         self.__test_KLObjectGettersAndSetters_Content(klNamespace)
@@ -948,6 +1108,14 @@ class KLWrapperTests(unittest.TestCase):
         klExtension, klNamespace = self.__setup(self.source_KLStructGettersAndSetters, sys._getframe().f_code.co_name)
         self.__test_KLStructGettersAndSetters_Content(klNamespace)
 
+    def test_KLStructGettersAndSetters_E1_N1_S1_(self):
+        klExtension, klNamespace = self.__setup(self.source_KLStructGettersAndSetters, sys._getframe().f_code.co_name)
+        self.__test_KLStructGettersAndSetters_Content(klNamespace)
+
+    def test_KLStructGettersAndSetters_E1_N0_S1_(self):
+        klExtension, klNamespace = self.__setup(self.source_KLStructGettersAndSetters, sys._getframe().f_code.co_name)
+        self.__test_KLStructGettersAndSetters_Content(klNamespace)
+
     def test_KLStructGettersAndSetters_E0_N1_(self):
         klExtension, klNamespace = self.__setup(self.source_KLStructGettersAndSetters, sys._getframe().f_code.co_name)
         self.__test_KLStructGettersAndSetters_Content(klNamespace)
@@ -991,6 +1159,14 @@ class KLWrapperTests(unittest.TestCase):
         self.__test_KLObjectMethods_Content(klNamespace)
 
     def test_KLObjectMethods_E1_N0_(self):
+        klExtension, klNamespace = self.__setup(self.source_KLObjectMethods, sys._getframe().f_code.co_name)
+        self.__test_KLObjectMethods_Content(klNamespace)
+
+    def test_KLObjectMethods_E1_N1_S1_(self):
+        klExtension, klNamespace = self.__setup(self.source_KLObjectMethods, sys._getframe().f_code.co_name)
+        self.__test_KLObjectMethods_Content(klNamespace)
+
+    def test_KLObjectMethods_E1_N0_S1_(self):
         klExtension, klNamespace = self.__setup(self.source_KLObjectMethods, sys._getframe().f_code.co_name)
         self.__test_KLObjectMethods_Content(klNamespace)
 
@@ -1048,6 +1224,14 @@ class KLWrapperTests(unittest.TestCase):
         klExtension, klNamespace = self.__setup(self.source_KLObjectOperators, sys._getframe().f_code.co_name)
         self.__test_KLObjectOperators_Content(klNamespace)
 
+    def test_KLObjectOperators_E1_N1_S1_(self):
+        klExtension, klNamespace = self.__setup(self.source_KLObjectOperators, sys._getframe().f_code.co_name)
+        self.__test_KLObjectOperators_Content(klNamespace)
+
+    def test_KLObjectOperators_E1_N0_S1_(self):
+        klExtension, klNamespace = self.__setup(self.source_KLObjectOperators, sys._getframe().f_code.co_name)
+        self.__test_KLObjectOperators_Content(klNamespace)
+
     def test_KLObjectOperators_E0_N1_(self):
         klExtension, klNamespace = self.__setup(self.source_KLObjectOperators, sys._getframe().f_code.co_name)
         self.__test_KLObjectOperators_Content(klNamespace)
@@ -1091,6 +1275,15 @@ class KLWrapperTests(unittest.TestCase):
         self.__test_KLStructMethods_Content(klNamespace)
 
     def test_KLStructMethods_E1_N0_(self):
+        klExtension, klNamespace = self.__setup(self.source_KLStructMethods, sys._getframe().f_code.co_name)
+        self.__test_KLStructMethods_Content(klNamespace)
+
+
+    def test_KLStructMethods_E1_N1_S1_(self):
+        klExtension, klNamespace = self.__setup(self.source_KLStructMethods, sys._getframe().f_code.co_name)
+        self.__test_KLStructMethods_Content(klNamespace)
+
+    def test_KLStructMethods_E1_N0_S1_(self):
         klExtension, klNamespace = self.__setup(self.source_KLStructMethods, sys._getframe().f_code.co_name)
         self.__test_KLStructMethods_Content(klNamespace)
 
@@ -1145,6 +1338,14 @@ class KLWrapperTests(unittest.TestCase):
         self.__test_KLStructOperators_Content(klNamespace)
 
     def test_KLStructOperators_E1_N0_(self):
+        klExtension, klNamespace = self.__setup(self.source_KLStructOperators, sys._getframe().f_code.co_name)
+        self.__test_KLStructOperators_Content(klNamespace)
+
+    def test_KLStructOperators_E1_N1_S1_(self):
+        klExtension, klNamespace = self.__setup(self.source_KLStructOperators, sys._getframe().f_code.co_name)
+        self.__test_KLStructOperators_Content(klNamespace)
+
+    def test_KLStructOperators_E1_N0_S1_(self):
         klExtension, klNamespace = self.__setup(self.source_KLStructOperators, sys._getframe().f_code.co_name)
         self.__test_KLStructOperators_Content(klNamespace)
 
@@ -1210,6 +1411,14 @@ class KLWrapperTests(unittest.TestCase):
         klExtension, klNamespace = self.__setup(self.source_KLNamespaceOperators, sys._getframe().f_code.co_name)
         self.__test_KLNamespaceOperators_Content(klNamespace)
 
+    def test_KLNamespaceOperators_E1_N1_S1_(self):
+        klExtension, klNamespace = self.__setup(self.source_KLNamespaceOperators, sys._getframe().f_code.co_name)
+        self.__test_KLNamespaceOperators_Content(klNamespace)
+
+    def test_KLNamespaceOperators_E1_N0_S1_(self):
+        klExtension, klNamespace = self.__setup(self.source_KLNamespaceOperators, sys._getframe().f_code.co_name)
+        self.__test_KLNamespaceOperators_Content(klNamespace)
+
     def test_KLNamespaceOperators_E0_N1_(self):
         klExtension, klNamespace = self.__setup(self.source_KLNamespaceOperators, sys._getframe().f_code.co_name)
         self.__test_KLNamespaceOperators_Content(klNamespace)
@@ -1239,6 +1448,14 @@ class KLWrapperTests(unittest.TestCase):
         self.__test_ObjectInheritance_Content(klNamespace)
 
     def test_ObjectInheritance_E1_N0_(self):
+        klExtension, klNamespace = self.__setup(self.source_ObjectInheritance, sys._getframe().f_code.co_name)
+        self.__test_ObjectInheritance_Content(klNamespace)
+
+    def test_ObjectInheritance_E1_N1_S1_(self):
+        klExtension, klNamespace = self.__setup(self.source_ObjectInheritance, sys._getframe().f_code.co_name)
+        self.__test_ObjectInheritance_Content(klNamespace)
+
+    def test_ObjectInheritance_E1_N0_S1_(self):
         klExtension, klNamespace = self.__setup(self.source_ObjectInheritance, sys._getframe().f_code.co_name)
         self.__test_ObjectInheritance_Content(klNamespace)
 

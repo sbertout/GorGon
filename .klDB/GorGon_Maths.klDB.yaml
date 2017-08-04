@@ -1,0 +1,2620 @@
+!!python/object:GorGon.KLWrapper.KLExtension.KLExtension
+_KLExtension__extensionDependencies: [!!python/unicode 'Singletons', !!python/unicode 'Math']
+_KLExtension__globalNamespace: !!python/object:GorGon.KLWrapper.KLNamespace.KLNamespace
+  _KLNamespace__aliases:
+    !!python/unicode 'QuatArray': !!python/object:GorGon.KLWrapper.KLAlias.KLAlias
+      _KLAlias__methods: []
+      _KLAlias__name: !!python/unicode 'QuatArray'
+      _KLAlias__operators: []
+      _KLAlias__sourceName: !!python/unicode 'Quat[]'
+    !!python/unicode 'XfoArray': !!python/object:GorGon.KLWrapper.KLAlias.KLAlias
+      _KLAlias__methods: []
+      _KLAlias__name: !!python/unicode 'XfoArray'
+      _KLAlias__operators: []
+      _KLAlias__sourceName: !!python/unicode 'Xfo[]'
+  _KLNamespace__constants: {}
+  _KLNamespace__extensions: {}
+  _KLNamespace__functions:
+    !!python/unicode 'Quat': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+      _KLFunction__access: !!python/unicode 'unspecified'
+      _KLFunction__name: !!python/unicode 'Quat'
+      _KLFunction__params:
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'dir',
+        _KLParam__type: !!python/unicode 'Vec3'}
+      - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'up',
+        _KLParam__type: !!python/unicode 'Vec3'}
+      _KLFunction__returnType: null
+  _KLNamespace__interfaces: {}
+  _KLNamespace__name: global
+  _KLNamespace__objects: {}
+  _KLNamespace__operators: []
+  _KLNamespace__structs: {}
+_KLExtension__name: !!python/unicode 'GorGon_Maths'
+_KLExtension__namespaces:
+  !!python/unicode 'GorGon::Maths': !!python/object:GorGon.KLWrapper.KLNamespace.KLNamespace
+    _KLNamespace__aliases:
+      !!python/unicode 'CCeAxisType': !!python/object:GorGon.KLWrapper.KLAlias.KLAlias
+        _KLAlias__methods: []
+        _KLAlias__name: !!python/unicode 'CCeAxisType'
+        _KLAlias__operators: []
+        _KLAlias__sourceName: !!python/unicode 'UInt32'
+      !!python/unicode 'CCeSideType': !!python/object:GorGon.KLWrapper.KLAlias.KLAlias
+        _KLAlias__methods: []
+        _KLAlias__name: !!python/unicode 'CCeSideType'
+        _KLAlias__operators: []
+        _KLAlias__sourceName: !!python/unicode 'UInt32'
+    _KLNamespace__constants:
+      !!python/unicode 'CCeAxisType_X': !!python/object:GorGon.KLWrapper.KLConstant.KLConstant {
+        _KLConstant__name: !!python/unicode 'CCeAxisType_X', _KLConstant__type: !!python/unicode 'ASTConstInteger',
+        _KLConstant__value: !!python/unicode '0'}
+      !!python/unicode 'CCeAxisType_Y': !!python/object:GorGon.KLWrapper.KLConstant.KLConstant {
+        _KLConstant__name: !!python/unicode 'CCeAxisType_Y', _KLConstant__type: !!python/unicode 'ASTConstInteger',
+        _KLConstant__value: !!python/unicode '1'}
+      !!python/unicode 'CCeAxisType_Z': !!python/object:GorGon.KLWrapper.KLConstant.KLConstant {
+        _KLConstant__name: !!python/unicode 'CCeAxisType_Z', _KLConstant__type: !!python/unicode 'ASTConstInteger',
+        _KLConstant__value: !!python/unicode '2'}
+      !!python/unicode 'CCeSideType_Inside': !!python/object:GorGon.KLWrapper.KLConstant.KLConstant {
+        _KLConstant__name: !!python/unicode 'CCeSideType_Inside', _KLConstant__type: !!python/unicode 'ASTConstInteger',
+        _KLConstant__value: !!python/unicode '1'}
+      !!python/unicode 'CCeSideType_Negative': !!python/object:GorGon.KLWrapper.KLConstant.KLConstant {
+        _KLConstant__name: !!python/unicode 'CCeSideType_Negative', _KLConstant__type: !!python/unicode 'ASTConstInteger',
+        _KLConstant__value: !!python/unicode '0'}
+      !!python/unicode 'CCeSideType_Positive': !!python/object:GorGon.KLWrapper.KLConstant.KLConstant {
+        _KLConstant__name: !!python/unicode 'CCeSideType_Positive', _KLConstant__type: !!python/unicode 'ASTConstInteger',
+        _KLConstant__value: !!python/unicode '2'}
+    _KLNamespace__extensions: {}
+    _KLNamespace__functions:
+      !!python/unicode 'AssertAlmostEquals': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'AssertAlmostEquals'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's1',
+          _KLParam__type: !!python/unicode 'Xfo'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's2',
+          _KLParam__type: !!python/unicode 'Xfo'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'eps',
+          _KLParam__type: !!python/unicode 'Float32'}
+        _KLFunction__returnType: null
+      !!python/unicode 'AssertEquals': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'AssertEquals'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's1',
+          _KLParam__type: !!python/unicode 'Xfo'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's2',
+          _KLParam__type: !!python/unicode 'Xfo'}
+        _KLFunction__returnType: null
+      !!python/unicode 'BoxFromMinMax': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'BoxFromMinMax'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'minX',
+          _KLParam__type: !!python/unicode 'Scalar'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'minY',
+          _KLParam__type: !!python/unicode 'Scalar'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'minZ',
+          _KLParam__type: !!python/unicode 'Scalar'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'maxX',
+          _KLParam__type: !!python/unicode 'Scalar'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'maxY',
+          _KLParam__type: !!python/unicode 'Scalar'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'maxZ',
+          _KLParam__type: !!python/unicode 'Scalar'}
+        _KLFunction__returnType: !!python/unicode 'Box'
+      !!python/unicode 'CCrandomColor': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'CCrandomColor'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Color'
+      !!python/unicode 'CCrandomInsideUnitDisk': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'CCrandomInsideUnitDisk'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Vec2'
+      !!python/unicode 'CCrandomInsideUnitSphere': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'CCrandomInsideUnitSphere'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Vec3'
+      !!python/unicode 'CCrandomInteger': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'CCrandomInteger'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'min',
+          _KLParam__type: !!python/unicode 'Integer'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'max',
+          _KLParam__type: !!python/unicode 'Integer'}
+        _KLFunction__returnType: !!python/unicode 'Integer'
+      !!python/unicode 'CCrandomOnUnitDisk': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'CCrandomOnUnitDisk'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Vec2'
+      !!python/unicode 'CCrandomOnUnitSphere': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'CCrandomOnUnitSphere'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Vec3'
+      !!python/unicode 'CCrandomQuat': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'CCrandomQuat'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Quat'
+      !!python/unicode 'CCrandomScalar': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'CCrandomScalar'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'min',
+          _KLParam__type: !!python/unicode 'Scalar'}
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'max',
+          _KLParam__type: !!python/unicode 'Scalar'}
+        _KLFunction__returnType: !!python/unicode 'Scalar'
+      !!python/unicode 'CCrandomScalar01': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'CCrandomScalar01'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Scalar'
+      !!python/unicode 'CCrandomUnitScalar': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'CCrandomUnitScalar'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Scalar'
+      !!python/unicode 'CCrandomUnitVec2': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'CCrandomUnitVec2'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Vec2'
+      !!python/unicode 'CCrandomUnitVec3': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'CCrandomUnitVec3'
+        _KLFunction__params:
+        - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'v',
+          _KLParam__type: !!python/unicode 'Vec3'}
+        _KLFunction__returnType: !!python/unicode 'Vec3'
+      !!python/unicode 'CCrandomVec2': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'CCrandomVec2'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Vec2'
+      !!python/unicode 'CCrandomVec3': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'CCrandomVec3'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Vec3'
+      !!python/unicode 'CCrandomVec4': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'CCrandomVec4'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'Vec4'
+      !!python/unicode 'RandomGenCleanup': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'RandomGenCleanup'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+    _KLNamespace__interfaces: {}
+    _KLNamespace__name: !!python/unicode 'GorGon::Maths'
+    _KLNamespace__objects:
+      !!python/unicode 'Box': !!python/object:GorGon.KLWrapper.KLObject.KLObject
+        _KLStruct__constructors:
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'Box'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'center',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'size',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'Box'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'center',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'usize',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'Box'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'center',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'size',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'Box'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'center',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'usize',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'Box'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'center',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'size',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'Box'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'center',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'usize',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'Box'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'center',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'size',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'Box'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'center',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'usize',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          _KLFunction__returnType: null
+        _KLStruct__getters:
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getCenter'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getSize'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getMin'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getMax'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getSideType'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'CCeSideType'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getSideType'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'CCeSideType'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getCenter'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getSize'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getMin'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getMax'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getSideType'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'CCeSideType'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getSideType'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'CCeSideType'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getCenter'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getSize'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getMin'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getMax'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getSideType'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'CCeSideType'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getSideType'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'CCeSideType'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getCenter'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getSize'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getMin'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getMax'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getSideType'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'CCeSideType'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getSideType'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'CCeSideType'
+        _KLStruct__hasDestructor: false
+        _KLStruct__members:
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'private',
+          _KLMember__name: !!python/unicode 'center', _KLMember__type: !!python/unicode 'Vec3'}
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'private',
+          _KLMember__name: !!python/unicode 'size', _KLMember__type: !!python/unicode 'Vec3'}
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'private',
+          _KLMember__name: !!python/unicode 'center', _KLMember__type: !!python/unicode 'Vec3'}
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'private',
+          _KLMember__name: !!python/unicode 'size', _KLMember__type: !!python/unicode 'Vec3'}
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'private',
+          _KLMember__name: !!python/unicode 'center', _KLMember__type: !!python/unicode 'Vec3'}
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'private',
+          _KLMember__name: !!python/unicode 'size', _KLMember__type: !!python/unicode 'Vec3'}
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'private',
+          _KLMember__name: !!python/unicode 'center', _KLMember__type: !!python/unicode 'Vec3'}
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'private',
+          _KLMember__name: !!python/unicode 'size', _KLMember__type: !!python/unicode 'Vec3'}
+        _KLStruct__methods: []
+        _KLStruct__name: !!python/unicode 'Box'
+        _KLStruct__operators: []
+        _KLStruct__parents: []
+        _KLStruct__setters: []
+      !!python/unicode 'CCRay': !!python/object:GorGon.KLWrapper.KLObject.KLObject
+        _KLStruct__constructors:
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'CCRay'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'origin',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'direction',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'CCRay'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'origin',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'direction',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'CCRay'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'origin',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'direction',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'CCRay'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'origin',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'direction',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          _KLFunction__returnType: null
+        _KLStruct__getters:
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getOrigin'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getDirection'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getPosition'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getOrigin'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getDirection'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getPosition'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getOrigin'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getDirection'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getPosition'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getOrigin'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getDirection'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getPosition'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        _KLStruct__hasDestructor: false
+        _KLStruct__members:
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'private',
+          _KLMember__name: !!python/unicode 'origin', _KLMember__type: !!python/unicode 'Vec3'}
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'private',
+          _KLMember__name: !!python/unicode 'direction', _KLMember__type: !!python/unicode 'Vec3'}
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'private',
+          _KLMember__name: !!python/unicode 'origin', _KLMember__type: !!python/unicode 'Vec3'}
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'private',
+          _KLMember__name: !!python/unicode 'direction', _KLMember__type: !!python/unicode 'Vec3'}
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'private',
+          _KLMember__name: !!python/unicode 'origin', _KLMember__type: !!python/unicode 'Vec3'}
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'private',
+          _KLMember__name: !!python/unicode 'direction', _KLMember__type: !!python/unicode 'Vec3'}
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'private',
+          _KLMember__name: !!python/unicode 'origin', _KLMember__type: !!python/unicode 'Vec3'}
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'private',
+          _KLMember__name: !!python/unicode 'direction', _KLMember__type: !!python/unicode 'Vec3'}
+        _KLStruct__methods:
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'intersectPlane'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'plane',
+            _KLParam__type: !!python/unicode 'Plane'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'hitPos',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'intersectPlane'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'plane',
+            _KLParam__type: !!python/unicode 'Plane'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'hitDistance',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'intersectSphere'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'sphere',
+            _KLParam__type: !!python/unicode 'Sphere'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'hitPos',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'intersectSphere'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'sphere',
+            _KLParam__type: !!python/unicode 'Sphere'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'hitDistance',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'intersectBox'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'box',
+            _KLParam__type: !!python/unicode 'Box'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'intersectBox'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'box',
+            _KLParam__type: !!python/unicode 'Box'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'hitDistance',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'intersectBox'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'box',
+            _KLParam__type: !!python/unicode 'Box'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'entry',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'exit',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'intersectQuad'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'quad',
+            _KLParam__type: !!python/unicode 'Quad'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'hitDistance',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'intersectQuad'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'quad',
+            _KLParam__type: !!python/unicode 'Quad'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'hitPos',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'hitUVs',
+            _KLParam__type: !!python/unicode 'Vec2'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'intersectTriangle'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'tri',
+            _KLParam__type: !!python/unicode 'Triangle'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'hitDistance',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'intersectTriangle'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'tri',
+            _KLParam__type: !!python/unicode 'Triangle'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'hitPos',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'hitUVs',
+            _KLParam__type: !!python/unicode 'Vec2'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'intersectPlane'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'plane',
+            _KLParam__type: !!python/unicode 'Plane'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'hitPos',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'intersectPlane'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'plane',
+            _KLParam__type: !!python/unicode 'Plane'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'hitDistance',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'intersectSphere'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'sphere',
+            _KLParam__type: !!python/unicode 'Sphere'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'hitPos',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'intersectSphere'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'sphere',
+            _KLParam__type: !!python/unicode 'Sphere'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'hitDistance',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'intersectBox'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'box',
+            _KLParam__type: !!python/unicode 'Box'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'intersectBox'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'box',
+            _KLParam__type: !!python/unicode 'Box'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'hitDistance',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'intersectBox'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'box',
+            _KLParam__type: !!python/unicode 'Box'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'entry',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'exit',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'intersectQuad'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'quad',
+            _KLParam__type: !!python/unicode 'Quad'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'hitDistance',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'intersectQuad'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'quad',
+            _KLParam__type: !!python/unicode 'Quad'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'hitPos',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'hitUVs',
+            _KLParam__type: !!python/unicode 'Vec2'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'intersectTriangle'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'tri',
+            _KLParam__type: !!python/unicode 'Triangle'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'hitDistance',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'intersectTriangle'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'tri',
+            _KLParam__type: !!python/unicode 'Triangle'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'hitPos',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'hitUVs',
+            _KLParam__type: !!python/unicode 'Vec2'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'intersectPlane'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'plane',
+            _KLParam__type: !!python/unicode 'Plane'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'hitPos',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'intersectPlane'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'plane',
+            _KLParam__type: !!python/unicode 'Plane'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'hitDistance',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'intersectSphere'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'sphere',
+            _KLParam__type: !!python/unicode 'Sphere'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'hitPos',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'intersectSphere'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'sphere',
+            _KLParam__type: !!python/unicode 'Sphere'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'hitDistance',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'intersectBox'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'box',
+            _KLParam__type: !!python/unicode 'Box'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'intersectBox'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'box',
+            _KLParam__type: !!python/unicode 'Box'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'hitDistance',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'intersectBox'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'box',
+            _KLParam__type: !!python/unicode 'Box'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'entry',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'exit',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'intersectQuad'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'quad',
+            _KLParam__type: !!python/unicode 'Quad'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'hitDistance',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'intersectQuad'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'quad',
+            _KLParam__type: !!python/unicode 'Quad'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'hitPos',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'hitUVs',
+            _KLParam__type: !!python/unicode 'Vec2'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'intersectTriangle'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'tri',
+            _KLParam__type: !!python/unicode 'Triangle'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'hitDistance',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'intersectTriangle'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'tri',
+            _KLParam__type: !!python/unicode 'Triangle'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'hitPos',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'hitUVs',
+            _KLParam__type: !!python/unicode 'Vec2'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'intersectPlane'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'plane',
+            _KLParam__type: !!python/unicode 'Plane'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'hitPos',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'intersectPlane'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'plane',
+            _KLParam__type: !!python/unicode 'Plane'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'hitDistance',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'intersectSphere'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'sphere',
+            _KLParam__type: !!python/unicode 'Sphere'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'hitPos',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'intersectSphere'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'sphere',
+            _KLParam__type: !!python/unicode 'Sphere'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'hitDistance',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'intersectBox'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'box',
+            _KLParam__type: !!python/unicode 'Box'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'intersectBox'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'box',
+            _KLParam__type: !!python/unicode 'Box'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'hitDistance',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'intersectBox'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'box',
+            _KLParam__type: !!python/unicode 'Box'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'entry',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'exit',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'intersectQuad'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'quad',
+            _KLParam__type: !!python/unicode 'Quad'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'hitDistance',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'intersectQuad'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'quad',
+            _KLParam__type: !!python/unicode 'Quad'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'hitPos',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'hitUVs',
+            _KLParam__type: !!python/unicode 'Vec2'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'intersectTriangle'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'tri',
+            _KLParam__type: !!python/unicode 'Triangle'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'hitDistance',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'intersectTriangle'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'tri',
+            _KLParam__type: !!python/unicode 'Triangle'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'hitPos',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'hitUVs',
+            _KLParam__type: !!python/unicode 'Vec2'}
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        _KLStruct__name: !!python/unicode 'CCRay'
+        _KLStruct__operators: []
+        _KLStruct__parents: []
+        _KLStruct__setters: []
+      !!python/unicode 'Plane': !!python/object:GorGon.KLWrapper.KLObject.KLObject
+        _KLStruct__constructors:
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'Plane'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'normal',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'distance',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'Plane'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'position',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'normal',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'Plane'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'p1',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'p2',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'p3',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'Plane'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'normal',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'distance',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'Plane'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'position',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'normal',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'Plane'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'p1',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'p2',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'p3',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'Plane'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'normal',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'distance',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'Plane'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'position',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'normal',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'Plane'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'p1',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'p2',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'p3',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'Plane'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'normal',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'distance',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'Plane'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'position',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'normal',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'Plane'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'p1',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'p2',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'p3',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          _KLFunction__returnType: null
+        _KLStruct__getters:
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getNormal'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getDistance'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Scalar'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getNormal'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getDistance'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Scalar'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getNormal'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getDistance'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Scalar'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getNormal'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getDistance'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Scalar'
+        _KLStruct__hasDestructor: false
+        _KLStruct__members:
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'private',
+          _KLMember__name: !!python/unicode 'normal', _KLMember__type: !!python/unicode 'Vec3'}
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'private',
+          _KLMember__name: !!python/unicode 'distance', _KLMember__type: !!python/unicode 'Scalar'}
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'private',
+          _KLMember__name: !!python/unicode 'normal', _KLMember__type: !!python/unicode 'Vec3'}
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'private',
+          _KLMember__name: !!python/unicode 'distance', _KLMember__type: !!python/unicode 'Scalar'}
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'private',
+          _KLMember__name: !!python/unicode 'normal', _KLMember__type: !!python/unicode 'Vec3'}
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'private',
+          _KLMember__name: !!python/unicode 'distance', _KLMember__type: !!python/unicode 'Scalar'}
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'private',
+          _KLMember__name: !!python/unicode 'normal', _KLMember__type: !!python/unicode 'Vec3'}
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'private',
+          _KLMember__name: !!python/unicode 'distance', _KLMember__type: !!python/unicode 'Scalar'}
+        _KLStruct__methods:
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'distanceTo'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'p',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          _KLFunction__returnType: !!python/unicode 'Scalar'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'reflectPoint'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'p',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'reflectVector'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'v',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'distanceTo'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'p',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          _KLFunction__returnType: !!python/unicode 'Scalar'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'reflectPoint'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'p',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'reflectVector'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'v',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'distanceTo'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'p',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          _KLFunction__returnType: !!python/unicode 'Scalar'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'reflectPoint'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'p',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'reflectVector'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'v',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'distanceTo'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'p',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          _KLFunction__returnType: !!python/unicode 'Scalar'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'reflectPoint'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'p',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'reflectVector'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'v',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        _KLStruct__name: !!python/unicode 'Plane'
+        _KLStruct__operators: []
+        _KLStruct__parents: []
+        _KLStruct__setters: []
+      !!python/unicode 'Quad': !!python/object:GorGon.KLWrapper.KLObject.KLObject
+        _KLStruct__constructors:
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'Quad'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'center',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'uLength',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'uDir',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'vLength',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'vDir',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'Quad'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'center',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'uLength',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'uDir',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'vLength',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'vDir',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'Quad'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'center',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'uLength',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'uDir',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'vLength',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'vDir',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'Quad'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'center',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'uLength',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'uDir',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'vLength',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'vDir',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          _KLFunction__returnType: null
+        _KLStruct__getters:
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getCenter'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getULength'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Scalar'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getUDir'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getVLength'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Scalar'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getVDir'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getMin'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getMax'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getNormal'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getPoints'
+          _KLFunction__params: []
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getUVCoordinates'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getCenter'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getULength'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Scalar'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getUDir'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getVLength'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Scalar'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getVDir'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getMin'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getMax'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getNormal'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getPoints'
+          _KLFunction__params: []
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getUVCoordinates'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getCenter'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getULength'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Scalar'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getUDir'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getVLength'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Scalar'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getVDir'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getMin'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getMax'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getNormal'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getPoints'
+          _KLFunction__params: []
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getUVCoordinates'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getCenter'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getULength'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Scalar'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getUDir'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getVLength'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Scalar'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getVDir'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getMin'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getMax'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getNormal'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getPoints'
+          _KLFunction__params: []
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getUVCoordinates'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        _KLStruct__hasDestructor: false
+        _KLStruct__members:
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+          _KLMember__name: !!python/unicode 'center', _KLMember__type: !!python/unicode 'Vec3'}
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+          _KLMember__name: !!python/unicode 'uLength', _KLMember__type: !!python/unicode 'Scalar'}
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+          _KLMember__name: !!python/unicode 'center', _KLMember__type: !!python/unicode 'Vec3'}
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+          _KLMember__name: !!python/unicode 'uLength', _KLMember__type: !!python/unicode 'Scalar'}
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+          _KLMember__name: !!python/unicode 'center', _KLMember__type: !!python/unicode 'Vec3'}
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+          _KLMember__name: !!python/unicode 'uLength', _KLMember__type: !!python/unicode 'Scalar'}
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+          _KLMember__name: !!python/unicode 'center', _KLMember__type: !!python/unicode 'Vec3'}
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+          _KLMember__name: !!python/unicode 'uLength', _KLMember__type: !!python/unicode 'Scalar'}
+        _KLStruct__methods: []
+        _KLStruct__name: !!python/unicode 'Quad'
+        _KLStruct__operators: []
+        _KLStruct__parents: []
+        _KLStruct__setters: []
+      !!python/unicode 'RandomGen': !!python/object:GorGon.KLWrapper.KLObject.KLObject
+        _KLStruct__constructors:
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'RandomGen'
+          _KLFunction__params: []
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'RandomGen'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'seed',
+            _KLParam__type: !!python/unicode 'Size'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'index',
+            _KLParam__type: !!python/unicode 'Size'}
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'RandomGen'
+          _KLFunction__params: []
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'RandomGen'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'seed',
+            _KLParam__type: !!python/unicode 'Size'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'index',
+            _KLParam__type: !!python/unicode 'Size'}
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'RandomGen'
+          _KLFunction__params: []
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'RandomGen'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'seed',
+            _KLParam__type: !!python/unicode 'Size'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'index',
+            _KLParam__type: !!python/unicode 'Size'}
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'RandomGen'
+          _KLFunction__params: []
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'RandomGen'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'seed',
+            _KLParam__type: !!python/unicode 'Size'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'index',
+            _KLParam__type: !!python/unicode 'Size'}
+          _KLFunction__returnType: null
+        _KLStruct__getters:
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getSeed'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Size'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getIndex'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Size'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getRandomInteger'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Integer'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getRandomInteger'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Integer'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getRandomScalar01'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Scalar'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getRandomUnitScalar'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Scalar'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getRandomScalar'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Scalar'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getRandomScalar'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Scalar'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getRandomVec2'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec2'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getRandomUnitVec2'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec2'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getRandomVec3'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getRandomColor'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Color'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getRandomUnitVec3'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getRandomVec4'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec4'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getRandomOnUnitSphere'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getRandomInsideUnitSphere'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getRandomOnUnitDisk'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec2'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getRandomInsideUnitDisk'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec2'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getRandomQuat'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Quat'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getRandomUnitVec3'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getSeed'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Size'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getIndex'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Size'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getRandomInteger'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Integer'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getRandomInteger'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Integer'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getRandomScalar01'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Scalar'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getRandomUnitScalar'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Scalar'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getRandomScalar'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Scalar'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getRandomScalar'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Scalar'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getRandomVec2'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec2'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getRandomUnitVec2'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec2'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getRandomVec3'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getRandomColor'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Color'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getRandomUnitVec3'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getRandomVec4'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec4'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getRandomOnUnitSphere'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getRandomInsideUnitSphere'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getRandomOnUnitDisk'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec2'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getRandomInsideUnitDisk'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec2'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getRandomQuat'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Quat'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getRandomUnitVec3'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getSeed'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Size'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getIndex'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Size'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getRandomInteger'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Integer'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getRandomInteger'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Integer'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getRandomScalar01'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Scalar'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getRandomUnitScalar'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Scalar'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getRandomScalar'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Scalar'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getRandomScalar'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Scalar'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getRandomVec2'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec2'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getRandomUnitVec2'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec2'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getRandomVec3'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getRandomColor'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Color'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getRandomUnitVec3'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getRandomVec4'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec4'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getRandomOnUnitSphere'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getRandomInsideUnitSphere'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getRandomOnUnitDisk'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec2'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getRandomInsideUnitDisk'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec2'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getRandomQuat'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Quat'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getRandomUnitVec3'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getSeed'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Size'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getIndex'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Size'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getRandomInteger'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Integer'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getRandomInteger'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Integer'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getRandomScalar01'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Scalar'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getRandomUnitScalar'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Scalar'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getRandomScalar'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Scalar'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getRandomScalar'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Scalar'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getRandomVec2'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec2'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getRandomUnitVec2'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec2'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getRandomVec3'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getRandomColor'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Color'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getRandomUnitVec3'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getRandomVec4'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec4'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getRandomOnUnitSphere'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getRandomInsideUnitSphere'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getRandomOnUnitDisk'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec2'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getRandomInsideUnitDisk'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec2'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getRandomQuat'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Quat'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getRandomUnitVec3'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        _KLStruct__hasDestructor: false
+        _KLStruct__members:
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+          _KLMember__name: !!python/unicode 'seed', _KLMember__type: !!python/unicode 'Size'}
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+          _KLMember__name: !!python/unicode 'seed', _KLMember__type: !!python/unicode 'Size'}
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+          _KLMember__name: !!python/unicode 'seed', _KLMember__type: !!python/unicode 'Size'}
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+          _KLMember__name: !!python/unicode 'seed', _KLMember__type: !!python/unicode 'Size'}
+        _KLStruct__methods:
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'init'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'seed',
+            _KLParam__type: !!python/unicode 'Size'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'index',
+            _KLParam__type: !!python/unicode 'Size'}
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'incrSeed'
+          _KLFunction__params: []
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'init'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'seed',
+            _KLParam__type: !!python/unicode 'Size'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'index',
+            _KLParam__type: !!python/unicode 'Size'}
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'incrSeed'
+          _KLFunction__params: []
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'init'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'seed',
+            _KLParam__type: !!python/unicode 'Size'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'index',
+            _KLParam__type: !!python/unicode 'Size'}
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'incrSeed'
+          _KLFunction__params: []
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'init'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'seed',
+            _KLParam__type: !!python/unicode 'Size'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'index',
+            _KLParam__type: !!python/unicode 'Size'}
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'incrSeed'
+          _KLFunction__params: []
+          _KLFunction__returnType: null
+        _KLStruct__name: !!python/unicode 'RandomGen'
+        _KLStruct__operators: []
+        _KLStruct__parents: []
+        _KLStruct__setters: []
+      !!python/unicode 'Sphere': !!python/object:GorGon.KLWrapper.KLObject.KLObject
+        _KLStruct__constructors:
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'Sphere'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'center',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'radius',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'Sphere'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'center',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'radius',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'Sphere'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'center',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'radius',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'Sphere'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'center',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'radius',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          _KLFunction__returnType: null
+        _KLStruct__getters:
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getCenter'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getRadius'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Scalar'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getMin'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getMax'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getBox'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Box'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getNormal'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getCenter'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getRadius'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Scalar'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getMin'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getMax'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getBox'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Box'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getNormal'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getCenter'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getRadius'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Scalar'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getMin'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getMax'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getBox'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Box'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getNormal'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getCenter'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getRadius'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Scalar'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getMin'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getMax'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getBox'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Box'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getNormal'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        _KLStruct__hasDestructor: false
+        _KLStruct__members:
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'private',
+          _KLMember__name: !!python/unicode 'center', _KLMember__type: !!python/unicode 'Vec3'}
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'private',
+          _KLMember__name: !!python/unicode 'radius', _KLMember__type: !!python/unicode 'Scalar'}
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'private',
+          _KLMember__name: !!python/unicode 'center', _KLMember__type: !!python/unicode 'Vec3'}
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'private',
+          _KLMember__name: !!python/unicode 'radius', _KLMember__type: !!python/unicode 'Scalar'}
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'private',
+          _KLMember__name: !!python/unicode 'center', _KLMember__type: !!python/unicode 'Vec3'}
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'private',
+          _KLMember__name: !!python/unicode 'radius', _KLMember__type: !!python/unicode 'Scalar'}
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'private',
+          _KLMember__name: !!python/unicode 'center', _KLMember__type: !!python/unicode 'Vec3'}
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'private',
+          _KLMember__name: !!python/unicode 'radius', _KLMember__type: !!python/unicode 'Scalar'}
+        _KLStruct__methods: []
+        _KLStruct__name: !!python/unicode 'Sphere'
+        _KLStruct__operators: []
+        _KLStruct__parents: []
+        _KLStruct__setters: []
+      !!python/unicode 'Triangle': !!python/object:GorGon.KLWrapper.KLObject.KLObject
+        _KLStruct__constructors:
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'Triangle'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'origin',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'uLength',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'uDir',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'vLength',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'vDir',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'Triangle'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'p1',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'p2',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'p3',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'Triangle'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'origin',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'uLength',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'uDir',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'vLength',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'vDir',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'Triangle'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'p1',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'p2',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'p3',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'Triangle'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'origin',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'uLength',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'uDir',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'vLength',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'vDir',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'Triangle'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'p1',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'p2',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'p3',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'Triangle'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'origin',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'uLength',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'uDir',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'vLength',
+            _KLParam__type: !!python/unicode 'Scalar'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'vDir',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'Triangle'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'p1',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'p2',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'p3',
+            _KLParam__type: !!python/unicode 'Vec3'}
+          _KLFunction__returnType: null
+        _KLStruct__getters:
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getOrigin'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getULength'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Scalar'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getUDir'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getVLength'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Scalar'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getVDir'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getMin'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getMax'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getNormal'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getPoints'
+          _KLFunction__params: []
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getUVCoordinates'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getOrigin'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getULength'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Scalar'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getUDir'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getVLength'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Scalar'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getVDir'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getMin'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getMax'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getNormal'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getPoints'
+          _KLFunction__params: []
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getUVCoordinates'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getOrigin'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getULength'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Scalar'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getUDir'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getVLength'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Scalar'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getVDir'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getMin'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getMax'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getNormal'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getPoints'
+          _KLFunction__params: []
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getUVCoordinates'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getOrigin'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getULength'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Scalar'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getUDir'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getVLength'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Scalar'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getVDir'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getMin'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getMax'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getNormal'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Vec3'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getPoints'
+          _KLFunction__params: []
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getUVCoordinates'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Boolean'
+        _KLStruct__hasDestructor: false
+        _KLStruct__members:
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'private',
+          _KLMember__name: !!python/unicode 'origin', _KLMember__type: !!python/unicode 'Vec3'}
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'private',
+          _KLMember__name: !!python/unicode 'uLength', _KLMember__type: !!python/unicode 'Scalar'}
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'private',
+          _KLMember__name: !!python/unicode 'origin', _KLMember__type: !!python/unicode 'Vec3'}
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'private',
+          _KLMember__name: !!python/unicode 'uLength', _KLMember__type: !!python/unicode 'Scalar'}
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'private',
+          _KLMember__name: !!python/unicode 'origin', _KLMember__type: !!python/unicode 'Vec3'}
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'private',
+          _KLMember__name: !!python/unicode 'uLength', _KLMember__type: !!python/unicode 'Scalar'}
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'private',
+          _KLMember__name: !!python/unicode 'origin', _KLMember__type: !!python/unicode 'Vec3'}
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'private',
+          _KLMember__name: !!python/unicode 'uLength', _KLMember__type: !!python/unicode 'Scalar'}
+        _KLStruct__methods: []
+        _KLStruct__name: !!python/unicode 'Triangle'
+        _KLStruct__operators: []
+        _KLStruct__parents: []
+        _KLStruct__setters: []
+    _KLNamespace__operators: []
+    _KLNamespace__structs:
+      !!python/unicode 'Vec3MaxResult': !!python/object:GorGon.KLWrapper.KLStruct.KLStruct
+        _KLStruct__constructors:
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'Vec3MaxResult'
+          _KLFunction__params: []
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'Vec3MaxResult'
+          _KLFunction__params: []
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'Vec3MaxResult'
+          _KLFunction__params: []
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'Vec3MaxResult'
+          _KLFunction__params: []
+          _KLFunction__returnType: null
+        _KLStruct__getters: []
+        _KLStruct__hasDestructor: false
+        _KLStruct__members:
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+          _KLMember__name: !!python/unicode 'value', _KLMember__type: !!python/unicode 'Vec3'}
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+          _KLMember__name: !!python/unicode 'value', _KLMember__type: !!python/unicode 'Vec3'}
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+          _KLMember__name: !!python/unicode 'value', _KLMember__type: !!python/unicode 'Vec3'}
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+          _KLMember__name: !!python/unicode 'value', _KLMember__type: !!python/unicode 'Vec3'}
+        _KLStruct__methods: []
+        _KLStruct__name: !!python/unicode 'Vec3MaxResult'
+        _KLStruct__operators: []
+        _KLStruct__parents: []
+        _KLStruct__setters: []
+      !!python/unicode 'Vec3MinResult': !!python/object:GorGon.KLWrapper.KLStruct.KLStruct
+        _KLStruct__constructors:
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'Vec3MinResult'
+          _KLFunction__params: []
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'Vec3MinResult'
+          _KLFunction__params: []
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'Vec3MinResult'
+          _KLFunction__params: []
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'Vec3MinResult'
+          _KLFunction__params: []
+          _KLFunction__returnType: null
+        _KLStruct__getters: []
+        _KLStruct__hasDestructor: false
+        _KLStruct__members:
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+          _KLMember__name: !!python/unicode 'value', _KLMember__type: !!python/unicode 'Vec3'}
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+          _KLMember__name: !!python/unicode 'value', _KLMember__type: !!python/unicode 'Vec3'}
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+          _KLMember__name: !!python/unicode 'value', _KLMember__type: !!python/unicode 'Vec3'}
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+          _KLMember__name: !!python/unicode 'value', _KLMember__type: !!python/unicode 'Vec3'}
+        _KLStruct__methods: []
+        _KLStruct__name: !!python/unicode 'Vec3MinResult'
+        _KLStruct__operators: []
+        _KLStruct__parents: []
+        _KLStruct__setters: []

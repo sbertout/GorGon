@@ -1,0 +1,1127 @@
+!!python/object:GorGon.KLWrapper.KLExtension.KLExtension
+_KLExtension__extensionDependencies: [!!python/unicode 'Math', !!python/unicode 'Geometry',
+  !!python/unicode 'Util', !!python/unicode 'Singletons', !!python/unicode 'GorGon_ECS',
+  !!python/unicode 'GorGon_Rendering', !!python/unicode 'GorGon::ECS', !!python/unicode 'GorGon::Rendering',
+  !!python/unicode 'GorGon::Core']
+_KLExtension__globalNamespace: !!python/object:GorGon.KLWrapper.KLNamespace.KLNamespace
+  _KLNamespace__aliases: {}
+  _KLNamespace__constants: {}
+  _KLNamespace__extensions: {}
+  _KLNamespace__functions: {}
+  _KLNamespace__interfaces: {}
+  _KLNamespace__name: global
+  _KLNamespace__objects: {}
+  _KLNamespace__operators: []
+  _KLNamespace__structs: {}
+_KLExtension__name: !!python/unicode 'GorGon_Scene'
+_KLExtension__namespaces:
+  !!python/unicode 'GorGon::ECS': !!python/object:GorGon.KLWrapper.KLNamespace.KLNamespace
+    _KLNamespace__aliases: {}
+    _KLNamespace__constants: {}
+    _KLNamespace__extensions: {}
+    _KLNamespace__functions: {}
+    _KLNamespace__interfaces:
+      !!python/unicode 'ComponentBuilder': &id002 !!python/object:GorGon.KLWrapper.KLInterface.KLInterface
+        _KLInterface__members: []
+        _KLInterface__name: !!python/unicode 'ComponentBuilder'
+    _KLNamespace__name: !!python/unicode 'GorGon::ECS'
+    _KLNamespace__objects: {}
+    _KLNamespace__operators: []
+    _KLNamespace__structs: {}
+  !!python/unicode 'GorGon::Scene': !!python/object:GorGon.KLWrapper.KLNamespace.KLNamespace
+    _KLNamespace__aliases: {}
+    _KLNamespace__constants: {}
+    _KLNamespace__extensions: {}
+    _KLNamespace__functions:
+      !!python/unicode 'getSceneManager': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'getSceneManager'
+        _KLFunction__params: []
+        _KLFunction__returnType: !!python/unicode 'SceneManager'
+      !!python/unicode 'initExtension': !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+        _KLFunction__access: !!python/unicode 'unspecified'
+        _KLFunction__name: !!python/unicode 'initExtension'
+        _KLFunction__params: []
+        _KLFunction__returnType: null
+    _KLNamespace__interfaces: {}
+    _KLNamespace__name: !!python/unicode 'GorGon::Scene'
+    _KLNamespace__objects:
+      !!python/unicode 'CCRenderable': !!python/object:GorGon.KLWrapper.KLObject.KLObject
+        _KLStruct__constructors:
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'CCRenderable'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'name',
+            _KLParam__type: !!python/unicode 'String'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'mesh',
+            _KLParam__type: !!python/unicode 'PolygonMesh'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'material',
+            _KLParam__type: !!python/unicode 'BaseMaterial'}
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'CCRenderable'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'name',
+            _KLParam__type: !!python/unicode 'String'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'mesh',
+            _KLParam__type: !!python/unicode 'PolygonMesh'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'material',
+            _KLParam__type: !!python/unicode 'BaseMaterial'}
+          _KLFunction__returnType: null
+        _KLStruct__getters: []
+        _KLStruct__hasDestructor: false
+        _KLStruct__members:
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'private',
+          _KLMember__name: !!python/unicode 'mesh', _KLMember__type: !!python/unicode 'PolygonMesh'}
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'private',
+          _KLMember__name: !!python/unicode 'material', _KLMember__type: !!python/unicode 'BaseMaterial'}
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'private',
+          _KLMember__name: !!python/unicode 'mesh', _KLMember__type: !!python/unicode 'PolygonMesh'}
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'private',
+          _KLMember__name: !!python/unicode 'material', _KLMember__type: !!python/unicode 'BaseMaterial'}
+        _KLStruct__methods: []
+        _KLStruct__name: !!python/unicode 'CCRenderable'
+        _KLStruct__operators: []
+        _KLStruct__parents:
+        - &id001 !!python/object:GorGon.KLWrapper.KLObject.KLObject
+          _KLStruct__constructors: []
+          _KLStruct__getters: []
+          _KLStruct__hasDestructor: false
+          _KLStruct__members:
+          - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'private',
+            _KLMember__name: !!python/unicode 'started', _KLMember__type: !!python/unicode 'Boolean'}
+          - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'private',
+            _KLMember__name: !!python/unicode 'started', _KLMember__type: !!python/unicode 'Boolean'}
+          _KLStruct__methods:
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'createComponent'
+            _KLFunction__params:
+            - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'n',
+              _KLParam__type: !!python/unicode 'String'}
+            _KLFunction__returnType: null
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'onStart'
+            _KLFunction__params: []
+            _KLFunction__returnType: null
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'onUpdate'
+            _KLFunction__params: []
+            _KLFunction__returnType: null
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'onDestroy'
+            _KLFunction__params: []
+            _KLFunction__returnType: null
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'createComponent'
+            _KLFunction__params:
+            - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'n',
+              _KLParam__type: !!python/unicode 'String'}
+            _KLFunction__returnType: null
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'onStart'
+            _KLFunction__params: []
+            _KLFunction__returnType: null
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'onUpdate'
+            _KLFunction__params: []
+            _KLFunction__returnType: null
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'onDestroy'
+            _KLFunction__params: []
+            _KLFunction__returnType: null
+          _KLStruct__name: !!python/unicode 'UpdateComponent'
+          _KLStruct__operators: []
+          _KLStruct__parents:
+          - !!python/object:GorGon.KLWrapper.KLObject.KLObject
+            _KLStruct__constructors: []
+            _KLStruct__getters:
+            - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+              _KLFunction__access: !!python/unicode 'unspecified'
+              _KLFunction__name: !!python/unicode 'getUID'
+              _KLFunction__params: []
+              _KLFunction__returnType: !!python/unicode 'Index'
+            - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+              _KLFunction__access: !!python/unicode 'unspecified'
+              _KLFunction__name: !!python/unicode 'getName'
+              _KLFunction__params: []
+              _KLFunction__returnType: !!python/unicode 'String'
+            - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+              _KLFunction__access: !!python/unicode 'unspecified'
+              _KLFunction__name: !!python/unicode 'getOwnerEntity'
+              _KLFunction__params: []
+              _KLFunction__returnType: !!python/unicode 'Entity'
+            - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+              _KLFunction__access: !!python/unicode 'unspecified'
+              _KLFunction__name: !!python/unicode 'getUID'
+              _KLFunction__params: []
+              _KLFunction__returnType: !!python/unicode 'Index'
+            - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+              _KLFunction__access: !!python/unicode 'unspecified'
+              _KLFunction__name: !!python/unicode 'getName'
+              _KLFunction__params: []
+              _KLFunction__returnType: !!python/unicode 'String'
+            - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+              _KLFunction__access: !!python/unicode 'unspecified'
+              _KLFunction__name: !!python/unicode 'getOwnerEntity'
+              _KLFunction__params: []
+              _KLFunction__returnType: !!python/unicode 'Entity'
+            _KLStruct__hasDestructor: false
+            _KLStruct__members:
+            - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'private',
+              _KLMember__name: !!python/unicode 'uid', _KLMember__type: !!python/unicode 'Index'}
+            - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'private',
+              _KLMember__name: !!python/unicode 'name', _KLMember__type: !!python/unicode 'String'}
+            - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'private',
+              _KLMember__name: !!python/unicode 'ownerEntity', _KLMember__type: !!python/unicode 'Entity'}
+            - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'private',
+              _KLMember__name: !!python/unicode 'uid', _KLMember__type: !!python/unicode 'Index'}
+            - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'private',
+              _KLMember__name: !!python/unicode 'name', _KLMember__type: !!python/unicode 'String'}
+            - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'private',
+              _KLMember__name: !!python/unicode 'ownerEntity', _KLMember__type: !!python/unicode 'Entity'}
+            _KLStruct__methods:
+            - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+              _KLFunction__access: !!python/unicode 'unspecified'
+              _KLFunction__name: !!python/unicode 'createComponent'
+              _KLFunction__params:
+              - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'n',
+                _KLParam__type: !!python/unicode 'String'}
+              _KLFunction__returnType: null
+            - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+              _KLFunction__access: !!python/unicode 'unspecified'
+              _KLFunction__name: !!python/unicode 'toString'
+              _KLFunction__params: []
+              _KLFunction__returnType: !!python/unicode 'String'
+            - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+              _KLFunction__access: !!python/unicode 'unspecified'
+              _KLFunction__name: !!python/unicode 'createComponent'
+              _KLFunction__params:
+              - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'n',
+                _KLParam__type: !!python/unicode 'String'}
+              _KLFunction__returnType: null
+            - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+              _KLFunction__access: !!python/unicode 'unspecified'
+              _KLFunction__name: !!python/unicode 'toString'
+              _KLFunction__params: []
+              _KLFunction__returnType: !!python/unicode 'String'
+            _KLStruct__name: !!python/unicode 'Component'
+            _KLStruct__operators: []
+            _KLStruct__parents: []
+            _KLStruct__setters:
+            - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+              _KLFunction__access: !!python/unicode 'unspecified'
+              _KLFunction__name: !!python/unicode 'setOwnerEntity'
+              _KLFunction__params:
+              - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'e',
+                _KLParam__type: !!python/unicode 'Entity'}
+              _KLFunction__returnType: null
+            - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+              _KLFunction__access: !!python/unicode 'unspecified'
+              _KLFunction__name: !!python/unicode 'setOwnerEntity'
+              _KLFunction__params:
+              - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'e',
+                _KLParam__type: !!python/unicode 'Entity'}
+              _KLFunction__returnType: null
+          - !!python/object:GorGon.KLWrapper.KLInterface.KLInterface
+            _KLInterface__members:
+            - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+              _KLFunction__access: !!python/unicode 'unspecified'
+              _KLFunction__name: !!python/unicode 'onStart'
+              _KLFunction__params: []
+              _KLFunction__returnType: null
+            - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+              _KLFunction__access: !!python/unicode 'unspecified'
+              _KLFunction__name: !!python/unicode 'onUpdate'
+              _KLFunction__params: []
+              _KLFunction__returnType: null
+            - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+              _KLFunction__access: !!python/unicode 'unspecified'
+              _KLFunction__name: !!python/unicode 'onDestroy'
+              _KLFunction__params: []
+              _KLFunction__returnType: null
+            - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+              _KLFunction__access: !!python/unicode 'unspecified'
+              _KLFunction__name: !!python/unicode 'onStart'
+              _KLFunction__params: []
+              _KLFunction__returnType: null
+            - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+              _KLFunction__access: !!python/unicode 'unspecified'
+              _KLFunction__name: !!python/unicode 'onUpdate'
+              _KLFunction__params: []
+              _KLFunction__returnType: null
+            - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+              _KLFunction__access: !!python/unicode 'unspecified'
+              _KLFunction__name: !!python/unicode 'onDestroy'
+              _KLFunction__params: []
+              _KLFunction__returnType: null
+            _KLInterface__name: !!python/unicode 'UpdateComponentInterface'
+          _KLStruct__setters: []
+        _KLStruct__setters: []
+      !!python/unicode 'CCTexture': !!python/object:GorGon.KLWrapper.KLObject.KLObject
+        _KLStruct__constructors:
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'CCTexture'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'path',
+            _KLParam__type: !!python/unicode 'String'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'p',
+            _KLParam__type: !!python/unicode 'Properties'}
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'CCTexture'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'path',
+            _KLParam__type: !!python/unicode 'String'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'p',
+            _KLParam__type: !!python/unicode 'Properties'}
+          _KLFunction__returnType: null
+        _KLStruct__getters:
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getPath'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'String'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getProperties'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Properties'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getPath'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'String'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getProperties'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Properties'
+        _KLStruct__hasDestructor: false
+        _KLStruct__members:
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+          _KLMember__name: !!python/unicode '_path', _KLMember__type: !!python/unicode 'String'}
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+          _KLMember__name: !!python/unicode '_properties', _KLMember__type: !!python/unicode 'Properties'}
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+          _KLMember__name: !!python/unicode '_path', _KLMember__type: !!python/unicode 'String'}
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+          _KLMember__name: !!python/unicode '_properties', _KLMember__type: !!python/unicode 'Properties'}
+        _KLStruct__methods: []
+        _KLStruct__name: !!python/unicode 'CCTexture'
+        _KLStruct__operators: []
+        _KLStruct__parents: []
+        _KLStruct__setters: []
+      !!python/unicode 'CCTextureSet': !!python/object:GorGon.KLWrapper.KLObject.KLObject
+        _KLStruct__constructors:
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'CCTextureSet'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'name',
+            _KLParam__type: !!python/unicode 'String'}
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'CCTextureSet'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'name',
+            _KLParam__type: !!python/unicode 'String'}
+          _KLFunction__returnType: null
+        _KLStruct__getters:
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getTextureCount'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Size'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getTexture'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'CCTexture'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getPath'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'String'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getTextureKeys'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'String[]'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getTexturePaths'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'String[]'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getTextureCount'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Size'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getTexture'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'CCTexture'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getPath'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'String'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getTextureKeys'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'String[]'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getTexturePaths'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'String[]'
+        _KLStruct__hasDestructor: false
+        _KLStruct__members:
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+          _KLMember__name: !!python/unicode 'textures', _KLMember__type: !!python/unicode 'CCTexture'}
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+          _KLMember__name: !!python/unicode 'textures', _KLMember__type: !!python/unicode 'CCTexture'}
+        _KLStruct__methods:
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'add'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'name',
+            _KLParam__type: !!python/unicode 'String'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'tex',
+            _KLParam__type: !!python/unicode 'CCTexture'}
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'add'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'name',
+            _KLParam__type: !!python/unicode 'String'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'tex',
+            _KLParam__type: !!python/unicode 'CCTexture'}
+          _KLFunction__returnType: null
+        _KLStruct__name: !!python/unicode 'CCTextureSet'
+        _KLStruct__operators: []
+        _KLStruct__parents:
+        - *id001
+        _KLStruct__setters: []
+      !!python/unicode 'CCTextureSetBuilder': !!python/object:GorGon.KLWrapper.KLObject.KLObject
+        _KLStruct__constructors: []
+        _KLStruct__getters: []
+        _KLStruct__hasDestructor: false
+        _KLStruct__members: []
+        _KLStruct__methods:
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'createComponent'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'name',
+            _KLParam__type: !!python/unicode 'String'}
+          _KLFunction__returnType: !!python/unicode 'Component'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'createComponent'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'name',
+            _KLParam__type: !!python/unicode 'String'}
+          _KLFunction__returnType: !!python/unicode 'Component'
+        _KLStruct__name: !!python/unicode 'CCTextureSetBuilder'
+        _KLStruct__operators: []
+        _KLStruct__parents:
+        - *id002
+        _KLStruct__setters: []
+      !!python/unicode 'MaterialSet': !!python/object:GorGon.KLWrapper.KLObject.KLObject
+        _KLStruct__constructors:
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'MaterialSet'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'name',
+            _KLParam__type: !!python/unicode 'String'}
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'MaterialSet'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'name',
+            _KLParam__type: !!python/unicode 'String'}
+          _KLFunction__returnType: null
+        _KLStruct__getters:
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getMaterialCount'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Size'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getMaterialCount'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Size'
+        _KLStruct__hasDestructor: false
+        _KLStruct__members:
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+          _KLMember__name: !!python/unicode 'materials', _KLMember__type: !!python/unicode 'BaseMaterial'}
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+          _KLMember__name: !!python/unicode 'materials', _KLMember__type: !!python/unicode 'BaseMaterial'}
+        _KLStruct__methods:
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'add'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'name',
+            _KLParam__type: !!python/unicode 'String'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'material',
+            _KLParam__type: !!python/unicode 'BaseMaterial'}
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'add'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'name',
+            _KLParam__type: !!python/unicode 'String'}
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'material',
+            _KLParam__type: !!python/unicode 'BaseMaterial'}
+          _KLFunction__returnType: null
+        _KLStruct__name: !!python/unicode 'MaterialSet'
+        _KLStruct__operators: []
+        _KLStruct__parents:
+        - *id001
+        _KLStruct__setters: []
+      !!python/unicode 'MaterialSetBuilder': !!python/object:GorGon.KLWrapper.KLObject.KLObject
+        _KLStruct__constructors: []
+        _KLStruct__getters: []
+        _KLStruct__hasDestructor: false
+        _KLStruct__members: []
+        _KLStruct__methods:
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'createComponent'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'name',
+            _KLParam__type: !!python/unicode 'String'}
+          _KLFunction__returnType: !!python/unicode 'Component'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'createComponent'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'name',
+            _KLParam__type: !!python/unicode 'String'}
+          _KLFunction__returnType: !!python/unicode 'Component'
+        _KLStruct__name: !!python/unicode 'MaterialSetBuilder'
+        _KLStruct__operators: []
+        _KLStruct__parents:
+        - *id002
+        _KLStruct__setters: []
+      !!python/unicode 'Scene': !!python/object:GorGon.KLWrapper.KLObject.KLObject
+        _KLStruct__constructors:
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'Scene'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'n',
+            _KLParam__type: !!python/unicode 'String'}
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'Scene'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'n',
+            _KLParam__type: !!python/unicode 'String'}
+          _KLFunction__returnType: null
+        _KLStruct__getters: []
+        _KLStruct__hasDestructor: false
+        _KLStruct__members: []
+        _KLStruct__methods: []
+        _KLStruct__name: !!python/unicode 'Scene'
+        _KLStruct__operators: []
+        _KLStruct__parents:
+        - !!python/object:GorGon.KLWrapper.KLObject.KLObject
+          _KLStruct__constructors:
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'Entity'
+            _KLFunction__params:
+            - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'n',
+              _KLParam__type: !!python/unicode 'String'}
+            _KLFunction__returnType: null
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'Entity'
+            _KLFunction__params:
+            - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'n',
+              _KLParam__type: !!python/unicode 'String'}
+            - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'uc',
+              _KLParam__type: !!python/unicode 'UpdateComponent'}
+            _KLFunction__returnType: null
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'Entity'
+            _KLFunction__params:
+            - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'n',
+              _KLParam__type: !!python/unicode 'String'}
+            - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'xfo',
+              _KLParam__type: !!python/unicode 'Xfo'}
+            _KLFunction__returnType: null
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'Entity'
+            _KLFunction__params:
+            - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'n',
+              _KLParam__type: !!python/unicode 'String'}
+            _KLFunction__returnType: null
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'Entity'
+            _KLFunction__params:
+            - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'n',
+              _KLParam__type: !!python/unicode 'String'}
+            - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'uc',
+              _KLParam__type: !!python/unicode 'UpdateComponent'}
+            _KLFunction__returnType: null
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'Entity'
+            _KLFunction__params:
+            - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'n',
+              _KLParam__type: !!python/unicode 'String'}
+            - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'xfo',
+              _KLParam__type: !!python/unicode 'Xfo'}
+            _KLFunction__returnType: null
+          _KLStruct__getters:
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'getUID'
+            _KLFunction__params: []
+            _KLFunction__returnType: !!python/unicode 'Index'
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'getName'
+            _KLFunction__params: []
+            _KLFunction__returnType: !!python/unicode 'String'
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'getTransformComponent'
+            _KLFunction__params: []
+            _KLFunction__returnType: !!python/unicode 'TransformComponent'
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'getProperties'
+            _KLFunction__params: []
+            _KLFunction__returnType: !!python/unicode 'GorGon::Core::Properties'
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'getPath'
+            _KLFunction__params: []
+            _KLFunction__returnType: !!python/unicode 'String'
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'getPaths'
+            _KLFunction__params: []
+            _KLFunction__returnType: !!python/unicode 'String[]'
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'getLocalTransform'
+            _KLFunction__params: []
+            _KLFunction__returnType: !!python/unicode 'Xfo'
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'getGlobalTransform'
+            _KLFunction__params: []
+            _KLFunction__returnType: !!python/unicode 'Xfo'
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'getGlobalTransforms'
+            _KLFunction__params: []
+            _KLFunction__returnType: !!python/unicode 'XfoArray'
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'getChildCount'
+            _KLFunction__params: []
+            _KLFunction__returnType: !!python/unicode 'Size'
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'getChild'
+            _KLFunction__params: []
+            _KLFunction__returnType: !!python/unicode 'Entity'
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'getParent'
+            _KLFunction__params: []
+            _KLFunction__returnType: !!python/unicode 'Entity'
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'getParents'
+            _KLFunction__params: []
+            _KLFunction__returnType: !!python/unicode 'Ref<Entity>[]'
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'getUpdateComponentCount'
+            _KLFunction__params: []
+            _KLFunction__returnType: !!python/unicode 'Size'
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'getUpdateComponent'
+            _KLFunction__params: []
+            _KLFunction__returnType: !!python/unicode 'UpdateComponent'
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'getUpdateComponents'
+            _KLFunction__params: []
+            _KLFunction__returnType: !!python/unicode 'UpdateComponentArray'
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'getOrCreateUpdateComponent'
+            _KLFunction__params: []
+            _KLFunction__returnType: !!python/unicode 'UpdateComponent'
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'getUID'
+            _KLFunction__params: []
+            _KLFunction__returnType: !!python/unicode 'Index'
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'getName'
+            _KLFunction__params: []
+            _KLFunction__returnType: !!python/unicode 'String'
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'getTransformComponent'
+            _KLFunction__params: []
+            _KLFunction__returnType: !!python/unicode 'TransformComponent'
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'getProperties'
+            _KLFunction__params: []
+            _KLFunction__returnType: !!python/unicode 'GorGon::Core::Properties'
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'getPath'
+            _KLFunction__params: []
+            _KLFunction__returnType: !!python/unicode 'String'
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'getPaths'
+            _KLFunction__params: []
+            _KLFunction__returnType: !!python/unicode 'String[]'
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'getLocalTransform'
+            _KLFunction__params: []
+            _KLFunction__returnType: !!python/unicode 'Xfo'
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'getGlobalTransform'
+            _KLFunction__params: []
+            _KLFunction__returnType: !!python/unicode 'Xfo'
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'getGlobalTransforms'
+            _KLFunction__params: []
+            _KLFunction__returnType: !!python/unicode 'XfoArray'
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'getChildCount'
+            _KLFunction__params: []
+            _KLFunction__returnType: !!python/unicode 'Size'
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'getChild'
+            _KLFunction__params: []
+            _KLFunction__returnType: !!python/unicode 'Entity'
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'getParent'
+            _KLFunction__params: []
+            _KLFunction__returnType: !!python/unicode 'Entity'
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'getParents'
+            _KLFunction__params: []
+            _KLFunction__returnType: !!python/unicode 'Ref<Entity>[]'
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'getUpdateComponentCount'
+            _KLFunction__params: []
+            _KLFunction__returnType: !!python/unicode 'Size'
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'getUpdateComponent'
+            _KLFunction__params: []
+            _KLFunction__returnType: !!python/unicode 'UpdateComponent'
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'getUpdateComponents'
+            _KLFunction__params: []
+            _KLFunction__returnType: !!python/unicode 'UpdateComponentArray'
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'getOrCreateUpdateComponent'
+            _KLFunction__params: []
+            _KLFunction__returnType: !!python/unicode 'UpdateComponent'
+          _KLStruct__hasDestructor: true
+          _KLStruct__members:
+          - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'private',
+            _KLMember__name: !!python/unicode 'uid', _KLMember__type: !!python/unicode 'Index'}
+          - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'private',
+            _KLMember__name: !!python/unicode 'name', _KLMember__type: !!python/unicode 'String'}
+          - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'private',
+            _KLMember__name: !!python/unicode 'transformComponent', _KLMember__type: !!python/unicode 'TransformComponent'}
+          - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'private',
+            _KLMember__name: !!python/unicode 'updateComponents', _KLMember__type: !!python/unicode 'UpdateComponentArray'}
+          - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'private',
+            _KLMember__name: !!python/unicode 'updateComponentsToRemove', _KLMember__type: !!python/unicode 'UpdateComponentArray'}
+          - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'private',
+            _KLMember__name: !!python/unicode 'properties', _KLMember__type: !!python/unicode 'GorGon::Core::Properties'}
+          - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'private',
+            _KLMember__name: !!python/unicode 'uid', _KLMember__type: !!python/unicode 'Index'}
+          - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'private',
+            _KLMember__name: !!python/unicode 'name', _KLMember__type: !!python/unicode 'String'}
+          - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'private',
+            _KLMember__name: !!python/unicode 'transformComponent', _KLMember__type: !!python/unicode 'TransformComponent'}
+          - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'private',
+            _KLMember__name: !!python/unicode 'updateComponents', _KLMember__type: !!python/unicode 'UpdateComponentArray'}
+          - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'private',
+            _KLMember__name: !!python/unicode 'updateComponentsToRemove', _KLMember__type: !!python/unicode 'UpdateComponentArray'}
+          - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'private',
+            _KLMember__name: !!python/unicode 'properties', _KLMember__type: !!python/unicode 'GorGon::Core::Properties'}
+          _KLStruct__methods:
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'appendDesc'
+            _KLFunction__params:
+            - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's',
+              _KLParam__type: !!python/unicode 'String'}
+            _KLFunction__returnType: null
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'toString'
+            _KLFunction__params: []
+            _KLFunction__returnType: !!python/unicode 'String'
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'createEntity'
+            _KLFunction__params:
+            - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'n',
+              _KLParam__type: !!python/unicode 'String'}
+            - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'tc',
+              _KLParam__type: !!python/unicode 'TransformComponent'}
+            _KLFunction__returnType: null
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'hasParent'
+            _KLFunction__params: []
+            _KLFunction__returnType: !!python/unicode 'Boolean'
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'isInstanced'
+            _KLFunction__params: []
+            _KLFunction__returnType: !!python/unicode 'Boolean'
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'addUpdateComponent'
+            _KLFunction__params:
+            - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'uc',
+              _KLParam__type: !!python/unicode 'UpdateComponent'}
+            _KLFunction__returnType: !!python/unicode 'Boolean'
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'removeUpdateComponent'
+            _KLFunction__params:
+            - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'uc',
+              _KLParam__type: !!python/unicode 'UpdateComponent'}
+            _KLFunction__returnType: !!python/unicode 'Boolean'
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'safeRemoveUpdateComponent'
+            _KLFunction__params:
+            - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'uc',
+              _KLParam__type: !!python/unicode 'UpdateComponent'}
+            _KLFunction__returnType: !!python/unicode 'Boolean'
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'hasUpdateComponent'
+            _KLFunction__params:
+            - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'uc',
+              _KLParam__type: !!python/unicode 'UpdateComponent'}
+            _KLFunction__returnType: !!python/unicode 'Boolean'
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'hasUpdateComponent'
+            _KLFunction__params:
+            - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'ucName',
+              _KLParam__type: !!python/unicode 'String'}
+            _KLFunction__returnType: !!python/unicode 'Boolean'
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'addChild'
+            _KLFunction__params:
+            - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'e',
+              _KLParam__type: !!python/unicode 'Entity'}
+            _KLFunction__returnType: null
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'addChild'
+            _KLFunction__params:
+            - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'e',
+              _KLParam__type: !!python/unicode 'Entity'}
+            - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'reparentChild',
+              _KLParam__type: !!python/unicode 'Boolean'}
+            _KLFunction__returnType: null
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'destroy'
+            _KLFunction__params: []
+            _KLFunction__returnType: null
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'update'
+            _KLFunction__params: []
+            _KLFunction__returnType: null
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'expandAllPaths'
+            _KLFunction__params: []
+            _KLFunction__returnType: !!python/unicode 'String[]'
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'appendDesc'
+            _KLFunction__params:
+            - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's',
+              _KLParam__type: !!python/unicode 'String'}
+            _KLFunction__returnType: null
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'toString'
+            _KLFunction__params: []
+            _KLFunction__returnType: !!python/unicode 'String'
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'createEntity'
+            _KLFunction__params:
+            - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'n',
+              _KLParam__type: !!python/unicode 'String'}
+            - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'tc',
+              _KLParam__type: !!python/unicode 'TransformComponent'}
+            _KLFunction__returnType: null
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'hasParent'
+            _KLFunction__params: []
+            _KLFunction__returnType: !!python/unicode 'Boolean'
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'isInstanced'
+            _KLFunction__params: []
+            _KLFunction__returnType: !!python/unicode 'Boolean'
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'addUpdateComponent'
+            _KLFunction__params:
+            - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'uc',
+              _KLParam__type: !!python/unicode 'UpdateComponent'}
+            _KLFunction__returnType: !!python/unicode 'Boolean'
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'removeUpdateComponent'
+            _KLFunction__params:
+            - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'uc',
+              _KLParam__type: !!python/unicode 'UpdateComponent'}
+            _KLFunction__returnType: !!python/unicode 'Boolean'
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'safeRemoveUpdateComponent'
+            _KLFunction__params:
+            - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'uc',
+              _KLParam__type: !!python/unicode 'UpdateComponent'}
+            _KLFunction__returnType: !!python/unicode 'Boolean'
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'hasUpdateComponent'
+            _KLFunction__params:
+            - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'uc',
+              _KLParam__type: !!python/unicode 'UpdateComponent'}
+            _KLFunction__returnType: !!python/unicode 'Boolean'
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'hasUpdateComponent'
+            _KLFunction__params:
+            - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'ucName',
+              _KLParam__type: !!python/unicode 'String'}
+            _KLFunction__returnType: !!python/unicode 'Boolean'
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'addChild'
+            _KLFunction__params:
+            - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'e',
+              _KLParam__type: !!python/unicode 'Entity'}
+            _KLFunction__returnType: null
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'addChild'
+            _KLFunction__params:
+            - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'e',
+              _KLParam__type: !!python/unicode 'Entity'}
+            - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'reparentChild',
+              _KLParam__type: !!python/unicode 'Boolean'}
+            _KLFunction__returnType: null
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'destroy'
+            _KLFunction__params: []
+            _KLFunction__returnType: null
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'update'
+            _KLFunction__params: []
+            _KLFunction__returnType: null
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'expandAllPaths'
+            _KLFunction__params: []
+            _KLFunction__returnType: !!python/unicode 'String[]'
+          _KLStruct__name: !!python/unicode 'Entity'
+          _KLStruct__operators: []
+          _KLStruct__parents: []
+          _KLStruct__setters:
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'setLocalTransform'
+            _KLFunction__params:
+            - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'tr',
+              _KLParam__type: !!python/unicode 'Xfo'}
+            _KLFunction__returnType: null
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'setTransformComponent'
+            _KLFunction__params:
+            - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'tc',
+              _KLParam__type: !!python/unicode 'TransformComponent'}
+            _KLFunction__returnType: null
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'setLocalTransform'
+            _KLFunction__params:
+            - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'tr',
+              _KLParam__type: !!python/unicode 'Xfo'}
+            _KLFunction__returnType: null
+          - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+            _KLFunction__access: !!python/unicode 'unspecified'
+            _KLFunction__name: !!python/unicode 'setTransformComponent'
+            _KLFunction__params:
+            - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'tc',
+              _KLParam__type: !!python/unicode 'TransformComponent'}
+            _KLFunction__returnType: null
+        _KLStruct__setters: []
+      !!python/unicode 'SceneManager': !!python/object:GorGon.KLWrapper.KLObject.KLObject
+        _KLStruct__constructors:
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'SceneManager'
+          _KLFunction__params: []
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'SceneManager'
+          _KLFunction__params: []
+          _KLFunction__returnType: null
+        _KLStruct__getters:
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getSceneCount'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Size'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getScene'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Scene'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getSceneCount'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Size'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'getScene'
+          _KLFunction__params: []
+          _KLFunction__returnType: !!python/unicode 'Scene'
+        _KLStruct__hasDestructor: false
+        _KLStruct__members:
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+          _KLMember__name: !!python/unicode '_scenes', _KLMember__type: !!python/unicode 'Scene'}
+        - !!python/object:GorGon.KLWrapper.KLMember.KLMember {_KLMember__access: !!python/unicode 'unspecified',
+          _KLMember__name: !!python/unicode '_scenes', _KLMember__type: !!python/unicode 'Scene'}
+        _KLStruct__methods:
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'addScene'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's',
+            _KLParam__type: !!python/unicode 'Scene'}
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'removeAllScenes'
+          _KLFunction__params: []
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'findScene'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'name',
+            _KLParam__type: !!python/unicode 'String'}
+          _KLFunction__returnType: !!python/unicode 'Scene'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'findEntity'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'p',
+            _KLParam__type: !!python/unicode 'String'}
+          _KLFunction__returnType: !!python/unicode 'Entity'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'addScene'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 's',
+            _KLParam__type: !!python/unicode 'Scene'}
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'removeAllScenes'
+          _KLFunction__params: []
+          _KLFunction__returnType: null
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'findScene'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'name',
+            _KLParam__type: !!python/unicode 'String'}
+          _KLFunction__returnType: !!python/unicode 'Scene'
+        - !!python/object:GorGon.KLWrapper.KLFunction.KLFunction
+          _KLFunction__access: !!python/unicode 'unspecified'
+          _KLFunction__name: !!python/unicode 'findEntity'
+          _KLFunction__params:
+          - !!python/object:GorGon.KLWrapper.KLParam.KLParam {_KLParam__name: !!python/unicode 'p',
+            _KLParam__type: !!python/unicode 'String'}
+          _KLFunction__returnType: !!python/unicode 'Entity'
+        _KLStruct__name: !!python/unicode 'SceneManager'
+        _KLStruct__operators: []
+        _KLStruct__parents: []
+        _KLStruct__setters: []
+    _KLNamespace__operators: []
+    _KLNamespace__structs: {}
